@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Linkedin, Github, Mail, Instagram } from "lucide-react";
 
 const contacts = [
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/usernamekamu",
-    icon: "/icons/linkedin.png",
+    icon: Linkedin,
   },
   {
     name: "GitHub",
     url: "https://github.com/usernamekamu",
-    icon: "/icons/github.png",
+    icon: Github,
   },
   {
     name: "Email",
     url: "mailto:emailkamu@example.com",
-    icon: "/icons/email.png",
+    icon: Mail,
   },
   {
     name: "Instagram",
     url: "https://instagram.com/usernamekamu",
-    icon: "/icons/instagram.png",
+    icon: Instagram,
   },
 ];
 
@@ -64,10 +65,11 @@ const ContactContainer = () => {
 
   return (
     <motion.section
+      id="contact"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
-      className="relative container max-w-6xl mx-auto mt-12 p-8 rounded-xl bg-card text-card-foreground shadow-xl flex flex-col md:flex-row gap-10 overflow-hidden"
+      className="relative container max-w-6xl mx-auto mt-24 p-8 rounded-xl bg-card text-card-foreground shadow-xl flex flex-col md:flex-row gap-10 overflow-hidden"
       aria-label="Contact form with CTA"
     >
       {/* Kiri: Info + CTA */}
@@ -77,7 +79,7 @@ const ContactContainer = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, delay: 0.2 }}
       >
-        <h2 className="text-4xl sm:text-5xl font-bold text-primary text-glow select-none leading-tight">
+        <h2 className="text-4xl sm:text-5xl font-bold text-emerald-100 text-glow select-none leading-tight">
           Mari Berkolaborasi!
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground">
@@ -86,25 +88,19 @@ const ContactContainer = () => {
           membantu dan mendengarkan ide kreatifmu.
         </p>
 
-        <div className="flex flex-wrap gap-4 mt-2">
-          {contacts.map(({ name, url, icon }) => (
+        <div className="flex flex-wrap gap-3 mt-2">
+          {contacts.map(({ name, url, icon: Icon }) => (
             <motion.a
               key={name}
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-2 px-3 py-2 rounded-md cursor-pointer transition bg-input hover:bg-primary/20"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-input hover:bg-primary/20 transition-colors duration-300 cursor-pointer shadow-sm"
               aria-label={`Buka ${name}`}
             >
-              <img
-                src={icon}
-                alt={`${name} logo`}
-                className="w-5 h-5"
-                loading="lazy"
-                draggable={false}
-              />
+              <Icon size={20} className="text-emerald-100" />
               <span className="text-sm font-medium">{name}</span>
             </motion.a>
           ))}
@@ -116,7 +112,7 @@ const ContactContainer = () => {
         id="contact-form"
         onSubmit={handleSubmit}
         noValidate
-        className="flex-1 flex flex-col gap-4 z-10"
+        className="flex-1 flex flex-col gap-4 z-10 w-full max-w-lg mx-auto"
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, delay: 0.4 }}
@@ -181,25 +177,26 @@ const ContactContainer = () => {
           )}
         </div>
 
+        {/* Tombol Diperbaiki */}
         <motion.button
           type="submit"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="cosmic-button self-center mt-2 cursor-pointer"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-md hover:bg-primary/90 transition-colors duration-300 self-center mt-2"
           aria-label="Kirim pesan"
         >
-          Kirim
+          Send
         </motion.button>
 
         {success && (
           <motion.p
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mt-4 text-center text-primary-foreground font-semibold select-none animate-fade-in"
+            transition={{ duration: 0.4 }}
+            className="mt-4 text-center text-primary font-semibold bg-primary/10 rounded-full px-4 py-2 w-fit mx-auto"
             role="alert"
           >
-            Pesan berhasil dikirim! Terima kasih.
+            Pesan berhasil dikirim ✅
           </motion.p>
         )}
       </motion.form>

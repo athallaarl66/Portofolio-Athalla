@@ -54,7 +54,7 @@ export const AboutSection = () => {
             </p>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center items-center">
               <a href="#contact" className="cosmic-button">
                 Contact
               </a>
@@ -69,41 +69,38 @@ export const AboutSection = () => {
 
           {/* 🧍 Gambar */}
           <div
-            className="relative group opacity-0 animate-fade-in"
+            className="relative group opacity-0 animate-fade-in flex justify-center"
             style={{ animationDelay: "0.5s" }}
           >
-            <div className="w-full h-72 md:h-96 rounded-2xl overflow-hidden shadow-lg transform transition duration-500 group-hover:scale-[1.05] group-hover:rotate-1">
-              <img
-                src="/projects/profile.jpg"
-                alt="About me"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-          </div>
-        </div>
-
-        {/* 🪄 Section Card */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-          {cards.map((card, i) => (
             <div
-              key={i}
-              className="gradient-border p-6 rounded-xl card-hover opacity-0 animate-fade-in hover:scale-[1.05] hover:shadow-2xl transition-transform duration-500"
-              style={{ animationDelay: card.delay }}
+              className="
+    relative 
+    w-full max-w-sm 
+    rounded-2xl 
+    overflow-hidden 
+    shadow-lg 
+    transition-transform 
+    duration-700 
+    ease-out 
+    transform 
+    group-hover:scale-[1.05] 
+    group-hover:rotate-1
+  "
             >
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10 text-primary">
-                  {card.icon}
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg text-foreground">
-                    {card.title}
-                  </h4>
-                  <p className="text-muted-foreground">{card.desc}</p>
-                </div>
-              </div>
+              {/* Efek border gradient keren */}
+              <div className="absolute inset-0 rounded-2xl p-[2px] bg-gradient-to-tr from-primary/50 to-transparent pointer-events-none"></div>
+
+              {/* Gambar */}
+              <img
+                src="/icons/Logo.jpg"
+                alt="About me"
+                className="w-full h-72 md:h-96 object-cover rounded-2xl relative z-10 transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {/* Overlay Glow saat hover */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

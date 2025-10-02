@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom"; // ✅ Tambahan
+
 const projects = [
   {
     id: 1,
@@ -17,7 +19,7 @@ const projects = [
     githubUrl: "#",
   },
   {
-    id: 2,
+    id: 3,
     title: "Diajar Aksara Landing Page",
     description:
       "Ancient Sundanese Language Web app For learning in Highschool Landing Page",
@@ -28,6 +30,8 @@ const projects = [
 ];
 
 export const ProjectSection = () => {
+  const navigate = useNavigate(); // ✅ Tambahan
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-6xl">
@@ -87,16 +91,17 @@ export const ProjectSection = () => {
               </div>
 
               {/* Hover Button (CTA) */}
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500"
+              <div
+                onClick={() => navigate("/projects")}
+                className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 cursor-pointer"
               >
-                <button className="px-4 py-2 bg-primary text-white rounded-lg shadow-lg hover:scale-105 transition">
+                <button
+                  className="px-6 py-3 bg-primary text-white font-semibold rounded-full 
+          shadow-lg hover:scale-105 hover:bg-primary/90 transition-all duration-300 cursor-pointer"
+                >
                   View Project
                 </button>
-              </a>
+              </div>
             </div>
           ))}
         </div>

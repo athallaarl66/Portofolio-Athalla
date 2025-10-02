@@ -1,5 +1,5 @@
 import { ArrowDown, Sparkles } from "lucide-react";
-import profileImg from "/projects/Profile2.jpg";
+import profileImg from "/projects/propil.jpg";
 
 export const HeroSection = () => {
   return (
@@ -12,15 +12,23 @@ export const HeroSection = () => {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.15),transparent_70%)]" />
       <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-primary/20 rounded-full blur-3xl animate-pulse-subtle" />
       <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-green-400/20 rounded-full blur-3xl animate-pulse-subtle delay-300" />
-
       {/* 🧍 Foto Profil */}
-      <div className="flex justify-center md:justify-end w-full md:w-auto">
-        <div className="relative w-48 h-48 md:w-64 md:h-72 rounded-[2rem] overflow-hidden border-2 border-primary/30 shadow-lg shadow-primary/30 animate-fade-in">
-          <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-tr from-primary/20 to-green-400/20 blur-xl -z-10" />
+      <div className="flex justify-center md:justify-end w-full md:w-auto relative">
+        {/* 🌟 Glow Background */}
+        <div
+          className="absolute w-72 h-72 md:w-96 md:h-96 rounded-[2rem]
+               bg-gradient-to-tr from-primary/20 to-green-400/20 blur-2xl -z-10"
+        />
+
+        {/* 🖼️ Foto */}
+        <div
+          className="relative w-48 h-48 md:w-64 md:h-72 rounded-[2rem]
+               overflow-hidden border-2 border-primary/30 shadow-lg shadow-primary/30"
+        >
           <img
             src={profileImg}
             alt="Profile"
-            className="w-full h-full object-cover transform scale-105 hover:scale-110 transition-transform duration-700 ease-out animate-float"
+            className="w-full h-full object-cover will-change-transform"
           />
         </div>
       </div>
@@ -44,17 +52,45 @@ export const HeroSection = () => {
         </p>
 
         {/* ✨ CTA Buttons */}
-        <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start opacity-0 animate-fade-in-delay-3">
+        <div
+          className="
+    pt-6 
+    flex flex-col sm:flex-row 
+    gap-4 
+    justify-center md:justify-start 
+    items-center 
+    text-center
+    opacity-0 animate-fade-in-delay-3
+  "
+        >
           <a
             href="#projects"
-            className="cosmic-button flex items-center gap-2 px-6 py-3 text-base font-semibold"
+            className="
+      cosmic-button 
+      flex items-center justify-center 
+      gap-2 
+      px-6 py-3 
+      text-base font-semibold 
+      w-full sm:w-auto
+    "
           >
             <Sparkles className="h-4 w-4" />
             View My Work
           </a>
+
           <a
             href="#contact"
-            className="px-6 py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 font-semibold"
+            className="
+      w-full sm:w-auto 
+      px-6 py-3 
+      rounded-full 
+      border border-primary 
+      text-primary 
+      hover:bg-primary hover:text-background 
+      transition-all duration-300 
+      font-semibold 
+      text-center
+    "
           >
             Contact Me
           </a>
