@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react"; // Added useEffect
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Github, Mail, Instagram } from "lucide-react";
-import emailjs from "@emailjs/browser";
 
 const contacts = [
   {
@@ -34,26 +33,12 @@ const ContactContainer = () => {
   });
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Added for better UX during send
-
-  // ✅ Initialize EmailJS with public key (required for new SDK)
-  useEffect(() => {
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-    if (publicKey) {
-      emailjs.init(publicKey);
-    } else {
-      console.warn(
-        "EmailJS public key not found. Check environment variables."
-      );
-    }
-  }, []); // Runs once on mount
 
   const validate = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
-      // Slightly stricter regex
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
       newErrors.email = "Invalid email address";
     if (!formData.message.trim()) newErrors.message = "Message is required";
     return newErrors;
@@ -64,46 +49,17 @@ const ContactContainer = () => {
     setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
   };
 
-  const handleSubmit = async (e) => {
-    // Made async for better error handling
+  const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       setSuccess(false);
-      return;
-    }
-
-    setIsLoading(true); // Show loading state
-    setErrors({}); // Clear previous errors
-
-    try {
-      // ✅ Updated EmailJS send (no public key param; init handles it)
-      // Removed all hardcoded fallbacks – must use env vars
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        }
-      );
-
+    } else {
       setSuccess(true);
       setFormData({ name: "", email: "", message: "" });
+      setErrors({});
       setTimeout(() => setSuccess(false), 4000);
-    } catch (error) {
-      console.error("EmailJS error:", error);
-      // More specific error handling
-      if (error.status === 400 || error.status === 401) {
-        alert("❌ Invalid EmailJS configuration. Check your dashboard.");
-      } else {
-        alert("❌ Failed to send message. Please try again later.");
-      }
-      setErrors({ submit: "Failed to send. Please try again." }); // Optional: Add submit error
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -169,7 +125,6 @@ const ContactContainer = () => {
               placeholder={field === "name" ? "Name" : "Email"}
               value={formData[field]}
               onChange={handleChange}
-              disabled={isLoading} // Disable during send
               whileFocus={{
                 scale: 1.02,
                 boxShadow: "0 0 12px hsl(var(--primary))",
@@ -180,7 +135,7 @@ const ContactContainer = () => {
                 errors[field]
                   ? "border-destructive ring-2 ring-destructive"
                   : ""
-              } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
+              }`}
             />
             {errors[field] && (
               <p
@@ -201,7 +156,6 @@ const ContactContainer = () => {
             value={formData.message}
             onChange={handleChange}
             rows={5}
-            disabled={isLoading}
             whileFocus={{
               scale: 1.02,
               boxShadow: "0 0 12px hsl(var(--primary))",
@@ -210,7 +164,7 @@ const ContactContainer = () => {
             aria-describedby="message-error"
             className={`w-full rounded-md bg-input px-4 py-3 text-foreground placeholder-muted-foreground border border-border focus:outline-none focus:ring-2 focus:ring-primary transition resize-y ${
               errors.message ? "border-destructive ring-2 ring-destructive" : ""
-            } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
+            }`}
           />
           {errors.message && (
             <p
@@ -226,19 +180,12 @@ const ContactContainer = () => {
         {/* Submit Button */}
         <motion.button
           type="submit"
-          disabled={isLoading || success} // Disable during loading/success
-          whileHover={isLoading || success ? {} : { scale: 1.03 }} // No hover if disabled
-          whileTap={isLoading || success ? {} : { scale: 0.97 }}
-          className={`px-6 py-3 font-semibold rounded-full shadow-md transition-colors duration-300 self-center mt-2 cursor-pointer ${
-            isLoading
-              ? "bg-primary/50 text-white cursor-not-allowed"
-              : success
-              ? "bg-green-500 text-white"
-              : "bg-primary text-white hover:bg-primary/90"
-          }`}
-          aria-label={isLoading ? "Sending..." : "Send message"}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-md hover:bg-primary/90 transition-colors duration-300 self-center mt-2"
+          aria-label="Send message"
         >
-          {isLoading ? "Sending..." : "Send"}
+          Send
         </motion.button>
 
         {success && (
@@ -251,12 +198,6 @@ const ContactContainer = () => {
           >
             Message sent successfully ✅
           </motion.p>
-        )}
-
-        {errors.submit && (
-          <p className="text-destructive text-sm mt-2 text-center" role="alert">
-            {errors.submit}
-          </p>
         )}
       </motion.form>
     </motion.section>
