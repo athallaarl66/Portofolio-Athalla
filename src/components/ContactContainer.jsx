@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Github, Mail, Instagram } from "lucide-react";
-import emailjs from "emailjs-com"; // ✅ Tambahkan EmailJS
+import emailjs from "@emailjs/browser";
 
 const contacts = [
   {
