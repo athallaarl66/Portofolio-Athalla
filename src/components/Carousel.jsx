@@ -5,9 +5,9 @@ import DecryptedText from "@/components/DecryptedText"; // pastikan path sesuai
 // Data untuk tiap project
 const projects = [
   {
-    title: "Web App For a Law Firm",
+    title: "Web App For a studying Sundanese ancient language",
     description:
-      "A website application designed as a company profile that also has legal services on the website as a supporting feature.",
+      "A website application designed as a learning platform for Sundanese script, providing interactive materials and supporting features to help users study and practice effectively",
     images: [
       "/projects1/HOMEPAGE.png",
       "/projects1/BACA.png",
@@ -16,25 +16,15 @@ const projects = [
     ],
   },
   {
-    title: "Mobile App for Consultation",
+    title: "Web App For Law Firm",
     description:
-      "A mobile-friendly platform that allows clients to book legal consultations and access services anywhere, anytime.",
+      "A website application designed as a company profile that also has legal services on the website as a supporting feature.",
     images: [
       "/projects2/fix.jpg",
       "/projects2/kontak.jpg",
       "/projects2/Kumpulan Profile Konsultasi hukum.jpg",
       "/projects2/Profile Konsultasi hukum (OK).jpg",
       "/projects2/Sub Bidang hukum 14.jpg",
-    ],
-  },
-  {
-    title: "Corporate Legal Dashboard",
-    description:
-      "A web dashboard to manage company documents, contracts, and compliance with ease and efficiency.",
-    images: [
-      "/projects3/image-1.jpg",
-      "/projects3/image-2.jpg",
-      "/projects3/image-3.jpg",
     ],
   },
 ];

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Github, Mail, Instagram } from "lucide-react";
+import emailjs from "emailjs-com"; // ✅ Tambahkan EmailJS
 
 const contacts = [
   {
@@ -55,12 +56,31 @@ const ContactContainer = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       setSuccess(false);
-    } else {
-      setSuccess(true);
-      setFormData({ name: "", email: "", message: "" });
-      setErrors({});
-      setTimeout(() => setSuccess(false), 4000);
+      return;
     }
+
+    // ✅ Kirim ke EmailJS
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_4aj6chv",
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_k6tfs7k",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "NWaEAbWESEwlLaLas"
+      )
+      .then(() => {
+        setSuccess(true);
+        setFormData({ name: "", email: "", message: "" });
+        setErrors({});
+        setTimeout(() => setSuccess(false), 4000);
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        alert("❌ Failed to send message. Please try again.");
+      });
   };
 
   return (
@@ -182,7 +202,7 @@ const ContactContainer = () => {
           type="submit"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-md hover:bg-primary/90 transition-colors duration-300 self-center mt-2"
+          className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-md hover:bg-primary/90 transition-colors duration-300 self-center mt-2 cursor-pointer "
           aria-label="Send message"
         >
           Send
