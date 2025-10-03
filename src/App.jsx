@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />} />
+        <Route path="/" index element={<Home />} />
         {/* Halaman project gallery */}
         <Route path="/projects" index element={<ProjectGallery />} />
         {/* kalo salah not found */}

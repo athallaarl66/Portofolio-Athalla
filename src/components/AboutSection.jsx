@@ -27,7 +27,7 @@ export const AboutSection = () => {
       <div className="container mx-auto max-w-6xl">
         {/* 📝 Judul */}
         <h2
-          className="text-3xl md:text-4xl font-bold mb-12 text-center opacity-0 animate-fade-in"
+          className="text-zinc-200 text-3xl md:text-4xl font-bold mb-12 text-center opacity-0 animate-fade-in"
           style={{ animationDelay: "0.1s" }}
         >
           About <span className="text-primary">Me</span>

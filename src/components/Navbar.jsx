@@ -37,7 +37,7 @@ export const Navbar = () => {
     }
   }, [isMenuOpen, scrollPosition]);
 
-  // ✨ Scroll Spy: update section aktif saat scroll
+  // ✨ Scroll Spy: update section aktif saat scroll (dengan safety check untuk dark mode stability)
   useEffect(() => {
     const sections = navItems.map((item) => document.querySelector(item.href));
 
@@ -46,10 +46,13 @@ export const Navbar = () => {
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         if (section && section.offsetTop <= scrollPos) {
-          setActiveSection(section.id);
-          break;
+          const sectionId = section.id || navItems[i].href.replace("#", ""); // Safety fallback
+          setActiveSection(sectionId);
+          return; // Exit loop untuk efficiency
         }
       }
+      // Fallback ke "hero" jika tidak ada section match (e.g., page load awal)
+      setActiveSection("hero");
     };
 
     window.addEventListener("scroll", handleSpy);
@@ -62,15 +65,15 @@ export const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out",
         isScrolled
-          ? "py-3 bg-background/70 backdrop-blur-md shadow-[0_2px_12px_rgba(0,0,0,0.25)] border-b border-border/40"
-          : "py-5 bg-transparent"
+          ? "py-3 bg-background/80 backdrop-blur-lg shadow-[0_4px_20px_rgba(0,0,0,0.3)] border-b border-border/50" // ✅ Tweak: Lebih gelap & blur kuat untuk dark mode
+          : "py-5 bg-transparent" // Transparent di awal, blend dengan dark background
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between max-w-6xl">
         {/* 🌟 Logo */}
         <a
           href="#hero"
-          className="text-xl font-bold flex items-center gap-1 group relative"
+          className="text-xl font-bold flex items-center gap-1 group relative hover:underline decoration-primary/50" // ✅ Tweak: Subtle underline di dark
         >
           <span className="text-primary group-hover:text-primary/90 transition-colors duration-300">
             Athalla
@@ -90,8 +93,8 @@ export const Navbar = () => {
               className={cn(
                 "relative font-medium transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300",
                 activeSection === item.href.replace("#", "")
-                  ? "text-primary after:w-full"
-                  : "text-foreground hover:text-primary hover:after:w-full"
+                  ? "text-primary after:w-full" // Active: Primary (violet gelap)
+                  : "text-foreground hover:text-primary hover:after:w-full" // Hover: Transisi smooth di dark
               )}
             >
               {item.name}
@@ -101,7 +104,7 @@ export const Navbar = () => {
 
         {/* 🍔 Mobile Menu Button */}
         <button
-          className="md:hidden p-2 rounded-md text-foreground hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary z-[60] transition"
+          className="md:hidden p-2 rounded-md text-foreground hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/50 z-[60] transition-all duration-300" // ✅ Tweak: Ring lebih subtle di dark
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -136,7 +139,7 @@ export const Navbar = () => {
       {/* 📱 Mobile Menu Overlay */}
       <div
         className={cn(
-          "fixed inset-0 flex flex-col items-center justify-center bg-background/95 backdrop-blur-xl transition-all duration-500 ease-in-out md:hidden",
+          "fixed inset-0 flex flex-col items-center justify-center bg-background/95 backdrop-blur-2xl transition-all duration-500 ease-in-out md:hidden", // ✅ Tweak: Blur lebih kuat untuk dark overlay
           isMenuOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-5 pointer-events-none"
@@ -150,8 +153,8 @@ export const Navbar = () => {
             className={cn(
               "text-2xl font-medium transition-all duration-300 transform",
               activeSection === item.href.replace("#", "")
-                ? "text-primary scale-105"
-                : "text-foreground hover:text-primary",
+                ? "text-primary scale-105" // Active: Scale & primary di dark
+                : "text-foreground hover:text-primary", // Hover: Transisi ke primary
               isMenuOpen
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-3"

@@ -5,22 +5,22 @@ import { Linkedin, Github, Mail, Instagram } from "lucide-react";
 const contacts = [
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/usernamekamu",
+    url: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",
     icon: Linkedin,
   },
   {
     name: "GitHub",
-    url: "https://github.com/usernamekamu",
+    url: "https://github.com/athallaarl66",
     icon: Github,
   },
   {
     name: "Email",
-    url: "mailto:emailkamu@example.com",
+    url: "mailto:athallarli@gmail.com",
     icon: Mail,
   },
   {
     name: "Instagram",
-    url: "https://instagram.com/usernamekamu",
+    url: "https://www.instagram.com/athallaarl/",
     icon: Instagram,
   },
 ];
@@ -36,11 +36,11 @@ const ContactContainer = () => {
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Nama wajib diisi";
-    if (!formData.email.trim()) newErrors.email = "Email wajib diisi";
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(formData.email))
-      newErrors.email = "Email tidak valid";
-    if (!formData.message.trim()) newErrors.message = "Pesan wajib diisi";
+      newErrors.email = "Invalid email address";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
     return newErrors;
   };
 
@@ -72,7 +72,7 @@ const ContactContainer = () => {
       className="relative container max-w-6xl mx-auto mt-24 p-8 rounded-xl bg-card text-card-foreground shadow-xl flex flex-col md:flex-row gap-10 overflow-hidden"
       aria-label="Contact form with CTA"
     >
-      {/* Kiri: Info + CTA */}
+      {/* Left: Info + CTA */}
       <motion.div
         className="flex-1 flex flex-col justify-center space-y-6 z-10"
         initial={{ opacity: 0, x: -30 }}
@@ -80,12 +80,12 @@ const ContactContainer = () => {
         transition={{ duration: 0.7, delay: 0.2 }}
       >
         <h2 className="text-4xl sm:text-5xl font-bold text-emerald-100 text-glow select-none leading-tight">
-          Mari Berkolaborasi!
+          Let's Collaborate!
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground">
-          Jika kamu tertarik untuk bekerja sama, berdiskusi proyek, atau sekadar
-          menyapa, jangan ragu untuk mengisi form di sebelah kanan. Saya siap
-          membantu dan mendengarkan ide kreatifmu.
+          If you are interested in collaborating, discussing a project, or just
+          saying hello, feel free to fill out the form on the right. I'm happy
+          to help and listen to your creative ideas.
         </p>
 
         <div className="flex flex-wrap gap-3 mt-2">
@@ -98,7 +98,7 @@ const ContactContainer = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               className="flex items-center gap-2 px-4 py-2 rounded-full bg-input hover:bg-primary/20 transition-colors duration-300 cursor-pointer shadow-sm"
-              aria-label={`Buka ${name}`}
+              aria-label={`Open ${name}`}
             >
               <Icon size={20} className="text-emerald-100" />
               <span className="text-sm font-medium">{name}</span>
@@ -107,7 +107,7 @@ const ContactContainer = () => {
         </div>
       </motion.div>
 
-      {/* Kanan: Form Kontak */}
+      {/* Right: Contact Form */}
       <motion.form
         id="contact-form"
         onSubmit={handleSubmit}
@@ -122,7 +122,7 @@ const ContactContainer = () => {
             <motion.input
               type={field === "email" ? "email" : "text"}
               name={field}
-              placeholder={field === "name" ? "Nama" : "Email"}
+              placeholder={field === "name" ? "Name" : "Email"}
               value={formData[field]}
               onChange={handleChange}
               whileFocus={{
@@ -152,7 +152,7 @@ const ContactContainer = () => {
         <div className="w-full">
           <motion.textarea
             name="message"
-            placeholder="Pesan"
+            placeholder="Message"
             value={formData.message}
             onChange={handleChange}
             rows={5}
@@ -177,13 +177,13 @@ const ContactContainer = () => {
           )}
         </div>
 
-        {/* Tombol Diperbaiki */}
+        {/* Submit Button */}
         <motion.button
           type="submit"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-md hover:bg-primary/90 transition-colors duration-300 self-center mt-2"
-          aria-label="Kirim pesan"
+          aria-label="Send message"
         >
           Send
         </motion.button>
@@ -196,7 +196,7 @@ const ContactContainer = () => {
             className="mt-4 text-center text-primary font-semibold bg-primary/10 rounded-full px-4 py-2 w-fit mx-auto"
             role="alert"
           >
-            Pesan berhasil dikirim ✅
+            Message sent successfully ✅
           </motion.p>
         )}
       </motion.form>

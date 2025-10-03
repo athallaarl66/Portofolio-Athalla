@@ -1,5 +1,8 @@
 import { BackgroundAurora } from "@/components/BackgroundAurora";
-import { Navbar } from "@/components/Navbar";
+import Carousel from "@/components/Carousel";
+import ContactContainer from "@/components/ContactContainer";
+import Footer from "@/components/Footer";
+import { NavbarGallery } from "@/components/NavbarGallery";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const ProjectGallery = () => {
@@ -10,10 +13,14 @@ export const ProjectGallery = () => {
       {/* Background effects */}
       <BackgroundAurora />
       {/* Navbar */}
-      <Navbar />
+      <NavbarGallery />
       {/* Konten */}
-      <main></main>
+      <main>
+        <Carousel />
+        <ContactContainer />
+      </main>
       {/* Footer */}
+      <Footer />
     </div>
   );
 };

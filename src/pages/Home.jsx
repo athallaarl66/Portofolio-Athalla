@@ -5,14 +5,14 @@ import { SkillSection } from "../components/SkillsSection";
 import { ProjectSection } from "../components/ProjectSection";
 import ContactContainer from "@/components/ContactContainer";
 import Footer from "@/components/Footer";
-import { ThemeToggle } from "@/components/ThemeToggle";
+// import { ThemeToggle } from "@/components/ThemeToggle";
 import { BackgroundAurora } from "@/components/BackgroundAurora";
 
 export const Home = () => {
   return (
     <div className="min-h-screen bg-background text-border overflow-x-hidden">
       {/* Mode Web */}
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
       {/* Background effects */}
       <BackgroundAurora />
       {/* Navbar */}
