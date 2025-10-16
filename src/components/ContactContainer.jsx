@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Linkedin, Github, Mail, Instagram } from "lucide-react";
+import { Linkedin, Github, Mail, Instagram, Send } from "lucide-react";
 
+// Data kontak Anda tetap sama
 const contacts = [
   {
     name: "LinkedIn",
@@ -26,180 +27,79 @@ const contacts = [
 ];
 
 const ContactContainer = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState({});
-  const [success, setSuccess] = useState(false);
-
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email.trim()) newErrors.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(formData.email))
-      newErrors.email = "Invalid email address";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
-    return newErrors;
-  };
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      setSuccess(false);
-    } else {
-      setSuccess(true);
-      setFormData({ name: "", email: "", message: "" });
-      setErrors({});
-      setTimeout(() => setSuccess(false), 4000);
-    }
-  };
-
   return (
     <motion.section
       id="contact"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      className="relative container max-w-6xl mx-auto mt-24 p-8 rounded-xl bg-card text-card-foreground shadow-xl flex flex-col md:flex-row gap-10 overflow-hidden"
-      aria-label="Contact form with CTA"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8 }}
+      className="relative container max-w-5xl mx-auto my-24 p-8 sm:p-12 rounded-2xl bg-card text-card-foreground shadow-2xl flex flex-col items-center overflow-hidden border border-primary/20"
+      aria-label="Contact and Social Media Links"
     >
-      {/* Left: Info + CTA */}
+      {/* Background Glow Effect (Optional - makes it look cooler) */}
+      <div className="absolute top-0 left-1/2 w-64 h-64 bg-emerald-500/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 z-0"></div>
+
       <motion.div
-        className="flex-1 flex flex-col justify-center space-y-6 z-10"
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
+        className="flex flex-col items-center text-center space-y-6 z-10 w-full"
+        initial={{ scale: 0.9, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <h2 className="text-4xl sm:text-5xl font-bold text-emerald-100 text-glow select-none leading-tight">
-          Let's Collaborate!
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-emerald-100 text-glow select-none leading-tight">
+          Let's Connect!
         </h2>
-        <p className="text-base sm:text-lg text-muted-foreground">
-          If you are interested in collaborating, discussing a project, or just
-          saying hello, feel free to fill out the form on the right. I'm happy
-          to help and listen to your creative ideas.
+        <p className="text-base sm:text-lg text-muted-foreground max-w-2xl">
+          Whether you have a project idea, a job opportunity, or just want to
+          say hello, you can find me through any of the channels below. I'm
+          always ready to collaborate.
         </p>
 
-        <div className="flex flex-wrap gap-3 mt-2">
-          {contacts.map(({ name, url, icon: Icon }) => (
-            <motion.a
-              key={name}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-input hover:bg-primary/20 transition-colors duration-300 cursor-pointer shadow-sm"
-              aria-label={`Open ${name}`}
-            >
-              <Icon size={20} className="text-emerald-100" />
-              <span className="text-sm font-medium">{name}</span>
-            </motion.a>
-          ))}
+        {/* Primary Call-to-Action Button (e.g., Email) */}
+        <motion.a
+          href="mailto:athallarli@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 px-8 py-4 bg-primary text-white font-bold text-lg rounded-full shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all duration-300 transform hover:scale-[1.03]"
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0 0 20px rgba(52, 211, 153, 0.5)",
+          }}
+          whileTap={{ scale: 0.98 }}
+          aria-label="Send me an Email directly"
+        >
+          <Send size={24} />
+          <span>Send an Email</span>
+        </motion.a>
+
+        {/* Social Links */}
+        <div className="pt-6 w-full max-w-md">
+          <p className="text-sm font-semibold mb-3 text-muted-foreground/70">
+            Or connect via social media:
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            {contacts.map(({ name, url, icon: Icon }) => (
+              <motion.a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5, scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="p-3 rounded-full bg-input hover:bg-primary/20 transition-colors duration-300 cursor-pointer shadow-md border border-input/50"
+                aria-label={`Open ${name}`}
+              >
+                <Icon
+                  size={24}
+                  className="text-emerald-300 hover:text-primary"
+                />
+              </motion.a>
+            ))}
+          </div>
         </div>
       </motion.div>
-
-      {/* Right: Contact Form */}
-      <motion.form
-        id="contact-form"
-        onSubmit={handleSubmit}
-        noValidate
-        className="flex-1 flex flex-col gap-4 z-10 w-full max-w-lg mx-auto"
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
-      >
-        {["name", "email"].map((field) => (
-          <div key={field} className="w-full">
-            <motion.input
-              type={field === "email" ? "email" : "text"}
-              name={field}
-              placeholder={field === "name" ? "Name" : "Email"}
-              value={formData[field]}
-              onChange={handleChange}
-              whileFocus={{
-                scale: 1.02,
-                boxShadow: "0 0 12px hsl(var(--primary))",
-              }}
-              aria-invalid={errors[field] ? "true" : "false"}
-              aria-describedby={`${field}-error`}
-              className={`w-full rounded-md bg-input px-4 py-3 text-foreground placeholder-muted-foreground border border-border focus:outline-none focus:ring-2 focus:ring-primary transition ${
-                errors[field]
-                  ? "border-destructive ring-2 ring-destructive"
-                  : ""
-              }`}
-            />
-            {errors[field] && (
-              <p
-                id={`${field}-error`}
-                className="text-destructive text-sm mt-1 select-none"
-                role="alert"
-              >
-                {errors[field]}
-              </p>
-            )}
-          </div>
-        ))}
-
-        <div className="w-full">
-          <motion.textarea
-            name="message"
-            placeholder="Message"
-            value={formData.message}
-            onChange={handleChange}
-            rows={5}
-            whileFocus={{
-              scale: 1.02,
-              boxShadow: "0 0 12px hsl(var(--primary))",
-            }}
-            aria-invalid={errors.message ? "true" : "false"}
-            aria-describedby="message-error"
-            className={`w-full rounded-md bg-input px-4 py-3 text-foreground placeholder-muted-foreground border border-border focus:outline-none focus:ring-2 focus:ring-primary transition resize-y ${
-              errors.message ? "border-destructive ring-2 ring-destructive" : ""
-            }`}
-          />
-          {errors.message && (
-            <p
-              id="message-error"
-              className="text-destructive text-sm mt-1 select-none"
-              role="alert"
-            >
-              {errors.message}
-            </p>
-          )}
-        </div>
-
-        {/* Submit Button */}
-        <motion.button
-          type="submit"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-md hover:bg-primary/90 transition-colors duration-300 self-center mt-2"
-          aria-label="Send message"
-        >
-          Send
-        </motion.button>
-
-        {success && (
-          <motion.p
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="mt-4 text-center text-primary font-semibold bg-primary/10 rounded-full px-4 py-2 w-fit mx-auto"
-            role="alert"
-          >
-            Message sent successfully ✅
-          </motion.p>
-        )}
-      </motion.form>
     </motion.section>
   );
 };
