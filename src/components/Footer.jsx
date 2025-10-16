@@ -59,7 +59,7 @@ const Footer = () => {
         {/* 📝 Bottom Text */}
         <div className="text-xs text-muted-foreground">
           &copy; {new Date().getFullYear()}{" "}
-          <span className="text-foreground font-medium">Your Company</span>. All
+          <span className="text-foreground font-medium">Athalla Arli</span>. All
           rights reserved.
         </div>
       </div>
