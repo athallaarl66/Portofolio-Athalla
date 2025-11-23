@@ -55,7 +55,6 @@ export const ProjectSection = () => {
 
   const project = projects[0];
 
-  // Observer untuk judul section
   const sectionRef = useRef(null);
   const [sectionInView, setSectionInView] = useState(false);
   useEffect(() => {
@@ -76,7 +75,6 @@ export const ProjectSection = () => {
     return () => obs.disconnect();
   }, []);
 
-  // Observer untuk card
   const cardRef = useRef(null);
   const [cardInView, setCardInView] = useState(false);
   useEffect(() => {
@@ -97,13 +95,11 @@ export const ProjectSection = () => {
     return () => obs.disconnect();
   }, []);
 
-  // decrypt teks
   const decryptedTitle = useDecryptText(project.title, 40, cardInView);
   const decryptedDesc = useDecryptText(project.description, 18, cardInView);
   const decryptedFeatured = useDecryptText("Featured", 40, sectionInView);
   const decryptedProjects = useDecryptText("Projects", 40, sectionInView);
 
-  // auto slide
   useEffect(() => {
     if (!project.images || project.images.length <= 1) return;
     const timer = setInterval(() => {
@@ -123,7 +119,6 @@ export const ProjectSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative" ref={sectionRef}>
       <div className="container mx-auto max-w-6xl">
-        {/* Judul Section pakai decrypt */}
         <h2 className="text-zinc-200 text-3xl md:text-4xl font-bold mb-4 text-center">
           <span aria-hidden>{decryptedFeatured}</span>{" "}
           <span className="text-primary" aria-hidden>
@@ -135,7 +130,6 @@ export const ProjectSection = () => {
           Some of the highlighted projects I’ve worked on recently.
         </p>
 
-        {/* Petunjuk Hover */}
         <div className="flex flex-col items-center text-center mb-12">
           <p className="text-lg md:text-base text-white animate-bounce animate-pulse">
             Hover over a project image to explore my work

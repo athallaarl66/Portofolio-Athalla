@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom"; // ✅ Tambah useLocation
+import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
-// 🔑 Nav Items: Home pakai Link, lainnya pakai anchor
 const navItems = [
   { name: "Home", type: "link", to: "/" },
   { name: "Projects", type: "anchor", href: "#projects" },
@@ -84,7 +83,6 @@ export const NavbarGallery = () => {
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between max-w-6xl">
-        {/* 🌟 Logo: selalu balik ke "/" */}
         <Link
           to="/"
           className="text-xl font-bold flex items-center gap-1 group relative"
@@ -98,7 +96,7 @@ export const NavbarGallery = () => {
           <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
         </Link>
 
-        {/* 🖥️ Desktop Menu */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item) =>
             item.type === "link" ? (
@@ -131,7 +129,7 @@ export const NavbarGallery = () => {
           )}
         </div>
 
-        {/* 🍔 Mobile Menu Button */}
+        {/*  Mobile Menu Button */}
         <button
           className="md:hidden p-2 rounded-md text-foreground hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary z-[60] transition"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -165,7 +163,7 @@ export const NavbarGallery = () => {
         </button>
       </div>
 
-      {/* 📱 Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay */}
       <div
         className={cn(
           "fixed inset-0 flex flex-col items-center justify-center bg-background/95 backdrop-blur-xl transition-all duration-500 ease-in-out md:hidden",
