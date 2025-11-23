@@ -16,14 +16,12 @@ export const NavbarGallery = () => {
   const [activeSection, setActiveSection] = useState("hero");
   const location = useLocation();
 
-  // 🧭 Scroll listener untuk navbar background
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 🧊 Lock scroll saat mobile menu terbuka
   useEffect(() => {
     if (isMenuOpen) {
       const currentScroll = window.scrollY;
@@ -38,7 +36,6 @@ export const NavbarGallery = () => {
     }
   }, [isMenuOpen, scrollPosition]);
 
-  // ✨ Scroll Spy untuk update section aktif
   useEffect(() => {
     const sections = navItems
       .filter((item) => item.type === "anchor")
@@ -64,7 +61,6 @@ export const NavbarGallery = () => {
     return () => window.removeEventListener("scroll", handleSpy);
   }, [activeSection]);
 
-  // ✅ Auto-scroll ke #hero setelah navigate ke Home
   useEffect(() => {
     if (location.pathname === "/" && location.hash === "#hero") {
       const targetElement = document.querySelector("#hero");

@@ -1,7 +1,7 @@
 import { BackgroundAurora } from "@/components/BackgroundAurora";
 import Carousel from "@/components/Carousel";
 import ContactContainer from "@/components/ContactContainer";
-import Footer from "@/components/Footer";
+import Footer from "@/components/FooterGallery";
 import { NavbarGallery } from "@/components/NavbarGallery";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
