@@ -32,7 +32,7 @@ export const projectsData = {
     // META
     tags: ["Next.js", "CSS Modules", "UI/UX Design", "Frontend"],
     category: "Frontend & UI/UX",
-    year: "2024",
+    year: "2026",
     role: "UI/UX Designer & Frontend Developer",
     duration: "2 weeks (Final Year Project)",
 
@@ -119,7 +119,7 @@ export const projectsData = {
 
     // META
     tags: ["React", "Node.js", "UI/UX Design", "Figma"],
-    category: "Full Stack (UI/UX Focused)",
+    category: "Full Stack (UI/UX and Frontend Focused)",
     year: "2024",
     role: "UI/UX Designer & Full Stack Developer",
     duration: "Internship Project (July - September 2024)",
@@ -215,7 +215,7 @@ export const projectsData = {
     category: "Full Stack",
     year: "2025",
     role: "Fullstack Developer",
-    duration: "2 weeks (Demo & Proof of Concept)",
+    duration: "1 week (Demo & Proof of Concept)",
 
     // LINKS
     liveUrl: "https://umkm-web-app.vercel.app",

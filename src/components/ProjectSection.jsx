@@ -99,7 +99,7 @@ export const ProjectSection = () => {
                 {/* CTA Button */}
                 <button
                   onClick={() => navigate("/projects")}
-                  className="group px-5 md:px-6 py-2.5 md:py-3 rounded-lg md:rounded-xl bg-primary text-primary-foreground text-xs md:text-sm font-bold uppercase tracking-wide hover:bg-primary/90 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98]"
+                  className="group cursor-pointer px-5 md:px-6 py-2.5 md:py-3 rounded-lg md:rounded-xl bg-primary text-primary-foreground text-xs md:text-sm font-bold uppercase tracking-wide hover:bg-primary/90 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   View Project
                   <ExternalLink
@@ -113,7 +113,7 @@ export const ProjectSection = () => {
                   <button
                     onClick={prev}
                     aria-label="Previous project"
-                    className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-border text-foreground hover:bg-muted hover:border-primary/50 transition-all duration-300 flex items-center justify-center hover:scale-105 active:scale-95"
+                    className="cursor-pointer w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-border text-foreground hover:bg-muted hover:border-primary/50 transition-all duration-300 flex items-center justify-center hover:scale-105 active:scale-95"
                   >
                     <ChevronLeft
                       size={16}
@@ -121,10 +121,11 @@ export const ProjectSection = () => {
                       strokeWidth={2.5}
                     />
                   </button>
+
                   <button
                     onClick={next}
                     aria-label="Next project"
-                    className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-border text-foreground hover:bg-muted hover:border-primary/50 transition-all duration-300 flex items-center justify-center hover:scale-105 active:scale-95"
+                    className="cursor-pointer w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-border text-foreground hover:bg-muted hover:border-primary/50 transition-all duration-300 flex items-center justify-center hover:scale-105 active:scale-95"
                   >
                     <ChevronRight
                       size={16}

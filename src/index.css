@@ -67,7 +67,7 @@
 }
 
 @layer base {
-  /* Ganti @apply border-border dengan border-color langsung */
+  /* Global border color */
   * {
     border-color: var(--color-border);
   }
@@ -79,6 +79,19 @@
   body {
     @apply bg-background transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Default cursor for interactive elements */
+  button,
+  a,
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  /* Disabled states */
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
   }
 }
 
