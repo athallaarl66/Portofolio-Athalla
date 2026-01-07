@@ -1,244 +1,159 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    id: 1,
-    title: "Some Projects That I Have Created",
+    title: "DiajarAksara — Learning Platform",
     description:
-      "Showcasing my expertise in building modern, responsive, and user-friendly websites with clean Front-End code and intuitive UI/UX designs.",
-    images: ["/projects1/homediajar.png", "/projects2/homerk.jpg"],
+      "Frontend-focused learning platform with structured layout, responsive design, and clean UI patterns.",
+    image: "/projects1/homediajar.png",
+    tags: ["Next.js", "Quiz", "Responsive", "css"],
+  },
+  {
+    title: "law-firm-website",
+    description:
+      "Professional company profile with integrated legal consultation booking system and case management.",
+    image: "/projects2/homerk.jpg",
+    tags: ["Company Profile", "HTML/CSS", "UI/UX", "Laravel"],
+  },
+  {
+    title: "UMKM Dashboard",
+    description:
+      "Personal portfolio built with performance, accessibility, and scalable component architecture in mind.",
+    image: "/projects3/portfolio.png",
+    tags: ["React", "Portfolio", "Modern"],
   },
 ];
 
-// Hook decrypt
-const useDecryptText = (text, speed = 30, start = false) => {
-  const [decrypted, setDecrypted] = useState("");
-  const chars =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-
-  useEffect(() => {
-    if (!start) {
-      setDecrypted("");
-      return;
-    }
-
-    let frame = 0;
-    const maxFrames = Math.max(8, text.length * 2);
-    const interval = setInterval(() => {
-      frame++;
-      const progress = Math.min(frame / maxFrames, 1);
-      const result = text
-        .split("")
-        .map((ch, i) => {
-          if (i < Math.floor(text.length * progress)) return ch;
-          return chars[Math.floor(Math.random() * chars.length)];
-        })
-        .join("");
-      setDecrypted(result);
-
-      if (frame >= maxFrames) {
-        setDecrypted(text);
-        clearInterval(interval);
-      }
-    }, speed);
-
-    return () => clearInterval(interval);
-  }, [text, speed, start]);
-
-  return decrypted;
-};
-
 export const ProjectSection = () => {
   const navigate = useNavigate();
-  const [current, setCurrent] = useState(0);
+  const [index, setIndex] = useState(0);
 
-  const project = projects[0];
+  const prev = () => setIndex((i) => (i === 0 ? projects.length - 1 : i - 1));
+  const next = () => setIndex((i) => (i === projects.length - 1 ? 0 : i + 1));
 
-  const sectionRef = useRef(null);
-  const [sectionInView, setSectionInView] = useState(false);
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setSectionInView(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  const cardRef = useRef(null);
-  const [cardInView, setCardInView] = useState(false);
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setCardInView(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  const decryptedTitle = useDecryptText(project.title, 40, cardInView);
-  const decryptedDesc = useDecryptText(project.description, 18, cardInView);
-  const decryptedFeatured = useDecryptText("Featured", 40, sectionInView);
-  const decryptedProjects = useDecryptText("Projects", 40, sectionInView);
-
-  useEffect(() => {
-    if (!project.images || project.images.length <= 1) return;
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev === project.images.length - 1 ? 0 : prev + 1));
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [project.images.length]);
-
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? project.images.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev === project.images.length - 1 ? 0 : prev + 1));
-  };
+  const project = projects[index];
 
   return (
-    <section id="projects" className="py-24 px-4 relative" ref={sectionRef}>
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-zinc-200 text-3xl md:text-4xl font-bold mb-4 text-center">
-          <span aria-hidden>{decryptedFeatured}</span>{" "}
-          <span className="text-primary" aria-hidden>
-            {decryptedProjects}
-          </span>
-          <span className="sr-only">Featured Projects</span>
-        </h2>
-        <p className="text-center text-white mb-4 max-w-2xl mx-auto animate-pulse">
-          Some of the highlighted projects I’ve worked on recently.
-        </p>
-
-        <div className="flex flex-col items-center text-center mb-12">
-          <p className="text-lg md:text-base text-white animate-bounce animate-pulse">
-            Hover over a project image to explore my work
-          </p>
-          <span className="block w-8 h-8 border-b-2 border-r-2 border-white  transform rotate-45 mt-2 animate-pulse"></span>
-        </div>
-
-        <div className="relative flex items-center justify-center">
-          {/* Tombol Panah Kiri */}
-          {project.images.length > 1 && (
-            <button
-              onClick={prevSlide}
-              aria-label="Previous"
-              className="absolute -left-12 top-1/2 -translate-y-1/2 z-30 p-4 rounded-full bg-black/50 text-white 
-                hover:bg-primary hover:scale-110 transition transform cursor-pointer"
-            >
-              ‹
-            </button>
-          )}
-
-          {/* Card */}
-          <div
-            ref={cardRef}
-            className={`group relative bg-card rounded-xl overflow-hidden shadow-md transition-all duration-700 max-w-4xl w-full
-              ${
-                cardInView
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
-          >
-            {/* Carousel */}
-            <div className="relative h-96 md:h-[36rem] lg:h-[42rem] overflow-hidden">
-              {project.images.map((src, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-all duration-700 ease-in-out transform
-                    ${
-                      index === current
-                        ? "opacity-100 translate-x-0 scale-100"
-                        : "opacity-0 translate-x-10 scale-95"
-                    }`}
-                >
-                  <img
-                    src={src}
-                    alt={`${project.title} ${index + 1}`}
-                    className="w-full h-full object-cover rounded-xl"
-                    draggable={false}
-                  />
-                </div>
-              ))}
-
-              {/* Overlay Glow */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none"></div>
-
-              {/* Indicators */}
-              {project.images.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-                  {project.images.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrent(idx)}
-                      aria-label={`Go to slide ${idx + 1}`}
-                      className={`w-3 h-3 rounded-full transition transform cursor-pointer ${
-                        current === idx
-                          ? "bg-primary scale-125 shadow-md"
-                          : "bg-white/50 hover:bg-white/80"
-                      }`}
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Content */}
-            <div className="p-6 relative z-10">
-              <h3 className="text-lg md:text-xl font-semibold mb-2 text-primary transition-colors">
-                <span className="sr-only">{project.title}</span>
-                <span aria-hidden>{decryptedTitle}</span>
-              </h3>
-              <p className="text-sm md:text-base text-muted-foreground mb-4">
-                {decryptedDesc}
-              </p>
-
-              {/* Tags */}
-            </div>
-
-            {/* Hover CTA */}
-            <div
-              onClick={() => navigate("/projects")}
-              className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 cursor-pointer"
-            >
-              <button className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-lg hover:scale-105 hover:bg-primary/90 transition-all duration-300 cursor-pointer">
-                View Project
-              </button>
-            </div>
+    <section
+      id="projects"
+      className="relative min-h-screen py-16 md:py-24 px-4 flex items-center"
+    >
+      <div className="max-w-6xl mx-auto w-full">
+        {/* Surface Card */}
+        <div className="rounded-2xl md:rounded-3xl bg-background/80 backdrop-blur-xl border border-border/40 shadow-2xl overflow-hidden">
+          {/* Header */}
+          <div className="px-6 pt-8 md:px-12 md:pt-12 pb-6 text-center border-b border-border/30">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground tracking-tight">
+              Selected <span className="text-primary">Projects</span>
+            </h2>
+            <p className="mt-3 text-muted-foreground text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+              A curated selection of projects highlighting my frontend and UI/UX
+              experience.
+            </p>
           </div>
 
-          {/* Tombol Panah Kanan */}
-          {project.images.length > 1 && (
-            <button
-              onClick={nextSlide}
-              aria-label="Next"
-              className="absolute -right-12 top-1/2 -translate-y-1/2 z-30 p-4 rounded-full bg-black/50 text-white 
-                hover:bg-primary hover:scale-110 transition transform cursor-pointer"
-            >
-              ›
-            </button>
-          )}
+          {/* Content Grid - TRUE 50/50 */}
+          <div className="grid md:grid-cols-2">
+            {/* Image Side - PERFECT FIT */}
+            <div className="relative aspect-[4/3] md:aspect-square lg:aspect-[5/4] overflow-hidden bg-muted/10">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-contain bg-muted/5"
+              />
+            </div>
+
+            {/* Text Side - BALANCED */}
+            <div className="relative flex flex-col justify-center px-6 py-8 md:p-10 lg:p-12 bg-background/40 backdrop-blur-sm">
+              {/* Meta & Tags Row */}
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <span className="text-[10px] md:text-xs uppercase tracking-[0.15em] text-muted-foreground font-semibold">
+                  Project {index + 1} / {projects.length}
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 md:px-2.5 py-1 text-[10px] md:text-xs font-medium rounded-md bg-primary/10 text-primary border border-primary/30"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Title - PERFECT SIZE */}
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-3 md:mb-4 leading-tight tracking-tight">
+                {project.title}
+              </h3>
+
+              {/* Description - READABLE */}
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6 md:mb-8">
+                {project.description}
+              </p>
+
+              {/* Actions Row */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4">
+                {/* CTA Button */}
+                <button
+                  onClick={() => navigate("/projects")}
+                  className="group px-5 md:px-6 py-2.5 md:py-3 rounded-lg md:rounded-xl bg-primary text-primary-foreground text-xs md:text-sm font-bold uppercase tracking-wide hover:bg-primary/90 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  View Project
+                  <ExternalLink
+                    size={14}
+                    className="md:w-4 md:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                  />
+                </button>
+
+                {/* Navigation Arrows */}
+                <div className="flex items-center gap-2 md:gap-3">
+                  <button
+                    onClick={prev}
+                    aria-label="Previous project"
+                    className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-border text-foreground hover:bg-muted hover:border-primary/50 transition-all duration-300 flex items-center justify-center hover:scale-105 active:scale-95"
+                  >
+                    <ChevronLeft
+                      size={16}
+                      className="md:w-5 md:h-5"
+                      strokeWidth={2.5}
+                    />
+                  </button>
+                  <button
+                    onClick={next}
+                    aria-label="Next project"
+                    className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-border text-foreground hover:bg-muted hover:border-primary/50 transition-all duration-300 flex items-center justify-center hover:scale-105 active:scale-95"
+                  >
+                    <ChevronRight
+                      size={16}
+                      className="md:w-5 md:h-5"
+                      strokeWidth={2.5}
+                    />
+                  </button>
+                </div>
+              </div>
+
+              {/* Progress Indicator */}
+              <div className="flex gap-1.5 md:gap-2 mt-6 md:mt-8">
+                {projects.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setIndex(i)}
+                    aria-label={`Go to project ${i + 1}`}
+                    className={`h-1 md:h-1.5 rounded-full transition-all duration-300 ${
+                      i === index
+                        ? "w-8 md:w-10 bg-primary"
+                        : "w-4 md:w-6 bg-border hover:bg-muted-foreground/30"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
+        {/* end surface */}
       </div>
     </section>
   );

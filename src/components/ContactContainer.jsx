@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Github, Mail, Instagram, Send } from "lucide-react";
 
-// Data kontak Anda tetap sama
 const contacts = [
   {
     name: "LinkedIn",
@@ -28,77 +27,81 @@ const contacts = [
 
 const ContactContainer = () => {
   return (
-    <motion.section
+    <section
       id="contact"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8 }}
-      // Kontainer tetap di max-w-4xl agar ringkas
-      className="relative container max-w-4xl mx-auto my-32 p-8 sm:p-12 rounded-3xl bg-card text-card-foreground shadow-2xl flex flex-col items-center overflow-hidden border border-emerald-500/30"
+      className="relative py-20 md:py-28 px-4"
       aria-label="Contact and Social Media Links"
     >
-      {/* Background Glow Effect - Pertahankan glow halus */}
-      <div className="absolute top-0 left-1/2 w-[300px] h-[300px] bg-emerald-500/15 rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2 z-0"></div>
-
-      <motion.div
-        className="flex flex-col items-center text-center space-y-7 z-10 w-full"
-        initial={{ scale: 0.9, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-emerald-100 text-glow select-none leading-tight">
-          Let's Connect! 🤝
-        </h2>
-        <p className="text-lg sm:text-xl text-muted-foreground max-w-xl">
-          Have a project in mind, a job opportunity, or just want to say hi?
-          Feel free to reach out through any my social links below, I’m always
-          open to new ideas and collaborations.
-        </p>
-
-        {/* email button */}
-        <motion.a
-          href="mailto:athallarli@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 px-8 py-3 bg-primary text-white font-extrabold text-lg rounded-full shadow-xl shadow-primary/40 hover:bg-emerald-600 transition-all duration-300 transform hover:scale-[1.02]"
-          whileHover={{
-            scale: 1.02,
-            boxShadow: "0 0 15px rgba(52, 211, 153, 0.5)",
-          }}
-          whileTap={{ scale: 0.99 }}
-          aria-label="Send me an Email directly"
+      <div className="container max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative p-8 md:p-12 lg:p-16 rounded-2xl md:rounded-3xl bg-background/80 backdrop-blur-xl border border-border/40 shadow-2xl overflow-hidden"
         >
-          <Send size={24} />
-          <span>Send an Email</span>
-        </motion.a>
+          {/* Background Glow - Subtle */}
+          <div className="absolute top-0 left-1/2 w-[250px] h-[250px] bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-        {/* Social Links */}
-        <div className="pt-8 w-full max-w-md">
-          <p className="text-md font-semibold mb-4 text-muted-foreground/90">
-            — Or connect via social media —
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {contacts.map(({ name, url, icon: Icon }) => (
-              <motion.a
-                key={name}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -3, scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className="p-3 rounded-full bg-secondary/80 hover:bg-emerald-500 transition-colors duration-300 cursor-pointer shadow-lg border border-input/50"
-                aria-label={`Open ${name}`}
-              >
-                <Icon size={24} className="text-emerald-300 hover:text-white" />
-              </motion.a>
-            ))}
+          <div className="relative z-10 flex flex-col items-center text-center space-y-6 md:space-y-8">
+            {/* Title */}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+              Let's Connect! <span className="inline-block">🤝</span>
+            </h2>
+
+            {/* Description */}
+            <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              Have a project in mind, a job opportunity, or just want to say hi?
+              Feel free to reach out—I'm always open to new ideas and
+              collaborations.
+            </p>
+
+            {/* Email CTA Button */}
+            <motion.a
+              href="mailto:athallarli@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-3 px-7 md:px-8 py-3 md:py-3.5 bg-primary text-primary-foreground font-bold text-sm md:text-base rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
+              aria-label="Send me an email directly"
+            >
+              <Send size={20} className="md:w-5 md:h-5" />
+              <span>Send an Email</span>
+            </motion.a>
+
+            {/* Divider */}
+            <div className="pt-4 md:pt-6 w-full max-w-md">
+              <p className="text-xs md:text-sm font-medium text-muted-foreground/80 mb-6">
+                — Or connect via social media —
+              </p>
+
+              {/* Social Links */}
+              <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+                {contacts.map(({ name, url, icon: Icon }) => (
+                  <motion.a
+                    key={name}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -3, scale: 1.05 }}
+                    whileTap={{ scale: 0.96 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                    className="p-3 md:p-4 rounded-full bg-muted/50 hover:bg-primary/20 border border-border/50 hover:border-primary/50 transition-all duration-300 shadow-md hover:shadow-lg"
+                    aria-label={`Connect on ${name}`}
+                  >
+                    <Icon
+                      size={22}
+                      className="md:w-6 md:h-6 text-muted-foreground hover:text-primary transition-colors duration-300"
+                    />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </motion.div>
-    </motion.section>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
