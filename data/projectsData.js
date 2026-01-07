@@ -254,8 +254,7 @@ export const projectsData = {
     results: [
       "Successfully deployed as a demo and proof-of-concept project",
       "Demonstrates modern full-stack architecture with Next.js and Prisma",
-      "Showcases clean UI/UX design principles for business applications",
-      "Portfolio piece highlighting technical decision-making and scalability",
+      "Created to showcase practical application of modern web development tools",
     ],
   },
 };
