@@ -18,10 +18,10 @@ const projects = [
     tags: ["Company Profile", "HTML/CSS", "UI/UX", "Laravel"],
   },
   {
-    title: "UMKM Dashboard",
+    title: "UMKM POS Web",
     description:
-      "Personal portfolio built with performance, accessibility, and scalable component architecture in mind.",
-    image: "/projects3/portfolio.png",
+      "Website for small business that have Digital checkout system that operates through an internet browser that allows business owners to manage sales, inventory, and customer data in real-time using an internet connection.",
+    image: "/projects3/Dashboard1.png",
     tags: ["React", "Portfolio", "Modern"],
   },
 ];

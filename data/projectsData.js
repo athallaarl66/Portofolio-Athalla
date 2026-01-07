@@ -32,7 +32,7 @@ export const projectsData = {
     // META
     tags: ["Next.js", "CSS Modules", "UI/UX Design", "Frontend"],
     category: "Frontend & UI/UX",
-    year: "2026",
+    year: "2025",
     role: "UI/UX Designer & Frontend Developer",
     duration: "2 weeks (Final Year Project)",
 
@@ -213,9 +213,9 @@ export const projectsData = {
     // META
     tags: ["Next.js", "Prisma", "PostgreSQL", "Tailwind CSS"],
     category: "Full Stack",
-    year: "2025",
+    year: "2026",
     role: "Fullstack Developer",
-    duration: "1 week (Demo & Proof of Concept)",
+    duration: "4 days (Demo & Proof of Concept)",
 
     // LINKS
     liveUrl: "https://umkm-web-app.vercel.app",
