@@ -62,13 +62,13 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll */}
+      {/* Scroll
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-80">
         <span className="text-sm font-medium text-foreground/60 mb-1">
           Scroll
         </span>
         <ArrowDown className="h-5 w-5 text-primary" />
-      </div>
+      </div> */}
     </section>
   );
 };
