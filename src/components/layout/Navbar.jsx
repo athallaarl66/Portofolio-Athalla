@@ -92,7 +92,7 @@ export const Navbar = () => {
           className="text-xl font-bold cursor-pointer"
         >
           <span className="text-primary">Athalla</span>{" "}
-          <span className="text-foreground">Portfolio</span>
+          <span className="text-foreground">Works</span>
         </a>
 
         {/* Desktop Nav */}

@@ -38,9 +38,8 @@ export const HeroSection = () => {
         </h1>
 
         <p className="text-foreground/80 text-lg md:text-xl leading-relaxed opacity-0 animate-fade-in-delay-2">
-          Frontend Developer with a strong focus on clean UI, user experience,
-          and modern web development. Experienced in fullstack workflows and
-          building scalable web interfaces.
+          I design and build end-to-end web experiences, with a strong
+          foundation in frontend and UI/UX.
         </p>
 
         {/* CTA */}

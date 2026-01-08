@@ -8,7 +8,7 @@ export const projectsData = {
     tagline:
       "Final year project: Interactive learning platform for preserving ancient Sundanese script",
     shortDesc:
-      "A comprehensive UI/UX and frontend project focused on making Sundanese script accessible through modern web technologies with gamified learning experiences",
+      "A comprehensive UI/UX and frontend project focused on making Sundanese script accessible through modern web technologies with good learning experiences",
 
     // IMAGES
     hero: "/projects1/HOMEPAGE.png",
@@ -42,7 +42,7 @@ export const projectsData = {
 
     // DETAIL INFO
     overview:
-      "DiajarAksara is a final year project that combines UI/UX design principles with modern frontend development to create an engaging learning platform for Sundanese script (Aksara Sunda). The project focuses on user experience design, interactive learning flows, and clean frontend implementation using Next.js and CSS Modules. The platform was built to make ancient script learning accessible and engaging for modern learners through gamification and intuitive interface design.",
+      "DiajarAksara is a final year project that combines UI/UX design principles with modern frontend development to create an engaging learning platform for Sundanese script (Aksara Sunda). The project focuses on user experience design, interactive learning flows, and clean frontend implementation using Next.js and CSS Modules. The platform was built to make ancient script learning accessible and engaging for modern learners through quiz and intuitive interface design.",
 
     techStack: {
       frontend: ["Next.js", "React", "CSS Modules"],
@@ -179,9 +179,9 @@ export const projectsData = {
   "umkm-dashboard": {
     // BASIC INFO
     title: "UMKM Business Dashboard",
-    tagline: "Modern admin dashboard for small business operations",
+    tagline: "Modern point of sale (POS) web app for small business operations",
     shortDesc:
-      "A modern admin dashboard built to simulate real-world UMKM business operations with a focus on scalability, clean architecture, and intuitive user experience.",
+      "A modern point of sale (POS) web app that built to simulate real-world UMKM business operations with a focus on scalability, clean architecture, and intuitive user experience.",
 
     // IMAGES
     hero: "/projects3/Dashboard.png",

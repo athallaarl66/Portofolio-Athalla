@@ -8,7 +8,7 @@ const projects = [
     description:
       "Frontend-focused learning platform with structured layout, responsive design, and clean UI patterns.",
     image: "/projects1/homediajar.png",
-    tags: ["Next.js", "Quiz", "Responsive", "css"],
+    tags: ["Next.js", "Quiz", "Responsive", "CSS", "Learning Web"],
   },
   {
     title: "law-firm-website",
@@ -22,7 +22,7 @@ const projects = [
     description:
       "Website for small business that have Digital checkout system that operates through an internet browser that allows business owners to manage sales, inventory, and customer data in real-time using an internet connection.",
     image: "/projects3/Dashboard1.png",
-    tags: ["React", "Portfolio", "Modern"],
+    tags: ["Next.js", "POS", "Typescript", "Small Bussiness"],
   },
 ];
 

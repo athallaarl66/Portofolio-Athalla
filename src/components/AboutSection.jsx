@@ -1,27 +1,6 @@
 import { BriefcaseBusiness, Code, User } from "lucide-react";
 
 export const AboutSection = () => {
-  const cards = [
-    {
-      icon: <Code className="h-6 w-6" />,
-      title: "Frontend Engineering",
-      desc: "Developing clean, maintainable, and scalable user interfaces using modern web technologies.",
-      delay: "0.7s",
-    },
-    {
-      icon: <User className="h-6 w-6" />,
-      title: "UI & UX Focus",
-      desc: "Designing intuitive layouts and interactions with strong attention to usability and visual clarity.",
-      delay: "1s",
-    },
-    {
-      icon: <BriefcaseBusiness className="h-6 w-6" />,
-      title: "Fullstack Awareness",
-      desc: "Understanding backend flows, APIs, and data integration to support complete web solutions.",
-      delay: "1.3s",
-    },
-  ];
-
   return (
     <section id="about" className="py-24 px-4 relative bg-background">
       <div className="container mx-auto max-w-6xl">
@@ -40,20 +19,20 @@ export const AboutSection = () => {
             style={{ animationDelay: "0.3s" }}
           >
             <h3 className="text-xl font-bold text-foreground">
-              Frontend Developer with a Strong UI/UX Focus
+              Design-Driven Full-Stack Web Developer
             </h3>
 
             <p className="text-muted-foreground leading-relaxed">
-              I’m a Fullstack Developer who primarily works on frontend
-              development, focusing on building structured, responsive, and
-              user-friendly web interfaces.
+              I’m a full-stack developer with a strong foundation in frontend
+              development and UI/UX, focused on building clean, structured, and
+              user-friendly web experiences.
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              I enjoy translating ideas and designs into real products, paying
-              close attention to layout, interaction, and performance. My
-              understanding of backend systems allows me to collaborate
-              efficiently and build features with a complete technical
+              I enjoy translating ideas and designs into real products, with
+              close attention to layout, interaction, and performance. With an
+              understanding of backend systems, I’m able to collaborate
+              effectively and build features with a complete technical
               perspective.
             </p>
 
