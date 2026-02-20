@@ -176,37 +176,58 @@ export const projectsData = {
     ],
   },
 
-  "umkm-dashboard": {
+  "Crazwash-umkm-dashboard": {
     // BASIC INFO
-    title: "UMKM Business Dashboard",
-    tagline: "Modern point of sale (POS) web app for small business operations",
+    title: "Crazwash POS Dashboard",
+    tagline: "Modern POS system for small businesses",
     shortDesc:
-      "A modern point of sale (POS) web app that built to simulate real-world UMKM business operations with a focus on scalability, clean architecture, and intuitive user experience.",
+      "A full-stack point of sale web app built to help small businesses manage their daily operations—from inventory tracking to customer orders.",
 
     // IMAGES
-    hero: "/projects3/Dashboard.png",
-    thumbnail: "/projects3/Dashboard.png",
+    hero: "/projects3/Dashboard1.png",
+    thumbnail: "/projects3/Dashboard1.png",
     screenshots: [
       {
         url: "/projects3/Dashboard.png",
         caption:
-          "Admin dashboard overview with product and inventory management",
-      },
-      {
-        url: "/projects3/admin-dashboard.png",
-        caption: "Admin dashboard interface",
+          "Dashboard home - where business owners see daily stats at a glance",
       },
       {
         url: "/projects3/admin-inventory.png",
-        caption: "Inventory management system",
+        caption: "Inventory page showing all products and stock levels",
       },
       {
         url: "/projects3/admin-orders.png",
-        caption: "Order tracking and management",
+        caption:
+          "Orders management - tracking customer purchases and order status",
       },
       {
         url: "/projects3/admin-customers.png",
-        caption: "Customer database management",
+        caption: "Customer records to keep track of repeat buyers",
+      },
+      {
+        url: "/projects3/layanan.png",
+        caption: "Service catalog that customers browse when placing orders",
+      },
+      {
+        url: "/projects3/app-order1.png",
+        caption: "Customer view - picking a service category",
+      },
+      {
+        url: "/projects3/app-order2.png",
+        caption: "Choosing specific treatments or products",
+      },
+      {
+        url: "/projects3/app-order3.png",
+        caption: "Adding items to cart",
+      },
+      {
+        url: "/projects3/app-order4.png",
+        caption: "Review order before checkout",
+      },
+      {
+        url: "/projects3/SuccesOrder.png",
+        caption: "Order confirmed - ready for the business owner to process",
       },
     ],
 
@@ -215,15 +236,15 @@ export const projectsData = {
     category: "Full Stack",
     year: "2026",
     role: "Fullstack Developer",
-    duration: "4 days (Demo & Proof of Concept)",
+    duration: "4 days",
 
     // LINKS
-    liveUrl: "https://umkm-web-app.vercel.app",
-    githubUrl: "https://github.com/athallaarl66/UMKM-Web-App",
+    liveUrl: "https://crazwash.vercel.app/",
+    githubUrl: "https://github.com/athallaarl66/Crazwash.git",
 
     // DETAIL INFO
     overview:
-      "This project is a demo and proof-of-concept dashboard designed to represent real-world UMKM business workflows. It focuses on system architecture, UI/UX, and scalability rather than being a finalized production system. The dashboard demonstrates how small businesses can manage products, services, and inventory through a modern web-based admin interface.",
+      "I built this as a quick demo to show how small businesses (UMKM) could run their operations through a simple web app. It's not a finished product—more like a proof of concept that covers the basics: managing inventory, tracking orders, and letting customers place orders online. The focus was on clean code structure and a user-friendly interface that anyone could pick up without training.",
 
     techStack: {
       frontend: ["Next.js (App Router)", "React", "Tailwind CSS", "shadcn/ui"],
@@ -234,35 +255,33 @@ export const projectsData = {
     },
 
     keyFeatures: [
-      "Admin dashboard for managing products, services, and inventory",
-      "Category-based product management (Basic, Premium, Deep, Treatment)",
-      "Active and inactive product status control",
-      "Clean and responsive UI optimized for desktop and tablet",
-      "Cloud-hosted PostgreSQL database with Prisma ORM integration",
+      "Simple admin dashboard to manage products and see what's selling",
+      "Product categories (Basic, Premium, Deep Treatment, etc.) to organize services",
+      "Quick toggle to mark products as active or sold out",
+      "Customer-facing order flow that's straightforward and mobile-friendly",
+      "Database setup that's scalable if the business grows",
     ],
 
     challenges: [
       {
-        title: "Database Configuration and ORM Integration",
+        title: "Setting Up the Database Without Overcomplicating It",
         problem:
-          "Setting up a cloud-based PostgreSQL database and integrating it with Prisma required careful configuration and understanding of migration workflows.",
+          "I wanted to use a proper database and ORM, but I also didn't want to spend days configuring things. Balancing type safety with quick setup was tricky.",
         solution:
-          "Implemented Prisma ORM with Neon PostgreSQL to establish a clear data layer, type safety, and structured migrations, ensuring the application remains maintainable and scalable.",
+          "Went with Prisma and hosted the database on Neon (cloud PostgreSQL). Prisma gives you type-safe queries out of the box, and Neon's free tier meant I didn't need to worry about local database setup. Everything just worked after a few migrations.",
       },
     ],
 
     results: [
-      "Successfully deployed as a demo and proof-of-concept project",
-      "Demonstrates modern full-stack architecture with Next.js and Prisma",
-      "Created to showcase practical application of modern web development tools",
+      "Built and deployed in 4 days as a working demo",
+      "Shows how modern tools can make small business software accessible",
+      "Clean enough codebase that I could hand it off or build on it later",
     ],
   },
 };
 
-// Helper function untuk get single project
 export const getProject = (id) => projectsData[id];
 
-// Helper function untuk get all projects as array
 export const getAllProjects = () => {
   return Object.entries(projectsData).map(([id, data]) => ({
     id,
