@@ -43,8 +43,6 @@ export const AboutSection = () => {
               <br />
               that work.
             </h2>
-
-            {/* Identity tags */}
             <div
               className="flex flex-wrap gap-2 opacity-0 animate-fade-in"
               style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
@@ -52,28 +50,30 @@ export const AboutSection = () => {
               {["Full-Stack Dev", "Frontend Background", "UI/UX"].map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs font-mono px-3 py-1 rounded-full border border-foreground/10 text-foreground/40"
+                  className="text-xs font-mono px-3 py-1 rounded-full border border-primary/40 text-primary/80 bg-primary/8"
+                  style={{ boxShadow: "0 0 8px rgba(74,222,128,0.12)" }}
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            {/* Image - responsive */}
+            {/* highlight card */}
             <div
-              className="relative w-full max-w-[200px] md:max-w-xs mt-4 opacity-0 animate-fade-in"
-              style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+              className="relative w-full mt-4 p-4 rounded-xl border border-primary/15 bg-primary/5 opacity-0 animate-fade-in"
+              style={{
+                boxShadow: "0 0 16px rgba(74,222,128,0.06)",
+                animationDelay: "0.2s",
+                animationFillMode: "forwards",
+              }}
             >
-              {/* Corner accents - responsive */}
-              <div className="absolute -top-2 -left-2 w-6 h-6 md:w-8 md:h-8 border-t border-l border-primary/40" />
-              <div className="absolute -bottom-2 -right-2 w-6 h-6 md:w-8 md:h-8 border-b border-r border-primary/20" />
-
-              <img
-                src="/icons/Logo.jpg"
-                alt="Athalla Arli"
-                className="w-full h-44 md:h-56 object-cover rounded-lg transition-all duration-700"
-                style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.06)" }}
-              />
+              <p className="text-xs font-mono text-primary/50 mb-2">
+                currently open to
+              </p>{" "}
+              <p className="text-sm text-foreground/70 font-light leading-relaxed">
+                Frontend, Full-Stack, Software Engineer, or UI/UX — remote,
+                onsite, hybrid. Anywhere works.
+              </p>
             </div>
           </div>
 
