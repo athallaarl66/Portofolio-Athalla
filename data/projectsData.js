@@ -173,8 +173,8 @@ export const projectsData = {
     shortDesc:
       "A full-stack POS web app for a laundry UMKM — covers public multi-step ordering, admin management, manual payment flow via WhatsApp, and CSV export for reporting.",
 
-    hero: "/projects3/adminDashboard.png",
-    thumbnail: "/projects3/adminDashboard.png",
+    hero: "/projects3/Dashboard.png",
+    thumbnail: "/projects3/Dashboard.png",
     screenshots: [
       {
         url: "/projects3/adminDashboard.png",
@@ -182,7 +182,7 @@ export const projectsData = {
       },
       {
         url: "/projects3/Dashboard.png",
-        caption: "Dashboard with operational insights and daily stats",
+        caption: "Dashboard page for customers side that have some services",
       },
       {
         url: "/projects3/admin-inventory.png",
