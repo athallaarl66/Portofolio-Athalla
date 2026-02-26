@@ -95,10 +95,9 @@ export const AboutSection = () => {
               <p>
                 Informatics grad from Telkom University, 2025. Frontend is where
                 I'm most comfortable — React, Next.js, Tailwind — but I've
-                shipped full-stack projects on my own too: a POS web app for a
-                laundry UMKM with ordering flow, admin dashboard, and auth; a
-                corporate site for a Jakarta law firm; and a Sundanese script
-                learning platform for my undergraduate thesis.
+                shipped full-stack projects on my own too. A POS web app for a
+                laundry UMKM, a corporate site for a Jakarta law firm, and a
+                Sundanese script learning platform for my undergraduate thesis.
               </p>
               <p>
                 The thesis was a proper research project — used the
