@@ -1,72 +1,148 @@
+import { ArrowUpRight } from "lucide-react";
+
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-24 px-4 relative bg-background">
-      <div className="container mx-auto max-w-6xl">
-        {/* Title */}
-        <h2
-          className="text-zinc-200 text-3xl md:text-4xl font-bold mb-12 text-center opacity-0 animate-fade-in"
-          style={{ animationDelay: "0.1s" }}
-        >
-          About <span className="text-primary">Me</span>
-        </h2>
+    <section
+      id="about"
+      className="py-32 px-6 md:px-16 relative bg-background overflow-hidden"
+    >
+      <div className="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-transparent via-foreground/8 to-transparent" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Text */}
-          <div
-            className="space-y-6 opacity-0 animate-fade-in"
-            style={{ animationDelay: "0.3s" }}
-          >
-            <h3 className="text-xl font-bold text-foreground">
-              Full-Stack Developer, Based in Bandung
-            </h3>
+      <div className="max-w-7xl mx-auto">
+        {/* Section label */}
+        <div className="flex items-center gap-3 mb-16">
+          <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+            02 — About
+          </span>
+          <div className="flex-1 h-px bg-foreground/8" />
+        </div>
 
-            <p className="text-muted-foreground leading-relaxed">
-              I studied Computer Science at Telkom University and graduated in
-              2025 with hands on experience across the full web stack. Frontend
-              is where I'm strongest React, Next.js, Tailwind but I've built and
-              connected backends and databases on my own projects too.
-            </p>
-
-            <p className="text-muted-foreground leading-relaxed">
-              During my internship at a law firm in Jakarta, I developed their
-              company website and shipped new features under real deadlines with
-              real stakeholders. I care about the details: how something looks,
-              how it feels to use, and whether it actually solves the problem it
-              was built for.
-            </p>
-
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center items-center">
-              <a href="#contact" className="cosmic-button">
-                Contact
-              </a>
-
-              <a
-                href="/projects2/CV_IT_Athalla-Arli-Abhinaya_ENGLISH.pdf"
-                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
-                target="_blank"
-                rel="noopener noreferrer"
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+          {/* Left — heading + identity + image */}
+          <div className="md:col-span-5 space-y-6">
+            <h2
+              className="font-black leading-none tracking-tight text-foreground opacity-0 animate-fade-in"
+              style={{
+                fontSize: "clamp(2.8rem, 6vw, 5rem)",
+                animationDelay: "0.1s",
+                animationFillMode: "forwards",
+              }}
+            >
+              Building
+              <br />
+              <span
+                style={{
+                  WebkitTextStroke: "1px rgba(74,222,128,0.3)",
+                  color: "transparent",
+                }}
               >
-                Download CV
-              </a>
+                things
+              </span>
+              <br />
+              that work.
+            </h2>
+
+            {/* Identity tags — kasih tau siapa kamu sebelum baca bio */}
+            <div
+              className="flex flex-wrap gap-2 opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
+            >
+              {["Full-Stack Dev", "Frontend Background", "UI/UX"].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs font-mono px-3 py-1 rounded-full border border-foreground/10 text-foreground/40"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Image */}
+            <div
+              className="relative w-full max-w-xs mt-4 opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+            >
+              <div className="absolute -top-2 -left-2 w-8 h-8 border-t border-l border-primary/40" />
+              <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b border-r border-primary/20" />
+              <img
+                src="/icons/Logo.jpg"
+                alt="Athalla Arli"
+                className="w-full h-56 object-cover rounded-lg transition-all duration-700"
+                style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.06)" }}
+              />
             </div>
           </div>
 
-          {/* Image */}
+          {/* Right — bio + CTA */}
           <div
-            className="relative group opacity-0 animate-fade-in flex justify-center"
-            style={{ animationDelay: "0.5s" }}
+            className="md:col-span-7 space-y-8 opacity-0 animate-fade-in"
+            style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
           >
-            <div className="relative w-full max-w-sm rounded-2xl overflow-hidden shadow-lg transition-transform duration-700 ease-out group-hover:scale-[1.05] group-hover:rotate-1">
-              <div className="absolute inset-0 rounded-2xl p-[2px] bg-gradient-to-tr from-primary/50 to-transparent pointer-events-none" />
+            {/* Available tag */}
+            <div className="inline-flex items-center gap-2 border border-foreground/10 rounded-full px-4 py-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-xs font-mono text-foreground/50">
+                Available for work
+              </span>
+            </div>
 
-              <img
-                src="/icons/Logo.jpg"
-                alt="About me"
-                className="w-full h-72 md:h-96 object-cover rounded-2xl relative z-10 transition-transform duration-700 group-hover:scale-105"
-              />
+            <div className="space-y-5 text-foreground/60 leading-relaxed text-base md:text-lg font-light">
+              <p>
+                Informatics grad from Telkom University, 2025. Frontend is where
+                I'm most comfortable — React, Next.js, Tailwind — but I've
+                shipped full-stack projects on my own too: a POS web app for a
+                laundry UMKM with ordering flow, admin dashboard, and auth; a
+                corporate site for a Jakarta law firm; and a Sundanese script
+                learning platform for my undergraduate thesis.
+              </p>
+              <p>
+                The thesis was a proper research project — used the
+                User-Centered Design method, went to SMAN 24 Bandung to
+                understand how students actually struggled with the script,
+                built prototypes, tested them, then built the final app based on
+                what I found.
+              </p>
+              <p>
+                I started from the frontend but I'm pushing further — system
+                design, backend architecture, and how everything connects at
+                scale is where I'm headed. I want to understand the full
+                picture, not just the surface.
+              </p>
+            </div>
 
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4 py-6 border-t border-b border-foreground/8">
+              {[
+                { num: "3", label: "Projects shipped" },
+                { num: "1", label: "Internship" },
+                { num: "2025", label: "Graduated" },
+              ].map(({ num, label }) => (
+                <div key={label}>
+                  <p className="text-2xl font-black text-foreground">{num}</p>
+                  <p className="text-xs text-foreground/40 font-mono mt-1">
+                    {label}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                Get in touch
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+              <a
+                href="/projects2/CV_IT_Athalla-Arli-Abhinaya_ENGLISH.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-foreground/15 text-foreground/60 px-6 py-3 rounded-full text-sm font-semibold hover:border-foreground/40 hover:text-foreground transition-all duration-300"
+              >
+                Download CV
+              </a>
             </div>
           </div>
         </div>

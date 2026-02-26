@@ -67,7 +67,6 @@
 }
 
 @layer base {
-  /* Global border color */
   * {
     border-color: var(--color-border);
   }
@@ -78,17 +77,29 @@
 
   body {
     @apply bg-background transition-colors duration-300;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+    /* Subtle ambient glow biar ga flat hitam banget */
+    background-image:
+      radial-gradient(
+        ellipse 70% 40% at 15% 0%,
+        oklch(71.158% 0.13334 159.551 / 0.1),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 50% 30% at 85% 100%,
+        oklch(71.158% 0.13334 159.551 / 0.06),
+        transparent
+      );
   }
 
-  /* Default cursor for interactive elements */
   button,
   a,
   [role="button"] {
     cursor: pointer;
   }
 
-  /* Disabled states */
   button:disabled,
   [aria-disabled="true"] {
     cursor: not-allowed;
@@ -148,11 +159,12 @@
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
 }
 
+/* FIX 1: text-align center → left, biar teks ga numpuk di tengah */
 #root {
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
-  text-align: center;
+  text-align: left;
 }
 
 @theme inline {
@@ -193,27 +205,26 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Default ke Dark Theme - Semua variabel dark dipindah ke :root */
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.145 0 0); /* Gelap/hitam */
-  --foreground: oklch(0.985 0 0); /* Terang/putih */
-  --card: oklch(0.205 0 0); /* Abu gelap */
-  --card-foreground: oklch(0.985 0 0); /* Putih */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(71.158% 0.13334 159.551); /* Biru/violet gelap */
-  --primary-foreground: oklch(0.205 0 0); /* Gelap untuk kontras */
-  --secondary: oklch(0.269 0 0); /* Abu sangat gelap */
-  --secondary-foreground: oklch(0.985 0 0); /* Putih */
+  --primary: oklch(71.158% 0.13334 159.551);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0); /* Abu terang */
+  --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216); /* Merah gelap */
-  --border: oklch(1 0 0 / 10%); /* Transparan gelap */
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0); /* Abu gelap */
+  --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -234,6 +245,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground; /* Default gelap: Background gelap, teks terang */
+    @apply bg-background text-foreground;
   }
 }

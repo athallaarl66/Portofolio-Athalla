@@ -1,16 +1,13 @@
 // src/data/projectsData.js
-// DATA ONLY - SEMUA PROJECT INFO DI SINI
 
 export const projectsData = {
   "sundanese-learning": {
-    // BASIC INFO
     title: "DiajarAksara - Sundanese Script Learning Platform",
     tagline:
-      "Final year project: Interactive learning platform for preserving ancient Sundanese script",
+      "Undergraduate thesis project: Web-based learning app for Sundanese script using User-Centered Design method",
     shortDesc:
-      "A comprehensive UI/UX and frontend project focused on making Sundanese script accessible through modern web technologies with good learning experiences",
+      "A frontend and UI/UX project developed as part of my thesis at Telkom University, focused on making Sundanese script accessible through research-driven design and modern web tech.",
 
-    // IMAGES
     hero: "/projects1/HOMEPAGE.png",
     thumbnail: "/projects1/HOMEPAGE.png",
     screenshots: [
@@ -29,71 +26,66 @@ export const projectsData = {
       },
     ],
 
-    // META
-    tags: ["Next.js", "CSS Modules", "UI/UX Design", "Frontend"],
+    tags: ["Next.js", "CSS Modules", "UI/UX Design", "UCD Method"],
     category: "Frontend & UI/UX",
     year: "2025",
     role: "UI/UX Designer & Frontend Developer",
-    duration: "2 weeks (Final Year Project)",
+    duration: "Jan 2025 – Aug 2025 (Undergraduate Thesis)",
 
-    // LINKS
     liveUrl: "https://diajar-aksara.vercel.app/dashboard",
     githubUrl: "https://github.com/athallaarl66/DiajarAksara",
 
-    // DETAIL INFO
     overview:
-      "DiajarAksara is a final year project that combines UI/UX design principles with modern frontend development to create an engaging learning platform for Sundanese script (Aksara Sunda). The project focuses on user experience design, interactive learning flows, and clean frontend implementation using Next.js and CSS Modules. The platform was built to make ancient script learning accessible and engaging for modern learners through quiz and intuitive interface design.",
+      "DiajarAksara is my undergraduate thesis project at Telkom University, built using the User-Centered Design (UCD) method. The research started by identifying real learning challenges faced by high school students at SMAN 24 Bandung when studying Sundanese script. From there, I designed user-centered UI prototypes, validated them with actual users, and developed the final web app based on those findings. The platform covers interactive script references, writing guidance, and a simple responsive interface aimed at beginner learners.",
 
     techStack: {
       frontend: ["Next.js", "React", "CSS Modules"],
-      design: ["Figma", "UI/UX Design Principles"],
+      design: ["Figma", "User-Centered Design (UCD)"],
       deployment: ["Vercel"],
       tools: ["Git", "VS Code"],
     },
 
     keyFeatures: [
-      "Interactive character learning modules with visual step-by-step guides",
+      "Interactive Aksara Sunda character reference with step-by-step visual guides",
       "Digital whiteboard for practicing Sundanese script writing",
-      "Interactive quiz system for knowledge assessment",
-      "Comprehensive Aksara Sunda learning materials and references",
-      "Responsive design optimized for mobile and tablet learning",
-      "Clean, modular CSS architecture for maintainable styling",
+      "Quiz system for knowledge assessment",
+      "Responsive layout optimized for mobile and tablet",
+      "Research-backed UI designed through UCD methodology",
+      "Clean CSS Modules architecture for maintainable, modular styling",
     ],
 
     challenges: [
       {
-        title: "User Requirements Gathering",
+        title: "Getting Real User Requirements from Schools",
         problem:
-          "Obtaining comprehensive user requirements from schools proved challenging due to strict permission protocols and scheduling conflicts, requiring multiple school visits and coordination with administrative staff.",
+          "Gathering requirements from SMAN 24 Bandung was harder than expected — strict permission processes, scheduling conflicts, and multiple coordination rounds with school staff slowed things down.",
         solution:
-          "Streamlined the data collection process by establishing clear communication channels with school representatives and conducting remote interviews when possible. This approach eliminated unnecessary back-and-forth visits while ensuring all user requirements were thoroughly documented and validated.",
+          "Set up clear communication channels with school representatives early on, and switched to remote interviews when on-site visits weren't possible. This kept the process moving without losing the quality of insights needed to design the right solution.",
       },
       {
-        title: "Complex Script Rendering",
+        title: "Rendering Sundanese Script Consistently",
         problem:
-          "Sundanese script characters have unique combinations and diacritical marks that needed consistent rendering across different devices and screen sizes.",
+          "Sundanese characters have unique combinations and diacritical marks that behaved differently across screen sizes and devices.",
         solution:
-          "Implemented custom component architecture with CSS Modules to ensure precise character rendering. Each script element was carefully styled with proper spacing and alignment, maintaining visual consistency across all platforms.",
+          "Built a custom component structure with CSS Modules so each character rendered with precise spacing and alignment. Tested across multiple devices to make sure the visual consistency held up everywhere.",
       },
     ],
 
     results: [
-      "Successfully completed as final year project with positive faculty feedback",
-      "Deployed live platform accessible to students and educators",
-      "Demonstrated strong UI/UX design and frontend development skills",
-      "Created a foundation for cultural preservation through technology",
+      "Completed and passed as undergraduate thesis at Telkom University",
+      "Deployed live and accessible to students and educators",
+      "Validated through real user testing with high school students",
+      "Contributed to regional language preservation through practical technology",
     ],
   },
 
   "law-firm-website": {
-    // BASIC INFO
     title: "RK Law Firm - Corporate Website",
     tagline:
-      "Professional legal services platform with integrated consultation system",
+      "Internship project: Corporate website with online legal service features for a Jakarta-based law firm",
     shortDesc:
-      "Full-stack corporate website project focused on UI/UX design and frontend implementation with consultation booking capabilities for a law firm",
+      "Built and customized the company profile website for RK Law Firm during internship, with added online legal service features and frontend components integrated into the full stack.",
 
-    // IMAGES
     hero: "/projects2/homerk.jpg",
     thumbnail: "/projects2/homerk.jpg",
     screenshots: [
@@ -117,165 +109,172 @@ export const projectsData = {
       },
     ],
 
-    // META
-    tags: ["React", "Node.js", "UI/UX Design", "Figma"],
+    tags: ["React", "Laravel", "UI/UX Design", "Figma"],
     category: "Full Stack (UI/UX and Frontend Focused)",
     year: "2024",
-    role: "UI/UX Designer & Full Stack Developer",
-    duration: "Internship Project (July - September 2024)",
+    role: "Full Stack Developer (Intern)",
+    duration: "Jul 2024 – Sep 2024 (Internship)",
 
-    // LINKS
     liveUrl: null,
     githubUrl:
       "https://github.com/athallaarl66/Firma-Hukum-Rantai-Khatulistiwa",
     figmaUrl:
       "https://www.figma.com/design/d57Pa0fm8GGVUv6ap3mxR7/RK?node-id=0-1&t=fXlDR6UorHchwpbe-1",
 
-    // DETAIL INFO
     overview:
-      "A comprehensive corporate website project for RK Law Firm (Rantai Khatulistiwa), developed during an internship period. The project heavily emphasizes UI/UX design and frontend development, with backend functionality supporting core features like consultation booking. The platform showcases legal services, lawyer profiles, and streamlines client engagement through modern web design principles and professional user experience.",
+      "During my internship at Firma Hukum Rantai Khatulistiwa in Jakarta, I developed and customized the company's profile website and implemented additional online legal service features. The work covered both frontend and backend — designing UI components in Figma, building them in React, and integrating them into the existing Laravel stack. Feature adjustments were done collaboratively with the team based on ongoing requirements from the firm.",
 
     techStack: {
       frontend: ["React", "Tailwind CSS"],
       backend: ["Laravel", "PHP"],
       database: ["MySQL"],
-      design: ["Figma", "UI/UX Design"],
+      design: ["Figma"],
       tools: ["Git", "XAMPP"],
     },
 
     keyFeatures: [
-      "Professional UI/UX design crafted in Figma with modern aesthetics",
-      "Comprehensive legal service showcase with detailed area descriptions",
-      "Lawyer profile system with expertise tags and professional credentials",
-      "Online consultation booking interface with form validation",
-      "Responsive design optimized for professional client engagement",
+      "Company profile website with professional legal services showcase",
+      "Lawyer profile directory with expertise and credentials",
+      "Online legal service features added on top of existing platform",
+      "Consultation booking interface with form validation",
+      "Frontend components designed in Figma and implemented in React",
+      "Responsive layout for professional client engagement",
     ],
 
     challenges: [
       {
-        title: "Design Alignment and Stakeholder Communication",
+        title: "Aligning Design with Stakeholder Expectations",
         problem:
-          "Achieving design consensus between internship supervisors and company stakeholders proved challenging. Initial design iterations faced multiple revision requests due to differing aesthetic preferences and functional requirements, creating potential project delays.",
+          "Design iterations went through multiple rounds of revisions due to differing preferences between internship supervisors and company stakeholders, which risked delaying the project.",
         solution:
-          "Established structured design review sessions with clear communication of design rationale. Documented each design decision with explanations of user experience benefits and business value. This transparent approach fostered mutual understanding and accelerated approval processes, resulting in a final design that satisfied all stakeholders while maintaining professional standards.",
+          "Set up structured review sessions and documented each design decision with clear reasoning around user experience and business value. That transparency helped get approvals faster and kept everyone aligned without endless back-and-forth.",
       },
       {
-        title: "Professional Visual Identity",
+        title: "Building a Professional Visual Identity",
         problem:
-          "Creating a visual identity that conveyed trust, professionalism, and legal expertise while remaining modern and approachable required careful balance of design elements.",
+          "The design needed to feel trustworthy and professional for a law firm while still being modern enough to stand out from typical corporate sites.",
         solution:
-          "Conducted research on legal industry design trends and implemented a sophisticated color palette, professional typography, and clean layouts. Used Figma to prototype multiple variations and gather feedback before implementation, ensuring the final design met professional standards.",
+          "Researched legal industry design patterns, prototyped multiple directions in Figma, and collected feedback before committing to implementation. The final design hit the right balance between authority and approachability.",
       },
     ],
 
     results: [
-      "Successfully delivered professional corporate website during internship",
-      "Developed strong stakeholder communication and design presentation skills",
-      "Created comprehensive Figma design system for future development",
-      "Demonstrated ability to balance aesthetic design with functional requirements",
+      "Delivered a working corporate website within the internship period",
+      "Added functional online legal service features to the platform",
+      "Strengthened skills in stakeholder communication and design iteration",
+      "Gained hands-on experience integrating React frontend with Laravel backend",
     ],
   },
 
   "Crazwash-umkm-dashboard": {
-    // BASIC INFO
-    title: "Crazwash POS Dashboard",
-    tagline: "Modern POS system for small businesses",
+    title: "Crazwash - POS Web App for UMKM",
+    tagline:
+      "Full-stack POS system with online ordering, admin dashboard, and operational reporting",
     shortDesc:
-      "A full-stack point of sale web app built to help small businesses manage their daily operations—from inventory tracking to customer orders.",
+      "A full-stack POS web app for a laundry UMKM — covers public multi-step ordering, admin management, manual payment flow via WhatsApp, and CSV export for reporting.",
 
-    // IMAGES
-    hero: "/projects3/Dashboard1.png",
-    thumbnail: "/projects3/Dashboard1.png",
+    hero: "/projects3/adminDashboard.png",
+    thumbnail: "/projects3/adminDashboard.png",
     screenshots: [
       {
+        url: "/projects3/adminDashboard.png",
+        caption: "Admin dashboard overview",
+      },
+      {
         url: "/projects3/Dashboard.png",
-        caption:
-          "Dashboard home - where business owners see daily stats at a glance",
+        caption: "Dashboard with operational insights and daily stats",
       },
       {
         url: "/projects3/admin-inventory.png",
-        caption: "Inventory page showing all products and stock levels",
+        caption: "Inventory management — products and stock tracking",
       },
       {
         url: "/projects3/admin-orders.png",
-        caption:
-          "Orders management - tracking customer purchases and order status",
+        caption: "Order management — tracking status and customer purchases",
       },
       {
         url: "/projects3/admin-customers.png",
-        caption: "Customer records to keep track of repeat buyers",
+        caption: "Customer records for managing repeat buyers",
       },
       {
         url: "/projects3/layanan.png",
-        caption: "Service catalog that customers browse when placing orders",
+        caption: "Service catalog browsed by customers when ordering",
       },
       {
         url: "/projects3/app-order1.png",
-        caption: "Customer view - picking a service category",
+        caption: "Public ordering flow — step 1: pick a service category",
       },
       {
         url: "/projects3/app-order2.png",
-        caption: "Choosing specific treatments or products",
+        caption: "Step 2: choose specific treatments or products",
       },
       {
         url: "/projects3/app-order3.png",
-        caption: "Adding items to cart",
+        caption: "Step 3: add items to cart",
       },
       {
         url: "/projects3/app-order4.png",
-        caption: "Review order before checkout",
+        caption: "Step 4: review order before submitting",
       },
       {
         url: "/projects3/SuccesOrder.png",
-        caption: "Order confirmed - ready for the business owner to process",
+        caption:
+          "Order confirmed — customer notified to confirm payment via WhatsApp",
       },
     ],
 
-    // META
-    tags: ["Next.js", "Prisma", "PostgreSQL", "Tailwind CSS"],
+    tags: ["Next.js", "Prisma", "PostgreSQL", "NextAuth", "TypeScript"],
     category: "Full Stack",
-    year: "2026",
-    role: "Fullstack Developer",
-    duration: "2 months",
+    year: "2025",
+    role: "Full Stack Developer",
+    duration: "Dec 2025 – Feb 2026",
 
-    // LINKS
     liveUrl: "https://crazwash.vercel.app/",
     githubUrl: "https://github.com/athallaarl66/Crazwash.git",
 
-    // DETAIL INFO
     overview:
-      "I built this as a quick demo to show how small businesses (UMKM) could run their operations through a simple web app. It's not a finished product—more like a proof of concept that covers the basics: managing inventory, tracking orders, and letting customers place orders online. The focus was on clean code structure and a user-friendly interface that anyone could pick up without training.",
+      "Crazwash is a full-stack POS web app built for a laundry UMKM to handle their service operations end-to-end. Customers can place orders through a public multi-step ordering flow, then confirm payment (bank transfer or e-wallet) via WhatsApp to the admin. On the admin side, there's a dashboard for managing services, tracking orders, handling customer data, and exporting reports as CSV. Auth is handled with NextAuth, the database schema is managed with Prisma and PostgreSQL on Neon, and the whole thing runs on Next.js App Router with SSR and TypeScript.",
 
     techStack: {
       frontend: ["Next.js (App Router)", "React", "Tailwind CSS", "shadcn/ui"],
-      backend: ["Next.js API Routes", "Prisma ORM"],
+      backend: ["Next.js API Routes", "Prisma ORM", "NextAuth"],
       database: ["PostgreSQL (Neon)"],
       deployment: ["Vercel"],
       tools: ["TypeScript", "Prisma Studio"],
     },
 
     keyFeatures: [
-      "Simple admin dashboard to manage products and see what's selling",
-      "Product categories (Basic, Premium, Deep Treatment, etc.) to organize services",
-      "Quick toggle to mark products as active or sold out",
-      "Customer-facing order flow that's straightforward and mobile-friendly",
-      "Database setup that's scalable if the business grows",
+      "Public multi-step ordering flow for customers to submit service requests online",
+      "Manual payment confirmation workflow via WhatsApp (bank transfer / e-wallet)",
+      "Admin dashboard for managing services, orders, and customers",
+      "Authentication system using NextAuth",
+      "CSV export for operational reporting and data management",
+      "SSR-optimized responsive UI with Next.js App Router and TypeScript",
+      "Database schema designed with Prisma and hosted on Neon PostgreSQL",
     ],
 
     challenges: [
       {
-        title: "Setting Up the Database Without Overcomplicating It",
+        title: "Designing the Manual Payment Flow",
         problem:
-          "I wanted to use a proper database and ORM, but I also didn't want to spend days configuring things. Balancing type safety with quick setup was tricky.",
+          "The business didn't use a payment gateway — customers confirm payments manually via WhatsApp. Needed to design a flow that felt smooth for customers while still giving the admin clear visibility on payment status.",
         solution:
-          "Went with Prisma and hosted the database on Neon (cloud PostgreSQL). Prisma gives you type-safe queries out of the box, and Neon's free tier meant I didn't need to worry about local database setup. Everything just worked after a few migrations.",
+          "Built a status-based order system where customers get a confirmation screen with payment instructions and a WhatsApp link to notify the admin. Admin can then manually update payment and order status from the dashboard. Simple, but it fits how the business actually operates.",
+      },
+      {
+        title: "Auth and Role Management",
+        problem:
+          "Needed to separate the public ordering flow from the protected admin area without overcomplicating the setup.",
+        solution:
+          "Used NextAuth for session-based auth with role checks on API routes and server components. Kept it straightforward — public routes for ordering, protected routes for everything admin-side.",
       },
     ],
 
     results: [
-      "Built and deployed in 2 months as a working demo",
-      "Shows how modern tools can make small business software accessible",
-      "Clean enough codebase that I could hand it off or build on it later",
+      "Delivered a working full-stack POS app in 2 months",
+      "Covers the full operation cycle: ordering, payment confirmation, admin management, and reporting",
+      "Deployed on Vercel with live URL accessible to real users",
+      "Clean, typed codebase with TypeScript that's maintainable and extendable",
     ],
   },
 };

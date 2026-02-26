@@ -3,14 +3,10 @@ import {
   ArrowLeft,
   ExternalLink,
   Github,
-  Calendar,
-  User,
-  Layers,
   Figma,
+  ArrowUpRight,
 } from "lucide-react";
-import { BackgroundAurora } from "@/components/effects/BackgroundAurora";
 import { Navbar } from "@/components/layout/Navbar";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import Footer from "@/components/FooterGallery";
 import { getProject } from "../../../data/projectsData";
 
@@ -19,23 +15,17 @@ export default function ProjectDetail() {
   const navigate = useNavigate();
   const project = getProject(id);
 
-  // Project Not Found State
   if (!project) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="opacity-40">
-          <BackgroundAurora amplitude={0.6} blend={0.3} speed={0.4} />
-        </div>
-        <div className="relative z-10 text-center p-8 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            404
-          </h1>
-          <p className="text-xl text-muted-foreground mb-8">
-            Project Not Found
+        <div className="text-center p-8">
+          <h1 className="text-6xl font-black text-foreground mb-4">404</h1>
+          <p className="text-foreground/50 mb-8 font-mono text-sm">
+            project not found
           </p>
           <button
             onClick={() => navigate("/projects")}
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/30"
+            className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
           >
             Back to Projects
           </button>
@@ -45,160 +35,164 @@ export default function ProjectDetail() {
   }
 
   return (
-    <article className="relative min-h-screen bg-background text-foreground overflow-hidden">
-      {/* Aurora Background */}
-      <div className="opacity-40">
-        <BackgroundAurora amplitude={0.6} blend={0.3} speed={0.4} />
-      </div>
+    <article className="relative min-h-screen bg-background text-foreground">
+      {/* Subtle glow — konsisten sama homepage, bukan aurora */}
+      <div
+        className="fixed -top-60 -left-60 w-[700px] h-[700px] rounded-full pointer-events-none -z-10"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(74,222,128,0.06) 0%, transparent 65%)",
+        }}
+      />
 
-      {/* Theme Toggle */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
-      </div>
-
-      {/* Navbar */}
       <Navbar />
 
-      {/* Main Content */}
-      <main className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          {/* Back Button */}
+      <main className="pt-28 md:pt-32 pb-16 px-6 md:px-16">
+        <div className="max-w-5xl mx-auto">
+          {/* Back */}
           <button
             onClick={() => navigate("/projects")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6 md:mb-8 group animate-fade-in"
+            className="group flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors mb-10 text-sm font-mono"
           >
             <ArrowLeft
-              size={20}
+              size={14}
               className="group-hover:-translate-x-1 transition-transform"
             />
-            <span className="font-medium text-sm md:text-base">
-              Back to Projects
-            </span>
+            back to projects
           </button>
 
           {/* Hero Image */}
-          <div className="relative aspect-video rounded-xl md:rounded-2xl overflow-hidden mb-6 md:mb-10 shadow-2xl border border-border/50 animate-fade-in-delay-1">
+          <div
+            className="relative rounded-2xl overflow-hidden mb-12 border border-foreground/8"
+            style={{ boxShadow: "0 32px 64px rgba(0,0,0,0.4)" }}
+          >
             <img
               src={project.hero}
-              alt={`${project.title} hero`}
-              className="w-full h-full object-cover"
+              alt={project.title}
+              className="w-full h-auto object-cover"
             />
           </div>
 
-          {/* Project Header */}
-          <div className="mb-8 md:mb-12 animate-fade-in-delay-2">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 leading-tight">
-              {project.title}
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 leading-relaxed">
-              {project.tagline}
-            </p>
+          {/* Header */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            {/* Left — title + buttons */}
+            <div className="md:col-span-7 space-y-6">
+              <div className="space-y-2">
+                <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+                  {project.category}
+                </span>
+                <h1 className="text-3xl md:text-4xl font-black text-foreground leading-tight tracking-tight">
+                  {project.title}
+                </h1>
+                <p className="text-foreground/55 text-base leading-relaxed font-light pt-1">
+                  {project.tagline}
+                </p>
+              </div>
 
-            {/* Action Buttons - MOBILE OPTIMIZED */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 md:gap-4 mb-6 md:mb-8">
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 sm:px-5 md:px-6 py-2.5 md:py-3 bg-primary text-primary-foreground rounded-xl text-sm md:text-base font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/30 hover:scale-[1.02]"
-                >
-                  <ExternalLink size={16} className="sm:w-[18px] sm:h-[18px]" />
-                  <span>View Live Demo</span>
-                </a>
-              )}
-
-              {project.figmaUrl && (
-                <a
-                  href={project.figmaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 sm:px-5 md:px-6 py-2.5 md:py-3 border-2 border-border rounded-xl text-sm md:text-base font-bold hover:bg-muted transition-all hover:scale-[1.02]"
-                >
-                  <Figma size={16} className="sm:w-[18px] sm:h-[18px]" />
-                  <span>View Figma Design</span>
-                </a>
-              )}
-
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 sm:px-5 md:px-6 py-2.5 md:py-3 border-2 border-border rounded-xl text-sm md:text-base font-bold hover:bg-muted transition-all hover:scale-[1.02]"
-                >
-                  <Github size={16} className="sm:w-[18px] sm:h-[18px]" />
-                  <span>View Source Code</span>
-                </a>
-              )}
+              <div className="flex flex-wrap gap-3">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 bg-foreground text-background px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  >
+                    Live Demo
+                    <ArrowUpRight
+                      size={14}
+                      className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                    />
+                  </a>
+                )}
+                {project.figmaUrl && (
+                  <a
+                    href={project.figmaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-foreground/15 text-foreground/60 px-5 py-2.5 rounded-full text-sm font-semibold hover:border-foreground/40 hover:text-foreground transition-all duration-300"
+                  >
+                    <Figma size={14} />
+                    Figma
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-foreground/15 text-foreground/60 px-5 py-2.5 rounded-full text-sm font-semibold hover:border-foreground/40 hover:text-foreground transition-all duration-300"
+                  >
+                    <Github size={14} />
+                    Source
+                  </a>
+                )}
+              </div>
             </div>
 
-            {/* Meta Info Cards - PERFECTLY CENTERED */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
-              <div className="flex items-center gap-3 p-4 rounded-xl bg-muted/40 border border-border/50 backdrop-blur-md hover:bg-muted/50 transition-colors">
-                <User className="text-primary flex-shrink-0" size={20} />
-                <div className="min-w-0">
-                  <p className="text-xs text-muted-foreground mb-1">Role</p>
-                  <p className="font-semibold text-sm md:text-base leading-tight">
-                    {project.role}
-                  </p>
+            {/* Right — meta */}
+            <div className="md:col-span-5 space-y-0">
+              {[
+                { label: "Role", value: project.role },
+                { label: "Duration", value: project.duration },
+                { label: "Year", value: project.year },
+              ].map(({ label, value }) => (
+                <div
+                  key={label}
+                  className="flex flex-col gap-1 py-4 border-b border-foreground/8 first:border-t first:border-foreground/8"
+                >
+                  <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+                    {label}
+                  </span>
+                  <span className="text-sm font-semibold text-foreground">
+                    {value}
+                  </span>
                 </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-4 rounded-xl bg-muted/40 border border-border/50 backdrop-blur-md hover:bg-muted/50 transition-colors">
-                <Calendar className="text-primary flex-shrink-0" size={20} />
-                <div className="min-w-0">
-                  <p className="text-xs text-muted-foreground mb-1">Duration</p>
-                  <p className="font-semibold text-sm md:text-base leading-tight">
-                    {project.duration}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-4 rounded-xl bg-muted/40 border border-border/50 backdrop-blur-md hover:bg-muted/50 transition-colors">
-                <Layers className="text-primary flex-shrink-0" size={20} />
-                <div className="min-w-0">
-                  <p className="text-xs text-muted-foreground mb-1">Category</p>
-                  <p className="font-semibold text-sm md:text-base leading-tight">
-                    {project.category}
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Overview */}
-          <section
-            id="overview"
-            className="mb-8 md:mb-12 animate-fade-in-delay-3"
-          >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4">
-              Overview
-            </h2>
-            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg">
-              {project.overview}
-            </p>
-          </section>
+          {/* Sections */}
+          {[
+            {
+              id: "overview",
+              label: "Overview",
+              content: (
+                <p className="text-foreground/60 leading-relaxed text-base md:text-lg font-light max-w-3xl">
+                  {project.overview}
+                </p>
+              ),
+            },
+          ].map(({ id, label, content }) => (
+            <section key={id} className="mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+                  {label}
+                </span>
+                <div className="flex-1 h-px bg-foreground/8" />
+              </div>
+              {content}
+            </section>
+          ))}
 
-          {/* Tech Stack - CENTERED & CLEAN */}
-          <section
-            id="tech-stack"
-            className="mb-8 md:mb-12 animate-fade-in-delay-4"
-          >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
-              Tech Stack
-            </h2>
-            <div className="space-y-4 md:space-y-5">
+          {/* Tech Stack */}
+          <section className="mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+                Tech Stack
+              </span>
+              <div className="flex-1 h-px bg-foreground/8" />
+            </div>
+            <div className="space-y-5">
               {Object.entries(project.techStack).map(([category, techs]) => (
-                <div key={category} className="text-center">
-                  <span className="font-semibold text-primary capitalize text-sm md:text-base block mb-2.5">
-                    {category}:
+                <div key={category} className="space-y-2">
+                  <span className="text-xs font-mono text-foreground/40 capitalize">
+                    {category}
                   </span>
-                  <div className="flex flex-wrap justify-center gap-2 md:gap-2.5">
+                  <div className="flex flex-wrap gap-2">
                     {techs.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1.5 text-xs md:text-sm rounded-lg bg-primary/10 text-primary border border-primary/30 font-medium"
+                        className="px-3 py-1 text-xs font-mono rounded-full border border-primary/20 bg-primary/5 text-primary/70"
                       >
                         {tech}
                       </span>
@@ -209,18 +203,21 @@ export default function ProjectDetail() {
             </div>
           </section>
 
-          {/* Key Features */}
-          <section id="features" className="mb-8 md:mb-12">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-              Key Features
-            </h2>
-            <ul className="space-y-2.5 md:space-y-3">
+          {/* Features */}
+          <section className="mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+                Features
+              </span>
+              <div className="flex-1 h-px bg-foreground/8" />
+            </div>
+            <ul className="space-y-3">
               {project.keyFeatures.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 md:gap-3">
-                  <span className="text-primary font-bold text-base md:text-lg flex-shrink-0 mt-0.5">
-                    ✓
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="text-primary/60 font-mono text-xs mt-1.5 flex-shrink-0">
+                    —
                   </span>
-                  <span className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                  <span className="text-foreground/60 leading-relaxed text-sm md:text-base">
                     {feature}
                   </span>
                 </li>
@@ -228,35 +225,38 @@ export default function ProjectDetail() {
             </ul>
           </section>
 
-          {/* Challenges & Solutions */}
-          {project.challenges && project.challenges.length > 0 && (
-            <section id="challenges" className="mb-8 md:mb-12">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-                Challenges & Solutions
-              </h2>
-              <div className="space-y-4 md:space-y-6">
+          {/* Challenges */}
+          {project.challenges?.length > 0 && (
+            <section className="mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+                  Challenges
+                </span>
+                <div className="flex-1 h-px bg-foreground/8" />
+              </div>
+              <div className="space-y-4">
                 {project.challenges.map((challenge, idx) => (
                   <div
                     key={idx}
-                    className="p-4 sm:p-5 md:p-6 rounded-xl bg-muted/40 border border-border/50 backdrop-blur-md hover:bg-muted/50 transition-colors"
+                    className="p-6 rounded-xl border border-foreground/8 bg-foreground/3 space-y-4"
                   >
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 md:mb-4">
+                    <h3 className="text-sm font-bold text-foreground">
                       {challenge.title}
                     </h3>
                     <div className="space-y-3">
                       <div>
-                        <span className="text-xs md:text-sm font-semibold text-red-400">
-                          Problem:
+                        <span className="text-xs font-mono text-red-400/60 tracking-widest uppercase">
+                          Problem
                         </span>
-                        <p className="text-muted-foreground mt-1.5 text-sm md:text-base leading-relaxed">
+                        <p className="text-foreground/55 mt-1.5 text-sm leading-relaxed">
                           {challenge.problem}
                         </p>
                       </div>
                       <div>
-                        <span className="text-xs md:text-sm font-semibold text-green-400">
-                          Solution:
+                        <span className="text-xs font-mono text-primary/60 tracking-widest uppercase">
+                          Solution
                         </span>
-                        <p className="text-muted-foreground mt-1.5 text-sm md:text-base leading-relaxed">
+                        <p className="text-foreground/55 mt-1.5 text-sm leading-relaxed">
                           {challenge.solution}
                         </p>
                       </div>
@@ -268,17 +268,20 @@ export default function ProjectDetail() {
           )}
 
           {/* Results */}
-          <section id="results" className="mb-8 md:mb-12">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-              Results & Impact
-            </h2>
-            <ul className="space-y-2.5 md:space-y-3">
+          <section className="mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+                Results
+              </span>
+              <div className="flex-1 h-px bg-foreground/8" />
+            </div>
+            <ul className="space-y-3">
               {project.results.map((result, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 md:gap-3">
-                  <span className="text-primary font-bold text-base md:text-lg flex-shrink-0 mt-0.5">
-                    •
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="text-primary/60 font-mono text-xs mt-1.5 flex-shrink-0">
+                    —
                   </span>
-                  <span className="text-muted-foreground leading-relaxed font-medium text-sm md:text-base">
+                  <span className="text-foreground/60 leading-relaxed text-sm md:text-base">
                     {result}
                   </span>
                 </li>
@@ -286,15 +289,18 @@ export default function ProjectDetail() {
             </ul>
           </section>
 
-          {/* Screenshots Gallery - MOBILE OPTIMIZED */}
-          <section id="screenshots" className="mb-8 md:mb-12">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-              Screenshots
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+          {/* Screenshots */}
+          <section className="mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+                Screenshots
+              </span>
+              <div className="flex-1 h-px bg-foreground/8" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {project.screenshots.map((screenshot, idx) => (
-                <figure key={idx} className="space-y-2 group">
-                  <div className="rounded-xl overflow-hidden border border-border/50 shadow-lg bg-muted/20 group-hover:border-primary/50 transition-colors">
+                <figure key={idx} className="space-y-2">
+                  <div className="rounded-xl overflow-hidden border border-foreground/8">
                     <img
                       src={screenshot.url}
                       alt={screenshot.caption}
@@ -302,7 +308,7 @@ export default function ProjectDetail() {
                       loading="lazy"
                     />
                   </div>
-                  <figcaption className="text-xs md:text-sm text-muted-foreground text-center px-2 leading-tight">
+                  <figcaption className="text-xs text-foreground/30 font-mono px-1">
                     {screenshot.caption}
                   </figcaption>
                 </figure>
@@ -310,13 +316,17 @@ export default function ProjectDetail() {
             </div>
           </section>
 
-          {/* Back to Projects CTA */}
-          <div className="text-center pt-6 md:pt-8 border-t border-border/50">
+          {/* Back */}
+          <div className="pt-8 border-t border-foreground/8">
             <button
               onClick={() => navigate("/projects")}
-              className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-primary text-primary-foreground rounded-xl text-sm md:text-base font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/30 hover:scale-[1.02]"
+              className="group inline-flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors text-sm font-mono"
             >
-              View More Projects
+              <ArrowLeft
+                size={14}
+                className="group-hover:-translate-x-1 transition-transform"
+              />
+              back to all projects
             </button>
           </div>
         </div>

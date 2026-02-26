@@ -1,4 +1,3 @@
-import React from "react";
 import { Linkedin, Instagram, Github } from "lucide-react";
 
 const navLinks = [
@@ -8,7 +7,7 @@ const navLinks = [
 
 const socialLinks = [
   {
-    name: "Linkedin",
+    name: "LinkedIn",
     href: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",
     icon: Linkedin,
   },
@@ -22,39 +21,46 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-card bg-opacity-80 backdrop-blur-md border-t border-border text-muted-foreground mt-36 pt-10 pb-8 transition-opacity duration-300 hover:opacity-100">
-      <div className="container flex flex-col items-center gap-6">
-        <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium">
+    <footer className="border-t border-foreground/8 px-6 md:px-16 py-10">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Left — name + copyright */}
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-black text-foreground tracking-tight">
+            Athalla Arli
+          </span>
+          <span className="w-px h-4 bg-foreground/15" />
+          <span className="text-xs text-foreground/30 font-mono">
+            © {new Date().getFullYear()}
+          </span>
+        </div>
+
+        {/* Center — nav */}
+        <nav className="flex gap-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="transition-colors hover:text-primary"
+              className="text-xs font-mono text-foreground/35 hover:text-primary transition-colors duration-200 tracking-wide"
             >
               {link.name}
             </a>
           ))}
         </nav>
 
-        <div className="flex gap-5">
+        {/* Right — socials */}
+        <div className="flex items-center gap-3">
           {socialLinks.map(({ name, href, icon: Icon }) => (
             <a
               key={name}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-primary"
               aria-label={name}
+              className="text-foreground/30 hover:text-primary transition-colors duration-200"
             >
-              <Icon size={20} />
+              <Icon size={16} />
             </a>
           ))}
-        </div>
-
-        <div className="text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()}{" "}
-          <span className="text-foreground font-medium">Athalla Arli</span>. All
-          rights reserved.
         </div>
       </div>
     </footer>

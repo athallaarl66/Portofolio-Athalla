@@ -1,6 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Linkedin, Github, Mail, Instagram, Send } from "lucide-react";
+import { Linkedin, Github, Mail, Instagram, ArrowUpRight } from "lucide-react";
 
 const contacts = [
   {
@@ -8,16 +6,8 @@ const contacts = [
     url: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",
     icon: Linkedin,
   },
-  {
-    name: "GitHub",
-    url: "https://github.com/athallaarl66",
-    icon: Github,
-  },
-  {
-    name: "Email",
-    url: "mailto:athallarli@gmail.com",
-    icon: Mail,
-  },
+  { name: "GitHub", url: "https://github.com/athallaarl66", icon: Github },
+  { name: "Email", url: "mailto:athallaarli@gmail.com", icon: Mail },
   {
     name: "Instagram",
     url: "https://www.instagram.com/athallaarl/",
@@ -27,78 +17,76 @@ const contacts = [
 
 const ContactContainer = () => {
   return (
-    <section
-      id="contact"
-      className="relative py-20 md:py-28 px-4"
-      aria-label="Contact and Social Media Links"
-    >
-      <div className="container max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative p-8 md:p-12 lg:p-16 rounded-2xl md:rounded-3xl bg-background/80 backdrop-blur-xl border border-border/40 shadow-2xl overflow-hidden"
-        >
-          {/* Background Glow */}
-          <div className="absolute top-0 left-1/2 w-[250px] h-[250px] bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+    <section id="contact" className="relative py-32 px-6 md:px-16">
+      <div className="max-w-7xl mx-auto">
+        {/* Section label */}
+        <div className="flex items-center gap-3 mb-16">
+          <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+            05 — Contact
+          </span>
+          <div className="flex-1 h-px bg-foreground/8" />
+        </div>
 
-          <div className="relative z-10 flex flex-col items-center text-center space-y-6 md:space-y-8">
-            {/* Title */}
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
-              Let's Work Together
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+          {/* Left — heading */}
+          <div className="md:col-span-5 space-y-6">
+            <h2
+              className="font-black leading-none tracking-tight text-foreground"
+              style={{ fontSize: "clamp(2.8rem, 6vw, 5rem)" }}
+            >
+              Got a<br />
+              <span
+                style={{
+                  WebkitTextStroke: "1px rgba(74,222,128,0.3)",
+                  color: "transparent",
+                }}
+              >
+                project
+              </span>
+              <br />
+              in mind?
             </h2>
-
-            {/* Description */}
-            <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              I'm actively looking for frontend or full-stack roles. If you
-              think there's a fit, I'd love to hear from you.
+            <p className="text-foreground/50 text-base font-light leading-relaxed max-w-sm">
+              I'm looking for frontend or full-stack roles. Open to freelance
+              work too — if there's a fit, let's talk.
             </p>
 
-            {/* Email CTA Button */}
-            <motion.a
-              href="mailto:athallarli@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 px-7 md:px-8 py-3 md:py-3.5 bg-primary text-primary-foreground font-bold text-sm md:text-base rounded-full shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
-              aria-label="Send me an email directly"
+            {/* Email CTA */}
+            <a
+              href="mailto:athallaarli@gmail.com"
+              className="group inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             >
-              <Send size={20} className="md:w-5 md:h-5" />
-              <span>Send an Email</span>
-            </motion.a>
-
-            {/* Divider */}
-            <div className="pt-4 md:pt-6 w-full max-w-md">
-              <p className="text-xs md:text-sm font-medium text-muted-foreground/80 mb-6">
-                — Or find me on —
-              </p>
-
-              {/* Social Links */}
-              <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-                {contacts.map(({ name, url, icon: Icon }) => (
-                  <motion.a
-                    key={name}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ y: -3, scale: 1.05 }}
-                    whileTap={{ scale: 0.96 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                    className="p-3 md:p-4 rounded-full bg-muted/50 hover:bg-primary/20 border border-border/50 hover:border-primary/50 transition-all duration-300 shadow-md hover:shadow-lg"
-                    aria-label={`Connect on ${name}`}
-                  >
-                    <Icon
-                      size={22}
-                      className="md:w-6 md:h-6 text-muted-foreground hover:text-primary transition-colors duration-300"
-                    />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+              athallaarli@gmail.com
+              <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
           </div>
-        </motion.div>
+
+          {/* Right — social links */}
+          <div className="md:col-span-7 grid grid-cols-2 gap-3">
+            {contacts.map(({ name, url, icon: Icon }) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-5 rounded-xl border border-foreground/8 bg-foreground/3 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+              >
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg border border-foreground/10 bg-foreground/5 group-hover:border-primary/30 group-hover:bg-primary/10 transition-all duration-300">
+                  <Icon className="w-5 h-5 text-foreground/50 group-hover:text-primary transition-colors duration-300" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                    {name}
+                  </p>
+                  <p className="text-xs text-foreground/30 font-mono mt-0.5">
+                    @athallaarl
+                  </p>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-foreground/20 group-hover:text-primary ml-auto transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
