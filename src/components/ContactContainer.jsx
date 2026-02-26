@@ -3,13 +3,25 @@ import { Linkedin, Github, Mail, Instagram, ArrowUpRight } from "lucide-react";
 const contacts = [
   {
     name: "LinkedIn",
+    handle: "Athalla Arli",
     url: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",
     icon: Linkedin,
   },
-  { name: "GitHub", url: "https://github.com/athallaarl66", icon: Github },
-  { name: "Email", url: "mailto:athallaarli@gmail.com", icon: Mail },
+  {
+    name: "GitHub",
+    handle: "@athallaarl66",
+    url: "https://github.com/athallaarl66",
+    icon: Github,
+  },
+  {
+    name: "Email",
+    handle: "athallaarli@gmail.com",
+    url: "mailto:athallaarli@gmail.com",
+    icon: Mail,
+  },
   {
     name: "Instagram",
+    handle: "@athallaarl",
     url: "https://www.instagram.com/athallaarl/",
     icon: Instagram,
   },
@@ -66,7 +78,7 @@ const ContactContainer = () => {
 
           {/* Right — social links - responsive grid */}
           <div className="md:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-3">
-            {contacts.map(({ name, url, icon: Icon }) => (
+            {contacts.map(({ name, handle, url, icon: Icon }) => (
               <a
                 key={name}
                 href={url}
@@ -82,7 +94,8 @@ const ContactContainer = () => {
                     {name}
                   </p>
                   <p className="text-xs text-foreground/30 font-mono mt-0.5 truncate">
-                    @athallaarl
+                    {handle}{" "}
+                    {/* ganti dari @athallaarl hardcoded jadi dynamic */}
                   </p>
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-foreground/20 group-hover:text-primary ml-auto transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 flex-shrink-0" />
