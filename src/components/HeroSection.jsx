@@ -178,17 +178,6 @@ export const HeroSection = () => {
             </div>
           </div>
         </div>
-
-        {/* Scroll hint - responsive */}
-        <div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 animate-fade-in"
-          style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
-        >
-          <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
-            scroll
-          </span>
-          <div className="w-px h-6 md:h-8 bg-gradient-to-b from-foreground/30 to-transparent animate-pulse" />
-        </div>
       </div>
     </section>
   );
