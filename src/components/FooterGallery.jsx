@@ -24,7 +24,6 @@ const Footer = () => {
   return (
     <footer className="bg-card bg-opacity-80 backdrop-blur-md border-t border-border text-muted-foreground mt-36 pt-10 pb-8 transition-opacity duration-300 hover:opacity-100">
       <div className="container flex flex-col items-center gap-6">
-        {/* 🧭 Navigation */}
         <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
             <a
@@ -37,7 +36,6 @@ const Footer = () => {
           ))}
         </nav>
 
-        {/* 🌐 Social Icons */}
         <div className="flex gap-5">
           {socialLinks.map(({ name, href, icon: Icon }) => (
             <a
@@ -53,7 +51,6 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* 📝 Bottom Text */}
         <div className="text-xs text-muted-foreground">
           &copy; {new Date().getFullYear()}{" "}
           <span className="text-foreground font-medium">Athalla Arli</span>. All

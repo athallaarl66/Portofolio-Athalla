@@ -236,7 +236,7 @@ export const projectsData = {
     category: "Full Stack",
     year: "2026",
     role: "Fullstack Developer",
-    duration: "4 days",
+    duration: "2 months",
 
     // LINKS
     liveUrl: "https://crazwash.vercel.app/",
@@ -273,7 +273,7 @@ export const projectsData = {
     ],
 
     results: [
-      "Built and deployed in 4 days as a working demo",
+      "Built and deployed in 2 months as a working demo",
       "Shows how modern tools can make small business software accessible",
       "Clean enough codebase that I could hand it off or build on it later",
     ],

@@ -40,20 +40,19 @@ const ContactContainer = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="relative p-8 md:p-12 lg:p-16 rounded-2xl md:rounded-3xl bg-background/80 backdrop-blur-xl border border-border/40 shadow-2xl overflow-hidden"
         >
-          {/* Background Glow - Subtle */}
+          {/* Background Glow */}
           <div className="absolute top-0 left-1/2 w-[250px] h-[250px] bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
           <div className="relative z-10 flex flex-col items-center text-center space-y-6 md:space-y-8">
             {/* Title */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
-              Let's Connect! <span className="inline-block">🤝</span>
+              Let's Work Together
             </h2>
 
             {/* Description */}
             <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Have a project in mind, a job opportunity, or just want to say hi?
-              Feel free to reach out—I'm always open to new ideas and
-              collaborations.
+              I'm actively looking for frontend or full-stack roles. If you
+              think there's a fit, I'd love to hear from you.
             </p>
 
             {/* Email CTA Button */}
@@ -73,7 +72,7 @@ const ContactContainer = () => {
             {/* Divider */}
             <div className="pt-4 md:pt-6 w-full max-w-md">
               <p className="text-xs md:text-sm font-medium text-muted-foreground/80 mb-6">
-                — Or connect via social media —
+                — Or find me on —
               </p>
 
               {/* Social Links */}

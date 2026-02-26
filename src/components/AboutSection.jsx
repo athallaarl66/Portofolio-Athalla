@@ -1,5 +1,3 @@
-import { BriefcaseBusiness, Code, User } from "lucide-react";
-
 export const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative bg-background">
@@ -19,21 +17,22 @@ export const AboutSection = () => {
             style={{ animationDelay: "0.3s" }}
           >
             <h3 className="text-xl font-bold text-foreground">
-              Design-Driven Full-Stack Web Developer
+              Full-Stack Developer, Based in Bandung
             </h3>
 
             <p className="text-muted-foreground leading-relaxed">
-              I’m a full-stack developer with a strong foundation in frontend
-              development and UI/UX, focused on building clean, structured, and
-              user-friendly web experiences.
+              I studied Computer Science at Telkom University and graduated in
+              2025 with hands on experience across the full web stack. Frontend
+              is where I'm strongest React, Next.js, Tailwind but I've built and
+              connected backends and databases on my own projects too.
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              I enjoy translating ideas and designs into real products, with
-              close attention to layout, interaction, and performance. With an
-              understanding of backend systems, I’m able to collaborate
-              effectively and build features with a complete technical
-              perspective.
+              During my internship at a law firm in Jakarta, I developed their
+              company website and shipped new features under real deadlines with
+              real stakeholders. I care about the details: how something looks,
+              how it feels to use, and whether it actually solves the problem it
+              was built for.
             </p>
 
             {/* CTA */}

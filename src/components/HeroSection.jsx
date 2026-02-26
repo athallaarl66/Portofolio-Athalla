@@ -1,4 +1,4 @@
-import { ArrowDown, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import profileImg from "/projects/propil.jpg";
 
 export const HeroSection = () => {
@@ -16,7 +16,6 @@ export const HeroSection = () => {
       {/* Profile Image */}
       <div className="flex justify-center md:justify-end w-full md:w-auto relative">
         <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-[2rem] bg-gradient-to-tr from-primary/20 to-green-400/20 blur-2xl -z-10" />
-
         <div className="relative w-48 h-48 md:w-64 md:h-72 rounded-[2rem] overflow-hidden border border-primary/30 shadow-lg shadow-primary/20">
           <img
             src={profileImg}
@@ -30,7 +29,7 @@ export const HeroSection = () => {
       <div className="text-center md:text-left max-w-xl space-y-6 z-10">
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
           <span className="block text-foreground opacity-0 animate-fade-in">
-            Hi, I’m
+            Hi, I'm
           </span>
           <span className="block bg-gradient-to-r from-cyan-400 via-green-400 to-teal-500 bg-clip-text text-transparent opacity-0 animate-fade-in-delay-1">
             Athalla Arli
@@ -38,8 +37,9 @@ export const HeroSection = () => {
         </h1>
 
         <p className="text-foreground/80 text-lg md:text-xl leading-relaxed opacity-0 animate-fade-in-delay-2">
-          I design and build end-to-end web experiences, with a strong
-          foundation in frontend and UI/UX.
+          CS grad from Telkom University who builds web apps from design to
+          deployment. I work mostly in React and Next.js, and I've shipped real
+          products — for a law firm, a small business, and a school.
         </p>
 
         {/* CTA */}
@@ -60,14 +60,6 @@ export const HeroSection = () => {
           </a>
         </div>
       </div>
-
-      {/* Scroll
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-80">
-        <span className="text-sm font-medium text-foreground/60 mb-1">
-          Scroll
-        </span>
-        <ArrowDown className="h-5 w-5 text-primary" />
-      </div> */}
     </section>
   );
 };
