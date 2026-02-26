@@ -39,24 +39,28 @@ const categories = [
 
 export const SkillSection = () => {
   return (
-    <section id="skills" className="py-32 px-6 md:px-16 relative bg-background">
+    <section
+      id="skills"
+      className="py-20 md:py-32 px-4 md:px-16 relative bg-background"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section label */}
-        <div className="flex items-center gap-3 mb-16">
+        <div className="flex items-center gap-3 mb-10 md:mb-16">
           <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
             03 — Stack
           </span>
           <div className="flex-1 h-px bg-foreground/8" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
           {/* Left — heading */}
-          <div className="md:col-span-4 space-y-4">
+          <div className="md:col-span-5 space-y-4">
             <h2
               className="font-black leading-none tracking-tight text-foreground"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+              style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
             >
-              What I<br />
+              What I
+              <br />
               <span
                 style={{
                   WebkitTextStroke: "1px rgba(74,222,128,0.3)",
@@ -75,7 +79,7 @@ export const SkillSection = () => {
           </div>
 
           {/* Right — skill groups */}
-          <div className="md:col-span-8 space-y-12">
+          <div className="md:col-span-7 space-y-8 md:space-y-12">
             {categories.map(({ key, label, icon: Icon, note }) => (
               <div key={key} className="space-y-4">
                 {/* Category header */}
@@ -93,21 +97,21 @@ export const SkillSection = () => {
                   </div>
                 </div>
 
-                {/* Pills */}
+                {/* Pills - responsive grid */}
                 <div className="flex flex-wrap gap-2">
                   {skills
                     .filter((s) => s.category === key)
                     .map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center gap-2 px-4 py-2 rounded-full border border-foreground/10 bg-foreground/5 hover:border-foreground/25 hover:bg-foreground/10 transition-all duration-200 cursor-default"
+                        className="flex items-center gap-2 px-3.5 py-2 md:px-4 md:py-2 rounded-full border border-foreground/10 bg-foreground/5 hover:border-foreground/25 hover:bg-foreground/10 transition-all duration-200 cursor-default"
                       >
                         <img
                           src={skill.icon}
                           alt={skill.name}
                           className="w-4 h-4 object-contain"
                         />
-                        <span className="text-sm text-foreground/70 font-medium">
+                        <span className="text-xs md:text-sm text-foreground/70 font-medium">
                           {skill.name}
                         </span>
                       </div>

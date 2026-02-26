@@ -78,7 +78,7 @@ export const projectsData = {
       "Contributed to regional language preservation through practical technology",
     ],
   },
-
+  // RK Law Firm
   "law-firm-website": {
     title: "RK Law Firm - Corporate Website",
     tagline:
@@ -125,7 +125,7 @@ export const projectsData = {
       "During my internship at Firma Hukum Rantai Khatulistiwa in Jakarta, I developed and customized the company's profile website and implemented additional online legal service features. The work covered both frontend and backend — designing UI components in Figma, building them in React, and integrating them into the existing Laravel stack. Feature adjustments were done collaboratively with the team based on ongoing requirements from the firm.",
 
     techStack: {
-      frontend: ["React", "Tailwind CSS"],
+      frontend: ["HTML", "CSS"],
       backend: ["Laravel", "PHP"],
       database: ["MySQL"],
       design: ["Figma"],

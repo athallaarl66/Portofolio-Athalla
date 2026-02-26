@@ -16,7 +16,7 @@ const projects = [
     description:
       "Built and customized the company profile site for Rantai Khatulistiwa during internship in Jakarta. Added online legal service features and integrated frontend components into the existing Laravel stack.",
     image: "/projects2/homerk.jpg",
-    tags: ["React", "Laravel", "Figma", "UI/UX"],
+    tags: ["HTML/CSS", "Laravel", "Figma", "UI/UX"],
     year: "2024",
   },
   {
@@ -39,26 +39,26 @@ export const ProjectSection = () => {
   const project = projects[index];
 
   return (
-    <section id="projects" className="relative py-32 px-6 md:px-16">
+    <section id="projects" className="relative py-20 md:py-32 px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         {/* Section label */}
-        <div className="flex items-center gap-3 mb-16">
+        <div className="flex items-center gap-3 mb-10 md:mb-16">
           <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
             04 — Projects
           </span>
           <div className="flex-1 h-px bg-foreground/8" />
         </div>
 
-        {/* Card */}
+        {/* Card - responsive grid */}
         <div
-          className="grid grid-cols-1 md:grid-cols-2 rounded-2xl overflow-hidden border border-foreground/8"
+          className="grid grid-cols-1 md:grid-cols-2 rounded-xl md:rounded-2xl overflow-hidden border border-foreground/8"
           style={{
             boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.04), 0 32px 64px rgba(0,0,0,0.4)",
+              "0 0 0 1px rgba(255,255,255,0.04), 0 16px 32px rgba(0,0,0,0.3) md:0 32px 64px rgba(0,0,0,0.4)",
           }}
         >
-          {/* Image */}
-          <div className="relative aspect-[4/3] md:aspect-auto bg-foreground/5 overflow-hidden">
+          {/* Image - responsive aspect */}
+          <div className="relative aspect-[4/3] md:aspect-auto h-48 md:h-full min-h-[250px] bg-foreground/5 overflow-hidden">
             <img
               key={project.image}
               src={project.image}
@@ -66,35 +66,36 @@ export const ProjectSection = () => {
               className="absolute inset-0 w-full h-full object-contain transition-opacity duration-500"
             />
             {/* Year badge */}
-            <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-sm border border-foreground/10 rounded-full px-3 py-1">
+            <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-background/80 backdrop-blur-sm border border-foreground/10 rounded-full px-2.5 py-1 md:px-3 md:py-1">
               <span className="text-xs font-mono text-foreground/50">
                 {project.year}
               </span>
             </div>
           </div>
 
-          {/* Text */}
-          <div className="flex flex-col justify-between p-8 md:p-10 bg-background/60 backdrop-blur-sm">
+          {/* Text - responsive padding */}
+          <div className="flex flex-col justify-between p-6 md:p-10 bg-background/60 backdrop-blur-sm">
             {/* Top */}
-            <div className="space-y-5">
+            <div className="space-y-4 md:space-y-5">
               <span className="text-xs font-mono text-foreground/30 tracking-widest">
                 {String(index + 1).padStart(2, "0")} /{" "}
                 {String(projects.length).padStart(2, "0")}
               </span>
 
-              <h3 className="text-xl md:text-2xl font-black text-foreground leading-tight tracking-tight">
+              <h3 className="text-lg md:text-2xl font-black text-foreground leading-tight tracking-tight">
                 {project.title}
               </h3>
 
-              <p className="text-foreground/55 text-sm md:text-base leading-relaxed font-light">
+              <p className="text-foreground/55 text-sm leading-relaxed font-light line-clamp-3 md:line-clamp-none">
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2">
+              {/* Tags - responsive */}
+              <div className="flex flex-wrap gap-1.5 md:gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-xs font-mono rounded-full border border-primary/20 bg-primary/5 text-primary/70"
+                    className="px-2.5 py-1 md:px-3 md:py-1 text-xs font-mono rounded-full border border-primary/20 bg-primary/5 text-primary/70"
                   >
                     {tag}
                   </span>
@@ -103,16 +104,16 @@ export const ProjectSection = () => {
             </div>
 
             {/* Bottom — actions */}
-            <div className="flex items-center justify-between pt-8 mt-8 border-t border-foreground/8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 mt-6 md:pt-8 md:mt-8 border-t border-foreground/8">
               <button
                 onClick={() => navigate("/projects")}
-                className="group inline-flex items-center gap-2 bg-foreground text-background px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                className="group inline-flex items-center gap-2 bg-foreground text-background px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               >
                 View Project
-                <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="h-3.5 w-3.5 md:h-4 md:w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
                 {/* Dots */}
                 <div className="flex gap-1.5">
                   {projects.map((_, i) => (
