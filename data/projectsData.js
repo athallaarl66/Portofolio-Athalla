@@ -109,7 +109,7 @@ export const projectsData = {
       },
     ],
 
-    tags: ["React", "Laravel", "UI/UX Design", "Figma"],
+    tags: ["HTML/CSS", "Laravel", "UI/UX Design", "Figma"],
     category: "Full Stack (UI/UX and Frontend Focused)",
     year: "2024",
     role: "Full Stack Developer (Intern)",
