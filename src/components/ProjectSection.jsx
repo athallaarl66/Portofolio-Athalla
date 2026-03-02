@@ -20,9 +20,9 @@ const projects = [
     year: "2024",
   },
   {
-    title: "Crazwash — POS Web App for UMKM",
+    title: "Crazwash — Service Management & POS Web App",
     description:
-      "Full-stack POS app for a laundry UMKM. Public multi-step ordering flow, manual payment via WhatsApp, admin dashboard for managing services and orders, CSV export, and NextAuth authentication.",
+      "Full-stack web application built for a laundry UMKM to manage service orders, customers, and transactions. Includes public online ordering and an internal admin dashboard.",
     image: "/projects3/Dashboard.png",
     tags: ["Next.js", "Prisma", "PostgreSQL", "TypeScript"],
     year: "2026",
