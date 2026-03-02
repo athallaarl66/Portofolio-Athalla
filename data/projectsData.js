@@ -165,16 +165,17 @@ export const projectsData = {
       "Gained hands-on experience integrating React frontend with Laravel backend",
     ],
   },
-
   "Crazwash-umkm-dashboard": {
-    title: "Crazwash - POS Web App for UMKM",
+    title: "Crazwash – Service Management & POS Web App",
     tagline:
-      "Full-stack POS system with online ordering, admin dashboard, and operational reporting",
+      "Full-stack web app for managing service orders, customers, and transactions",
+
     shortDesc:
-      "A full-stack POS web app for a laundry UMKM — covers public multi-step ordering, admin management, manual payment flow via WhatsApp, and CSV export for reporting.",
+      "A full-stack web application built for a laundry UMKM. Includes public multi-step ordering, admin dashboard, manual payment confirmation via WhatsApp, and CSV export for reporting.",
 
     hero: "/projects3/Dashboard.png",
     thumbnail: "/projects3/Dashboard.png",
+
     screenshots: [
       {
         url: "/projects3/adminDashboard.png",
@@ -182,31 +183,31 @@ export const projectsData = {
       },
       {
         url: "/projects3/Dashboard.png",
-        caption: "Dashboard page for customers side that have some services",
+        caption: "Customer dashboard showing available services",
       },
       {
         url: "/projects3/admin-inventory.png",
-        caption: "Inventory management — products and stock tracking",
+        caption: "Inventory management for products and stock",
       },
       {
         url: "/projects3/admin-orders.png",
-        caption: "Order management — tracking status and customer purchases",
+        caption: "Order management with status tracking",
       },
       {
         url: "/projects3/admin-customers.png",
-        caption: "Customer records for managing repeat buyers",
+        caption: "Customer data management",
       },
       {
         url: "/projects3/layanan.png",
-        caption: "Service catalog browsed by customers when ordering",
+        caption: "Service catalog displayed to customers",
       },
       {
         url: "/projects3/app-order1.png",
-        caption: "Public ordering flow — step 1: pick a service category",
+        caption: "Ordering flow – step 1: select service category",
       },
       {
         url: "/projects3/app-order2.png",
-        caption: "Step 2: choose specific treatments or products",
+        caption: "Step 2: choose specific treatments",
       },
       {
         url: "/projects3/app-order3.png",
@@ -214,12 +215,12 @@ export const projectsData = {
       },
       {
         url: "/projects3/app-order4.png",
-        caption: "Step 4: review order before submitting",
+        caption: "Step 4: review order before submission",
       },
       {
         url: "/projects3/SuccesOrder.png",
         caption:
-          "Order confirmed — customer notified to confirm payment via WhatsApp",
+          "Order confirmation screen with payment instructions and WhatsApp link",
       },
     ],
 
@@ -233,7 +234,7 @@ export const projectsData = {
     githubUrl: "https://github.com/athallaarl66/Crazwash.git",
 
     overview:
-      "Crazwash is a full-stack POS web app built for a laundry UMKM to handle their service operations end-to-end. Customers can place orders through a public multi-step ordering flow, then confirm payment (bank transfer or e-wallet) via WhatsApp to the admin. On the admin side, there's a dashboard for managing services, tracking orders, handling customer data, and exporting reports as CSV. Auth is handled with NextAuth, the database schema is managed with Prisma and PostgreSQL on Neon, and the whole thing runs on Next.js App Router with SSR and TypeScript.",
+      "Crazwash is a full-stack web application built for a laundry UMKM to manage daily service operations. Customers can browse available services and place orders through a public multi-step flow. Since the business doesn’t use a payment gateway, payments are confirmed manually via WhatsApp. On the admin side, there’s a dashboard to manage services, track orders, update payment status, and export reports as CSV. The application is built with Next.js App Router using SSR, Prisma ORM, PostgreSQL (Neon), and NextAuth for authentication.",
 
     techStack: {
       frontend: ["Next.js (App Router)", "React", "Tailwind CSS", "shadcn/ui"],
@@ -244,37 +245,37 @@ export const projectsData = {
     },
 
     keyFeatures: [
-      "Public multi-step ordering flow for customers to submit service requests online",
-      "Manual payment confirmation workflow via WhatsApp (bank transfer / e-wallet)",
+      "Public multi-step ordering flow for customers",
+      "Manual payment confirmation via WhatsApp (bank transfer / e-wallet)",
       "Admin dashboard for managing services, orders, and customers",
       "Authentication system using NextAuth",
-      "CSV export for operational reporting and data management",
-      "SSR-optimized responsive UI with Next.js App Router and TypeScript",
-      "Database schema designed with Prisma and hosted on Neon PostgreSQL",
+      "CSV export for reporting",
+      "Responsive UI with SSR using Next.js App Router",
+      "Database schema designed with Prisma and PostgreSQL (Neon)",
     ],
 
     challenges: [
       {
         title: "Designing the Manual Payment Flow",
         problem:
-          "The business didn't use a payment gateway — customers confirm payments manually via WhatsApp. Needed to design a flow that felt smooth for customers while still giving the admin clear visibility on payment status.",
+          "The business does not use a payment gateway, so payments must be confirmed manually via WhatsApp. The flow needed to remain simple for customers while giving clear visibility to the admin.",
         solution:
-          "Built a status-based order system where customers get a confirmation screen with payment instructions and a WhatsApp link to notify the admin. Admin can then manually update payment and order status from the dashboard. Simple, but it fits how the business actually operates.",
+          "Implemented a status-based order system where customers receive payment instructions and a direct WhatsApp link after submitting an order. The admin can then update payment and order status directly from the dashboard.",
       },
       {
-        title: "Auth and Role Management",
+        title: "Separating Public and Admin Access",
         problem:
-          "Needed to separate the public ordering flow from the protected admin area without overcomplicating the setup.",
+          "The application required a public ordering system and a protected admin dashboard without adding unnecessary complexity.",
         solution:
-          "Used NextAuth for session-based auth with role checks on API routes and server components. Kept it straightforward — public routes for ordering, protected routes for everything admin-side.",
+          "Used NextAuth for session-based authentication and implemented role-based checks on API routes and server components to separate public and admin access cleanly.",
       },
     ],
 
     results: [
-      "Delivered a working full-stack POS app in 2 months",
-      "Covers the full operation cycle: ordering, payment confirmation, admin management, and reporting",
-      "Deployed on Vercel with live URL accessible to real users",
-      "Clean, typed codebase with TypeScript that's maintainable and extendable",
+      "Completed and deployed within 2 months",
+      "Covers the full operational flow from order creation to reporting",
+      "Live deployment on Vercel",
+      "Structured and maintainable TypeScript codebase",
     ],
   },
 };
