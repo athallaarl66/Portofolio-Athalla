@@ -6,7 +6,7 @@ const projects = [
   {
     title: "DiajarAksara — Sundanese Script Learning Platform",
     description:
-      "Undergraduate thesis built using the User-Centered Design method. Researched learning challenges at SMAN 24 Bandung, designed prototypes, and shipped the final web app — script reference, writing practice, and quiz.",
+      "Thesis project built around actual user research — interviewed students at SMAN 24 Bandung, ran design iterations through UCD, then shipped the full app. Script reference, writing practice, and quiz all in one.",
     image: "/projects1/HOMEPAGE.png",
     tags: ["Next.js", "CSS Modules", "UI/UX", "UCD"],
     year: "2025",
@@ -14,7 +14,7 @@ const projects = [
   {
     title: "RK Law Firm — Corporate Website",
     description:
-      "Built and customized the company profile site for Rantai Khatulistiwa during internship in Jakarta. Added online legal service features and integrated frontend components into the existing Laravel stack.",
+      "Internship project at a Jakarta law firm. Built the company profile site from scratch and added online legal service features on top of the existing Laravel stack — design to deployment.",
     image: "/projects2/homerk.jpg",
     tags: ["HTML/CSS", "Laravel", "Figma", "UI/UX"],
     year: "2024",
@@ -22,10 +22,18 @@ const projects = [
   {
     title: "Crazwash — Service Management & POS Web App",
     description:
-      "Full-stack web application built for a laundry UMKM to manage service orders, customers, and transactions. Includes public online ordering and an internal admin dashboard.",
+      "Full-stack app for a laundry business to handle orders, customers, and payments day-to-day. Public ordering flow for customers, admin dashboard for the owner, and WhatsApp-based payment confirmation since no gateway was used.",
     image: "/projects3/Dashboard.png",
     tags: ["Next.js", "Prisma", "PostgreSQL", "TypeScript"],
     year: "2026",
+  },
+  {
+    title: "AuditTracks — Personal Finance Tracker",
+    description:
+      "Personal project to track income and expenses across multiple accounts. Spring Boot handles the backend with JWT auth, Next.js on the frontend with React Query and Recharts. Budget tracking, recurring transactions, and CSV export included.",
+    image: "/Projects5/Dashboard.png",
+    tags: ["Next.js", "Spring Boot", "PostgreSQL", "Java"],
+    year: "2025",
   },
 ];
 
@@ -49,15 +57,15 @@ export const ProjectSection = () => {
           <div className="flex-1 h-px bg-foreground/8" />
         </div>
 
-        {/* Card - responsive grid */}
+        {/* Card */}
         <div
           className="grid grid-cols-1 md:grid-cols-2 rounded-xl md:rounded-2xl overflow-hidden border border-foreground/8"
           style={{
             boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.04), 0 16px 32px rgba(0,0,0,0.3) md:0 32px 64px rgba(0,0,0,0.4)",
+              "0 0 0 1px rgba(255,255,255,0.04), 0 16px 32px rgba(0,0,0,0.3)",
           }}
         >
-          {/* Image - responsive aspect */}
+          {/* Image */}
           <div className="relative aspect-[4/3] md:aspect-auto h-48 md:h-full min-h-[250px] bg-foreground/5 overflow-hidden">
             <img
               key={project.image}
@@ -65,7 +73,6 @@ export const ProjectSection = () => {
               alt={project.title}
               className="absolute inset-0 w-full h-full object-contain transition-opacity duration-500"
             />
-            {/* Year badge */}
             <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-background/80 backdrop-blur-sm border border-foreground/10 rounded-full px-2.5 py-1 md:px-3 md:py-1">
               <span className="text-xs font-mono text-foreground/50">
                 {project.year}
@@ -73,9 +80,8 @@ export const ProjectSection = () => {
             </div>
           </div>
 
-          {/* Text - responsive padding */}
+          {/* Text */}
           <div className="flex flex-col justify-between p-6 md:p-10 bg-background/60 backdrop-blur-sm">
-            {/* Top */}
             <div className="space-y-4 md:space-y-5">
               <span className="text-xs font-mono text-foreground/30 tracking-widest">
                 {String(index + 1).padStart(2, "0")} /{" "}
@@ -90,7 +96,6 @@ export const ProjectSection = () => {
                 {project.description}
               </p>
 
-              {/* Tags - responsive */}
               <div className="flex flex-wrap gap-1.5 md:gap-2">
                 {project.tags.map((tag) => (
                   <span
@@ -103,7 +108,7 @@ export const ProjectSection = () => {
               </div>
             </div>
 
-            {/* Bottom — actions */}
+            {/* Bottom actions */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 mt-6 md:pt-8 md:mt-8 border-t border-foreground/8">
               <button
                 onClick={() => navigate("/projects")}

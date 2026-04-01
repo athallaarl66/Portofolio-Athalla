@@ -1,11 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  ArrowLeft,
-  ExternalLink,
-  Github,
-  Figma,
-  ArrowUpRight,
-} from "lucide-react";
+import { ArrowLeft, Github, Figma, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/FooterGallery";
 import { getProject } from "../../../data/projectsData";
@@ -36,7 +30,6 @@ export default function ProjectDetail() {
 
   return (
     <article className="relative min-h-screen bg-background text-foreground">
-      {/* Subtle glow — konsisten sama homepage, bukan aurora */}
       <div
         className="fixed -top-60 -left-60 w-[700px] h-[700px] rounded-full pointer-events-none -z-10"
         style={{
@@ -49,7 +42,6 @@ export default function ProjectDetail() {
 
       <main className="pt-28 md:pt-32 pb-16 px-6 md:px-16">
         <div className="max-w-5xl mx-auto">
-          {/* Back */}
           <button
             onClick={() => navigate("/projects")}
             className="group flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors mb-10 text-sm font-mono"
@@ -61,7 +53,6 @@ export default function ProjectDetail() {
             back to projects
           </button>
 
-          {/* Hero Image */}
           <div
             className="relative rounded-2xl overflow-hidden mb-12 border border-foreground/8"
             style={{ boxShadow: "0 32px 64px rgba(0,0,0,0.4)" }}
@@ -73,9 +64,7 @@ export default function ProjectDetail() {
             />
           </div>
 
-          {/* Header */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-            {/* Left — title + buttons */}
             <div className="md:col-span-7 space-y-6">
               <div className="space-y-2">
                 <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
@@ -123,13 +112,23 @@ export default function ProjectDetail() {
                     className="inline-flex items-center gap-2 border border-foreground/15 text-foreground/60 px-5 py-2.5 rounded-full text-sm font-semibold hover:border-foreground/40 hover:text-foreground transition-all duration-300"
                   >
                     <Github size={14} />
-                    Source
+                    {project.githubUrlBe ? "Source (FE)" : "Source"}
+                  </a>
+                )}
+                {project.githubUrlBe && (
+                  <a
+                    href={project.githubUrlBe}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-foreground/15 text-foreground/60 px-5 py-2.5 rounded-full text-sm font-semibold hover:border-foreground/40 hover:text-foreground transition-all duration-300"
+                  >
+                    <Github size={14} />
+                    Source (BE)
                   </a>
                 )}
               </div>
             </div>
 
-            {/* Right — meta */}
             <div className="md:col-span-5 space-y-0">
               {[
                 { label: "Role", value: project.role },
@@ -151,30 +150,18 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* Sections */}
-          {[
-            {
-              id: "overview",
-              label: "Overview",
-              content: (
-                <p className="text-foreground/60 leading-relaxed text-base md:text-lg font-light max-w-3xl">
-                  {project.overview}
-                </p>
-              ),
-            },
-          ].map(({ id, label, content }) => (
-            <section key={id} className="mb-16">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
-                  {label}
-                </span>
-                <div className="flex-1 h-px bg-foreground/8" />
-              </div>
-              {content}
-            </section>
-          ))}
+          <section className="mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+                Overview
+              </span>
+              <div className="flex-1 h-px bg-foreground/8" />
+            </div>
+            <p className="text-foreground/60 leading-relaxed text-base md:text-lg font-light max-w-3xl">
+              {project.overview}
+            </p>
+          </section>
 
-          {/* Tech Stack */}
           <section className="mb-16">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
@@ -203,7 +190,6 @@ export default function ProjectDetail() {
             </div>
           </section>
 
-          {/* Features */}
           <section className="mb-16">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
@@ -225,7 +211,6 @@ export default function ProjectDetail() {
             </ul>
           </section>
 
-          {/* Challenges */}
           {project.challenges?.length > 0 && (
             <section className="mb-16">
               <div className="flex items-center gap-3 mb-6">
@@ -267,7 +252,6 @@ export default function ProjectDetail() {
             </section>
           )}
 
-          {/* Results */}
           <section className="mb-16">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
@@ -289,7 +273,6 @@ export default function ProjectDetail() {
             </ul>
           </section>
 
-          {/* Screenshots */}
           <section className="mb-16">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
@@ -316,7 +299,6 @@ export default function ProjectDetail() {
             </div>
           </section>
 
-          {/* Back */}
           <div className="pt-8 border-t border-foreground/8">
             <button
               onClick={() => navigate("/projects")}

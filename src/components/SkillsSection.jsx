@@ -10,6 +10,8 @@ const skills = [
   { name: "Tailwind CSS", category: "frontend", icon: "/icons/tailwind.png" },
   { name: "Node.js", category: "backend", icon: "/icons/node.png" },
   { name: "Laravel", category: "backend", icon: "/icons/laravel.png" },
+  { name: "Spring Boot", category: "backend", icon: "/icons/springboot.png" },
+  { name: "Java", category: "backend", icon: "/icons/java.png" },
   { name: "Next.js API Routes", category: "backend", icon: "/icons/next.png" },
   { name: "PostgreSQL", category: "database", icon: "/icons/postgree.png" },
   { name: "Prisma ORM", category: "database", icon: "/icons/prisma.png" },
@@ -82,7 +84,6 @@ export const SkillSection = () => {
           <div className="md:col-span-7 space-y-8 md:space-y-12">
             {categories.map(({ key, label, icon: Icon, note }) => (
               <div key={key} className="space-y-4">
-                {/* Category header */}
                 <div className="flex items-center gap-3">
                   <div className="flex items-center justify-center w-7 h-7 rounded-md border border-foreground/10 bg-foreground/5">
                     <Icon className="w-3.5 h-3.5 text-foreground/50" />
@@ -97,7 +98,6 @@ export const SkillSection = () => {
                   </div>
                 </div>
 
-                {/* Pills - responsive grid */}
                 <div className="flex flex-wrap gap-2">
                   {skills
                     .filter((s) => s.category === key)

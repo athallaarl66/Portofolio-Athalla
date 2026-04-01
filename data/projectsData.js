@@ -4,26 +4,17 @@ export const projectsData = {
   "sundanese-learning": {
     title: "DiajarAksara - Sundanese Script Learning Platform",
     tagline:
-      "Undergraduate thesis project: Web-based learning app for Sundanese script using User-Centered Design method",
+      "Thesis project — building a web app to make Sundanese script actually learnable",
     shortDesc:
-      "A frontend and UI/UX project developed as part of my thesis at Telkom University, focused on making Sundanese script accessible through research-driven design and modern web tech.",
+      "Built for my undergraduate thesis at Telkom University. The goal was simple: make Sundanese script less intimidating for high school students through research-driven design and a clean web interface.",
 
     hero: "/projects1/HOMEPAGE.png",
     thumbnail: "/projects1/HOMEPAGE.png",
     screenshots: [
-      {
-        url: "/projects1/HOMEPAGE.png",
-        caption: "Homepage with course overview",
-      },
-      { url: "/projects1/BACA.png", caption: "Reading lesson interface" },
-      {
-        url: "/projects1/BacaAksara.png",
-        caption: "Character recognition module",
-      },
-      {
-        url: "/projects1/Nulisaksaara.png",
-        caption: "Writing practice feature",
-      },
+      { url: "/projects1/HOMEPAGE.png", caption: "Homepage" },
+      { url: "/projects1/BACA.png", caption: "Reading module" },
+      { url: "/projects1/BacaAksara.png", caption: "Character reference" },
+      { url: "/projects1/Nulisaksaara.png", caption: "Writing practice" },
     ],
 
     tags: ["Next.js", "CSS Modules", "UI/UX Design", "UCD Method"],
@@ -36,7 +27,7 @@ export const projectsData = {
     githubUrl: "https://github.com/athallaarl66/DiajarAksara",
 
     overview:
-      "DiajarAksara is my undergraduate thesis project at Telkom University, built using the User-Centered Design (UCD) method. The research started by identifying real learning challenges faced by high school students at SMAN 24 Bandung when studying Sundanese script. From there, I designed user-centered UI prototypes, validated them with actual users, and developed the final web app based on those findings. The platform covers interactive script references, writing guidance, and a simple responsive interface aimed at beginner learners.",
+      "This started as a thesis at Telkom University and ended up being one of the most grounded projects I've worked on. I went to SMAN 24 Bandung, interviewed students, figured out where they were actually struggling with Sundanese script, then designed the app around those findings. The UCD process meant multiple rounds of prototyping and testing before a single line of code was written — which made the final result a lot more focused. The app covers character references, writing practice with a digital whiteboard, and a quiz system.",
 
     techStack: {
       frontend: ["Next.js", "React", "CSS Modules"],
@@ -46,58 +37,38 @@ export const projectsData = {
     },
 
     keyFeatures: [
-      "Interactive Aksara Sunda character reference with step-by-step visual guides",
-      "Digital whiteboard for practicing Sundanese script writing",
-      "Quiz system for knowledge assessment",
-      "Responsive layout optimized for mobile and tablet",
-      "Research-backed UI designed through UCD methodology",
-      "Clean CSS Modules architecture for maintainable, modular styling",
-    ],
-
-    challenges: [
-      {
-        title: "Getting Real User Requirements from Schools",
-        problem:
-          "Gathering requirements from SMAN 24 Bandung was harder than expected — strict permission processes, scheduling conflicts, and multiple coordination rounds with school staff slowed things down.",
-        solution:
-          "Set up clear communication channels with school representatives early on, and switched to remote interviews when on-site visits weren't possible. This kept the process moving without losing the quality of insights needed to design the right solution.",
-      },
-      {
-        title: "Rendering Sundanese Script Consistently",
-        problem:
-          "Sundanese characters have unique combinations and diacritical marks that behaved differently across screen sizes and devices.",
-        solution:
-          "Built a custom component structure with CSS Modules so each character rendered with precise spacing and alignment. Tested across multiple devices to make sure the visual consistency held up everywhere.",
-      },
+      "Aksara Sunda character reference with step-by-step visual breakdowns",
+      "Digital whiteboard for freehand writing practice",
+      "Quiz module for testing what you've learned",
+      "Mobile and tablet friendly layout",
+      "UI built directly from user research findings",
+      "CSS Modules for clean, scoped styling across components",
     ],
 
     results: [
-      "Completed and passed as undergraduate thesis at Telkom University",
-      "Deployed live and accessible to students and educators",
-      "Validated through real user testing with high school students",
-      "Contributed to regional language preservation through practical technology",
+      "Passed and accepted as undergraduate thesis at Telkom University",
+      "Deployed and live — accessible to students and teachers",
+      "Tested with actual high school students during the research phase",
+      "Small contribution to keeping Sundanese script relevant through tech",
     ],
   },
-  // RK Law Firm
+
   "law-firm-website": {
     title: "RK Law Firm - Corporate Website",
     tagline:
-      "Internship project: Corporate website with online legal service features for a Jakarta-based law firm",
+      "Internship project — company profile site for a Jakarta law firm, built from the ground up",
     shortDesc:
-      "Built and customized the company profile website for RK Law Firm during internship, with added online legal service features and frontend components integrated into the full stack.",
+      "Worked on this during a 3-month internship at Firma Hukum Rantai Khatulistiwa. Built the profile site and added online legal service features on top of an existing Laravel stack.",
 
     hero: "/projects2/homerk.jpg",
     thumbnail: "/projects2/homerk.jpg",
     screenshots: [
-      { url: "/projects2/homerk.jpg", caption: "Homepage overview" },
-      { url: "/projects2/fix.jpg", caption: "Service showcase section" },
-      {
-        url: "/projects2/kontak.jpg",
-        caption: "Contact and consultation page",
-      },
+      { url: "/projects2/homerk.jpg", caption: "Homepage" },
+      { url: "/projects2/fix.jpg", caption: "Services section" },
+      { url: "/projects2/kontak.jpg", caption: "Contact page" },
       {
         url: "/projects2/Kumpulan Profile Konsultasi hukum.jpg",
-        caption: "Lawyer profiles directory",
+        caption: "Lawyer directory",
       },
       {
         url: "/projects2/Profile Konsultasi hukum (OK).jpg",
@@ -105,7 +76,7 @@ export const projectsData = {
       },
       {
         url: "/projects2/Sub Bidang hukum 14.jpg",
-        caption: "Legal service areas overview",
+        caption: "Legal practice areas",
       },
     ],
 
@@ -122,7 +93,7 @@ export const projectsData = {
       "https://www.figma.com/design/d57Pa0fm8GGVUv6ap3mxR7/RK?node-id=0-1&t=fXlDR6UorHchwpbe-1",
 
     overview:
-      "During my internship at Firma Hukum Rantai Khatulistiwa in Jakarta, I developed and customized the company's profile website and implemented additional online legal service features. The work covered both frontend and backend — designing UI components in Figma, building them in React, and integrating them into the existing Laravel stack. Feature adjustments were done collaboratively with the team based on ongoing requirements from the firm.",
+      "My internship at a Jakarta law firm. The job was to build out their company profile site and add some online service features — things like a lawyer directory, service pages, and a consultation booking form. Design was done in Figma first, then built out in HTML/CSS and wired into the existing Laravel backend. Most of the work involved a lot of back-and-forth with stakeholders to get the look and feel right for a legal brand — professional but not stiff.",
 
     techStack: {
       frontend: ["HTML", "CSS"],
@@ -133,94 +104,61 @@ export const projectsData = {
     },
 
     keyFeatures: [
-      "Company profile website with professional legal services showcase",
-      "Lawyer profile directory with expertise and credentials",
-      "Online legal service features added on top of existing platform",
-      "Consultation booking interface with form validation",
-      "Frontend components designed in Figma and implemented in React",
-      "Responsive layout for professional client engagement",
-    ],
-
-    challenges: [
-      {
-        title: "Aligning Design with Stakeholder Expectations",
-        problem:
-          "Design iterations went through multiple rounds of revisions due to differing preferences between internship supervisors and company stakeholders, which risked delaying the project.",
-        solution:
-          "Set up structured review sessions and documented each design decision with clear reasoning around user experience and business value. That transparency helped get approvals faster and kept everyone aligned without endless back-and-forth.",
-      },
-      {
-        title: "Building a Professional Visual Identity",
-        problem:
-          "The design needed to feel trustworthy and professional for a law firm while still being modern enough to stand out from typical corporate sites.",
-        solution:
-          "Researched legal industry design patterns, prototyped multiple directions in Figma, and collected feedback before committing to implementation. The final design hit the right balance between authority and approachability.",
-      },
+      "Full company profile with services, team, and contact pages",
+      "Lawyer directory with individual profile pages",
+      "Consultation booking form with basic validation",
+      "Design prototyped in Figma before implementation",
+      "Integrated into existing Laravel backend",
+      "Responsive across desktop and mobile",
     ],
 
     results: [
-      "Delivered a working corporate website within the internship period",
-      "Added functional online legal service features to the platform",
-      "Strengthened skills in stakeholder communication and design iteration",
-      "Gained hands-on experience integrating React frontend with Laravel backend",
+      "Delivered within the 3-month internship window",
+      "Online service features working end-to-end",
+      "Got comfortable working with real stakeholders and iterating on feedback",
+      "First time integrating a frontend into someone else's existing backend",
     ],
   },
+
   "Crazwash-umkm-dashboard": {
     title: "Crazwash – Service Management & POS Web App",
     tagline:
-      "Full-stack web app for managing service orders, customers, and transactions",
-
+      "Full-stack app for a laundry business — ordering, payments, and admin in one place",
     shortDesc:
-      "A full-stack web application built for a laundry UMKM. Includes public multi-step ordering, admin dashboard, manual payment confirmation via WhatsApp, and CSV export for reporting.",
+      "Built for a laundry UMKM that needed a way to manage orders and customers without a complicated POS system. Customers order online, payments get confirmed via WhatsApp, and the owner handles everything from a dashboard.",
 
     hero: "/projects3/Dashboard.png",
     thumbnail: "/projects3/Dashboard.png",
 
     screenshots: [
-      {
-        url: "/projects3/adminDashboard.png",
-        caption: "Admin dashboard overview",
-      },
+      { url: "/projects3/adminDashboard.png", caption: "Admin dashboard" },
       {
         url: "/projects3/Dashboard.png",
-        caption: "Customer dashboard showing available services",
+        caption: "Customer-facing service page",
       },
       {
         url: "/projects3/admin-inventory.png",
-        caption: "Inventory management for products and stock",
+        caption: "Inventory management",
       },
-      {
-        url: "/projects3/admin-orders.png",
-        caption: "Order management with status tracking",
-      },
-      {
-        url: "/projects3/admin-customers.png",
-        caption: "Customer data management",
-      },
-      {
-        url: "/projects3/layanan.png",
-        caption: "Service catalog displayed to customers",
-      },
+      { url: "/projects3/admin-orders.png", caption: "Order tracking" },
+      { url: "/projects3/admin-customers.png", caption: "Customer list" },
+      { url: "/projects3/layanan.png", caption: "Service catalog" },
       {
         url: "/projects3/app-order1.png",
-        caption: "Ordering flow – step 1: select service category",
+        caption: "Order flow — pick a category",
       },
       {
         url: "/projects3/app-order2.png",
-        caption: "Step 2: choose specific treatments",
+        caption: "Order flow — choose treatments",
       },
-      {
-        url: "/projects3/app-order3.png",
-        caption: "Step 3: add items to cart",
-      },
+      { url: "/projects3/app-order3.png", caption: "Order flow — add to cart" },
       {
         url: "/projects3/app-order4.png",
-        caption: "Step 4: review order before submission",
+        caption: "Order flow — review before submit",
       },
       {
         url: "/projects3/SuccesOrder.png",
-        caption:
-          "Order confirmation screen with payment instructions and WhatsApp link",
+        caption: "Order confirmed — payment instructions + WhatsApp link",
       },
     ],
 
@@ -234,7 +172,7 @@ export const projectsData = {
     githubUrl: "https://github.com/athallaarl66/Crazwash.git",
 
     overview:
-      "Crazwash is a full-stack web application built for a laundry UMKM to manage daily service operations. Customers can browse available services and place orders through a public multi-step flow. Since the business doesn’t use a payment gateway, payments are confirmed manually via WhatsApp. On the admin side, there’s a dashboard to manage services, track orders, update payment status, and export reports as CSV. The application is built with Next.js App Router using SSR, Prisma ORM, PostgreSQL (Neon), and NextAuth for authentication.",
+      "Crazwash came from a real need — a laundry business that was managing everything manually and needed something simple to run daily operations. Customers go through a multi-step ordering flow on the public side, then get payment instructions and a WhatsApp link to confirm. No payment gateway, just how the business actually works. The admin side covers everything: services, orders, customers, payment status, and CSV exports for reporting. Built with Next.js App Router, Prisma, PostgreSQL on Neon, and NextAuth for auth.",
 
     techStack: {
       frontend: ["Next.js (App Router)", "React", "Tailwind CSS", "shadcn/ui"],
@@ -245,37 +183,111 @@ export const projectsData = {
     },
 
     keyFeatures: [
-      "Public multi-step ordering flow for customers",
-      "Manual payment confirmation via WhatsApp (bank transfer / e-wallet)",
-      "Admin dashboard for managing services, orders, and customers",
-      "Authentication system using NextAuth",
-      "CSV export for reporting",
-      "Responsive UI with SSR using Next.js App Router",
-      "Database schema designed with Prisma and PostgreSQL (Neon)",
-    ],
-
-    challenges: [
-      {
-        title: "Designing the Manual Payment Flow",
-        problem:
-          "The business does not use a payment gateway, so payments must be confirmed manually via WhatsApp. The flow needed to remain simple for customers while giving clear visibility to the admin.",
-        solution:
-          "Implemented a status-based order system where customers receive payment instructions and a direct WhatsApp link after submitting an order. The admin can then update payment and order status directly from the dashboard.",
-      },
-      {
-        title: "Separating Public and Admin Access",
-        problem:
-          "The application required a public ordering system and a protected admin dashboard without adding unnecessary complexity.",
-        solution:
-          "Used NextAuth for session-based authentication and implemented role-based checks on API routes and server components to separate public and admin access cleanly.",
-      },
+      "Multi-step ordering flow on the public side — no account needed",
+      "WhatsApp-based payment confirmation (bank transfer / e-wallet)",
+      "Admin dashboard for services, orders, customers, and payment status",
+      "Auth with NextAuth — role-based access between public and admin",
+      "CSV export for transaction reporting",
+      "SSR with Next.js App Router throughout",
     ],
 
     results: [
-      "Completed and deployed within 2 months",
-      "Covers the full operational flow from order creation to reporting",
-      "Live deployment on Vercel",
-      "Structured and maintainable TypeScript codebase",
+      "Done and deployed in under 2 months",
+      "Covers the full flow from order placement to payment confirmation",
+      "Live on Vercel",
+      "Clean TypeScript codebase that's easy to extend",
+    ],
+  },
+
+  "money-tracker": {
+    title: "AuditTracks – Personal Finance Tracker",
+    tagline:
+      "Personal project — tracking income, expenses, and budgets across multiple accounts",
+    shortDesc:
+      "A personal finance app I built to actually use. Spring Boot handles the backend with JWT auth, Next.js on the frontend with React Query and Recharts. Multi-account support, budget tracking, recurring transactions, and CSV export.",
+
+    hero: "/Projects5/Dashboard.png",
+    thumbnail: "/Projects5/Dashboard.png",
+    screenshots: [
+      { url: "/Projects5/login.png", caption: "Login" },
+      {
+        url: "/Projects5/Dashboard.png",
+        caption: "Dashboard — balance overview and recent transactions",
+      },
+      {
+        url: "/Projects5/Analytics1.png",
+        caption: "Analytics — spending breakdown and monthly trends",
+      },
+      {
+        url: "/Projects5/transaction.png",
+        caption: "Transaction list with filters",
+      },
+      {
+        url: "/Projects5/addBank.png",
+        caption: "Add account — Bank, Cash, or E-Wallet",
+      },
+    ],
+
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Spring Boot",
+      "PostgreSQL",
+      "Java",
+      "JWT",
+      "React Query",
+    ],
+    category: "Full Stack",
+    year: "2025",
+    role: "Full Stack Developer",
+    duration: "2025 (Personal Project)",
+
+    liveUrl: "https://audit-tracks.vercel.app",
+    githubUrl: "https://github.com/athallaarl66/money-tracker-frontend",
+    githubUrlBe: "https://github.com/athallaarl66/money-tracker-backend",
+
+    overview:
+      "Built this because I wanted a finance tracker that worked the way I think about money — by account, not just by category. The backend is a Spring Boot REST API running on Java 21, secured with JWT and containerized with Docker on Koyeb. Frontend is Next.js 14 with TypeScript, React Query for data fetching, Zustand for auth state, and Recharts for the charts. This was my first time shipping a Spring Boot app to production, so a decent chunk of the work was figuring out deployment, CORS across two separate services, and keeping the auth flow clean.",
+
+    techStack: {
+      frontend: [
+        "Next.js 14 (App Router)",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "React Query",
+        "Zustand",
+        "Recharts",
+        "Axios",
+      ],
+      backend: [
+        "Spring Boot 3",
+        "Java 21",
+        "Spring Security",
+        "JWT",
+        "JPA / Hibernate",
+      ],
+      database: ["PostgreSQL (Neon)"],
+      deployment: ["Vercel (Frontend)", "Koyeb / Docker (Backend)"],
+      tools: ["Git", "VS Code", "IntelliJ IDEA"],
+    },
+
+    keyFeatures: [
+      "Register and login with JWT — stateless auth",
+      "Multiple accounts — Bank, Cash, E-Wallet",
+      "Full transaction CRUD with filters and pagination",
+      "Analytics: spending by category, monthly trends, balance per account",
+      "Budget tracking per category with progress bars",
+      "Recurring transactions — set once, runs automatically",
+      "CSV export for transaction history",
+      "Works on mobile and desktop",
+    ],
+
+    results: [
+      "Two separate services deployed and running — frontend on Vercel, backend on Koyeb",
+      "First Spring Boot app I've shipped to production",
+      "Learned Docker and Koyeb deployment hands-on",
+      "Actually use this app to track my own finances",
     ],
   },
 };
