@@ -22,33 +22,48 @@ export const HeroSection = () => {
       <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Top status bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-12 md:mb-16">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "var(--sage)" }} />
-            <span className="text-[11px] font-mono uppercase tracking-widest" style={{ color: "var(--muted-fg)" }}>
+          <div 
+            className="flex items-center gap-2.5 px-3.5 py-2 rounded-full border"
+            style={{ background: "rgba(8,8,15,0.4)", borderColor: "var(--border)", backdropFilter: "blur(8px)" }}
+          >
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "var(--sage)", boxShadow: "0 0 8px var(--sage)" }} />
+            <span className="text-[11px] font-mono uppercase tracking-widest text-white/90">
               Available for fullstack roles
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
-            {[
-              { href: "https://github.com/athallaarl66", label: "GitHub", icon: <Github className="w-3.5 h-3.5" /> },
-              { href: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/", label: "LinkedIn", icon: <Linkedin className="w-3.5 h-3.5" /> },
-            ].map(({ href, label, icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200"
-                style={{ borderColor: "var(--border)", color: "var(--muted-fg)" }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(78,141,156,0.5)"; e.currentTarget.style.color = "var(--sage)"; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--muted-fg)"; }}
-                aria-label={label}
-              >
-                {icon}
-              </a>
-            ))}
-            <span className="text-[11px] font-mono ml-1" style={{ color: "var(--subtle-fg)" }}>Bandung, ID</span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              {[
+                { href: "https://github.com/athallaarl66", label: "GitHub", icon: <Github className="w-4 h-4" /> },
+                { href: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/", label: "LinkedIn", icon: <Linkedin className="w-4 h-4" /> },
+              ].map(({ href, label, icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ 
+                    background: "rgba(8,8,15,0.4)", 
+                    borderColor: "var(--border)", 
+                    color: "white", 
+                    backdropFilter: "blur(8px)" 
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--sage)"; e.currentTarget.style.color = "var(--sage)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(133,199,154,0.2)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "white"; e.currentTarget.style.boxShadow = "none"; }}
+                  aria-label={label}
+                >
+                  {icon}
+                </a>
+              ))}
+            </div>
+            <div 
+              className="px-3.5 py-2 rounded-full border text-[11px] font-mono text-white/90 uppercase tracking-widest"
+              style={{ background: "rgba(8,8,15,0.4)", borderColor: "var(--border)", backdropFilter: "blur(8px)" }}
+            >
+              Bandung, ID
+            </div>
           </div>
         </div>
 

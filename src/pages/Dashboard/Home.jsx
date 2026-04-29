@@ -6,6 +6,7 @@ import ContactContainer from "@/components/ContactContainer";
 import Footer from "@/components/layout/Footer";
 import { BackgroundAurora } from "@/components/effects/BackgroundAurora";
 import { HeroSection } from "@/components/HeroSection";
+import { GithubActivity } from "@/components/GithubActivity";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         <HeroSection />
         <AboutSection id="about" />
         <SkillSection id="skills" />
+        <GithubActivity />
         <ProjectSection id="projects" />
         <ContactContainer id="contact" />
       </main>

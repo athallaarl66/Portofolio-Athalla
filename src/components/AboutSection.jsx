@@ -1,8 +1,29 @@
 export const AboutSection = () => {
   const highlights = [
-    { label: "Telkom University",      sub: "Informatics · GPA 3.20",               icon: "🎓" },
-    { label: "Fullstack Dev Intern",   sub: "Firma Hukum Rantai Khatulistiwa",       icon: "💼" },
-    { label: "User-Centered Design",   sub: "Thesis · Aksara Sunda App",             icon: <img src="/icons/thesis.png" alt="Thesis" className="w-6 h-6 object-contain" /> },
+    { 
+      label: "Telkom University", 
+      sub: "Informatics · S1", 
+      icon: "🎓", 
+      badge: "GPA 3.20", 
+      badgeColor: "rgba(78,141,156,0.15)", 
+      badgeText: "var(--teal)" 
+    },
+    { 
+      label: "Fullstack Dev Intern", 
+      sub: "RK Law Firm", 
+      icon: "💼", 
+      badge: "Intern", 
+      badgeColor: "rgba(124,58,237,0.15)", 
+      badgeText: "#a78bfa" 
+    },
+    { 
+      label: "User-Centered Design", 
+      sub: "Thesis · Aksara Sunda App", 
+      icon: <img src="/icons/thesis.png" alt="Thesis" className="w-5 h-5 object-contain" />, 
+      badge: "Thesis", 
+      badgeColor: "rgba(133,199,154,0.15)", 
+      badgeText: "var(--sage)" 
+    },
   ];
 
   return (
@@ -61,29 +82,48 @@ export const AboutSection = () => {
             </a>
           </div>
 
-          {/* Right — cards + stats */}
-          <div className="flex flex-col gap-4">
-            {highlights.map((h) => (
-              <div
-                key={h.label}
-                className="flex items-center gap-4 p-4 rounded-2xl border card-hover"
-                style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}
-              >
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
-                  style={{ background: "rgba(78,141,156,0.1)", border: "1px solid rgba(78,141,156,0.18)" }}
-                >
-                  {h.icon}
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-white">{h.label}</p>
-                  <p className="text-[12px] font-mono" style={{ color: "var(--muted-fg)" }}>{h.sub}</p>
-                </div>
+          {/* Right — Unified Card: Background + Activity + Stats */}
+          <div className="flex flex-col p-6 rounded-[2rem] border" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
+            
+            {/* BACKGROUND */}
+            <div className="mb-8">
+              <h3 className="text-[11px] font-mono uppercase tracking-widest mb-4" style={{ color: "var(--muted-fg)" }}>Background</h3>
+              <div className="flex flex-col gap-3">
+                {highlights.map((h) => (
+                  <div
+                    key={h.label}
+                    className="flex items-center justify-between p-4 rounded-2xl border transition-all duration-300"
+                    style={{ background: "rgba(8,8,15,0.4)", borderColor: "var(--border)" }}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
+                        style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)" }}
+                      >
+                        {h.icon}
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-white">{h.label}</p>
+                        <p className="text-[12px] font-light mt-0.5" style={{ color: "var(--muted-fg)" }}>{h.sub}</p>
+                      </div>
+                    </div>
+                    {/* Badge */}
+                    <div 
+                      className="px-3 py-1 rounded-full border text-[11px] font-medium"
+                      style={{ background: h.badgeColor, color: h.badgeText, borderColor: `rgba(255,255,255,0.05)` }}
+                    >
+                      {h.badge}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-3 mt-2">
+            {/* DIVIDER */}
+            <div className="w-full h-px mb-6" style={{ background: "var(--border)" }} />
+
+            {/* STATS */}
+            <div className="grid grid-cols-3 gap-3">
               {[
                 { value: "4+",  label: "Projects" },
                 { value: "1",   label: "Internship" },
@@ -91,10 +131,10 @@ export const AboutSection = () => {
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="p-4 rounded-2xl border text-center"
-                  style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}
+                  className="p-4 rounded-2xl border text-center flex flex-col justify-center"
+                  style={{ background: "rgba(8,8,15,0.4)", borderColor: "var(--border)" }}
                 >
-                  <p className="text-2xl font-black tracking-tight mb-1" style={{ color: "var(--teal)" }}>
+                  <p className="text-2xl font-black tracking-tight mb-1" style={{ color: "var(--foreground)" }}>
                     {s.value}
                   </p>
                   <p className="text-[10px] font-mono uppercase tracking-widest" style={{ color: "var(--muted-fg)" }}>
@@ -103,6 +143,7 @@ export const AboutSection = () => {
                 </div>
               ))}
             </div>
+
           </div>
         </div>
       </div>
