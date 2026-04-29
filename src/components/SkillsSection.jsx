@@ -1,127 +1,85 @@
-import { Code2, Layers, Database } from "lucide-react";
+import { Terminal, Database, Layout } from "lucide-react";
 
 const skills = [
-  { name: "HTML", category: "frontend", icon: "/icons/html.png" },
-  { name: "CSS", category: "frontend", icon: "/icons/css.png" },
-  { name: "JavaScript", category: "frontend", icon: "/icons/javascript.png" },
-  { name: "TypeScript", category: "frontend", icon: "/icons/typescript.png" },
-  { name: "React", category: "frontend", icon: "/icons/react.png" },
-  { name: "Next.js", category: "frontend", icon: "/icons/next.png" },
-  { name: "Tailwind CSS", category: "frontend", icon: "/icons/tailwind.png" },
-  { name: "Node.js", category: "backend", icon: "/icons/node.png" },
-  { name: "Laravel", category: "backend", icon: "/icons/laravel.png" },
-  { name: "Spring Boot", category: "backend", icon: "/icons/springboot.png" },
-  { name: "Java", category: "backend", icon: "/icons/java.png" },
-  { name: "Next.js API Routes", category: "backend", icon: "/icons/next.png" },
-  { name: "PostgreSQL", category: "database", icon: "/icons/postgree.png" },
-  { name: "Prisma ORM", category: "database", icon: "/icons/prisma.png" },
-  { name: "MySQL", category: "database", icon: "/icons/mysql.png" },
+  { name: "HTML",              category: "Frontend", icon: "/icons/html.png" },
+  { name: "CSS",               category: "Frontend", icon: "/icons/css.png" },
+  { name: "JavaScript",        category: "Frontend", icon: "/icons/javascript.png" },
+  { name: "TypeScript",        category: "Frontend", icon: "/icons/typescript.png" },
+  { name: "React",             category: "Frontend", icon: "/icons/react.png" },
+  { name: "Next.js",           category: "Frontend", icon: "/icons/next.png" },
+  { name: "Tailwind CSS",      category: "Frontend", icon: "/icons/tailwind.png" },
+  { name: "Node.js",           category: "Backend",  icon: "/icons/node.png" },
+  { name: "Laravel",           category: "Backend",  icon: "/icons/laravel.png" },
+  { name: "Spring Boot",       category: "Backend",  icon: "/icons/springboot.png" },
+  { name: "Java",              category: "Backend",  icon: "/icons/java.png" },
+  { name: "Next.js API",       category: "Backend",  icon: "/icons/next.png" },
+  { name: "PostgreSQL",        category: "Database & Ops", icon: "/icons/postgree.png" },
+  { name: "Prisma ORM",        category: "Database & Ops", icon: "/icons/prisma.png" },
+  { name: "MySQL",             category: "Database & Ops", icon: "/icons/mysql.png" },
 ];
 
 const categories = [
-  {
-    key: "frontend",
-    label: "Frontend",
-    icon: Code2,
-    note: "Where I spend most of my time",
-  },
-  {
-    key: "backend",
-    label: "Backend",
-    icon: Layers,
-    note: "API routes, server logic, auth",
-  },
-  {
-    key: "database",
-    label: "Database & ORM",
-    icon: Database,
-    note: "Schema design, queries, migrations",
-  },
+  { title: "Frontend",       icon: Layout,   span: "lg:col-span-2" },
+  { title: "Backend",        icon: Terminal, span: "lg:col-span-1" },
+  { title: "Database & Ops", icon: Database, span: "lg:col-span-3" },
 ];
 
 export const SkillSection = () => {
   return (
-    <section
-      id="skills"
-      className="py-20 md:py-32 px-4 md:px-16 relative bg-background"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Section label */}
-        <div className="flex items-center gap-3 mb-10 md:mb-16">
-          <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
-            03 — Stack
-          </span>
-          <div className="flex-1 h-px bg-foreground/8" />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
-          {/* Left — heading */}
-          <div className="md:col-span-5 space-y-4">
-            <h2
-              className="font-black leading-none tracking-tight text-foreground"
-              style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
-            >
-              What I
-              <br />
-              <span
-                style={{
-                  WebkitTextStroke: "1px rgba(74,222,128,0.3)",
-                  color: "transparent",
-                }}
-              >
-                work
-              </span>
-              <br />
-              with.
+    <section id="skills" className="relative">
+      <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8 lg:px-12">
+        <div className="border-x border-b border-white/10 p-6 md:p-12 lg:p-16 bg-white/[0.01]">
+          
+          {/* Header */}
+          <div className="flex flex-col items-center text-center mb-12 md:mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span className="text-[10px] font-mono text-white/50 uppercase tracking-widest">Tech Stack</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white mb-4">
+              Tools I work <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 font-bold">with.</span>
             </h2>
-            <p className="text-foreground/40 text-sm font-light leading-relaxed max-w-xs">
-              Tools and technologies I've actually shipped production code with
-              — not just tutorials.
-            </p>
           </div>
 
-          {/* Right — skill groups */}
-          <div className="md:col-span-7 space-y-8 md:space-y-12">
-            {categories.map(({ key, label, icon: Icon, note }) => (
-              <div key={key} className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center justify-center w-7 h-7 rounded-md border border-foreground/10 bg-foreground/5">
-                    <Icon className="w-3.5 h-3.5 text-foreground/50" />
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {categories.map((cat, idx) => {
+              const Icon = cat.icon;
+              return (
+                <div key={idx} className={`${cat.span} rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 hover:border-emerald-400/30 transition-all duration-300 group`}>
+                  
+                  <div className="flex items-center justify-between mb-8">
+                    <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                      {cat.title}
+                    </h3>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-emerald-400/10 transition-colors shrink-0">
+                      <Icon className="w-4 h-4 md:w-5 md:h-5 text-white/50 group-hover:text-emerald-400 transition-colors" />
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">
-                      {label}
-                    </p>
-                    <p className="text-xs text-foreground/30 font-mono">
-                      {note}
-                    </p>
-                  </div>
-                </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {skills
-                    .filter((s) => s.category === key)
-                    .map((skill) => (
-                      <div
-                        key={skill.name}
-                        className="flex items-center gap-2 px-3.5 py-2 md:px-4 md:py-2 rounded-full border border-foreground/10 bg-foreground/5 hover:border-foreground/25 hover:bg-foreground/10 transition-all duration-200 cursor-default"
+                  <div className="flex flex-wrap gap-3">
+                    {skills
+                      .filter((s) => s.category === cat.title)
+                      .map((skill, i) => (
+                      <div 
+                        key={i} 
+                        className="flex items-center gap-2 px-3 md:px-4 py-2 border border-white/10 bg-white/5 rounded-full hover:border-emerald-400/50 hover:bg-emerald-400/10 transition-all cursor-default"
                       >
-                        <img
-                          src={skill.icon}
-                          alt={skill.name}
-                          className="w-4 h-4 object-contain"
+                        <img 
+                          src={skill.icon} 
+                          alt={skill.name} 
+                          className="w-4 h-4 object-contain filter drop-shadow-md"
                         />
-                        <span className="text-xs md:text-sm text-foreground/70 font-medium">
-                          {skill.name}
-                        </span>
+                        <span className="text-xs md:text-sm text-white/80 font-medium">{skill.name}</span>
                       </div>
                     ))}
-                </div>
+                  </div>
 
-                <div className="h-px bg-foreground/6" />
-              </div>
-            ))}
+                </div>
+              )
+            })}
           </div>
+
         </div>
       </div>
     </section>

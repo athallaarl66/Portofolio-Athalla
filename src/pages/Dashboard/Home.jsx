@@ -10,13 +10,19 @@ import { HeroSection } from "@/components/HeroSection";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Background effects */}
-      <BackgroundAurora />
+      {/* Grain texture overlay — subtle handcrafted feel */}
+      <div className="grain-overlay" aria-hidden="true" />
 
-      {/* Navbar */}
+      {/* Aurora — pure green tones, no purple */}
+      <BackgroundAurora
+        colorStops={["#020617", "#10b981", "#06b6d4"]}
+        amplitude={1.1}
+        blend={0.45}
+        speed={0.8}
+      />
+
       <Navbar />
 
-      {/* Main Content */}
       <main>
         <HeroSection />
         <AboutSection id="about" />
@@ -25,7 +31,6 @@ export default function Home() {
         <ContactContainer id="contact" />
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

@@ -1,156 +1,58 @@
-import { ArrowUpRight } from "lucide-react";
-
 export const AboutSection = () => {
   return (
-    <section
-      id="about"
-      className="py-20 md:py-32 px-4 md:px-16 relative bg-background overflow-hidden"
-    >
-      {/* Accent line - hide di mobile */}
-      <div className="hidden md:block absolute left-0 top-0 w-px h-full bg-gradient-to-b from-transparent via-foreground/8 to-transparent" />
-
-      <div className="max-w-7xl mx-auto">
-        {/* Section label */}
-        <div className="flex items-center gap-3 mb-12 md:mb-16">
-          <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
-            02 — About
-          </span>
-          <div className="flex-1 h-px bg-foreground/8" />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
-          {/* Left — heading + identity + image */}
-          <div className="md:col-span-5 space-y-5 md:space-y-6">
-            {/* Heading - responsive font size */}
-            <h2
-              className="font-black leading-none tracking-tight text-foreground opacity-0 animate-fade-in"
-              style={{
-                fontSize: "clamp(2rem, 5vw, 4.5rem)",
-                animationDelay: "0.1s",
-                animationFillMode: "forwards",
-              }}
-            >
-              Building
-              <br />
-              <span
-                style={{
-                  WebkitTextStroke: "1px rgba(74,222,128,0.3)",
-                  color: "transparent",
-                }}
-              >
-                things
-              </span>
-              <br />
-              that work.
+    <section id="about" className="relative">
+      <div className="max-w-[1400px] w-full mx-auto px-4 md:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 border-x border-b border-white/10">
+          
+          {/* Left Heading Pane */}
+          <div className="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 p-8 md:p-12 flex flex-col justify-between bg-white/[0.01]">
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-tight">
+              Engineering <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 font-bold">with purpose.</span>
             </h2>
-            <div
-              className="flex flex-wrap gap-2 opacity-0 animate-fade-in"
-              style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
-            >
-              {["Full-Stack Dev", "Frontend Background", "UI/UX"].map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs font-mono px-3 py-1 rounded-full border border-primary/40 text-primary/80 bg-primary/8"
-                  style={{ boxShadow: "0 0 8px rgba(74,222,128,0.12)" }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {/* highlight card */}
-            <div
-              className="relative w-full mt-4 p-4 rounded-xl border border-primary/15 bg-primary/5 opacity-0 animate-fade-in"
-              style={{
-                boxShadow: "0 0 16px rgba(74,222,128,0.06)",
-                animationDelay: "0.2s",
-                animationFillMode: "forwards",
-              }}
-            >
-              <p className="text-xs font-mono text-primary/50 mb-2">
-                currently open to
-              </p>{" "}
-              <p className="text-sm text-foreground/70 font-light leading-relaxed">
-                Frontend, Full-Stack, Software Engineer, or UI/UX — remote,
-                onsite, hybrid. Anywhere works.
-              </p>
-            </div>
-          </div>
-
-          {/* Right — bio + CTA */}
-          <div
-            className="md:col-span-7 space-y-6 md:space-y-8 opacity-0 animate-fade-in"
-            style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
-          >
-            {/* Available tag */}
-            <div className="inline-flex items-center gap-2 border border-foreground/10 rounded-full px-4 py-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-xs font-mono text-foreground/50">
-                Available for work
-              </span>
-            </div>
-
-            {/* Bio - responsive text size */}
-            <div className="space-y-4 md:space-y-5 text-foreground/60 leading-relaxed text-sm md:text-lg font-light">
-              <p>
-                Informatics grad from Telkom University, 2025. Frontend is where
-                I'm most comfortable — React, Next.js, Tailwind — but I've
-                shipped full-stack projects on my own too. A POS web app for a
-                laundry UMKM, a corporate site for a Jakarta law firm, and a
-                Sundanese script learning platform for my undergraduate thesis.
-              </p>
-              <p>
-                The thesis was a proper research project — used the
-                User-Centered Design method, went to SMAN 24 Bandung to
-                understand how students actually struggled with the script,
-                built prototypes, tested them, then built the final app based on
-                what I found.
-              </p>
-              <p>
-                I started from the frontend but I'm pushing further — system
-                design, backend architecture, and how everything connects at
-                scale is where I'm headed. I want to understand the full
-                picture, not just the surface.
-              </p>
-            </div>
-
-            {/* Stats - responsive */}
-            <div className="grid grid-cols-3 gap-3 md:gap-4 py-5 md:py-6 border-t border-b border-foreground/8">
-              {[
-                { num: "3", label: "Projects shipped" },
-                { num: "1", label: "Internship" },
-                { num: "2025", label: "Graduated" },
-              ].map(({ num, label }) => (
-                <div key={label}>
-                  <p className="text-xl md:text-2xl font-black text-foreground">
-                    {num}
-                  </p>
-                  <p className="text-xs text-foreground/40 font-mono mt-1">
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA - responsive */}
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 bg-foreground text-background px-5 py-2.5 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                Get in touch
-                <ArrowUpRight className="h-3.5 w-3.5 md:h-4 md:w-4" />
-              </a>
+            <div className="mt-12 lg:mt-0">
               <a
                 href="/projects2/CV_IT_Athalla-Arli-Abhinaya_ENGLISH.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-foreground/15 text-foreground/60 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-semibold hover:border-foreground/40 hover:text-foreground transition-all duration-300"
+                className="inline-flex px-6 py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-xs font-mono uppercase tracking-widest text-emerald-400 hover:bg-emerald-400 hover:text-black transition-colors"
               >
-                Download CV
+                Download Resume
               </a>
             </div>
           </div>
+
+          {/* Right Content Pane */}
+          <div className="lg:col-span-8 p-8 md:p-12 lg:p-20">
+            <div className="max-w-2xl space-y-8 text-white/60 text-base md:text-lg font-light leading-relaxed">
+              <p>
+                I'm an Informatics graduate from Telkom University (GPA 3.20/4.00) with a strong foundation in UI and frontend development, now actively transitioning into fullstack engineering. I have hands-on experience building backend features and robust APIs using Spring Boot and Node.js.
+              </p>
+              <p>
+                Professionally, I worked as a Fullstack Developer Intern at <strong className="text-white font-medium">Firma Hukum Rantai Khatulistiwa</strong> in Jakarta, where I developed their corporate website and integrated online legal service features.
+              </p>
+              <p>
+                Recently, I've been focused on developing practical systems. I built a Financial Management System implementing JWT authentication, recurring logic, and analytics, while deploying the containerized backend via Docker. My undergraduate thesis also taught me the value of empathy in software, applying <strong className="text-white font-medium">User-Centered Design</strong> to build a Sundanese script learning platform for high school students.
+              </p>
+            </div>
+
+            {/* Glassmorphic Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 pt-16 border-t border-white/10">
+              <div className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-emerald-400/30 transition-colors">
+                <p className="text-4xl font-bold text-white mb-2">3+</p>
+                <p className="text-xs font-mono text-white/40 uppercase tracking-widest">Projects Shipped</p>
+              </div>
+              <div className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-emerald-400/30 transition-colors">
+                <p className="text-4xl font-bold text-white mb-2">1</p>
+                <p className="text-xs font-mono text-white/40 uppercase tracking-widest">Internship</p>
+              </div>
+              <div className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-emerald-400/30 transition-colors">
+                <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 mb-2">2025</p>
+                <p className="text-xs font-mono text-white/40 uppercase tracking-widest">Graduated</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
