@@ -9,9 +9,10 @@ const skills = [
   { name: "Next.js", category: "Frontend", icon: "/icons/next.png" },
   { name: "Tailwind CSS", category: "Frontend", icon: "/icons/tailwind.png" },
   { name: "Node.js", category: "Backend", icon: "/icons/node.png" },
+  { name: ".NET 8", category: "Backend", icon: "/icons/.net.png" },
+  { name: "C#", category: "Backend", icon: "/icons/cSHARP.png" },
   { name: "Laravel", category: "Backend", icon: "/icons/laravel.png" },
   { name: "Spring Boot", category: "Backend", icon: "/icons/springboot.png" },
-  { name: "Java", category: "Backend", icon: "/icons/java.png" },
   { name: "Next.js API", category: "Backend", icon: "/icons/next.png" },
   {
     name: "PostgreSQL",
@@ -164,7 +165,15 @@ export const SkillSection = () => {
           >
             Also familiar with
           </span>
-          {["Docker", "Git", "Figma", "REST APIs", "Postman"].map((t) => (
+          {[
+            "SignalR",
+            "MQTT",
+            "Docker",
+            "Git",
+            "Figma",
+            "REST APIs",
+            "Postman",
+          ].map((t) => (
             <span key={t} className="tag-pill">
               {t}
             </span>

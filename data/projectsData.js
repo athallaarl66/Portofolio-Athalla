@@ -290,6 +290,56 @@ export const projectsData = {
       "Actually use this app to track my own finances",
     ],
   },
+
+  "industrial-iot": {
+    title: "Industrial IoT Asset Monitoring Dashboard",
+    tagline:
+      "Enterprise-grade asset intelligence platform for the Oil & Gas and manufacturing sectors",
+    shortDesc:
+      "An end-to-end monitoring solution for high-frequency telemetry ingestion, predictive health analytics, and enterprise-grade visualization using MQTT, .NET 8, and React.",
+
+    hero: "/projects6/Dashboard.png",
+    thumbnail: "/projects6/Dashboard.png",
+    screenshots: [
+      { url: "/projects6/Dashboard.png", caption: "Main Dashboard" },
+    ],
+
+    tags: [".NET 8", "React", "PostgreSQL", "MQTT", "SignalR"],
+    category: "Enterprise Full Stack",
+    year: "2026",
+    role: "Full Stack Developer / Architect",
+    duration: "2026",
+
+    liveUrl: null,
+    githubUrl: "https://github.com/athallaarl66/industrial-iot.git",
+
+    overview:
+      "Built to align with Industry 4.0 requirements, this platform acts as a Command Center for industrial facilities. It bridges the gap between raw edge sensor data and high-stakes operational decision-making by orchestrating high-frequency ingestion via MQTT, providing predictive health analytics to prevent critical equipment failure, and synchronizing real-time state data across the fleet with sub-second latency using SignalR.",
+
+    techStack: {
+      frontend: ["React 19", "TypeScript", "Vite", "Tailwind CSS"],
+      backend: [".NET 8 Web API", "Clean Architecture", "SignalR Hubs"],
+      database: ["PostgreSQL 16"],
+      messaging: ["Eclipse Mosquitto (MQTT Broker)"],
+      infrastructure: ["Docker Compose"],
+    },
+
+    keyFeatures: [
+      "High-Frequency Ingestion via MQTT",
+      "Predictive Health Analytics for threshold violations",
+      "Enterprise-Grade Visualization dashboard",
+      "Real-time Synchronization using SignalR",
+      "Secure Zero Trust MQTT architecture",
+      "Strict Clean Architecture and Domain-Driven Design",
+    ],
+
+    results: [
+      "Designed an enterprise-grade command center for Industry 4.0",
+      "Implemented predictive maintenance workflows",
+      "Set up robust local infrastructure using Docker Compose",
+      "Established a highly scalable Clean Architecture codebase in .NET 8",
+    ],
+  },
 };
 
 export const getProject = (id) => projectsData[id];

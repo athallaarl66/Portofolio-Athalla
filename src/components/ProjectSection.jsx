@@ -49,6 +49,18 @@ const projects = [
     overlayColor: "rgba(237,247,189,0.1)",
     accentBorder: "rgba(237,247,189,0.25)",
   },
+  {
+    title: "Industrial IoT Dashboard",
+    category: "Enterprise System",
+    description:
+      "Enterprise-grade asset intelligence platform. High-frequency telemetry ingestion via MQTT, predictive analytics, and SignalR real-time sync.",
+    image: "/projects6/Dashboard.png",
+    tags: [".NET 8", "React", "MQTT", "PostgreSQL"],
+    year: "2026",
+    link: "/projects/industrial-iot",
+    overlayColor: "rgba(78,141,156,0.25)",
+    accentBorder: "rgba(133,199,154,0.35)",
+  },
 ];
 
 export const ProjectSection = () => {

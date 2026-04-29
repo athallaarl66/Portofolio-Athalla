@@ -2,7 +2,7 @@ export const AboutSection = () => {
   const highlights = [
     { label: "Telkom University",      sub: "Informatics · GPA 3.20",               icon: "🎓" },
     { label: "Fullstack Dev Intern",   sub: "Firma Hukum Rantai Khatulistiwa",       icon: "💼" },
-    { label: "User-Centered Design",   sub: "Thesis · Aksara Sunda App",             icon: "🎯" },
+    { label: "User-Centered Design",   sub: "Thesis · Aksara Sunda App",             icon: <img src="/icons/thesis.png" alt="Thesis" className="w-6 h-6 object-contain" /> },
   ];
 
   return (

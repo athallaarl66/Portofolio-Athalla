@@ -73,6 +73,7 @@ function ProjectCard({ project, onViewDetails }) {
     if (id === "diajaraksara") return "rgba(40,28,89,0.35)";
     if (id === "money-tracker") return "rgba(78,141,156,0.2)";
     if (id === "crazwash") return "rgba(133,199,154,0.15)";
+    if (id === "industrial-iot") return "rgba(78,141,156,0.25)";
     return "rgba(237,247,189,0.1)"; // default for RK Law Firm
   };
 
