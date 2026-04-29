@@ -1,50 +1,48 @@
 import { Linkedin, Instagram, Github, Mail } from "lucide-react";
 
 const navLinks = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
+  { name: "Home",     href: "#hero" },
+  { name: "About",    href: "#about" },
+  { name: "Skills",   href: "#skills" },
   { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact",  href: "#contact" },
 ];
 
 const socialLinks = [
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",
-    icon: Linkedin,
-  },
-  { name: "GitHub", href: "https://github.com/athallaarl66", icon: Github },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/athallaarl/",
-    icon: Instagram,
-  },
-  { name: "Email", href: "mailto:athallaarli@gmail.com", icon: Mail },
+  { name: "LinkedIn",  href: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/", icon: Linkedin },
+  { name: "GitHub",    href: "https://github.com/athallaarl66", icon: Github },
+  { name: "Instagram", href: "https://www.instagram.com/athallaarl/", icon: Instagram },
+  { name: "Email",     href: "mailto:athallaarli@gmail.com", icon: Mail },
 ];
 
 const Footer = () => {
   return (
-    <footer className="border-t border-foreground/8 px-6 md:px-16 py-10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Left — name + copyright */}
-        <div className="flex items-center gap-3">
-          <span className="text-sm font-black text-foreground tracking-tight">
+    <footer
+      className="border-t px-6 md:px-16 py-8"
+      style={{ borderColor: "var(--border)", background: "var(--surface-1)" }}
+    >
+      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
+        {/* Left — name */}
+        <div className="flex items-center gap-2.5">
+          <span className="text-sm font-black tracking-tight text-white">
             Athalla Arli
           </span>
-          <span className="w-px h-4 bg-foreground/15" />
-          <span className="text-xs text-foreground/30 font-mono">
+          <span className="w-px h-4 bg-white/10" />
+          <span className="text-xs font-mono" style={{ color: "var(--muted-fg)" }}>
             © {new Date().getFullYear()}
           </span>
         </div>
 
         {/* Center — nav */}
-        <nav className="flex flex-wrap justify-center gap-6">
+        <nav className="flex flex-wrap justify-center gap-5">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-xs font-mono text-foreground/35 hover:text-primary transition-colors duration-200 tracking-wide"
+              className="text-xs font-mono transition-colors duration-200"
+              style={{ color: "var(--muted-fg)" }}
+              onMouseEnter={e => e.currentTarget.style.color = "var(--primary-light)"}
+              onMouseLeave={e => e.currentTarget.style.color = "var(--muted-fg)"}
             >
               {link.name}
             </a>
@@ -60,9 +58,12 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={name}
-              className="text-foreground/30 hover:text-primary transition-colors duration-200"
+              className="transition-colors duration-200"
+              style={{ color: "var(--muted-fg)" }}
+              onMouseEnter={e => e.currentTarget.style.color = "var(--primary-light)"}
+              onMouseLeave={e => e.currentTarget.style.color = "var(--muted-fg)"}
             >
-              <Icon size={16} />
+              <Icon size={15} />
             </a>
           ))}
         </div>

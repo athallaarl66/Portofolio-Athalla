@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Github, Figma, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
-import Footer from "@/components/FooterGallery";
+import Footer from "@/components/layout/Footer";
 import { getProject } from "../../../data/projectsData";
 
 export default function ProjectDetail() {
@@ -11,15 +11,15 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
         <div className="text-center p-8">
-          <h1 className="text-6xl font-black text-foreground mb-4">404</h1>
-          <p className="text-foreground/50 mb-8 font-mono text-sm">
+          <h1 className="text-6xl font-black text-white mb-4">404</h1>
+          <p className="text-[11px] font-mono tracking-widest uppercase mb-8" style={{ color: "var(--muted-fg)" }}>
             project not found
           </p>
           <button
             onClick={() => navigate("/projects")}
-            className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+            className="btn-ghost"
           >
             Back to Projects
           </button>
@@ -29,22 +29,26 @@ export default function ProjectDetail() {
   }
 
   return (
-    <article className="relative min-h-screen bg-background text-foreground">
+    <article className="relative min-h-screen" style={{ background: "var(--background)", color: "var(--foreground)" }}>
+      {/* Background glow */}
       <div
-        className="fixed -top-60 -left-60 w-[700px] h-[700px] rounded-full pointer-events-none -z-10"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(74,222,128,0.06) 0%, transparent 65%)",
-        }}
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full pointer-events-none -z-10"
+        style={{ background: "radial-gradient(ellipse, rgba(40,28,89,0.3) 0%, transparent 65%)" }}
+        aria-hidden="true"
       />
+      <div className="grain-overlay" aria-hidden="true" />
 
       <Navbar />
 
-      <main className="pt-28 md:pt-32 pb-16 px-6 md:px-16">
-        <div className="max-w-5xl mx-auto">
+      <main className="pt-28 md:pt-32 pb-16 px-6 md:px-16 relative z-10">
+        <div className="max-w-[1024px] mx-auto">
+          {/* Back button */}
           <button
             onClick={() => navigate("/projects")}
-            className="group flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors mb-10 text-sm font-mono"
+            className="group flex items-center gap-2 mb-10 text-[11px] font-mono uppercase tracking-widest transition-colors"
+            style={{ color: "var(--muted-fg)" }}
+            onMouseEnter={e => e.currentTarget.style.color = "var(--sage)"}
+            onMouseLeave={e => e.currentTarget.style.color = "var(--muted-fg)"}
           >
             <ArrowLeft
               size={14}
@@ -53,83 +57,66 @@ export default function ProjectDetail() {
             back to projects
           </button>
 
+          {/* Hero Image */}
           <div
-            className="relative rounded-2xl overflow-hidden mb-12 border border-foreground/8"
-            style={{ boxShadow: "0 32px 64px rgba(0,0,0,0.4)" }}
+            className="relative rounded-[2rem] overflow-hidden mb-12 border p-2"
+            style={{
+              background: "linear-gradient(135deg, rgba(40,28,89,0.4) 0%, rgba(78,141,156,0.1) 100%)",
+              borderColor: "rgba(78,141,156,0.2)",
+              boxShadow: "0 32px 64px rgba(8,8,15,0.6)",
+            }}
           >
-            <img
-              src={project.hero}
-              alt={project.title}
-              className="w-full h-auto object-cover"
-            />
+            <div className="w-full h-full rounded-[1.5rem] overflow-hidden">
+              <img
+                src={project.hero}
+                alt={project.title}
+                className="w-full h-auto object-cover"
+              />
+            </div>
           </div>
 
+          {/* Header Grid */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-            <div className="md:col-span-7 space-y-6">
-              <div className="space-y-2">
-                <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+            <div className="md:col-span-7 flex flex-col gap-6">
+              <div>
+                <span className="text-[11px] font-mono tracking-widest uppercase mb-2 block" style={{ color: "var(--muted-fg)" }}>
                   {project.category}
                 </span>
-                <h1 className="text-3xl md:text-4xl font-black text-foreground leading-tight tracking-tight">
+                <h1 className="text-[clamp(2.5rem,5vw,3.5rem)] font-black text-white leading-[1.1] tracking-tight">
                   {project.title}
                 </h1>
-                <p className="text-foreground/55 text-base leading-relaxed font-light pt-1">
+                <p className="text-base md:text-lg leading-relaxed font-light mt-4" style={{ color: "var(--muted-fg)" }}>
                   {project.tagline}
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-3">
                 {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 bg-foreground text-background px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                  >
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
                     Live Demo
-                    <ArrowUpRight
-                      size={14}
-                      className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                    />
+                    <ArrowUpRight size={14} className="ml-1" />
                   </a>
                 )}
                 {project.figmaUrl && (
-                  <a
-                    href={project.figmaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 border border-foreground/15 text-foreground/60 px-5 py-2.5 rounded-full text-sm font-semibold hover:border-foreground/40 hover:text-foreground transition-all duration-300"
-                  >
-                    <Figma size={14} />
-                    Figma
+                  <a href={project.figmaUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+                    <Figma size={14} /> Figma
                   </a>
                 )}
                 {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 border border-foreground/15 text-foreground/60 px-5 py-2.5 rounded-full text-sm font-semibold hover:border-foreground/40 hover:text-foreground transition-all duration-300"
-                  >
-                    <Github size={14} />
-                    {project.githubUrlBe ? "Source (FE)" : "Source"}
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+                    <Github size={14} /> {project.githubUrlBe ? "Source (FE)" : "Source"}
                   </a>
                 )}
                 {project.githubUrlBe && (
-                  <a
-                    href={project.githubUrlBe}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 border border-foreground/15 text-foreground/60 px-5 py-2.5 rounded-full text-sm font-semibold hover:border-foreground/40 hover:text-foreground transition-all duration-300"
-                  >
-                    <Github size={14} />
-                    Source (BE)
+                  <a href={project.githubUrlBe} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+                    <Github size={14} /> Source (BE)
                   </a>
                 )}
               </div>
             </div>
 
-            <div className="md:col-span-5 space-y-0">
+            {/* Metadata Sidebar */}
+            <div className="md:col-span-5 flex flex-col justify-center">
               {[
                 { label: "Role", value: project.role },
                 { label: "Duration", value: project.duration },
@@ -137,12 +124,13 @@ export default function ProjectDetail() {
               ].map(({ label, value }) => (
                 <div
                   key={label}
-                  className="flex flex-col gap-1 py-4 border-b border-foreground/8 first:border-t first:border-foreground/8"
+                  className="flex flex-col gap-1 py-4 border-b first:border-t"
+                  style={{ borderColor: "var(--border)" }}
                 >
-                  <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
+                  <span className="text-[10px] font-mono tracking-widest uppercase" style={{ color: "var(--muted-fg)" }}>
                     {label}
                   </span>
-                  <span className="text-sm font-semibold text-foreground">
+                  <span className="text-sm font-semibold text-white">
                     {value}
                   </span>
                 </div>
@@ -150,159 +138,152 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          <section className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
-                Overview
-              </span>
-              <div className="flex-1 h-px bg-foreground/8" />
-            </div>
-            <p className="text-foreground/60 leading-relaxed text-base md:text-lg font-light max-w-3xl">
-              {project.overview}
-            </p>
-          </section>
+          {/* Helper for section headers */}
+          {(() => {
+            const SectionHeader = ({ title }) => (
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-[11px] font-mono tracking-widest uppercase whitespace-nowrap" style={{ color: "var(--muted-fg)" }}>
+                  {title}
+                </span>
+                <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
+              </div>
+            );
 
-          <section className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
-                Tech Stack
-              </span>
-              <div className="flex-1 h-px bg-foreground/8" />
-            </div>
-            <div className="space-y-5">
-              {Object.entries(project.techStack).map(([category, techs]) => (
-                <div key={category} className="space-y-2">
-                  <span className="text-xs font-mono text-foreground/40 capitalize">
-                    {category}
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {techs.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 text-xs font-mono rounded-full border border-primary/20 bg-primary/5 text-primary/70"
-                      >
-                        {tech}
-                      </span>
+            return (
+              <>
+                {/* Overview */}
+                <section className="mb-16">
+                  <SectionHeader title="Overview" />
+                  <p className="leading-relaxed text-base md:text-lg font-light max-w-[800px]" style={{ color: "var(--muted-fg)" }}>
+                    {project.overview}
+                  </p>
+                </section>
+
+                {/* Tech Stack */}
+                <section className="mb-16">
+                  <SectionHeader title="Tech Stack" />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {Object.entries(project.techStack).map(([category, techs]) => (
+                      <div key={category} className="space-y-3">
+                        <span className="text-xs font-mono capitalize" style={{ color: "var(--muted-fg)" }}>
+                          {category}
+                        </span>
+                        <div className="flex flex-wrap gap-2">
+                          {techs.map((tech) => (
+                            <span key={tech} className="tag-pill">{tech}</span>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
-                </div>
-              ))}
-            </div>
-          </section>
+                </section>
 
-          <section className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
-                Features
-              </span>
-              <div className="flex-1 h-px bg-foreground/8" />
-            </div>
-            <ul className="space-y-3">
-              {project.keyFeatures.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="text-primary/60 font-mono text-xs mt-1.5 flex-shrink-0">
-                    —
-                  </span>
-                  <span className="text-foreground/60 leading-relaxed text-sm md:text-base">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
+                {/* Features */}
+                <section className="mb-16">
+                  <SectionHeader title="Features" />
+                  <ul className="space-y-3 max-w-[800px]">
+                    {project.keyFeatures.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-4 p-4 rounded-xl border" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
+                        <span className="font-mono text-xs mt-1 shrink-0" style={{ color: "var(--teal)" }}>
+                          {(idx + 1).toString().padStart(2, '0')}
+                        </span>
+                        <span className="leading-relaxed text-sm md:text-base font-light" style={{ color: "var(--foreground)" }}>
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
 
-          {project.challenges?.length > 0 && (
-            <section className="mb-16">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
-                  Challenges
-                </span>
-                <div className="flex-1 h-px bg-foreground/8" />
-              </div>
-              <div className="space-y-4">
-                {project.challenges.map((challenge, idx) => (
-                  <div
-                    key={idx}
-                    className="p-6 rounded-xl border border-foreground/8 bg-foreground/3 space-y-4"
-                  >
-                    <h3 className="text-sm font-bold text-foreground">
-                      {challenge.title}
-                    </h3>
-                    <div className="space-y-3">
-                      <div>
-                        <span className="text-xs font-mono text-red-400/60 tracking-widest uppercase">
-                          Problem
-                        </span>
-                        <p className="text-foreground/55 mt-1.5 text-sm leading-relaxed">
-                          {challenge.problem}
-                        </p>
-                      </div>
-                      <div>
-                        <span className="text-xs font-mono text-primary/60 tracking-widest uppercase">
-                          Solution
-                        </span>
-                        <p className="text-foreground/55 mt-1.5 text-sm leading-relaxed">
-                          {challenge.solution}
-                        </p>
-                      </div>
+                {/* Challenges (if any) */}
+                {project.challenges?.length > 0 && (
+                  <section className="mb-16">
+                    <SectionHeader title="Challenges" />
+                    <div className="grid gap-4 max-w-[800px]">
+                      {project.challenges.map((challenge, idx) => (
+                        <div key={idx} className="p-6 rounded-2xl border flex flex-col gap-4" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
+                          <h3 className="text-base font-bold text-white">
+                            {challenge.title}
+                          </h3>
+                          <div className="grid gap-4">
+                            <div>
+                              <span className="text-[10px] font-mono tracking-widest uppercase mb-1 block" style={{ color: "#f87171" }}>
+                                Problem
+                              </span>
+                              <p className="text-sm font-light leading-relaxed" style={{ color: "var(--muted-fg)" }}>
+                                {challenge.problem}
+                              </p>
+                            </div>
+                            <div className="w-full h-px" style={{ background: "var(--border)" }} />
+                            <div>
+                              <span className="text-[10px] font-mono tracking-widest uppercase mb-1 block" style={{ color: "var(--sage)" }}>
+                                Solution
+                              </span>
+                              <p className="text-sm font-light leading-relaxed" style={{ color: "var(--muted-fg)" }}>
+                                {challenge.solution}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
+                  </section>
+                )}
+
+                {/* Results */}
+                <section className="mb-16">
+                  <SectionHeader title="Results" />
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {project.results.map((result, idx) => (
+                      <li key={idx} className="flex items-start gap-3 p-5 rounded-2xl border" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
+                        <span className="shrink-0 mt-0.5" style={{ color: "var(--sage)" }}>
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
+                        <span className="text-sm font-light leading-relaxed" style={{ color: "var(--foreground)" }}>
+                          {result}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                {/* Screenshots */}
+                <section className="mb-16">
+                  <SectionHeader title="Screenshots" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {project.screenshots.map((screenshot, idx) => (
+                      <figure key={idx} className="flex flex-col gap-3">
+                        <div className="rounded-xl overflow-hidden border p-1" style={{ background: "rgba(40,28,89,0.1)", borderColor: "var(--border)" }}>
+                          <div className="rounded-lg overflow-hidden h-full">
+                            <img
+                              src={screenshot.url}
+                              alt={screenshot.caption}
+                              className="w-full h-auto object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                        </div>
+                        <figcaption className="text-[11px] font-mono tracking-wide text-center" style={{ color: "var(--muted-fg)" }}>
+                          {screenshot.caption}
+                        </figcaption>
+                      </figure>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </section>
-          )}
+                </section>
+              </>
+            );
+          })()}
 
-          <section className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
-                Results
-              </span>
-              <div className="flex-1 h-px bg-foreground/8" />
-            </div>
-            <ul className="space-y-3">
-              {project.results.map((result, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="text-primary/60 font-mono text-xs mt-1.5 flex-shrink-0">
-                    —
-                  </span>
-                  <span className="text-foreground/60 leading-relaxed text-sm md:text-base">
-                    {result}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs font-mono text-foreground/30 tracking-widest uppercase">
-                Screenshots
-              </span>
-              <div className="flex-1 h-px bg-foreground/8" />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {project.screenshots.map((screenshot, idx) => (
-                <figure key={idx} className="space-y-2">
-                  <div className="rounded-xl overflow-hidden border border-foreground/8">
-                    <img
-                      src={screenshot.url}
-                      alt={screenshot.caption}
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <figcaption className="text-xs text-foreground/30 font-mono px-1">
-                    {screenshot.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </section>
-
-          <div className="pt-8 border-t border-foreground/8">
+          {/* Bottom Back Button */}
+          <div className="pt-8 border-t flex justify-center" style={{ borderColor: "var(--border)" }}>
             <button
               onClick={() => navigate("/projects")}
-              className="group inline-flex items-center gap-2 text-foreground/40 hover:text-primary transition-colors text-sm font-mono"
+              className="group flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest transition-colors"
+              style={{ color: "var(--muted-fg)" }}
+              onMouseEnter={e => e.currentTarget.style.color = "var(--sage)"}
+              onMouseLeave={e => e.currentTarget.style.color = "var(--muted-fg)"}
             >
               <ArrowLeft
                 size={14}

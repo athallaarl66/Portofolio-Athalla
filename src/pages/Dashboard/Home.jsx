@@ -9,16 +9,15 @@ import { HeroSection } from "@/components/HeroSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Grain texture overlay — subtle handcrafted feel */}
+    <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--background)", color: "var(--foreground)" }}>
       <div className="grain-overlay" aria-hidden="true" />
 
-      {/* Aurora — pure green tones, no purple */}
+      {/* Aurora — deep indigo → teal tones */}
       <BackgroundAurora
-        colorStops={["#020617", "#10b981", "#06b6d4"]}
-        amplitude={1.1}
-        blend={0.45}
-        speed={0.8}
+        colorStops={["#08080f", "#281C59", "#4E8D9C"]}
+        amplitude={0.85}
+        blend={0.38}
+        speed={0.5}
       />
 
       <Navbar />
