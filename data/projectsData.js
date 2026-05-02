@@ -298,10 +298,18 @@ export const projectsData = {
     shortDesc:
       "An end-to-end monitoring solution for high-frequency telemetry ingestion, predictive health analytics, and enterprise-grade visualization using MQTT, .NET 8, and React.",
 
-    hero: "/projects6/Dashboard.png",
-    thumbnail: "/projects6/Dashboard.png",
+    hero: "/projects6/IOTDashboard.png",
+    thumbnail: "/projects6/IOTDashboard.png",
     screenshots: [
-      { url: "/projects6/Dashboard.png", caption: "Main Dashboard" },
+      { url: "/projects6/IOTDashboard.png", caption: "Main Dashboard" },
+      // {
+      //   url: "/Projects6/detailsIOT.png",
+      //   caption: "Show details breakdown for machine predictive maintainance",
+      // },
+      // {
+      //   url: "/Projects6/AssetsIOT.png",
+      //   caption: "adding machine and iot censored assets ",
+      // },
     ],
 
     tags: [".NET 8", "React", "PostgreSQL", "MQTT", "SignalR"],
