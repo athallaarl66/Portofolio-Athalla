@@ -302,14 +302,8 @@ export const projectsData = {
     thumbnail: "/projects6/IOTDashboard.png",
     screenshots: [
       { url: "/projects6/IOTDashboard.png", caption: "Main Dashboard" },
-      // {
-      //   url: "/Projects6/detailsIOT.png",
-      //   caption: "Show details breakdown for machine predictive maintainance",
-      // },
-      // {
-      //   url: "/Projects6/AssetsIOT.png",
-      //   caption: "adding machine and iot censored assets ",
-      // },
+      { url: "/projects6/detailsIOT.png", caption: "Details Dashboard" },
+      { url: "/projects6/AssetsIOT.png", caption: "Assets IOT" },
     ],
 
     tags: [".NET 8", "React", "PostgreSQL", "MQTT", "SignalR"],
