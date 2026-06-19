@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { Card, CardContent } from "@/components/ui/card";
 
 const GitHubCalendar = dynamic(() => import("react-github-calendar").then(mod => ({ default: mod.GitHubCalendar })), {
   ssr: false,
@@ -35,21 +36,20 @@ export const GithubActivity = () => {
           </p>
         </div>
 
-        <div
-          className="flex justify-center p-6 md:p-10 rounded-[2rem] border overflow-x-auto"
-          style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}
-        >
-          <div className="min-w-max">
-            <GitHubCalendar
-              username="athallaarl66"
-              blockSize={14}
-              blockMargin={6}
-              colorScheme="dark"
-              theme={customTheme}
-              fontSize={14}
-            />
-          </div>
-        </div>
+        <Card className="p-6 md:p-10 rounded-2xl overflow-x-auto" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
+          <CardContent className="p-0 flex justify-center">
+            <div className="min-w-max">
+              <GitHubCalendar
+                username="athallaarl66"
+                blockSize={14}
+                blockMargin={6}
+                colorScheme="dark"
+                theme={customTheme}
+                fontSize={14}
+              />
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
