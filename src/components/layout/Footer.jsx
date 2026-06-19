@@ -39,10 +39,8 @@ const Footer = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-xs font-mono transition-colors duration-200"
+              className="text-xs font-mono transition-colors duration-200 hover:text-[var(--primary-light)]"
               style={{ color: "var(--muted-fg)" }}
-              onMouseEnter={e => e.currentTarget.style.color = "var(--primary-light)"}
-              onMouseLeave={e => e.currentTarget.style.color = "var(--muted-fg)"}
             >
               {link.name}
             </a>
@@ -58,10 +56,8 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={name}
-              className="transition-colors duration-200"
+              className="transition-colors duration-200 hover:text-[var(--primary-light)]"
               style={{ color: "var(--muted-fg)" }}
-              onMouseEnter={e => e.currentTarget.style.color = "var(--primary-light)"}
-              onMouseLeave={e => e.currentTarget.style.color = "var(--muted-fg)"}
             >
               <Icon size={15} />
             </a>

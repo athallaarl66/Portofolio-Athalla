@@ -1,6 +1,67 @@
-// src/data/projectsData.js
+// src/data/projectsData.ts
 
-export const projectsData = {
+export interface Screenshot {
+  url: string;
+  caption: string;
+}
+
+export interface TechStack {
+  frontend?: string[];
+  backend?: string[];
+  database?: string[];
+  design?: string[];
+  deployment?: string[];
+  tools?: string[];
+  messaging?: string[];
+  infrastructure?: string[];
+}
+
+export interface Project {
+  title: string;
+  tagline: string;
+  shortDesc: string;
+  hero: string;
+  thumbnail: string;
+  screenshots: Screenshot[];
+  tags: string[];
+  category: string;
+  year: string;
+  role: string;
+  duration: string;
+  liveUrl: string | null;
+  githubUrl: string;
+  githubBackendUrl?: string;
+  figmaUrl?: string;
+  overview: string;
+  techStack: TechStack;
+  keyFeatures: string[];
+  results: string[];
+}
+
+export interface ProjectData {
+  id: string;
+  title: string;
+  tagline: string;
+  shortDesc: string;
+  hero: string;
+  thumbnail: string;
+  screenshots: Screenshot[];
+  tags: string[];
+  category: string;
+  year: string;
+  role: string;
+  duration: string;
+  liveUrl: string | null;
+  githubUrl: string;
+  githubBackendUrl?: string;
+  figmaUrl?: string;
+  overview: string;
+  techStack: TechStack;
+  keyFeatures: string[];
+  results: string[];
+}
+
+export const projectsData: Record<string, Project> = {
   "sundanese-learning": {
     title: "DiajarAksara - Sundanese Script Learning Platform",
     tagline:
@@ -244,7 +305,7 @@ export const projectsData = {
 
     liveUrl: "https://audit-tracks.vercel.app",
     githubUrl: "https://github.com/athallaarl66/money-tracker-frontend",
-    githubUrlBe: "https://github.com/athallaarl66/money-tracker-backend",
+    githubBackendUrl: "https://github.com/athallaarl66/money-tracker-backend",
 
     overview:
       "Built this because I wanted a finance tracker that worked the way I think about money — by account, not just by category. The backend is a Spring Boot REST API running on Java 21, secured with JWT and containerized with Docker on Koyeb. Frontend is Next.js 14 with TypeScript, React Query for data fetching, Zustand for auth state, and Recharts for the charts. This was my first time shipping a Spring Boot app to production, so a decent chunk of the work was figuring out deployment, CORS across two separate services, and keeping the auth flow clean.",
@@ -344,9 +405,14 @@ export const projectsData = {
   },
 };
 
-export const getProject = (id) => projectsData[id];
+export const getProject = (id: string | undefined): Project | null => {
+  if (!id || typeof id !== 'string') {
+    return null;
+  }
+  return projectsData[id] || null;
+};
 
-export const getAllProjects = () => {
+export const getAllProjects = (): ProjectData[] => {
   return Object.entries(projectsData).map(([id, data]) => ({
     id,
     ...data,

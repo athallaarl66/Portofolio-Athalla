@@ -1,4 +1,5 @@
 import { Mail, Linkedin, Github, Instagram, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const socials = [
   { name: "LinkedIn",  icon: Linkedin,  url: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",  handle: "@athalla-arli" },
@@ -29,10 +30,20 @@ export default function ContactContainer() {
               Feel free to reach out if you'd like to discuss opportunities.
             </p>
 
-            <a href="mailto:athallaarli@gmail.com" className="btn-primary text-base">
-              Send me an email
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
+            <Button
+              variant="default"
+              className="text-base px-5 py-2.5 rounded-full"
+              style={{
+                background: "linear-gradient(135deg, var(--deep) 0%, var(--teal) 100%)",
+                color: "var(--pale)",
+              }}
+              asChild
+            >
+              <a href="mailto:athallaarli@gmail.com">
+                Send me an email
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </Button>
 
             <div className="flex items-center gap-2 mt-6">
               <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--sage)" }} />
@@ -50,16 +61,8 @@ export default function ContactContainer() {
                 href={url}
                 target={name !== "Email" ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-4 rounded-2xl border transition-all duration-200"
+                className="group flex items-center gap-4 p-4 rounded-2xl border transition-all duration-200 hover:border-[rgba(var(--teal-rgb),0.35)] social-link-hover"
                 style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = "rgba(var(--teal-rgb), 0.35)";
-                  e.currentTarget.style.background = "rgba(var(--teal-rgb), 0.07)";
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = "var(--border)";
-                  e.currentTarget.style.background = "var(--surface-1)";
-                }}
               >
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"

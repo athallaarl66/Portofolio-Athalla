@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const projects = [
   {
@@ -89,12 +90,8 @@ export const ProjectSection = () => {
           </div>
           <a
             href="/projects"
-            className="flex items-center gap-2 text-sm font-mono transition-colors duration-200"
+            className="flex items-center gap-2 text-sm font-mono transition-colors duration-200 hover:text-[var(--sage)]"
             style={{ color: "var(--muted-fg)" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--sage)")}
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--muted-fg)")
-            }
           >
             View all projects <ArrowUpRight className="w-4 h-4" />
           </a>
@@ -177,9 +174,18 @@ export const ProjectSection = () => {
                 >
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.slice(0, 3).map((tag) => (
-                      <span key={tag} className="tag-pill">
+                      <Badge
+                        key={tag}
+                        variant="outline"
+                        className="rounded-full px-3 py-1.5 text-xs font-medium"
+                        style={{
+                          background: "rgba(var(--deep-rgb), 0.5)",
+                          border: "1px solid rgba(255,255,255,0.07)",
+                          color: "rgba(255,255,255,0.75)",
+                        }}
+                      >
                         {tag}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
                   <div

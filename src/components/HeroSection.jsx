@@ -1,4 +1,5 @@
 import { ArrowDownRight, Github, Linkedin, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import profileImg from "/projects/propil.jpg";
 
 export const HeroSection = () => {
@@ -43,15 +44,13 @@ export const HeroSection = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200 hover:-translate-y-0.5"
+                  className="w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--sage)] hover:text-[var(--sage)] hover:shadow-[0_4px_12px_rgba(var(--sage-rgb),0.2)]"
                   style={{
                     background: "rgba(var(--deep-rgb), 0.4)",
                     borderColor: "var(--border)",
                     color: "white",
                     backdropFilter: "blur(8px)"
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--sage)"; e.currentTarget.style.color = "var(--sage)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--sage-rgb), 0.2)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "white"; e.currentTarget.style.boxShadow = "none"; }}
                   aria-label={label}
                 >
                   {icon}
@@ -89,20 +88,34 @@ export const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
-              <a
-                href="#projects"
-                className="btn-primary text-[13px] px-5 py-2.5"
+              <Button
+                variant="default"
+                className="text-[13px] px-5 py-2.5 rounded-full"
+                style={{
+                  background: "linear-gradient(135deg, var(--deep) 0%, var(--teal) 100%)",
+                  color: "var(--pale)",
+                }}
                 onClick={e => { e.preventDefault(); document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" }); }}
+                asChild
               >
-                See my projects <ArrowDownRight className="w-4 h-4 ml-1" />
-              </a>
-              <a
-                href="#contact"
-                className="btn-ghost text-[13px] px-5 py-2.5"
+                <a href="#projects">
+                  See my projects <ArrowDownRight className="w-4 h-4 ml-1" />
+                </a>
+              </Button>
+              <Button
+                variant="ghost"
+                className="text-[13px] px-5 py-2.5 rounded-full"
+                style={{
+                  color: "rgba(255,255,255,0.65)",
+                  border: "1px solid rgba(var(--teal-rgb), 0.3)",
+                }}
                 onClick={e => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
+                asChild
               >
-                Contact me <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
+                <a href="#contact">
+                  Contact me <ArrowRight className="w-4 h-4 ml-1" />
+                </a>
+              </Button>
             </div>
 
             {/* Stats row */}

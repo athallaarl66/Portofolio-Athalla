@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { navItems } from "./navItems";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
   const location = useLocation();
@@ -91,10 +92,8 @@ export const Navbar = () => {
                 key={item.label}
                 href={item.to}
                 onClick={(e) => handleNavClick(e, item)}
-                className="text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-200 cursor-pointer"
+                className="text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-200 cursor-pointer nav-item-hover"
                 style={{ color: "rgba(255,255,255,0.4)" }}
-                onMouseEnter={e => { e.currentTarget.style.color = "rgba(255,255,255,0.9)"; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
-                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.4)"; e.currentTarget.style.background = "transparent"; }}
               >
                 {item.label}
               </a>
@@ -105,14 +104,12 @@ export const Navbar = () => {
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, { label: "Contact", to: "/#contact" })}
-            className="hidden md:flex items-center ml-1 px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200"
+            className="hidden md:flex items-center ml-1 px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 hire-me-hover"
             style={{
               border: "1px solid rgba(var(--teal-rgb), 0.35)",
               color: "var(--sage)",
               background: "rgba(var(--teal-rgb), 0.07)",
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = "rgba(var(--teal-rgb), 0.15)"; e.currentTarget.style.borderColor = "rgba(var(--teal-rgb), 0.55)"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "rgba(var(--teal-rgb), 0.07)"; e.currentTarget.style.borderColor = "rgba(var(--teal-rgb), 0.35)"; }}
           >
             Hire me
           </a>
@@ -154,10 +151,8 @@ export const Navbar = () => {
       >
         <button
           onClick={() => setIsMenuOpen(false)}
-          className="absolute top-6 right-6 text-2xl leading-none transition-colors"
+          className="absolute top-6 right-6 text-2xl leading-none transition-colors hover:text-[rgba(255,255,255,0.8)]"
           style={{ color: "rgba(255,255,255,0.25)" }}
-          onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.8)"}
-          onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.25)"}
           aria-label="Close menu"
         >
           ✕
@@ -169,27 +164,32 @@ export const Navbar = () => {
               key={item.label}
               href={item.to}
               onClick={(e) => handleNavClick(e, item)}
-              className="text-4xl font-black tracking-tight py-2 px-6 transition-colors duration-200 cursor-pointer"
+              className="text-4xl font-black tracking-tight py-2 px-6 transition-colors duration-200 cursor-pointer hover:text-[rgba(255,255,255,0.9)]"
               style={{ color: "rgba(255,255,255,0.35)" }}
-              onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.9)"}
-              onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.35)"}
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        <a
-          href="#contact"
+        <Button
+          variant="default"
+          className="mt-4 rounded-full"
+          style={{
+            background: "linear-gradient(135deg, var(--deep) 0%, var(--teal) 100%)",
+            color: "var(--pale)",
+          }}
           onClick={(e) => {
             e.preventDefault();
             setIsMenuOpen(false);
             document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="btn-primary mt-4"
+          asChild
         >
-          Hire me
-        </a>
+          <a href="#contact">
+            Hire me
+          </a>
+        </Button>
       </div>
     </>
   );

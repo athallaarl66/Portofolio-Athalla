@@ -2,6 +2,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Github, Figma, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { getProject } from "../../../data/projectsData";
 
 export default function ProjectDetail() {
@@ -17,12 +21,17 @@ export default function ProjectDetail() {
           <p className="text-[11px] font-mono tracking-widest uppercase mb-8" style={{ color: "var(--muted-fg)" }}>
             project not found
           </p>
-          <button
+          <Button
+            variant="ghost"
+            className="rounded-full"
+            style={{
+              color: "rgba(255,255,255,0.65)",
+              border: "1px solid rgba(var(--teal-rgb), 0.3)",
+            }}
             onClick={() => navigate("/projects")}
-            className="btn-ghost"
           >
             Back to Projects
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -45,10 +54,8 @@ export default function ProjectDetail() {
           {/* Back button */}
           <button
             onClick={() => navigate("/projects")}
-            className="group flex items-center gap-2 mb-10 text-[11px] font-mono uppercase tracking-widest transition-colors"
+            className="group flex items-center gap-2 mb-10 text-[11px] font-mono uppercase tracking-widest transition-colors hover:text-[var(--sage)]"
             style={{ color: "var(--muted-fg)" }}
-            onMouseEnter={e => e.currentTarget.style.color = "var(--sage)"}
-            onMouseLeave={e => e.currentTarget.style.color = "var(--muted-fg)"}
           >
             <ArrowLeft
               size={14}
@@ -92,25 +99,65 @@ export default function ProjectDetail() {
 
               <div className="flex flex-wrap gap-3">
                 {project.liveUrl && (
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                    Live Demo
-                    <ArrowUpRight size={14} className="ml-1" />
-                  </a>
+                  <Button
+                    variant="default"
+                    className="rounded-full"
+                    style={{
+                      background: "linear-gradient(135deg, var(--deep) 0%, var(--teal) 100%)",
+                      color: "var(--pale)",
+                    }}
+                    asChild
+                  >
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      Live Demo
+                      <ArrowUpRight size={14} className="ml-1" />
+                    </a>
+                  </Button>
                 )}
                 {project.figmaUrl && (
-                  <a href={project.figmaUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-                    <Figma size={14} /> Figma
-                  </a>
+                  <Button
+                    variant="ghost"
+                    className="rounded-full"
+                    style={{
+                      color: "rgba(255,255,255,0.65)",
+                      border: "1px solid rgba(var(--teal-rgb), 0.3)",
+                    }}
+                    asChild
+                  >
+                    <a href={project.figmaUrl} target="_blank" rel="noopener noreferrer">
+                      <Figma size={14} /> Figma
+                    </a>
+                  </Button>
                 )}
                 {project.githubUrl && (
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-                    <Github size={14} /> {project.githubUrlBe ? "Source (FE)" : "Source"}
-                  </a>
+                  <Button
+                    variant="ghost"
+                    className="rounded-full"
+                    style={{
+                      color: "rgba(255,255,255,0.65)",
+                      border: "1px solid rgba(var(--teal-rgb), 0.3)",
+                    }}
+                    asChild
+                  >
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <Github size={14} /> {project.githubBackendUrl ? "Source (FE)" : "Source"}
+                    </a>
+                  </Button>
                 )}
-                {project.githubUrlBe && (
-                  <a href={project.githubUrlBe} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-                    <Github size={14} /> Source (BE)
-                  </a>
+                {project.githubBackendUrl && (
+                  <Button
+                    variant="ghost"
+                    className="rounded-full"
+                    style={{
+                      color: "rgba(255,255,255,0.65)",
+                      border: "1px solid rgba(var(--teal-rgb), 0.3)",
+                    }}
+                    asChild
+                  >
+                    <a href={project.githubBackendUrl} target="_blank" rel="noopener noreferrer">
+                      <Github size={14} /> Source (BE)
+                    </a>
+                  </Button>
                 )}
               </div>
             </div>
@@ -145,7 +192,7 @@ export default function ProjectDetail() {
                 <span className="text-[11px] font-mono tracking-widest uppercase whitespace-nowrap" style={{ color: "var(--muted-fg)" }}>
                   {title}
                 </span>
-                <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
+                <Separator className="flex-1" style={{ background: "var(--border)" }} />
               </div>
             );
 
@@ -170,7 +217,18 @@ export default function ProjectDetail() {
                         </span>
                         <div className="flex flex-wrap gap-2">
                           {techs.map((tech) => (
-                            <span key={tech} className="tag-pill">{tech}</span>
+                            <Badge
+                              key={tech}
+                              variant="outline"
+                              className="rounded-full px-3 py-1.5 text-xs font-medium"
+                              style={{
+                                background: "rgba(var(--deep-rgb), 0.5)",
+                                border: "1px solid rgba(255,255,255,0.07)",
+                                color: "rgba(255,255,255,0.75)",
+                              }}
+                            >
+                              {tech}
+                            </Badge>
                           ))}
                         </div>
                       </div>
@@ -183,14 +241,16 @@ export default function ProjectDetail() {
                   <SectionHeader title="Features" />
                   <ul className="space-y-3 max-w-[800px]">
                     {project.keyFeatures.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-4 p-4 rounded-xl border" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
-                        <span className="font-mono text-xs mt-1 shrink-0" style={{ color: "var(--teal)" }}>
-                          {(idx + 1).toString().padStart(2, '0')}
-                        </span>
-                        <span className="leading-relaxed text-sm md:text-base font-light" style={{ color: "var(--foreground)" }}>
-                          {feature}
-                        </span>
-                      </li>
+                      <Card key={idx} className="p-4 rounded-xl" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
+                        <CardContent className="p-0 flex items-start gap-4">
+                          <span className="font-mono text-xs mt-1 shrink-0" style={{ color: "var(--teal)" }}>
+                            {(idx + 1).toString().padStart(2, '0')}
+                          </span>
+                          <span className="leading-relaxed text-sm md:text-base font-light" style={{ color: "var(--foreground)" }}>
+                            {feature}
+                          </span>
+                        </CardContent>
+                      </Card>
                     ))}
                   </ul>
                 </section>
@@ -201,30 +261,32 @@ export default function ProjectDetail() {
                     <SectionHeader title="Challenges" />
                     <div className="grid gap-4 max-w-[800px]">
                       {project.challenges.map((challenge, idx) => (
-                        <div key={idx} className="p-6 rounded-2xl border flex flex-col gap-4" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
-                          <h3 className="text-base font-bold text-white">
-                            {challenge.title}
-                          </h3>
-                          <div className="grid gap-4">
-                            <div>
-                              <span className="text-[10px] font-mono tracking-widest uppercase mb-1 block" style={{ color: "#f87171" }}>
-                                Problem
-                              </span>
-                              <p className="text-sm font-light leading-relaxed" style={{ color: "var(--muted-fg)" }}>
-                                {challenge.problem}
-                              </p>
+                        <Card key={idx} className="p-6 rounded-2xl flex flex-col gap-4" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
+                          <CardContent className="p-0 flex flex-col gap-4">
+                            <h3 className="text-base font-bold text-white">
+                              {challenge.title}
+                            </h3>
+                            <div className="grid gap-4">
+                              <div>
+                                <span className="text-[10px] font-mono tracking-widest uppercase mb-1 block" style={{ color: "#f87171" }}>
+                                  Problem
+                                </span>
+                                <p className="text-sm font-light leading-relaxed" style={{ color: "var(--muted-fg)" }}>
+                                  {challenge.problem}
+                                </p>
+                              </div>
+                              <Separator className="w-full" style={{ background: "var(--border)" }} />
+                              <div>
+                                <span className="text-[10px] font-mono tracking-widest uppercase mb-1 block" style={{ color: "var(--sage)" }}>
+                                  Solution
+                                </span>
+                                <p className="text-sm font-light leading-relaxed" style={{ color: "var(--muted-fg)" }}>
+                                  {challenge.solution}
+                                </p>
+                              </div>
                             </div>
-                            <div className="w-full h-px" style={{ background: "var(--border)" }} />
-                            <div>
-                              <span className="text-[10px] font-mono tracking-widest uppercase mb-1 block" style={{ color: "var(--sage)" }}>
-                                Solution
-                              </span>
-                              <p className="text-sm font-light leading-relaxed" style={{ color: "var(--muted-fg)" }}>
-                                {challenge.solution}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
+                          </CardContent>
+                        </Card>
                       ))}
                     </div>
                   </section>
@@ -235,16 +297,18 @@ export default function ProjectDetail() {
                   <SectionHeader title="Results" />
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {project.results.map((result, idx) => (
-                      <li key={idx} className="flex items-start gap-3 p-5 rounded-2xl border" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
-                        <span className="shrink-0 mt-0.5" style={{ color: "var(--sage)" }}>
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span className="text-sm font-light leading-relaxed" style={{ color: "var(--foreground)" }}>
-                          {result}
-                        </span>
-                      </li>
+                      <Card key={idx} className="p-5 rounded-2xl flex items-start gap-3" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
+                        <CardContent className="p-0 flex items-start gap-3 w-full">
+                          <span className="shrink-0 mt-0.5" style={{ color: "var(--sage)" }}>
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </span>
+                          <span className="text-sm font-light leading-relaxed" style={{ color: "var(--foreground)" }}>
+                            {result}
+                          </span>
+                        </CardContent>
+                      </Card>
                     ))}
                   </ul>
                 </section>
@@ -255,16 +319,16 @@ export default function ProjectDetail() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {project.screenshots.map((screenshot, idx) => (
                       <figure key={idx} className="flex flex-col gap-3">
-                        <div className="rounded-xl overflow-hidden border p-1" style={{ background: "rgba(var(--deep-rgb), 0.1)", borderColor: "var(--border)" }}>
-                          <div className="rounded-lg overflow-hidden h-full">
+                        <Card className="rounded-xl overflow-hidden border p-1" style={{ background: "rgba(var(--deep-rgb), 0.1)", borderColor: "var(--border)" }}>
+                          <CardContent className="p-0 rounded-lg overflow-hidden h-full">
                             <img
                               src={screenshot.url}
                               alt={screenshot.caption}
                               className="w-full h-auto object-cover"
                               loading="lazy"
                             />
-                          </div>
-                        </div>
+                          </CardContent>
+                        </Card>
                         <figcaption className="text-[11px] font-mono tracking-wide text-center" style={{ color: "var(--muted-fg)" }}>
                           {screenshot.caption}
                         </figcaption>
@@ -280,10 +344,8 @@ export default function ProjectDetail() {
           <div className="pt-8 border-t flex justify-center" style={{ borderColor: "var(--border)" }}>
             <button
               onClick={() => navigate("/projects")}
-              className="group flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest transition-colors"
+              className="group flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest transition-colors hover:text-[var(--sage)]"
               style={{ color: "var(--muted-fg)" }}
-              onMouseEnter={e => e.currentTarget.style.color = "var(--sage)"}
-              onMouseLeave={e => e.currentTarget.style.color = "var(--muted-fg)"}
             >
               <ArrowLeft
                 size={14}

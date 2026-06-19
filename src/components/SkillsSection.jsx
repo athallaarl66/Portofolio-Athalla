@@ -1,4 +1,6 @@
 import { Terminal, Database, Layout } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const skills = [
   { name: "HTML", category: "Frontend", icon: "/icons/html.png" },
@@ -77,67 +79,63 @@ export const SkillSection = () => {
             const Icon = cat.icon;
             const catSkills = skills.filter((s) => s.category === cat.title);
             return (
-              <div
+              <Card
                 key={cat.title}
-                className="rounded-2xl p-6 border card-hover"
+                className="rounded-2xl p-6 card-hover"
                 style={{ background: cat.bg, borderColor: cat.border }}
               >
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <h3 className="text-base font-bold text-white">
-                      {cat.title}
-                    </h3>
-                    <p
-                      className="text-[11px] font-mono mt-0.5"
-                      style={{ color: "var(--muted-fg)" }}
-                    >
-                      {catSkills.length} skills
-                    </p>
-                  </div>
-                  <div
-                    className="w-9 h-9 rounded-xl flex items-center justify-center"
-                    style={{
-                      background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.07)",
-                    }}
-                  >
-                    <Icon
-                      className="w-4 h-4"
-                      style={{ color: "var(--muted-fg)" }}
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {catSkills.map((skill) => (
-                    <div
-                      key={skill.name}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-default transition-all duration-200"
-                      style={{
-                        background: "rgba(var(--deep-rgb), 0.5)",
-                        border: `1px solid rgba(255,255,255,0.07)`,
-                      }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.borderColor = cat.hoverBorder)
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.borderColor =
-                          "rgba(255,255,255,0.07)")
-                      }
-                    >
-                      <img
-                        src={skill.icon}
-                        alt={skill.name}
-                        className="w-3.5 h-3.5 object-contain"
-                        loading="lazy"
-                      />
-                      <span className="text-xs font-medium text-white/75">
-                        {skill.name}
-                      </span>
+                <CardContent className="p-0">
+                  <div className="flex items-center justify-between mb-6">
+                    <div>
+                      <h3 className="text-base font-bold text-white">
+                        {cat.title}
+                      </h3>
+                      <p
+                        className="text-[11px] font-mono mt-0.5"
+                        style={{ color: "var(--muted-fg)" }}
+                      >
+                        {catSkills.length} skills
+                      </p>
                     </div>
-                  ))}
-                </div>
-              </div>
+                    <div
+                      className="w-9 h-9 rounded-xl flex items-center justify-center"
+                      style={{
+                        background: "rgba(255,255,255,0.04)",
+                        border: "1px solid rgba(255,255,255,0.07)",
+                      }}
+                    >
+                      <Icon
+                        className="w-4 h-4"
+                        style={{ color: "var(--muted-fg)" }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {catSkills.map((skill) => (
+                      <div
+                        key={skill.name}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-default transition-all duration-200 skill-pill-hover"
+                        style={{
+                          background: "rgba(var(--deep-rgb), 0.5)",
+                          border: `1px solid rgba(255,255,255,0.07)`,
+                          '--hover-border': cat.hoverBorder,
+                        }}
+                      >
+                        <img
+                          src={skill.icon}
+                          alt={skill.name}
+                          className="w-3.5 h-3.5 object-contain"
+                          loading="lazy"
+                        />
+                        <span className="text-xs font-medium text-white/75">
+                          {skill.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             );
           })}
         </div>
@@ -165,9 +163,18 @@ export const SkillSection = () => {
             "REST APIs",
             "Postman",
           ].map((t) => (
-            <span key={t} className="tag-pill">
+            <Badge
+              key={t}
+              variant="outline"
+              className="rounded-full px-3 py-1.5 text-xs font-medium"
+              style={{
+                background: "rgba(var(--deep-rgb), 0.5)",
+                border: "1px solid rgba(255,255,255,0.07)",
+                color: "rgba(255,255,255,0.75)",
+              }}
+            >
               {t}
-            </span>
+            </Badge>
           ))}
         </div>
       </div>
