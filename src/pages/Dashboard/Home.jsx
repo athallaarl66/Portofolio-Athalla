@@ -13,9 +13,9 @@ export default function Home() {
     <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--background)", color: "var(--foreground)" }}>
       <div className="grain-overlay" aria-hidden="true" />
 
-      {/* Aurora — deep indigo → teal tones */}
+      {/* Aurora — deep green → forest green tones */}
       <BackgroundAurora
-        colorStops={["#08080f", "#281C59", "#4E8D9C"]}
+        colorStops={["#091413", "#285A48", "#408A71"]}
         amplitude={0.85}
         blend={0.38}
         speed={0.5}

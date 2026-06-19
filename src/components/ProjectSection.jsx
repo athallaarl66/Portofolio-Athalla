@@ -10,8 +10,8 @@ const projects = [
     tags: ["Next.js", "CSS Modules", "UI/UX", "UCD"],
     year: "2025",
     link: "/projects",
-    overlayColor: "rgba(40,28,89,0.35)",
-    accentBorder: "rgba(78,141,156,0.35)",
+    overlayColor: "rgba(var(--deep-rgb), 0.35)",
+    accentBorder: "rgba(var(--teal-rgb), 0.35)",
   },
   {
     title: "Money Tracker",
@@ -22,8 +22,8 @@ const projects = [
     tags: ["Spring Boot", "React", "PostgreSQL", "Docker"],
     year: "2026",
     link: "/projects",
-    overlayColor: "rgba(78,141,156,0.2)",
-    accentBorder: "rgba(133,199,154,0.35)",
+    overlayColor: "rgba(var(--teal-rgb), 0.2)",
+    accentBorder: "rgba(var(--sage-rgb), 0.35)",
   },
   {
     title: "Crazwash",
@@ -34,8 +34,8 @@ const projects = [
     tags: ["Next.js", "Prisma", "PostgreSQL", "TypeScript"],
     year: "2026",
     link: "/projects",
-    overlayColor: "rgba(133,199,154,0.15)",
-    accentBorder: "rgba(133,199,154,0.3)",
+    overlayColor: "rgba(var(--sage-rgb), 0.15)",
+    accentBorder: "rgba(var(--sage-rgb), 0.3)",
   },
   {
     title: "RK Law Firm",
@@ -46,8 +46,8 @@ const projects = [
     tags: ["Laravel", "HTML/CSS", "Figma"],
     year: "2024",
     link: "/projects",
-    overlayColor: "rgba(237,247,189,0.1)",
-    accentBorder: "rgba(237,247,189,0.25)",
+    overlayColor: "rgba(var(--pale-rgb), 0.1)",
+    accentBorder: "rgba(var(--pale-rgb), 0.25)",
   },
   {
     title: "Industrial IoT Dashboard",
@@ -58,8 +58,8 @@ const projects = [
     tags: [".NET 8", "React", "MQTT", "PostgreSQL"],
     year: "2026",
     link: "/projects/industrial-iot",
-    overlayColor: "rgba(78,141,156,0.25)",
-    accentBorder: "rgba(133,199,154,0.35)",
+    overlayColor: "rgba(var(--teal-rgb), 0.25)",
+    accentBorder: "rgba(var(--sage-rgb), 0.35)",
   },
 ];
 
@@ -70,7 +70,7 @@ export const ProjectSection = () => {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse, rgba(40,28,89,0.3) 0%, transparent 65%)",
+            "radial-gradient(ellipse, rgba(var(--deep-rgb), 0.3) 0%, transparent 65%)",
         }}
         aria-hidden="true"
       />
@@ -131,13 +131,13 @@ export const ProjectSection = () => {
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(to top, rgba(8,8,15,0.65) 0%, transparent 50%)",
+                      "linear-gradient(to top, rgba(var(--deep-rgb), 0.65) 0%, transparent 50%)",
                   }}
                 />
                 <div
                   className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[11px] font-mono"
                   style={{
-                    background: "rgba(8,8,15,0.75)",
+                    background: "rgba(var(--deep-rgb), 0.75)",
                     backdropFilter: "blur(8px)",
                     border: "1px solid rgba(255,255,255,0.08)",
                     color: "rgba(255,255,255,0.55)",

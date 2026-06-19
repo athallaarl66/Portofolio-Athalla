@@ -3,33 +3,37 @@
 
 /* ============================================
    DESIGN TOKENS — Athalla Portfolio 2026
-   Palette: Deep Ocean × Sage × Pale Lime
-   #281C59 · #4E8D9C · #85C79A · #EDF7BD
+   Palette: Deep Green × Forest × Sage × Mint
+   #091413 · #285A48 · #408A71 · #B0E4CC
    ============================================ */
 :root {
   --radius: 0.75rem;
 
   /* ── Core backgrounds ──────────────────── */
-  --background:   #08080f;
-  --surface-1:    #0e0d1c;
-  --surface-2:    #141228;
+  --background:   #091413;
+  --surface-1:    #0f1a18;
+  --surface-2:    #16201e;
 
   /* ── Text ──────────────────────────────── */
   --foreground:   #eef0f8;
   --muted-fg:     #6a6a88;
   --subtle-fg:    #38364e;
 
+  /* ── Typography ───────────────────────── */
+  --font-heading:  "Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-body:     "Montserrat", system-ui, -apple-system, sans-serif;
+
   /* ── Palette ───────────────────────────── */
-  --deep:         #281C59;          /* deep indigo — panels, button bg  */
-  --teal:         #4E8D9C;          /* ocean teal  — primary interactive */
-  --sage:         #85C79A;          /* sage green  — soft highlights     */
-  --pale:         #EDF7BD;          /* pale lime   — bright text/pop     */
+  --deep:         #091413;          /* deep green/black — panels, button bg  */
+  --teal:         #285A48;          /* forest green  — primary interactive */
+  --sage:         #408A71;          /* sage green  — soft highlights     */
+  --pale:         #B0E4CC;          /* mint   — bright text/pop     */
 
   /* ── RGB versions (for rgba() usage) ──── */
-  --deep-rgb:     40, 28, 89;
-  --teal-rgb:     78, 141, 156;
-  --sage-rgb:     133, 199, 154;
-  --pale-rgb:     237, 247, 189;
+  --deep-rgb:     9, 20, 19;
+  --teal-rgb:     40, 90, 72;
+  --sage-rgb:     64, 138, 113;
+  --pale-rgb:     176, 228, 204;
 
   /* ── Semantic aliases ───────────────────  */
   --primary:              var(--teal);
@@ -162,8 +166,21 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+    font-family: var(--font-body);
     @apply antialiased;
     font-feature-settings: "cv02","cv03","cv04","cv11";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+  }
+
+  h1, h2 {
+    font-weight: 600;
+  }
+
+  h3, h4 {
+    font-weight: 500;
   }
 
   button, a, [role="button"] { cursor: pointer; }
@@ -220,7 +237,7 @@
 
   /* Deep → Teal (for subheadings) */
   .text-gradient-deep {
-    background: linear-gradient(135deg, #6b55a0 0%, var(--teal) 100%);
+    background: linear-gradient(135deg, var(--deep) 0%, var(--teal) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -263,13 +280,6 @@
     color: var(--sage);
   }
 
-  .section-label-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--teal);
-    animation: pulse-subtle 2s ease-in-out infinite;
-  }
 
   /* ── Tag pills ───────────────────────── */
   .tag-pill {

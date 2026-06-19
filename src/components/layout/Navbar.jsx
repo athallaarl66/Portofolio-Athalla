@@ -64,7 +64,7 @@ export const Navbar = () => {
           )}
           style={{
             background: isScrolled ? "rgba(8,8,15,0.92)" : "rgba(8,8,15,0.65)",
-            borderColor: isScrolled ? "rgba(78,141,156,0.18)" : "rgba(255,255,255,0.07)",
+            borderColor: isScrolled ? "rgba(var(--teal-rgb), 0.18)" : "rgba(255,255,255,0.07)",
           }}
         >
           {/* Logo */}
@@ -107,12 +107,12 @@ export const Navbar = () => {
             onClick={(e) => handleNavClick(e, { label: "Contact", to: "/#contact" })}
             className="hidden md:flex items-center ml-1 px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200"
             style={{
-              border: "1px solid rgba(78,141,156,0.35)",
+              border: "1px solid rgba(var(--teal-rgb), 0.35)",
               color: "var(--sage)",
-              background: "rgba(78,141,156,0.07)",
+              background: "rgba(var(--teal-rgb), 0.07)",
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = "rgba(78,141,156,0.15)"; e.currentTarget.style.borderColor = "rgba(78,141,156,0.55)"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "rgba(78,141,156,0.07)"; e.currentTarget.style.borderColor = "rgba(78,141,156,0.35)"; }}
+            onMouseEnter={e => { e.currentTarget.style.background = "rgba(var(--teal-rgb), 0.15)"; e.currentTarget.style.borderColor = "rgba(var(--teal-rgb), 0.55)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(var(--teal-rgb), 0.07)"; e.currentTarget.style.borderColor = "rgba(var(--teal-rgb), 0.35)"; }}
           >
             Hire me
           </a>

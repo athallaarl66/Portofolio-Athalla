@@ -19,7 +19,6 @@ export const GithubActivity = () => {
       <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16">
         <div className="flex flex-col items-center justify-center text-center mb-12">
           <div className="section-label mb-5 mx-auto">
-            <span className="section-label-dot" />
             Activity
           </div>
           <h2 className="text-[clamp(1.8rem,4vw,2.5rem)] font-black tracking-tighter text-white">

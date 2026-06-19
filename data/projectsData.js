@@ -4,7 +4,7 @@ export const projectsData = {
   "sundanese-learning": {
     title: "DiajarAksara - Sundanese Script Learning Platform",
     tagline:
-      "Thesis project — building a web app to make Sundanese script actually learnable",
+      "Thesis project: a web app to make Sundanese script learnable for high school students",
     shortDesc:
       "Built for my undergraduate thesis at Telkom University. The goal was simple: make Sundanese script less intimidating for high school students through research-driven design and a clean web interface.",
 
@@ -56,7 +56,7 @@ export const projectsData = {
   "law-firm-website": {
     title: "RK Law Firm - Corporate Website",
     tagline:
-      "Internship project — company profile site for a Jakarta law firm, built from the ground up",
+      "Internship project: corporate website for a Jakarta law firm with online legal services",
     shortDesc:
       "Worked on this during a 3-month internship at Firma Hukum Rantai Khatulistiwa. Built the profile site and added online legal service features on top of an existing Laravel stack.",
 
@@ -123,7 +123,7 @@ export const projectsData = {
   "Crazwash-umkm-dashboard": {
     title: "Crazwash – Service Management & POS Web App",
     tagline:
-      "Full-stack app for a laundry business — ordering, payments, and admin in one place",
+      "Full-stack app for a laundry UMKM: ordering, payments, and admin dashboard",
     shortDesc:
       "Built for a laundry UMKM that needed a way to manage orders and customers without a complicated POS system. Customers order online, payments get confirmed via WhatsApp, and the owner handles everything from a dashboard.",
 

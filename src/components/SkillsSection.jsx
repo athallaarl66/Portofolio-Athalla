@@ -51,32 +51,23 @@ const categories = [
 export const SkillSection = () => {
   return (
     <section id="skills" className="relative py-24 md:py-32">
-      <div
-        className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(40,28,89,0.3) 0%, transparent 65%)",
-        }}
-        aria-hidden="true"
-      />
-
       <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
             <div className="section-label mb-5 w-fit">
-              <span className="section-label-dot" />
               Tech stack
             </div>
             <h2 className="text-[clamp(2rem,4vw,3rem)] font-black tracking-tighter leading-tight text-white">
-              Tools I build <span className="text-gradient-accent">with.</span>
+              Technologies I use
+              <span className="text-gradient-accent"> every day.</span>
             </h2>
           </div>
           <p
             className="text-sm font-light max-w-xs md:text-right"
             style={{ color: "var(--muted-fg)" }}
           >
-            Full-spectrum stack from database to deployment.
+            Frontend, backend, databases, and deployment tools I use in my projects.
           </p>
         </div>
 
@@ -123,7 +114,7 @@ export const SkillSection = () => {
                       key={skill.name}
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-default transition-all duration-200"
                       style={{
-                        background: "rgba(8,8,15,0.5)",
+                        background: "rgba(var(--deep-rgb), 0.5)",
                         border: `1px solid rgba(255,255,255,0.07)`,
                       }}
                       onMouseEnter={(e) =>

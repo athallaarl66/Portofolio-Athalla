@@ -13,7 +13,7 @@ export default function ProjectsGallery() {
     <div className="relative min-h-screen bg-background text-foreground">
       <div
         className="fixed -top-60 -left-60 w-[700px] h-[700px] rounded-full pointer-events-none -z-10"
-        style={{ background: "radial-gradient(circle, rgba(40,28,89,0.3) 0%, transparent 65%)" }}
+        style={{ background: "radial-gradient(circle, rgba(var(--deep-rgb), 0.3) 0%, transparent 65%)" }}
         aria-hidden="true"
       />
 

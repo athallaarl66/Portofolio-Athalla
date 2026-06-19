@@ -9,48 +9,48 @@ export const HeroSection = () => {
     >
       {/* Subtle radial glows */}
       <div
-        className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none -z-0"
-        style={{ background: "radial-gradient(circle, rgba(40,28,89,0.4) 0%, transparent 65%)" }}
+        className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
+        style={{ background: "radial-gradient(circle, rgba(40,28,89,0.3) 0%, transparent 65%)" }}
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none -z-0"
-        style={{ background: "radial-gradient(circle, rgba(78,141,156,0.12) 0%, transparent 65%)" }}
+        className="absolute top-1/4 right-1/4 w-[350px] h-[350px] rounded-full pointer-events-none -z-0"
+        style={{ background: "radial-gradient(circle, rgba(78,141,156,0.1) 0%, transparent 65%)" }}
         aria-hidden="true"
       />
 
-      <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16 relative z-10">
+      <div className="max-w-[1140px] w-full mx-auto px-6 md:px-10 lg:px-12 relative z-10">
         {/* Top status bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-12 md:mb-16">
-          <div 
-            className="flex items-center gap-2.5 px-3.5 py-2 rounded-full border"
-            style={{ background: "rgba(8,8,15,0.4)", borderColor: "var(--border)", backdropFilter: "blur(8px)" }}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-10 md:mb-14">
+          <div
+            className="flex items-center gap-2.5 px-3 py-1.5 rounded-full border"
+            style={{ background: "rgba(var(--deep-rgb), 0.4)", borderColor: "var(--border)", backdropFilter: "blur(8px)" }}
           >
-            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "var(--sage)", boxShadow: "0 0 8px var(--sage)" }} />
-            <span className="text-[11px] font-mono uppercase tracking-widest text-white/90">
-              Available for fullstack roles
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--sage)", boxShadow: "0 0 8px var(--sage)" }} />
+            <span className="text-[10px] font-mono uppercase tracking-widest text-white/90">
+              Open to new opportunities
             </span>
           </div>
 
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
               {[
-                { href: "https://github.com/athallaarl66", label: "GitHub", icon: <Github className="w-4 h-4" /> },
-                { href: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/", label: "LinkedIn", icon: <Linkedin className="w-4 h-4" /> },
+                { href: "https://github.com/athallaarl66", label: "GitHub", icon: <Github className="w-3.5 h-3.5" /> },
+                { href: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/", label: "LinkedIn", icon: <Linkedin className="w-3.5 h-3.5" /> },
               ].map(({ href, label, icon }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-200 hover:-translate-y-0.5"
-                  style={{ 
-                    background: "rgba(8,8,15,0.4)", 
-                    borderColor: "var(--border)", 
-                    color: "white", 
-                    backdropFilter: "blur(8px)" 
+                  className="w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200 hover:-translate-y-0.5"
+                  style={{
+                    background: "rgba(var(--deep-rgb), 0.4)",
+                    borderColor: "var(--border)",
+                    color: "white",
+                    backdropFilter: "blur(8px)"
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--sage)"; e.currentTarget.style.color = "var(--sage)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(133,199,154,0.2)"; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--sage)"; e.currentTarget.style.color = "var(--sage)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--sage-rgb), 0.2)"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "white"; e.currentTarget.style.boxShadow = "none"; }}
                   aria-label={label}
                 >
@@ -59,7 +59,7 @@ export const HeroSection = () => {
               ))}
             </div>
             <div 
-              className="px-3.5 py-2 rounded-full border text-[11px] font-mono text-white/90 uppercase tracking-widest"
+              className="px-3 py-1.5 rounded-full border text-[10px] font-mono text-white/90 uppercase tracking-widest"
               style={{ background: "rgba(8,8,15,0.4)", borderColor: "var(--border)", backdropFilter: "blur(8px)" }}
             >
               Bandung, ID
@@ -68,55 +68,55 @@ export const HeroSection = () => {
         </div>
 
         {/* Main hero grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
           {/* Left — headline + CTA */}
           <div className="flex flex-col">
-            <div className="section-label mb-6 w-fit">
-              <span className="section-label-dot" />
-              Fullstack Developer
+            
+            <div className="section-label mb-5 w-fit text-[12px]">
+              Based in Bandung
             </div>
 
-            <h1 className="text-[clamp(3.2rem,8vw,7rem)] font-black leading-[0.95] tracking-tighter text-white mb-6">
-              Athalla Arli
+            {/* HEADLINE: Nama langsung digabung sama Role biar bold */}
+            <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-black leading-[1.05] tracking-tighter text-white mb-6">
+              Athalla Arli.
               <br />
-              <span className="text-gradient-primary">Abhinaya.</span>
+              <span className="text-gradient-primary">Software Engineer.</span>
             </h1>
 
-            <p className="text-base md:text-lg leading-relaxed font-light max-w-lg mb-10" style={{ color: "var(--muted-fg)" }}>
-              I build robust backend systems and craft polished frontend
-              interfaces — from Spring Boot APIs to React UIs that feel
-              like products, not demos.
+            {/* COPYWRITING: Natural, pisahin kerjaan kantor & side project */}
+            <p className="text-[14px] md:text-[15px] leading-relaxed font-light max-w-[460px] mb-8" style={{ color: "var(--muted-fg)" }}>
+              I'm a fullstack engineer at GITS.id, working primarily with .NET, Laravel, and Next.js. Beyond my day job, I enjoy building side projects—ranging from enterprise IoT monitoring dashboards to cultural education platforms.
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href="#projects"
-                className="btn-primary"
+                className="btn-primary text-[13px] px-5 py-2.5"
                 onClick={e => { e.preventDefault(); document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" }); }}
               >
-                View my work <ArrowDownRight className="w-4 h-4" />
+                See my projects <ArrowDownRight className="w-4 h-4 ml-1" />
               </a>
               <a
                 href="#contact"
-                className="btn-ghost"
+                className="btn-ghost text-[13px] px-5 py-2.5"
                 onClick={e => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
               >
-                Get in touch <ArrowRight className="w-4 h-4" />
+                Contact me <ArrowRight className="w-4 h-4 ml-1" />
               </a>
             </div>
 
             {/* Stats row */}
-            <div className="flex flex-wrap gap-8 mt-12 pt-10 border-t" style={{ borderColor: "var(--border)" }}>
+            <div className="flex flex-wrap gap-8 mt-10 pt-8 border-t" style={{ borderColor: "var(--border)" }}>
               {[
                 { value: "4+",   label: "Projects shipped" },
-                { value: "1",    label: "Internship" },
+                { value: "S1",   label: "Informatics" },
                 { value: "2025", label: "Graduated" },
               ].map((s) => (
                 <div key={s.label}>
-                  <div className="text-3xl font-black tracking-tight mb-0.5" style={{ color: "var(--teal)" }}>
+                  <div className="text-2xl font-black tracking-tight mb-1" style={{ color: "var(--teal)" }}>
                     {s.value}
                   </div>
-                  <div className="text-[11px] font-mono uppercase tracking-widest" style={{ color: "var(--muted-fg)" }}>
+                  <div className="text-[10px] font-mono uppercase tracking-widest" style={{ color: "var(--muted-fg)" }}>
                     {s.label}
                   </div>
                 </div>
@@ -125,20 +125,20 @@ export const HeroSection = () => {
           </div>
 
           {/* Right — photo */}
-          <div className="w-full max-w-[280px] mx-auto lg:mx-0 flex-shrink-0 relative">
+          <div className="w-full max-w-[260px] mx-auto lg:mx-auto flex-shrink-0 relative">
             <div
-              className="absolute -inset-8 rounded-[2rem] pointer-events-none"
-              style={{ background: "radial-gradient(circle, rgba(40,28,89,0.5) 0%, transparent 70%)" }}
+              className="absolute -inset-6 rounded-[2rem] pointer-events-none"
+              style={{ background: "radial-gradient(circle, rgba(var(--deep-rgb), 0.5) 0%, transparent 70%)" }}
               aria-hidden="true"
             />
             <div
-              className="relative aspect-[3/4] rounded-[1.75rem] overflow-hidden p-2 shadow-2xl"
+              className="relative aspect-[3/4] rounded-[1.5rem] overflow-hidden p-2 shadow-2xl"
               style={{
-                background: "linear-gradient(135deg, rgba(40,28,89,0.6) 0%, rgba(78,141,156,0.3) 100%)",
-                border: "1px solid rgba(78,141,156,0.2)",
+                background: "linear-gradient(135deg, rgba(var(--deep-rgb), 0.6) 0%, rgba(var(--teal-rgb), 0.3) 100%)",
+                border: "1px solid rgba(var(--teal-rgb), 0.2)",
               }}
             >
-              <div className="w-full h-full rounded-[1.35rem] overflow-hidden relative">
+              <div className="w-full h-full rounded-[1.2rem] overflow-hidden relative">
                 <img
                   src={profileImg}
                   alt="Athalla Arli Abhinaya"
@@ -152,7 +152,7 @@ export const HeroSection = () => {
 
               {/* Location badge */}
               <div
-                className="absolute bottom-5 left-5 right-5 flex items-center justify-between px-3 py-2 rounded-xl"
+                className="absolute bottom-4 left-4 right-4 flex items-center justify-between px-3 py-2 rounded-xl"
                 style={{
                   background: "rgba(8,8,15,0.8)",
                   backdropFilter: "blur(12px)",
@@ -160,15 +160,15 @@ export const HeroSection = () => {
                 }}
               >
                 <div>
-                  <p className="text-[10px] font-mono uppercase tracking-widest" style={{ color: "var(--muted-fg)" }}>Location</p>
-                  <p className="text-xs font-semibold text-white">Bandung, Indonesia</p>
+                  <p className="text-[9px] font-mono uppercase tracking-widest" style={{ color: "var(--muted-fg)" }}>Location</p>
+                  <p className="text-[11px] font-semibold text-white">Bandung, ID</p>
                 </div>
                 <div
-                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-full"
-                  style={{ background: "rgba(133,199,154,0.12)", border: "1px solid rgba(133,199,154,0.25)" }}
+                  className="flex items-center gap-1.5 px-2 py-1 rounded-full"
+                  style={{ background: "rgba(var(--sage-rgb), 0.12)", border: "1px solid rgba(var(--sage-rgb), 0.25)" }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--sage)" }} />
-                  <span className="text-[10px] font-mono" style={{ color: "var(--sage)" }}>Open</span>
+                  <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: "var(--sage)" }} />
+                  <span className="text-[9px] font-mono" style={{ color: "var(--sage)" }}>Open</span>
                 </div>
               </div>
             </div>
@@ -177,9 +177,9 @@ export const HeroSection = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style={{ opacity: 0.25 }}>
-        <span className="text-[9px] font-mono uppercase tracking-widest" style={{ color: "var(--muted-fg)" }}>Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent" />
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style={{ opacity: 0.25 }}>
+        <span className="text-[8px] font-mono uppercase tracking-widest" style={{ color: "var(--muted-fg)" }}>Scroll</span>
+        <div className="w-px h-6 bg-gradient-to-b from-white/30 to-transparent" />
       </div>
     </section>
   );

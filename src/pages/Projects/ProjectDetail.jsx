@@ -33,7 +33,7 @@ export default function ProjectDetail() {
       {/* Background glow */}
       <div
         className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full pointer-events-none -z-10"
-        style={{ background: "radial-gradient(ellipse, rgba(40,28,89,0.3) 0%, transparent 65%)" }}
+        style={{ background: "radial-gradient(ellipse, rgba(var(--deep-rgb), 0.3) 0%, transparent 65%)" }}
         aria-hidden="true"
       />
       <div className="grain-overlay" aria-hidden="true" />
@@ -255,7 +255,7 @@ export default function ProjectDetail() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {project.screenshots.map((screenshot, idx) => (
                       <figure key={idx} className="flex flex-col gap-3">
-                        <div className="rounded-xl overflow-hidden border p-1" style={{ background: "rgba(40,28,89,0.1)", borderColor: "var(--border)" }}>
+                        <div className="rounded-xl overflow-hidden border p-1" style={{ background: "rgba(var(--deep-rgb), 0.1)", borderColor: "var(--border)" }}>
                           <div className="rounded-lg overflow-hidden h-full">
                             <img
                               src={screenshot.url}
