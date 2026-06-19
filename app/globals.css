@@ -1,0 +1,335 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================
+   DESIGN TOKENS — Athalla Portfolio 2026
+   Palette: Deep Green × Forest × Sage × Mint
+   #091413 · #285A48 · #408A71 · #B0E4CC
+   ============================================ */
+:root {
+  --radius: 0.75rem;
+
+  /* ── Core backgrounds ──────────────────── */
+  --background:   #091413;
+  --surface-1:    #0f1a18;
+  --surface-2:    #16201e;
+
+  /* ── Text ──────────────────────────────── */
+  --foreground:   #eef0f8;
+  --muted-fg:     #6a6a88;
+  --subtle-fg:    #38364e;
+
+  /* ── Typography ───────────────────────── */
+  --font-heading:  "Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-body:     "Montserrat", system-ui, -apple-system, sans-serif;
+
+  /* ── Palette ───────────────────────────── */
+  --deep:         #091413;          /* deep green/black — panels, button bg  */
+  --teal:         #285A48;          /* forest green  — primary interactive */
+  --sage:         #408A71;          /* sage green  — soft highlights     */
+  --pale:         #B0E4CC;          /* mint   — bright text/pop     */
+
+  /* ── RGB versions (for rgba() usage) ──── */
+  --deep-rgb:     9, 20, 19;
+  --teal-rgb:     40, 90, 72;
+  --sage-rgb:     64, 138, 113;
+  --pale-rgb:     176, 228, 204;
+
+  /* ── Semantic aliases ───────────────────  */
+  --primary:              var(--teal);
+  --primary-light:        var(--sage);
+  --primary-glow:         rgba(var(--teal-rgb), 0.22);
+  --accent:               var(--pale);
+  --accent-glow:          rgba(var(--sage-rgb), 0.18);
+
+  /* ── Borders ────────────────────────────  */
+  --border:       rgba(255,255,255,0.07);
+  --border-hover: rgba(var(--teal-rgb), 0.35);
+
+  /* Tailwind compat */
+  --card:                var(--surface-1);
+  --card-foreground:     var(--foreground);
+  --popover:             var(--surface-1);
+  --popover-foreground:  var(--foreground);
+  --primary-foreground:  var(--pale);
+  --secondary:           var(--surface-2);
+  --secondary-foreground: var(--foreground);
+  --muted:               var(--surface-2);
+  --muted-foreground:    var(--muted-fg);
+  --accent-foreground:   #1a1f10;
+  --destructive:         #ef4444;
+  --input:               var(--surface-2);
+  --ring:                var(--teal);
+
+  --sidebar: var(--surface-1);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--teal);
+  --sidebar-primary-foreground: var(--pale);
+  --sidebar-accent: var(--surface-2);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--teal);
+}
+
+/* ============================================
+   THEME MAPPING
+   ============================================ */
+@theme {
+  --color-background:            var(--background);
+  --color-foreground:            var(--foreground);
+  --color-card:                  var(--card);
+  --color-card-foreground:       var(--card-foreground);
+  --color-popover:               var(--popover);
+  --color-popover-foreground:    var(--popover-foreground);
+  --color-primary:               var(--primary);
+  --color-primary-foreground:    var(--primary-foreground);
+  --color-secondary:             var(--secondary);
+  --color-secondary-foreground:  var(--secondary-foreground);
+  --color-muted:                 var(--muted);
+  --color-muted-foreground:      var(--muted-fg);
+  --color-accent:                var(--accent);
+  --color-accent-foreground:     var(--accent-foreground);
+  --color-destructive:           var(--destructive);
+  --color-border:                var(--border);
+  --color-input:                 var(--input);
+  --color-ring:                  var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Animations */
+  --animate-float:          float 6s ease-in-out infinite;
+  --animate-pulse-subtle:   pulse-subtle 4s ease-in-out infinite;
+  --animate-fade-in:        fade-in 0.6s ease-out forwards;
+  --animate-slide-up:       slide-up 0.5s ease-out forwards;
+  --animate-marquee:        marquee 28s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 28s linear infinite;
+  --animate-grain:          grain 8s steps(10) infinite;
+  --animate-shimmer:        shimmer 2.5s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+  }
+  @keyframes pulse-subtle {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.7; }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  @keyframes grain {
+    0%, 100% { transform: translate(0,0); }
+    10%  { transform: translate(-5%,-10%); }
+    20%  { transform: translate(-15%,5%); }
+    30%  { transform: translate(7%,-20%); }
+    40%  { transform: translate(-5%,25%); }
+    50%  { transform: translate(-15%,10%); }
+    60%  { transform: translate(15%,0%); }
+    70%  { transform: translate(0%,15%); }
+    80%  { transform: translate(3%,30%); }
+    90%  { transform: translate(-10%,10%); }
+  }
+  @keyframes shimmer {
+    from { background-position: -200% center; }
+    to   { background-position:  200% center; }
+  }
+}
+
+/* ============================================
+   BASE
+   ============================================ */
+@layer base {
+  *, *::before, *::after {
+    border-color: var(--border);
+    outline-color: var(--ring);
+    box-sizing: border-box;
+  }
+
+  html { @apply scroll-smooth; overflow-x: hidden; }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    @apply antialiased;
+    font-feature-settings: "cv02","cv03","cv04","cv11";
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+  }
+
+  h1, h2 {
+    font-weight: 600;
+  }
+
+  h3, h4 {
+    font-weight: 500;
+  }
+
+  button, a, [role="button"] { cursor: pointer; }
+  button:disabled, [aria-disabled="true"] { cursor: not-allowed; }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-feature-settings: "ss01","cv02";
+    letter-spacing: -0.025em;
+  }
+
+  ::selection {
+    background: rgba(var(--teal-rgb), 0.3);
+    color: var(--pale);
+  }
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+@layer utilities {
+  /* Grain texture */
+  .grain-overlay {
+    position: fixed;
+    inset: -100%;
+    width: 300%;
+    height: 300%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.028;
+    pointer-events: none;
+    z-index: 999;
+    animation: grain 8s steps(10) infinite;
+  }
+
+  /* ── Text gradients ──────────────────── */
+  /* Teal → Sage */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--sage) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Sage → Pale lime */
+  .text-gradient-accent {
+    background: linear-gradient(135deg, var(--sage) 0%, var(--pale) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Deep → Teal (for subheadings) */
+  .text-gradient-deep {
+    background: linear-gradient(135deg, var(--deep) 0%, var(--teal) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Shimmering */
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--foreground) 0%,
+      var(--teal) 35%,
+      var(--pale) 55%,
+      var(--foreground) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* ── Glow effects ────────────────────── */
+  .glow-teal  { box-shadow: 0 0 40px rgba(var(--teal-rgb), 0.22); }
+  .glow-sage  { box-shadow: 0 0 40px rgba(var(--sage-rgb), 0.18); }
+  .glow-deep  { box-shadow: 0 0 40px rgba(var(--deep-rgb), 0.35); }
+
+  /* ── Section label pill ──────────────── */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(var(--teal-rgb), 0.25);
+    background: rgba(var(--teal-rgb), 0.07);
+    font-size: 10px;
+    font-family: ui-monospace, monospace;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  /* Marquee */
+  .marquee-track {
+    @apply relative overflow-hidden;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  /* container */
+  .container {
+    margin-inline: auto;
+    padding-inline: 2rem;
+    @media (min-width: 640px)  { max-width: 640px; }
+    @media (min-width: 768px)  { max-width: 768px; }
+    @media (min-width: 1024px) { max-width: 1024px; }
+    @media (min-width: 1280px) { max-width: 1280px; }
+    @media (min-width: 1400px) { max-width: 1400px; }
+  }
+}
+
+/* ============================================
+   COMPONENTS
+   ============================================ */
+@layer components {
+
+  /* Lift on hover */
+  .card-hover {
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgba(var(--teal-rgb), 0.3);
+    box-shadow: 0 12px 40px rgba(var(--teal-rgb), 0.1);
+  }
+
+  /* Social link hover */
+  .social-link-hover:hover {
+    background: rgba(var(--teal-rgb), 0.07) !important;
+  }
+
+  /* Skill pill hover */
+  .skill-pill-hover:hover {
+    border-color: var(--hover-border) !important;
+  }
+
+  /* Nav item hover */
+  .nav-item-hover:hover {
+    color: rgba(255,255,255,0.9) !important;
+    background: rgba(255,255,255,0.05) !important;
+  }
+
+  /* Hire me button hover */
+  .hire-me-hover:hover {
+    background: rgba(var(--teal-rgb), 0.15) !important;
+    border-color: rgba(var(--teal-rgb), 0.55) !important;
+  }
+}
