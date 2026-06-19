@@ -38,6 +38,7 @@ lerna-debug.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+.open-next
 
 # Editor directories and files
 .vscode/*

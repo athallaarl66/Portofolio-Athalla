@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "5.0",
     "target": "ES2017",
     "lib": [
       "dom",
@@ -15,14 +16,13 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./*"
@@ -39,9 +39,6 @@
       "@/data/*": [
         "./data/*"
       ],
-      "@/src/*": [
-        "vite-archive/src/*"
-      ]
     }
   },
   "include": [
