@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @opennextjs/cloudflare build && mkdir -p functions && cp .open-next/worker.js functions/_worker.js",
+    "pages:build": "npx @opennextjs/cloudflare build && cp .open-next/worker.js .open-next/assets/_worker.js",
     "deploy": "npm run pages:build && npx wrangler pages deploy"
   },
   "dependencies": {
