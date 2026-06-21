@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @opennextjs/cloudflare build && cp -r .open-next/. .open-next/assets/",
+    "pages:build": "npx @opennextjs/cloudflare build && cp .open-next/worker.js .open-next/assets/_worker.js && cp -r .open-next/cloudflare .open-next/assets/cloudflare && cp -r .open-next/middleware .open-next/assets/middleware && cp -r .open-next/.build .open-next/assets/.build && cp -r .open-next/server-functions .open-next/assets/server-functions",
     "deploy": "npm run pages:build && npx wrangler pages deploy"
   },
   "dependencies": {
