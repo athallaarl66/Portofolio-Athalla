@@ -5,4 +5,4 @@ compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".open-next/assets"
 
 [assets]
-binding = "ASSETS"
+binding = "STATIC_ASSETS"
