@@ -3,7 +3,6 @@
 import { useParams, useRouter } from "next/navigation";
 import { ArrowLeft, Github, Figma, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -168,7 +167,6 @@ export default function ProjectDetail() {
             <div className="md:col-span-5 flex flex-col justify-center">
               {[
                 { label: "Role", value: project.role },
-                { label: "Duration", value: project.duration },
                 { label: "Year", value: project.year },
               ].map(({ label, value }) => (
                 <div
@@ -358,8 +356,6 @@ export default function ProjectDetail() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </article>
   );
 }

@@ -27,7 +27,6 @@ export interface Project {
   category: string;
   year: string;
   role: string;
-  duration: string;
   liveUrl: string | null;
   githubUrl: string;
   githubBackendUrl?: string;
@@ -50,7 +49,6 @@ export interface ProjectData {
   category: string;
   year: string;
   role: string;
-  duration: string;
   liveUrl: string | null;
   githubUrl: string;
   githubBackendUrl?: string;
@@ -82,7 +80,6 @@ export const projectsData: Record<string, Project> = {
     category: "Frontend & UI/UX",
     year: "2025",
     role: "UI/UX Designer & Frontend Developer",
-    duration: "Jan 2025 – Aug 2025 (Undergraduate Thesis)",
 
     liveUrl: "https://diajar-aksara.vercel.app/dashboard",
     githubUrl: "https://github.com/athallaarl66/DiajarAksara",
@@ -145,7 +142,6 @@ export const projectsData: Record<string, Project> = {
     category: "Full Stack (UI/UX and Frontend Focused)",
     year: "2024",
     role: "Full Stack Developer (Intern)",
-    duration: "Jul 2024 – Sep 2024 (Internship)",
 
     liveUrl: null,
     githubUrl:
@@ -227,7 +223,6 @@ export const projectsData: Record<string, Project> = {
     category: "Full Stack",
     year: "2025",
     role: "Full Stack Developer",
-    duration: "Dec 2025 – Feb 2026",
 
     liveUrl: "https://crazwash.vercel.app/",
     githubUrl: "https://github.com/athallaarl66/Crazwash.git",
@@ -301,7 +296,6 @@ export const projectsData: Record<string, Project> = {
     category: "Full Stack",
     year: "2025",
     role: "Full Stack Developer",
-    duration: "2025 (Personal Project)",
 
     liveUrl: "https://audit-tracks.vercel.app",
     githubUrl: "https://github.com/athallaarl66/money-tracker-frontend",
@@ -371,7 +365,6 @@ export const projectsData: Record<string, Project> = {
     category: "Enterprise Full Stack",
     year: "2026",
     role: "Full Stack Developer / Architect",
-    duration: "2026",
 
     liveUrl: null,
     githubUrl: "https://github.com/athallaarl66/industrial-iot.git",
@@ -401,6 +394,53 @@ export const projectsData: Record<string, Project> = {
       "Implemented predictive maintenance workflows",
       "Set up robust local infrastructure using Docker Compose",
       "Established a highly scalable Clean Architecture codebase in .NET 8",
+    ],
+  },
+
+  "dev-cli-sdd": {
+    title: "DEV CLI – SDD Automation Tool",
+    tagline:
+      "A CLI tool to automate development documentation, PRDs, and testing workflows",
+    shortDesc:
+      "Built to accelerate the development process by generating PRDs, Technical Designs, Spec Tests, and QA Reports automatically. It integrates seamlessly with AI agent workflows like Devin, Claude, and OpenCode.",
+
+    hero: "/projects7/cli-hero.png",
+    thumbnail: "/projects7/cli-thumb.png",
+    screenshots: [
+      { url: "/projects7/cli-hero.png", caption: "CLI command execution" },
+      { url: "/projects7/cli-structure.png", caption: "Generated folder structure" },
+    ],
+
+    tags: ["Node.js", "CLI", "Automation", "Playwright", "AI Tools"],
+    category: "Developer Tools",
+    year: "2026",
+    role: "Creator & Developer",
+
+    liveUrl: null,
+    githubUrl: "https://github.com/athallaarl66/TVP-SDD-Dev-CLI.git",
+
+    overview:
+      "DEV CLI (TVP-sdd-cli) is a Node.js-based command-line interface designed to remove the friction of writing development documentation. Adopting a Spec-Driven Development (SDD) approach, it automatically generates Product Requirements Documents (PRD), Technical Designs, Spec Tests, and QA Reports. It parses PRDs to generate scenario-level documentation for granular implementation and integrates with Playwright for E2E testing. The tool is purpose-built to work natively with AI coding assistants by auto-generating workspace folders (.devin, .claude, .opencode, .antigravity) and triggering implementation workflows directly from the terminal. Version 1.1.1 includes Design System and Feature Design documentation generation.",
+
+    techStack: {
+      backend: ["Node.js"],
+      tools: ["Commander.js", "Inquirer.js", "Playwright", "Git"],
+    },
+
+    keyFeatures: [
+      "Automated generation of PRD, Technical Design, Spec Test, and QA Report documents",
+      "PRD parser that breaks down tasks into scenario-level documentation (prod, tech, design, testing)",
+      "Native workspace initialization for AI tools (.devin, .opencode, .claude, .antigravity)",
+      "Design System and Feature Design documentation generation",
+      "Playwright E2E test script generation and execution via npm scripts",
+      "Skill.md generation with role prompts to trigger AI implementation workflows",
+      "Modular command structure with 12+ commands for complete documentation pipeline",
+    ],
+
+    results: [
+      "Significantly reduced documentation time for new features",
+      "Standardized the Spec-Driven Development (SDD) pipeline across projects",
+      "Streamlined AI-agent task breakdowns and code implementations",
     ],
   },
 };

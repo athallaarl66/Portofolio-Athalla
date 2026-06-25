@@ -65,6 +65,18 @@ const projects = [
     overlayColor: "rgba(var(--teal-rgb), 0.25)",
     accentBorder: "rgba(var(--sage-rgb), 0.35)",
   },
+  {
+    title: "DEV CLI – SDD Automation Tool",
+    category: "Developer Tools",
+    description:
+      "Built to accelerate the development process by generating PRDs, Technical Designs, Spec Tests, and QA Reports automatically. Integrates with AI agent workflows.",
+    image: "/projects7/cli-thumb.png",
+    tags: ["Node.js", "CLI", "Automation", "Playwright"],
+    year: "2026",
+    link: "/projects/dev-cli-sdd",
+    overlayColor: "rgba(var(--pale-rgb), 0.1)",
+    accentBorder: "rgba(var(--pale-rgb), 0.25)",
+  },
 ];
 
 export const ProjectSection = () => {

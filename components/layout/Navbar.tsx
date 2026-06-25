@@ -12,6 +12,7 @@ export const Navbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -25,6 +26,10 @@ export const Navbar = () => {
       if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 50);
     }
   }, [pathname]);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleNavClick = (e: React.MouseEvent, item: NavItem) => {
     e.preventDefault();
@@ -79,10 +84,13 @@ export const Navbar = () => {
               router.push("/");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-sm font-black tracking-tight px-3 py-1.5 rounded-full transition-colors cursor-pointer hover:bg-white/5"
+            className="px-2 py-1.5 rounded-full transition-colors cursor-pointer hover:bg-white/5"
           >
-            <span style={{ color: "var(--teal)" }}>A</span>
-            <span style={{ color: "rgba(255,255,255,0.75)" }}>thalla</span>
+            <img
+              src="/icons/Logo.jpg"
+              alt="Athalla Logo"
+              className="h-6 w-6 rounded-full object-cover"
+            />
           </Link>
 
           {/* Separator */}
@@ -143,31 +151,52 @@ export const Navbar = () => {
       </nav>
 
       {/* Mobile fullscreen menu */}
-      <div
-        className="fixed inset-0 flex flex-col items-center justify-center gap-8 transition-all duration-300 z-40 md:hidden"
-        style={{
-          background: "rgba(8,8,15,0.97)",
-          backdropFilter: "blur(24px)",
-          opacity: isMenuOpen ? 1 : 0,
-          pointerEvents: isMenuOpen ? "auto" : "none",
-        }}
-      >
-        <button
-          onClick={() => setIsMenuOpen(false)}
-          className="absolute top-6 right-6 text-2xl leading-none transition-colors hover:text-[rgba(255,255,255,0.8)]"
-          style={{ color: "rgba(255,255,255,0.25)" }}
-          aria-label="Close menu"
+      {isMounted && (
+        <div
+          className="fixed inset-0 flex flex-col transition-all duration-300 z-40 md:hidden"
+          style={{
+            background: "rgba(8,8,15,0.97)",
+            backdropFilter: "blur(24px)",
+            opacity: isMenuOpen ? 1 : 0,
+            pointerEvents: isMenuOpen ? "auto" : "none",
+          }}
         >
-          ✕
-        </button>
+        {/* Mobile menu header */}
+        <div className="flex items-center justify-between px-8 py-6">
+          <Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMenuOpen(false);
+              router.push("/");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="transition-colors cursor-pointer hover:opacity-80"
+          >
+            <img
+              src="/icons/Logo.jpg"
+              alt="Athalla Logo"
+              className="h-10 w-10 rounded-full object-cover"
+            />
+          </Link>
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="text-4xl leading-none transition-colors hover:text-[rgba(255,255,255,0.8)]"
+            style={{ color: "rgba(255,255,255,0.25)" }}
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+        </div>
 
-        <div className="flex flex-col items-center gap-1">
+        {/* Menu items */}
+        <div className="flex-1 flex flex-col items-center justify-center gap-8 px-8">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.to}
               onClick={(e) => handleNavClick(e, item)}
-              className="text-4xl font-black tracking-tight py-2 px-6 transition-colors duration-200 cursor-pointer hover:text-[rgba(255,255,255,0.9)]"
+              className="text-5xl font-black tracking-tight py-4 px-10 transition-colors duration-200 cursor-pointer hover:text-[rgba(255,255,255,0.9)]"
               style={{ color: "rgba(255,255,255,0.35)" }}
             >
               {item.label}
@@ -175,25 +204,29 @@ export const Navbar = () => {
           ))}
         </div>
 
-        <Button
-          variant="default"
-          className="mt-4 rounded-full"
-          style={{
-            background: "linear-gradient(135deg, var(--deep) 0%, var(--teal) 100%)",
-            color: "var(--pale)",
-          }}
-          onClick={(e) => {
-            e.preventDefault();
-            setIsMenuOpen(false);
-            document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-          }}
-          asChild
-        >
-          <a href="#contact">
-            Hire me
-          </a>
-        </Button>
+        {/* CTA button */}
+        <div className="px-8 pb-12">
+          <Button
+            variant="default"
+            className="w-full rounded-full py-5 text-xl font-semibold"
+            style={{
+              background: "linear-gradient(135deg, var(--deep) 0%, var(--teal) 100%)",
+              color: "var(--pale)",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMenuOpen(false);
+              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            asChild
+          >
+            <a href="#contact">
+              Hire me
+            </a>
+          </Button>
+        </div>
       </div>
+      )}
     </>
   );
 };

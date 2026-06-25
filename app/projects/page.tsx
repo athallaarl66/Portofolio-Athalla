@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import ContactContainer from "@/components/ContactContainer";
-import Footer from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { getAllProjects } from "@/lib/projectsData";
@@ -65,8 +64,6 @@ export default function ProjectsGallery() {
 
         <ContactContainer />
       </main>
-
-      <Footer />
     </div>
   );
 }
@@ -79,6 +76,7 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
     if (id === "Crazwash-umkm-dashboard") return "rgba(133,199,154,0.15)";
     if (id === "industrial-iot") return "rgba(78,141,156,0.25)";
     if (id === "law-firm-website") return "rgba(237,247,189,0.1)";
+    if (id === "dev-cli-sdd") return "rgba(168,85,247,0.2)";
     return "rgba(255,255,255,0.05)"; // safe fallback
   };
 

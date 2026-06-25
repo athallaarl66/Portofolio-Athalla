@@ -20,6 +20,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Athalla Arli - Full Stack Developer",
   description: "Portfolio of Athalla Arli, a Full Stack Developer specializing in Next.js, React, and modern web technologies.",
+  icons: {
+    icon: "/icons/Logo.jpg",
+  },
 };
 
 export default function RootLayout({
