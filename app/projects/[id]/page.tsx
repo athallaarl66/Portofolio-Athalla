@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getProject } from "@/lib/projectsData";
+import {
+  CreativeWorkSchema,
+  SoftwareSourceCodeSchema,
+  BreadcrumbListSchema,
+} from "@/components/StructuredData";
 import ProjectDetailClient from "./ProjectDetailClient";
+
+const BASE_URL = "https://athalla-works.vercel.app/";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -26,13 +33,13 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       locale: "en_US",
-      url: `https://athalla-works.vercel.app//projects/${id}`,
+      url: `${BASE_URL}/projects/${id}`,
       title: `${project.title} | Athalla Arli`,
       description: project.tagline || project.shortDesc,
       siteName: "Athalla Arli",
       images: [
         {
-          url: project.hero,
+          url: `${BASE_URL}${project.hero}`,
           width: 1200,
           height: 630,
           alt: project.title,
@@ -43,7 +50,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${project.title} | Athalla Arli`,
       description: project.tagline || project.shortDesc,
-      images: [project.hero],
+      images: [`${BASE_URL}${project.hero}`],
     },
     robots: {
       index: true,
@@ -60,5 +67,18 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  return <ProjectDetailClient id={id} project={project} />;
+  const breadcrumbItems = [
+    { name: "Home", url: BASE_URL },
+    { name: "Projects", url: `${BASE_URL}/projects` },
+    { name: project.title, url: `${BASE_URL}/projects/${id}` },
+  ];
+
+  return (
+    <>
+      <CreativeWorkSchema project={project} />
+      <SoftwareSourceCodeSchema project={project} />
+      <BreadcrumbListSchema items={breadcrumbItems} />
+      <ProjectDetailClient id={id} project={project} />
+    </>
+  );
 }

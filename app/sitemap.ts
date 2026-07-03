@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllProjects } from "@/lib/projectsData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://athalla-works.vercel.app/";
+  const baseUrl = "https://athalla-works.vercel.app";
   const projects = getAllProjects();
 
   const projectPages = projects.map((project) => ({

@@ -17,14 +17,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://athalla-works.vercel.app//projects",
+    url: "https://athalla-works.vercel.app/projects",
     title: "Projects | Athalla Arli",
     description:
       "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications.",
     siteName: "Athalla Arli",
     images: [
       {
-        url: "/og-image.png",
+        url: "/projects/propil.jpg",
         width: 1200,
         height: 630,
         alt: "Athalla Arli's Projects",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Projects | Athalla Arli",
     description:
       "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications.",
-    images: ["/og-image.png"],
+    images: ["/projects/propil.jpg"],
   },
   robots: {
     index: true,

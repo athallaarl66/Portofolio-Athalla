@@ -4,7 +4,7 @@ import { SkillsSection as SkillSection } from "@/components/SkillsSection";
 import { ProjectSection } from "@/components/ProjectSection";
 import ContactContainer from "@/components/ContactContainer";
 import { GithubActivity } from "@/components/GithubActivity";
-import { PersonSchema } from "@/components/StructuredData";
+import { PersonSchema, FAQSchema } from "@/components/StructuredData";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Athalla Arli",
     images: [
       {
-        url: "/og-image.png",
+        url: "/projects/propil.jpg",
         width: 1200,
         height: 630,
         alt: "Athalla Arli - Full Stack Developer Portfolio",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     creator: "@athallaarl",
     images: [
       {
-        url: "/og-image.png",
+        url: "/projects/propil.jpg",
         alt: "Athalla Arli - Full Stack Developer Portfolio",
       },
     ],
@@ -74,6 +74,7 @@ export default function Home() {
   return (
     <>
       <PersonSchema />
+      <FAQSchema />
       <HeroSection />
       <AboutSection />
       <SkillSection />
