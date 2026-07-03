@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://athalla.pages.dev";
+  const baseUrl = "https://athalla-works.vercel.app/";
 
   return {
     rules: [

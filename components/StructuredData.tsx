@@ -2,17 +2,18 @@ export const PersonSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://athalla.pages.dev/#person",
+    "@id": "https://athalla-works.vercel.app//#person",
     name: "Athalla Arli",
-    url: "https://athalla.pages.dev",
-    image: "https://athalla.pages.dev/projects/propil.jpg",
+    url: "https://athalla-works.vercel.app/",
+    image: "https://athalla-works.vercel.app//projects/propil.jpg",
     sameAs: [
       "https://github.com/athallaarl66",
       "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",
       "https://www.instagram.com/athallaarl/",
     ],
     jobTitle: "Full Stack Developer",
-    description: "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+    description:
+      "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
     knowsAbout: [
       "Next.js",
       "React",
@@ -60,7 +61,7 @@ export const PersonSchema = () => {
     ],
     worksFor: {
       "@type": "Organization",
-      "@id": "https://athalla.pages.dev/#organization",
+      "@id": "https://athalla-works.vercel.app//#organization",
       name: "GITS.id",
       url: "https://gits.id",
     },
@@ -80,7 +81,7 @@ export const PersonSchema = () => {
       name: "Indonesia",
     },
     email: "athalla.arli@email.com",
-    url: "https://athalla.pages.dev",
+    url: "https://athalla-works.vercel.app/",
   };
 
   return (

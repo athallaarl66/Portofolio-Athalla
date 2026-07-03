@@ -8,7 +8,7 @@ interface SiteMetadata {
 }
 
 const siteName = "Athalla Arli";
-const siteUrl = "https://athalla.pages.dev";
+const siteUrl = "https://athalla-works.vercel.app/";
 const defaultOgImage = "/projects/propil.jpg";
 
 export const generateMetadata = ({
@@ -18,11 +18,19 @@ export const generateMetadata = ({
   ogImage,
 }: SiteMetadata): Metadata => {
   const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
-  
+
   return {
     title: fullTitle,
     description,
-    keywords: [...keywords, "Athalla Arli", "Full Stack Developer", "Next.js", "React", ".NET", "Software Engineer"],
+    keywords: [
+      ...keywords,
+      "Athalla Arli",
+      "Full Stack Developer",
+      "Next.js",
+      "React",
+      ".NET",
+      "Software Engineer",
+    ],
     authors: [{ name: "Athalla Arli" }],
     creator: "Athalla Arli",
     openGraph: {
@@ -67,7 +75,8 @@ export const generateMetadata = ({
 
 export const siteConfig = {
   name: siteName,
-  description: "Portfolio of Athalla Arli, a Full Stack Developer specializing in Next.js, React, and modern web technologies.",
+  description:
+    "Portfolio of Athalla Arli, a Full Stack Developer specializing in Next.js, React, and modern web technologies.",
   url: siteUrl,
   ogImage: defaultOgImage,
   links: {

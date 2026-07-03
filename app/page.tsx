@@ -9,7 +9,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Athalla Arli - Full Stack Developer",
-  description: "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+  description:
+    "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
   keywords: [
     "Full Stack Developer",
     "Next.js",
@@ -23,14 +24,15 @@ export const metadata: Metadata = {
     "Portfolio",
     "Athalla Arli",
   ],
-  authors: [{ name: "Athalla Arli", url: "https://athalla.pages.dev" }],
+  authors: [{ name: "Athalla Arli", url: "https://athalla-works.vercel.app/" }],
   creator: "Athalla Arli",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://athalla.pages.dev",
+    url: "https://athalla-works.vercel.app/",
     title: "Athalla Arli - Full Stack Developer",
-    description: "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+    description:
+      "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
     siteName: "Athalla Arli",
     images: [
       {
@@ -44,7 +46,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Athalla Arli - Full Stack Developer",
-    description: "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+    description:
+      "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
     site: "@athallaarl",
     creator: "@athallaarl",
     images: [

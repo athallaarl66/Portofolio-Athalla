@@ -2,14 +2,25 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications. Featuring Full Stack, IoT, and Developer Tools projects.",
-  keywords: ["Portfolio", "Projects", "Full Stack Developer", "Next.js", "React", ".NET", "Work Samples", "Athalla Arli"],
+  description:
+    "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications. Featuring Full Stack, IoT, and Developer Tools projects.",
+  keywords: [
+    "Portfolio",
+    "Projects",
+    "Full Stack Developer",
+    "Next.js",
+    "React",
+    ".NET",
+    "Work Samples",
+    "Athalla Arli",
+  ],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://athalla.pages.dev/projects",
+    url: "https://athalla-works.vercel.app//projects",
     title: "Projects | Athalla Arli",
-    description: "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications.",
+    description:
+      "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications.",
     siteName: "Athalla Arli",
     images: [
       {
@@ -23,7 +34,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Projects | Athalla Arli",
-    description: "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications.",
+    description:
+      "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications.",
     images: ["/og-image.png"],
   },
   robots: {

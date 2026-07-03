@@ -7,7 +7,9 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { id } = await params;
   const project = getProject(id);
 
@@ -24,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       type: "article",
       locale: "en_US",
-      url: `https://athalla.pages.dev/projects/${id}`,
+      url: `https://athalla-works.vercel.app//projects/${id}`,
       title: `${project.title} | Athalla Arli`,
       description: project.tagline || project.shortDesc,
       siteName: "Athalla Arli",
