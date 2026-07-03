@@ -18,10 +18,37 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Athalla Arli - Full Stack Developer",
-  description: "Portfolio of Athalla Arli, a Full Stack Developer specializing in Next.js, React, and modern web technologies.",
+  metadataBase: new URL("https://athalla.pages.dev"),
+  title: {
+    default: "Athalla Arli - Full Stack Developer",
+    template: "%s | Athalla Arli",
+  },
+  description: "Portfolio of Athalla Arli, a Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+  keywords: ["Full Stack Developer", "Next.js", "React", ".NET", "Software Engineer", "Bandung", "Indonesia", "TypeScript", "Web Developer"],
+  authors: [{ name: "Athalla Arli", url: "https://athalla.pages.dev" }],
+  creator: "Athalla Arli",
+  publisher: "Athalla Arli",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: "/icons/Logo.jpg",
+    apple: "/apple-touch-icon.png",
+  },
+  alternates: {
+    languages: {
+      "en-US": "https://athalla.pages.dev",
+      "id-ID": "https://athalla.pages.dev",
+    },
+    canonical: "https://athalla.pages.dev",
   },
 };
 
@@ -35,6 +62,23 @@ export default function RootLayout({
       lang="en"
       className={`${jakartaSans.variable} ${montserrat.variable} h-full antialiased`}
     >
+      <head>
+        {/* Preconnect for Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Theme Color for Mobile Browser Chrome */}
+        <meta name="theme-color" content="#080810" />
+        <meta name="msapplication-TileColor" content="#080810" />
+
+        {/* Viewport */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Hreflang Tags */}
+        <link rel="alternate" hrefLang="en-US" href="https://athalla.pages.dev" />
+        <link rel="alternate" hrefLang="id-ID" href="https://athalla.pages.dev" />
+        <link rel="alternate" hrefLang="x-default" href="https://athalla.pages.dev" />
+      </head>
       <body className="min-h-full flex flex-col">
         <BackgroundAurora />
         <Navbar />
