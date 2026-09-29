@@ -12,14 +12,18 @@ export const HeroSection = () => {
       <div className="max-w-[1140px] w-full mx-auto px-6 md:px-10 lg:px-12 relative z-10">
         {/* Availability — single plain line */}
         <div className="flex items-center justify-between gap-3 mb-12 md:mb-16">
-          <p className="flex items-center gap-2.5 text-sm text-muted">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)]" />
-            Available for work — Bandung, ID
-          </p>
           <div className="flex items-center gap-2">
             {[
-              { href: "https://github.com/athallaarl66", label: "GitHub", icon: <Github className="w-4 h-4" /> },
-              { href: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/", label: "LinkedIn", icon: <Linkedin className="w-4 h-4" /> },
+              {
+                href: "https://github.com/athallaarl66",
+                label: "GitHub",
+                icon: <Github className="w-4.5 h-4.5" />,
+              },
+              {
+                href: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",
+                label: "LinkedIn",
+                icon: <Linkedin className="w-4.5 h-4.5" />,
+              },
             ].map(({ href, label, icon }) => (
               <a
                 key={label}
@@ -42,11 +46,14 @@ export const HeroSection = () => {
             <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-black leading-[1.05] tracking-tighter text-white mb-6">
               Athalla Arli.
               <br />
-              Software Engineer<span className="text-[var(--sage)]">.</span>
+              Software Engineer
             </h1>
 
             <p className="text-[14px] md:text-[15px] leading-relaxed font-light max-w-[460px] mb-8 text-muted">
-              I'm a fullstack engineer at GITS.id, working primarily with .NET, Laravel, and Next.js. Beyond my day job, I enjoy building side projects—ranging from enterprise IoT monitoring dashboards to cultural education platforms.
+              I'm a fullstack engineer at GITS.id, working primarily with .NET,
+              Laravel, and Next.js. Beyond my day job, I enjoy building side
+              projects—ranging from enterprise IoT monitoring dashboards to
+              cultural education platforms.
             </p>
 
             <div className="flex flex-wrap items-center gap-5">
@@ -85,7 +92,9 @@ export const HeroSection = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-25">
-        <span className="text-[8px] font-mono uppercase tracking-widest text-muted">Scroll</span>
+        <span className="text-[8px] font-mono uppercase tracking-widest text-muted">
+          Scroll
+        </span>
         <div className="w-px h-6 bg-gradient-to-b from-white/30 to-transparent" />
       </div>
     </section>
