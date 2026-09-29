@@ -14,30 +14,21 @@ export default function ProjectsGallery() {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
-      <div
-        className="fixed -top-60 -left-60 w-[700px] h-[700px] rounded-full pointer-events-none -z-10"
-        style={{ background: "radial-gradient(circle, rgba(var(--deep-rgb), 0.3) 0%, transparent 65%)" }}
-        aria-hidden="true"
-      />
-
       <Navbar />
 
       <main className="pt-28 md:pt-32 pb-16 px-6 md:px-16">
         <div className="max-w-[1280px] w-full mx-auto">
           {/* Section label */}
-          <div className="section-label mb-10 w-fit">
-            <span className="section-label-dot" />
+          <div className="section-label mb-10">
             Projects
           </div>
 
           {/* Heading */}
           <div className="mb-16 space-y-3">
             <h1 className="text-[clamp(2.8rem,6vw,5rem)] font-black leading-none tracking-tighter text-white">
-              Things I've
-              <br />
-              <span className="text-gradient-primary">built.</span>
+              Things I've built.
             </h1>
-            <p className="text-base font-light max-w-md mt-4" style={{ color: "var(--muted-fg)" }}>
+            <p className="text-base font-light max-w-md mt-4 text-muted">
               A curated selection of my work — from academic theses to production-ready enterprise applications.
             </p>
           </div>
@@ -69,23 +60,9 @@ export default function ProjectsGallery() {
 }
 
 function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: () => void }) {
-  // Map hardcoded overlay colors based on project ID
-  const getColor = (id: string) => {
-    if (id === "sundanese-learning") return "rgba(40,28,89,0.35)";
-    if (id === "money-tracker") return "rgba(78,141,156,0.2)";
-    if (id === "Crazwash-umkm-dashboard") return "rgba(133,199,154,0.15)";
-    if (id === "industrial-iot") return "rgba(78,141,156,0.25)";
-    if (id === "law-firm-website") return "rgba(237,247,189,0.1)";
-    if (id === "dev-cli-sdd") return "rgba(168,85,247,0.2)";
-    return "rgba(255,255,255,0.05)"; // safe fallback
-  };
-
-  const overlayColor = getColor(project.id);
-
   return (
     <Card
-      className="group rounded-2xl overflow-hidden border card-hover flex flex-col cursor-pointer h-full"
-      style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}
+      className="group rounded-2xl overflow-hidden card-hover flex flex-col cursor-pointer h-full surface-chip"
       onClick={onViewDetails}
     >
       <CardContent className="p-0 flex flex-col h-full">
@@ -97,25 +74,10 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
             className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
             loading="lazy"
           />
-          <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-            style={{ background: overlayColor }}
-          />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ background: "linear-gradient(to top, rgba(8,8,15,0.65) 0%, transparent 50%)" }}
-          />
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[rgba(8,8,15,0.65)] to-transparent to-50%" />
 
           {/* Year badge */}
-          <div
-            className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[11px] font-mono"
-            style={{
-              background: "rgba(8,8,15,0.75)",
-              backdropFilter: "blur(8px)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              color: "rgba(255,255,255,0.55)",
-            }}
-          >
+          <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[11px] font-mono text-white/55 bg-[rgba(8,8,15,0.75)] backdrop-blur-sm border border-white/10">
             {project.year}
           </div>
         </div>
@@ -123,7 +85,7 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
         {/* Content */}
         <div className="p-6 flex flex-col flex-grow gap-4">
           <div>
-            <span className="text-[11px] font-mono uppercase tracking-widest mb-1.5 block" style={{ color: "var(--muted-fg)" }}>
+            <span className="text-[11px] font-mono uppercase tracking-widest mb-1.5 block text-muted">
               {project.category}
             </span>
             <h3 className="text-xl font-bold text-white leading-tight tracking-tight">
@@ -131,7 +93,7 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
             </h3>
           </div>
 
-          <p className="text-sm line-clamp-2 leading-relaxed font-light flex-grow" style={{ color: "var(--muted-fg)" }}>
+          <p className="text-sm line-clamp-2 leading-relaxed font-light flex-grow text-muted">
             {project.shortDesc}
           </p>
 
@@ -141,12 +103,7 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
               <Badge
                 key={tag}
                 variant="outline"
-                className="rounded-full px-3 py-1.5 text-xs font-medium"
-                style={{
-                  background: "rgba(var(--deep-rgb), 0.5)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  color: "rgba(255,255,255,0.75)",
-                }}
+                className="rounded-full px-3 py-1.5 text-xs font-medium bg-[rgba(var(--deep-rgb),0.5)] border-white/10 text-white/75"
               >
                 {tag}
               </Badge>
@@ -154,11 +111,8 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
           </div>
 
           {/* Actions */}
-          <div className="flex items-center justify-between pt-4 mt-2 border-t" style={{ borderColor: "var(--border)" }}>
-            <button
-              className="group/btn inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200 hover:text-[var(--sage)]"
-              style={{ color: "var(--muted-fg)" }}
-            >
+          <div className="flex items-center justify-between pt-4 mt-2 border-t border-[var(--border)]">
+            <button className="group/btn inline-flex items-center gap-2 text-sm font-semibold text-muted transition-colors duration-200 hover:text-[var(--sage)]">
               View project
               <ArrowUpRight
                 size={14}
@@ -173,8 +127,7 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="p-2 transition-colors duration-200 hover:text-[var(--sage)]"
-                  style={{ color: "rgba(255,255,255,0.25)" }}
+                  className="p-2 text-white/25 transition-colors duration-200 hover:text-[var(--sage)]"
                   title="Live Demo"
                 >
                   <ExternalLink size={15} />
@@ -186,8 +139,7 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="p-2 transition-colors duration-200 hover:text-[var(--sage)]"
-                  style={{ color: "rgba(255,255,255,0.25)" }}
+                  className="p-2 text-white/25 transition-colors duration-200 hover:text-[var(--sage)]"
                   title="Source"
                 >
                   <Github size={15} />

@@ -9,34 +9,32 @@ const GitHubCalendar = dynamic(() => import("react-github-calendar").then(mod =>
 });
 
 export const GithubActivity = () => {
-  // Use the "Deep Ocean" sage green for the contribution squares
-  // to match the portfolio's bespoke design system
   const customTheme = {
     dark: [
       "rgba(255,255,255,0.03)",
-      "rgba(133,199,154,0.25)",
-      "rgba(133,199,154,0.5)",
-      "rgba(133,199,154,0.75)",
+      "rgba(var(--sage-rgb),0.25)",
+      "rgba(var(--sage-rgb),0.5)",
+      "rgba(var(--sage-rgb),0.75)",
       "var(--sage)"
     ],
   };
 
   return (
-    <section className="relative py-24 border-t" style={{ borderColor: "var(--border)" }}>
+    <section className="relative py-24 border-t border-[var(--border)]">
       <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16">
         <div className="flex flex-col items-center justify-center text-center mb-12">
-          <div className="section-label mb-5 mx-auto">
+          <div className="section-label section-label--center mb-5">
             Activity
           </div>
           <h2 className="text-[clamp(1.8rem,4vw,2.5rem)] font-black tracking-tighter text-white">
-            Days I <span className="text-gradient-primary">Code.</span>
+            Days I Code.
           </h2>
-          <p className="text-sm font-light mt-3 max-w-lg mx-auto" style={{ color: "var(--muted-fg)" }}>
+          <p className="text-sm font-light mt-3 max-w-lg mx-auto text-muted">
             A visualization of my open-source contributions and personal project commits pulled directly from GitHub.
           </p>
         </div>
 
-        <Card className="p-6 md:p-10 rounded-2xl overflow-x-auto" style={{ background: "var(--surface-1)", borderColor: "var(--border)" }}>
+        <Card className="p-6 md:p-10 rounded-2xl overflow-x-auto surface-chip">
           <CardContent className="p-0 flex justify-center">
             <div className="min-w-max">
               <GitHubCalendar

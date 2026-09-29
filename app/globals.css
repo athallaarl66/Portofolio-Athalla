@@ -106,8 +106,6 @@
   --animate-slide-up:       slide-up 0.5s ease-out forwards;
   --animate-marquee:        marquee 28s linear infinite;
   --animate-marquee-reverse: marquee-reverse 28s linear infinite;
-  --animate-grain:          grain 8s steps(10) infinite;
-  --animate-shimmer:        shimmer 2.5s linear infinite;
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -132,22 +130,6 @@
   @keyframes marquee-reverse {
     from { transform: translateX(-50%); }
     to   { transform: translateX(0); }
-  }
-  @keyframes grain {
-    0%, 100% { transform: translate(0,0); }
-    10%  { transform: translate(-5%,-10%); }
-    20%  { transform: translate(-15%,5%); }
-    30%  { transform: translate(7%,-20%); }
-    40%  { transform: translate(-5%,25%); }
-    50%  { transform: translate(-15%,10%); }
-    60%  { transform: translate(15%,0%); }
-    70%  { transform: translate(0%,15%); }
-    80%  { transform: translate(3%,30%); }
-    90%  { transform: translate(-10%,10%); }
-  }
-  @keyframes shimmer {
-    from { background-position: -200% center; }
-    to   { background-position:  200% center; }
   }
 }
 
@@ -202,58 +184,28 @@
    UTILITIES
    ============================================ */
 @layer utilities {
-  /* Grain texture */
-  .grain-overlay {
-    position: fixed;
-    inset: -100%;
-    width: 300%;
-    height: 300%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.028;
-    pointer-events: none;
-    z-index: 999;
-    animation: grain 8s steps(10) infinite;
+  /* ── Surfaces ──────────────────────────── */
+  .surface-chip {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
   }
 
-  /* ── Text gradients ──────────────────── */
-  /* Teal → Sage */
-  .text-gradient-primary {
-    background: linear-gradient(135deg, var(--teal) 0%, var(--sage) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .surface-inset {
+    background: rgba(var(--deep-rgb), 0.4);
+    border: 1px solid var(--border);
   }
 
-  /* Sage → Pale lime */
-  .text-gradient-accent {
-    background: linear-gradient(135deg, var(--sage) 0%, var(--pale) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* ── Text ──────────────────────────────── */
+  .text-muted {
+    color: var(--muted-fg);
   }
 
-  /* Deep → Teal (for subheadings) */
-  .text-gradient-deep {
-    background: linear-gradient(135deg, var(--deep) 0%, var(--teal) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Shimmering */
-  .text-shimmer {
-    background: linear-gradient(
-      90deg,
-      var(--foreground) 0%,
-      var(--teal) 35%,
-      var(--pale) 55%,
-      var(--foreground) 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 3s linear infinite;
+  .mono-label {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted-fg);
   }
 
   /* ── Glow effects ────────────────────── */
@@ -261,20 +213,29 @@
   .glow-sage  { box-shadow: 0 0 40px rgba(var(--sage-rgb), 0.18); }
   .glow-deep  { box-shadow: 0 0 40px rgba(var(--deep-rgb), 0.35); }
 
-  /* ── Section label pill ──────────────── */
+  /* ── Section label: 1px rule + small mono ── */
   .section-label {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(var(--teal-rgb), 0.25);
-    background: rgba(var(--teal-rgb), 0.07);
-    font-size: 10px;
+    gap: 12px;
     font-family: ui-monospace, monospace;
+    font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--sage);
+    color: var(--muted-fg);
+  }
+  .section-label::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--border-hover);
+  }
+  /* Centered variant (e.g. centered headers) */
+  .section-label--center::after {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--border-hover);
   }
 
   /* Marquee */
@@ -311,20 +272,33 @@
     box-shadow: 0 12px 40px rgba(var(--teal-rgb), 0.1);
   }
 
-  /* Social link hover */
-  .social-link-hover:hover {
-    background: rgba(var(--teal-rgb), 0.07) !important;
-  }
-
-  /* Skill pill hover */
-  .skill-pill-hover:hover {
-    border-color: var(--hover-border) !important;
-  }
+  /* removed: social-link-hover, skill-pill-hover — replaced by token utilities */
 
   /* Nav item hover */
   .nav-item-hover:hover {
     color: rgba(255,255,255,0.9) !important;
     background: rgba(255,255,255,0.05) !important;
+  }
+
+  /* Primary solid button */
+  .btn-primary {
+    background: var(--sage);
+    color: #08110d;
+    transition: background 0.2s ease;
+  }
+  .btn-primary:hover {
+    background: var(--pale);
+  }
+
+  /* Secondary outline button */
+  .btn-ghost {
+    color: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(var(--teal-rgb), 0.3);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .btn-ghost:hover {
+    color: #fff;
+    border-color: rgba(var(--teal-rgb), 0.55);
   }
 
   /* Hire me button hover */

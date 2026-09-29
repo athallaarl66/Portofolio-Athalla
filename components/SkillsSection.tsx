@@ -27,29 +27,11 @@ const skills = [
   { name: "MySQL", category: "Database & Ops", icon: "/icons/mysql.png" },
 ];
 
-// Each category uses a tint from the palette
+// All category cards use the same neutral surface; restraint over rainbow
 const categories = [
-  {
-    title: "Frontend",
-    icon: Layout,
-    bg: "rgba(40,28,89,0.25)",
-    border: "rgba(78,141,156,0.22)",
-    hoverBorder: "rgba(78,141,156,0.45)",
-  },
-  {
-    title: "Backend",
-    icon: Terminal,
-    bg: "rgba(78,141,156,0.1)",
-    border: "rgba(78,141,156,0.2)",
-    hoverBorder: "rgba(133,199,154,0.4)",
-  },
-  {
-    title: "Database & Ops",
-    icon: Database,
-    bg: "rgba(133,199,154,0.07)",
-    border: "rgba(133,199,154,0.18)",
-    hoverBorder: "rgba(237,247,189,0.35)",
-  },
+  { title: "Frontend", icon: Layout },
+  { title: "Backend", icon: Terminal },
+  { title: "Database & Ops", icon: Database },
 ];
 
 export const SkillsSection = () => {
@@ -59,18 +41,14 @@ export const SkillsSection = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <div className="section-label mb-5 w-fit">
+            <div className="section-label mb-5">
               Tech stack
             </div>
             <h2 className="text-[clamp(2rem,4vw,3rem)] font-black tracking-tighter leading-tight text-white">
-              Technologies I use
-              <span className="text-gradient-accent"> every day.</span>
+              Technologies I use every day.
             </h2>
           </div>
-          <p
-            className="text-sm font-light max-w-xs md:text-right"
-            style={{ color: "var(--muted-fg)" }}
-          >
+          <p className="text-sm font-light max-w-xs md:text-right text-muted">
             Frontend, backend, databases, and deployment tools I use in my projects.
           </p>
         </div>
@@ -83,8 +61,7 @@ export const SkillsSection = () => {
             return (
               <Card
                 key={cat.title}
-                className="rounded-2xl p-6 card-hover"
-                style={{ background: cat.bg, borderColor: cat.border }}
+                className="rounded-2xl p-6 card-hover surface-chip"
               >
                 <CardContent className="p-0">
                   <div className="flex items-center justify-between mb-6">
@@ -92,24 +69,12 @@ export const SkillsSection = () => {
                       <h3 className="text-base font-bold text-white">
                         {cat.title}
                       </h3>
-                      <p
-                        className="text-[11px] font-mono mt-0.5"
-                        style={{ color: "var(--muted-fg)" }}
-                      >
+                      <p className="text-[11px] font-mono mt-0.5 text-muted">
                         {catSkills.length} skills
                       </p>
                     </div>
-                    <div
-                      className="w-9 h-9 rounded-xl flex items-center justify-center"
-                      style={{
-                        background: "rgba(255,255,255,0.04)",
-                        border: "1px solid rgba(255,255,255,0.07)",
-                      }}
-                    >
-                      <Icon
-                        className="w-4 h-4"
-                        style={{ color: "var(--muted-fg)" }}
-                      />
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center border border-white/10 bg-white/[0.04]">
+                      <Icon className="w-4 h-4 text-muted" />
                     </div>
                   </div>
 
@@ -117,12 +82,7 @@ export const SkillsSection = () => {
                     {catSkills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-default transition-all duration-200 skill-pill-hover"
-                        style={{
-                          background: "rgba(var(--deep-rgb), 0.5)",
-                          border: `1px solid rgba(255,255,255,0.07)`,
-                          '--hover-border': cat.hoverBorder,
-                        } as any}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-default transition-colors duration-200 bg-[rgba(var(--deep-rgb),0.5)] border border-white/10 hover:border-[rgba(var(--sage-rgb),0.4)]"
                       >
                         <img
                           src={skill.icon}
@@ -143,17 +103,8 @@ export const SkillsSection = () => {
         </div>
 
         {/* Also familiar with */}
-        <div
-          className="mt-5 px-6 py-4 rounded-2xl border flex flex-wrap items-center gap-x-6 gap-y-2"
-          style={{
-            background: "var(--surface-1)",
-            borderColor: "var(--border)",
-          }}
-        >
-          <span
-            className="text-[11px] font-mono uppercase tracking-widest flex-shrink-0"
-            style={{ color: "var(--muted-fg)" }}
-          >
+        <div className="mt-5 px-6 py-4 rounded-2xl flex flex-wrap items-center gap-x-6 gap-y-2 surface-chip">
+          <span className="text-[11px] font-mono uppercase tracking-widest flex-shrink-0 text-muted">
             Also familiar with
           </span>
           {[
@@ -168,12 +119,7 @@ export const SkillsSection = () => {
             <Badge
               key={t}
               variant="outline"
-              className="rounded-full px-3 py-1.5 text-xs font-medium"
-              style={{
-                background: "rgba(var(--deep-rgb), 0.5)",
-                border: "1px solid rgba(255,255,255,0.07)",
-                color: "rgba(255,255,255,0.75)",
-              }}
+              className="rounded-full px-3 py-1.5 text-xs font-medium bg-[rgba(var(--deep-rgb),0.5)] border-white/10 text-white/75"
             >
               {t}
             </Badge>

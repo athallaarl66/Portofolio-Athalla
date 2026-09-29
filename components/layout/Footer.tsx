@@ -18,10 +18,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer
-      className="border-t px-6 md:px-16 py-8"
-      style={{ borderColor: "var(--border)", background: "var(--surface-1)" }}
-    >
+    <footer className="border-t border-[var(--border)] bg-[var(--surface-1)] px-6 md:px-16 py-8">
       <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
         {/* Left — name */}
         <div className="flex items-center gap-2.5">
@@ -29,7 +26,7 @@ const Footer = () => {
             Athalla Arli
           </span>
           <span className="w-px h-4 bg-white/10" />
-          <span className="text-xs font-mono" style={{ color: "var(--muted-fg)" }}>
+          <span className="text-xs font-mono text-muted">
             © {new Date().getFullYear()}
           </span>
         </div>
@@ -40,8 +37,7 @@ const Footer = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="text-xs font-mono transition-colors duration-200 hover:text-[var(--primary-light)]"
-              style={{ color: "var(--muted-fg)" }}
+              className="text-xs font-mono text-muted transition-colors duration-200 hover:text-[var(--sage)]"
             >
               {link.name}
             </Link>
@@ -57,8 +53,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={name}
-              className="transition-colors duration-200 hover:text-[var(--primary-light)]"
-              style={{ color: "var(--muted-fg)" }}
+              className="text-muted transition-colors duration-200 hover:text-[var(--sage)]"
             >
               <Icon size={15} />
             </a>

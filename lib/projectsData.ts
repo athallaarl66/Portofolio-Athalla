@@ -182,7 +182,7 @@ export const projectsData: Record<string, Project> = {
     ],
   },
 
-  "Crazwash-umkm-dashboard": {
+  "crazwash-umkm-dashboard": {
     title: "Crazwash – Service Management & POS Web App",
     tagline:
       "Full-stack app for a laundry UMKM: ordering, payments, and admin dashboard",
