@@ -17,7 +17,6 @@
   /* ── Text ──────────────────────────────── */
   --foreground:   #eef0f8;
   --muted-fg:     #94a3b8;
-  --subtle-fg:    #64748b;
 
   /* ── Typography ───────────────────────── */
   --font-heading:  var(--font-heading), system-ui, -apple-system, sans-serif;

@@ -407,14 +407,17 @@ export const projectsData: Record<string, Project> = {
     tagline:
       "A CLI tool to automate development documentation, PRDs, and testing workflows",
     shortDesc:
-      "Built to accelerate the development process by generating PRDs, Technical Designs, Spec Tests, and QA Reports automatically. It integrates seamlessly with AI agent workflows like Devin, Claude, and OpenCode.",
+      "A CLI tool that generates PRDs, Technical Designs, Spec Tests, and QA Reports from spec-driven workflows, with workspace scaffolding for AI coding agents (Devin, Claude, OpenCode).",
 
     hero: "/projects7/cli-thumb.png",
     thumbnail: "/projects7/cli-thumb.png",
     screenshots: [
       { url: "/projects7/TVP-SDD.png", caption: "CLI command execution" },
       { url: "/projects7/skills-tvp.png", caption: "CLI skills execution" },
-      { url: "/projects7/folder-structure.png", caption: "Generated folder structure" },
+      {
+        url: "/projects7/folder-structure.png",
+        caption: "Generated folder structure",
+      },
     ],
 
     tags: ["Node.js", "CLI", "Automation", "Playwright", "AI Tools"],
@@ -452,7 +455,7 @@ export const projectsData: Record<string, Project> = {
 };
 
 export const getProject = (id: string | undefined): Project | null => {
-  if (!id || typeof id !== 'string') {
+  if (!id || typeof id !== "string") {
     return null;
   }
   return projectsData[id] || null;

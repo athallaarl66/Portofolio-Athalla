@@ -51,20 +51,20 @@ export const AboutSection = () => {
                 <strong className="text-white font-medium">
                   Telkom University
                 </strong>{" "}
-                (GPA 3.20/4.00). My thesis designed a UCD-based web application
-                for learning Sundanese script —{" "}
+                (GPA 3.20/4.00). My thesis,
                 <strong className="text-white font-medium">
+                  {" "}
                   Diajar Aksara
                 </strong>
-                {""} — tested with high school students at SMAN 24 Bandung.
+                , is a UCD-based web application for learning Sundanese script.
               </p>
               <p>
-                At <strong className="text-white font-medium">GITS.id</strong> I
-                work in Agile/Scrum with Taiga and Spec-Driven Development. I
-                build POS applications with Laravel and Filament — admin
-                dashboards for account management, multi-store allocation, and
-                access control — and maintain an enterprise CMS with REST APIs
-                consumed by Android and iOS apps.
+                At <strong className="text-white font-medium">GITS.id</strong>{" "}
+                , I work in Agile/Scrum with Taiga and Spec-Driven
+                Development. I build POS applications with Laravel and Filament:
+                admin dashboards for account management, multi-store allocation,
+                and access control. I also maintain an enterprise CMS with REST
+                APIs consumed by Android and iOS apps.
               </p>
               <p>
                 On the side: an Industrial IoT asset monitoring dashboard (.NET

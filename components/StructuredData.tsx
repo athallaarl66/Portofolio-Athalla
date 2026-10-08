@@ -82,7 +82,7 @@ export const PersonSchema = () => {
       "@type": "Country",
       name: "Indonesia",
     },
-    email: "athalla.arli@email.com",
+    email: "athallaarli@gmail.com",
   };
 
   return (
@@ -198,7 +198,7 @@ export const FAQSchema = () => {
         name: "Are you available for freelance or full-time opportunities?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, I'm open to freelance projects and full-time opportunities. Feel free to reach out to discuss your project requirements.",
+          text: "Yes, I'm open to freelance projects and full-time opportunities. Contact me via email or LinkedIn.",
         },
       },
       {
@@ -214,7 +214,7 @@ export const FAQSchema = () => {
         name: "Do you work with teams or prefer solo projects?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "I enjoy both! I've worked effectively in team environments during internships and also handle solo projects well. I'm comfortable collaborating via Git, code reviews, and agile methodologies.",
+          text: "I work in Agile/Scrum teams at GITS.id, and built thesis and client projects with code reviews and Git-based collaboration.",
         },
       },
       {
@@ -222,7 +222,7 @@ export const FAQSchema = () => {
         name: "How can I contact you for a project?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You can reach me via email at athalla.arli@email.com or connect with me on LinkedIn. I'm responsive and happy to discuss your project needs.",
+          text: "Email athallaarli@gmail.com, or message me on LinkedIn. I typically respond within a day.",
         },
       },
     ],
