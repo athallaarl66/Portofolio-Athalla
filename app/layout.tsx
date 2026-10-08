@@ -20,17 +20,17 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://athalla-works.vercel.app/"),
   title: {
-    default: "Athalla Arli - Full Stack Developer",
+    default: "Athalla Arli - Software Engineer",
     template: "%s | Athalla Arli",
   },
   description:
-    "Portfolio of Athalla Arli, a Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+    "Portfolio of Athalla Arli, a Software Engineer building backend APIs for CMS and POS systems with Next.js, React, .NET, and Laravel. Based in Bandung, Indonesia.",
   keywords: [
-    "Full Stack Developer",
+    "Software Engineer",
     "Next.js",
     "React",
     ".NET",
-    "Software Engineer",
+    "Full Stack Developer",
     "Bandung",
     "Indonesia",
     "TypeScript",

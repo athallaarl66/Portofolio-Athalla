@@ -50,9 +50,9 @@ export const HeroSection = () => {
             </h1>
 
             <p className="text-[14px] md:text-[15px] leading-relaxed font-light max-w-[460px] mb-8 text-muted">
-              Fullstack engineer at GITS.id specializing in .NET, Laravel, and Next.js.
-              Focused on scalable backend architectures, high-performance web applications,
-              and real-time telemetry systems.
+              Software Engineer at GITS.id, building and integrating backend
+              APIs for CMS and POS systems, plus mobile app integration. Focused
+              on well-documented code and workflow automation.
             </p>
 
             <div className="flex flex-wrap items-center gap-5">

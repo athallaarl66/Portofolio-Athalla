@@ -13,9 +13,9 @@ export const PersonSchema = () => {
       "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",
       "https://www.instagram.com/athallaarl/",
     ],
-    jobTitle: "Full Stack Developer",
+    jobTitle: "Software Engineer",
     description:
-      "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+      "Software Engineer building backend APIs for CMS and POS systems, with Next.js, React, .NET, and Laravel. Based in Bandung, Indonesia.",
     knowsAbout: [
       "Next.js",
       "React",
@@ -206,7 +206,7 @@ export const FAQSchema = () => {
         name: "What technologies do you specialize in?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "I specialize in Full Stack development with Next.js, React, .NET, TypeScript, and modern web technologies. I also have experience with PostgreSQL, Docker, and cloud deployments on Vercel and Koyeb.",
+          text: "I'm a Software Engineer at GITS.id, building and integrating backend APIs for CMS and POS systems, plus mobile app integration. Tech-wise: Next.js, React, Laravel, .NET, PostgreSQL, and Docker.",
         },
       },
       {

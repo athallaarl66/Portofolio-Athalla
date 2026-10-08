@@ -25,11 +25,11 @@ export const generateMetadata = ({
     keywords: [
       ...keywords,
       "Athalla Arli",
-      "Full Stack Developer",
+      "Software Engineer",
       "Next.js",
       "React",
       ".NET",
-      "Software Engineer",
+      "Full Stack Developer",
     ],
     authors: [{ name: "Athalla Arli" }],
     creator: "Athalla Arli",
@@ -76,7 +76,7 @@ export const generateMetadata = ({
 export const siteConfig = {
   name: siteName,
   description:
-    "Portfolio of Athalla Arli, a Full Stack Developer specializing in Next.js, React, and modern web technologies.",
+    "Portfolio of Athalla Arli, a Software Engineer building backend APIs for CMS and POS systems with Next.js, React, .NET, and Laravel.",
   url: siteUrl,
   ogImage: defaultOgImage,
   links: {

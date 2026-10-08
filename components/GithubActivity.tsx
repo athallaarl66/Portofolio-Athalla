@@ -3,10 +3,20 @@
 import dynamic from "next/dynamic";
 import { Card, CardContent } from "@/components/ui/card";
 
-const GitHubCalendar = dynamic(() => import("react-github-calendar").then(mod => ({ default: mod.GitHubCalendar })), {
-  ssr: false,
-  loading: () => <div className="min-w-max h-32 flex items-center justify-center">Loading...</div>
-});
+const GitHubCalendar = dynamic(
+  () =>
+    import("react-github-calendar").then((mod) => ({
+      default: mod.GitHubCalendar,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="min-w-max h-32 flex items-center justify-center">
+        Loading...
+      </div>
+    ),
+  },
+);
 
 export const GithubActivity = () => {
   const customTheme = {
@@ -15,7 +25,7 @@ export const GithubActivity = () => {
       "rgba(var(--sage-rgb),0.25)",
       "rgba(var(--sage-rgb),0.5)",
       "rgba(var(--sage-rgb),0.75)",
-      "var(--sage)"
+      "var(--sage)",
     ],
   };
 
@@ -27,10 +37,11 @@ export const GithubActivity = () => {
             Activity
           </div>
           <h2 className="text-[clamp(1.8rem,4vw,2.5rem)] font-black tracking-tighter text-white">
-            Days I Code.
+            GitHub Contributions.
           </h2>
           <p className="text-sm font-light mt-3 max-w-lg mx-auto text-muted">
-            A visualization of my open-source contributions and personal project commits pulled directly from GitHub.
+            A visualization of my open-source contributions and personal project
+            commits pulled directly from GitHub.
           </p>
         </div>
 

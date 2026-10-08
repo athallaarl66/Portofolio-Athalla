@@ -246,7 +246,7 @@ export default function ProjectDetailClient({ id, project }: ProjectDetailClient
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {project.screenshots.map((screenshot: any, idx: number) => (
                       <figure key={idx} className="flex flex-col gap-3">
-                        <Card className="rounded-xl overflow-hidden border p-1" surface-inset>
+                        <Card className="rounded-xl overflow-hidden border p-1 surface-inset">
                           <CardContent className="p-0 rounded-lg overflow-hidden h-full">
                             <img
                               src={screenshot.url}
