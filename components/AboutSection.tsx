@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, Briefcase, Code2 } from "lucide-react";
+import { GraduationCap, Briefcase, Code2, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -27,14 +27,14 @@ export const AboutSection = () => {
     {
       label: "Diajar Aksara",
       sub: "Thesis · UCD",
-      icon: <img src="/icons/thesis.png" alt="Thesis" className="w-4 h-4 object-contain" />,
+      icon: <BookOpen className="w-4 h-4" />,
       badge: "Product",
     },
   ];
 
   return (
-    <section id="about" className="relative py-20 md:py-24">
-      <div className="max-w-[1140px] w-full mx-auto px-6 md:px-10 lg:px-12">
+    <section id="about" className="relative py-24 md:py-28">
+      <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12">
         <div className="section-label mb-10">
           About me
         </div>
@@ -43,23 +43,22 @@ export const AboutSection = () => {
 
           <div>
             <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-black tracking-tighter leading-[1.1] text-white mb-5">
-              From crafting UIs,
+              Engineering web systems,
               <br />
-              to building robust systems.
+              APIs, and digital products.
             </h2>
 
             <div className="space-y-4 text-[14px] md:text-[15px] leading-relaxed font-light mb-8 text-muted">
               <p>
-                I'm a Software Engineer with an Informatics degree from{" "}
-                <strong className="text-white font-medium">Telkom University</strong>. My background started in frontend development during my internship at Firma Hukum Rantai Khatulistiwa, which naturally evolved into fullstack development when I built my thesis,{" "}
+                Informatics graduate from{" "}
+                <strong className="text-white font-medium">Telkom University</strong> with a focus on web engineering. My journey began with frontend development during an internship at Firma Hukum Rantai Khatulistiwa, then advanced into fullstack engineering through my research thesis,{" "}
                 <strong className="text-white font-medium">Diajar Aksara</strong>.
               </p>
               <p>
-                Currently, I work as a Software Engineer at{" "}
-                <strong className="text-white font-medium">GITS.id</strong>. I handle client CMS projects—building frontend pages and developing backend APIs consumed by mobile apps (including iOS). Additionally, I developed a full web Point of Sale (POS) system, complete with its own dedicated CMS.
+                At <strong className="text-white font-medium">GITS.id</strong>, I develop client CMS platforms, production REST APIs consumed by mobile apps (including iOS), and complete web Point of Sale (POS) systems with dedicated administrative workflows.
               </p>
               <p>
-                Outside of my day job, I enjoy exploring other areas of tech. I build side projects as a hobby, such as creating enterprise-level IoT monitoring dashboards using .NET and Next.js.
+                Outside client engagements, I build production-grade side systems—such as high-frequency IoT telemetry monitoring in .NET 8 with SignalR and MQTT, as well as developer automation tools.
               </p>
             </div>
 

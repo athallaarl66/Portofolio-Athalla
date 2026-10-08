@@ -2,32 +2,43 @@
 
 import { Terminal, Database, Layout } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiDotnet,
+  SiLaravel,
+  SiSpringboot,
+  SiPostgresql,
+  SiPrisma,
+  SiMysql,
+} from "react-icons/si";
+import { TbBrandCSharp } from "react-icons/tb";
 
 const skills = [
-  { name: "HTML", category: "Frontend", icon: "/icons/html.png" },
-  { name: "CSS", category: "Frontend", icon: "/icons/css.png" },
-  { name: "JavaScript", category: "Frontend", icon: "/icons/javascript.png" },
-  { name: "TypeScript", category: "Frontend", icon: "/icons/typescript.png" },
-  { name: "React", category: "Frontend", icon: "/icons/react.png" },
-  { name: "Next.js", category: "Frontend", icon: "/icons/next.png" },
-  { name: "Tailwind CSS", category: "Frontend", icon: "/icons/tailwind.png" },
-  { name: "Node.js", category: "Backend", icon: "/icons/node.png" },
-  { name: ".NET 8", category: "Backend", icon: "/icons/net.png" },
-  { name: "C#", category: "Backend", icon: "/icons/cSHARP.png" },
-  { name: "Laravel", category: "Backend", icon: "/icons/laravel.png" },
-  { name: "Spring Boot", category: "Backend", icon: "/icons/springboot.png" },
-  { name: "Next.js API", category: "Backend", icon: "/icons/next.png" },
-  {
-    name: "PostgreSQL",
-    category: "Database & Ops",
-    icon: "/icons/postgree.png",
-  },
-  { name: "Prisma ORM", category: "Database & Ops", icon: "/icons/prisma.png" },
-  { name: "MySQL", category: "Database & Ops", icon: "/icons/mysql.png" },
+  { name: "HTML", category: "Frontend", icon: SiHtml5 },
+  { name: "CSS", category: "Frontend", icon: SiCss3 },
+  { name: "JavaScript", category: "Frontend", icon: SiJavascript },
+  { name: "TypeScript", category: "Frontend", icon: SiTypescript },
+  { name: "React", category: "Frontend", icon: SiReact },
+  { name: "Next.js", category: "Frontend", icon: SiNextdotjs },
+  { name: "Tailwind CSS", category: "Frontend", icon: SiTailwindcss },
+  { name: "Node.js", category: "Backend", icon: SiNodedotjs },
+  { name: ".NET 8", category: "Backend", icon: SiDotnet },
+  { name: "C#", category: "Backend", icon: TbBrandCSharp },
+  { name: "Laravel", category: "Backend", icon: SiLaravel },
+  { name: "Spring Boot", category: "Backend", icon: SiSpringboot },
+  { name: "Next.js API", category: "Backend", icon: SiNextdotjs },
+  { name: "PostgreSQL", category: "Database & Ops", icon: SiPostgresql },
+  { name: "Prisma ORM", category: "Database & Ops", icon: SiPrisma },
+  { name: "MySQL", category: "Database & Ops", icon: SiMysql },
 ];
 
-// All category cards use the same neutral surface; restraint over rainbow
 const categories = [
   { title: "Frontend", icon: Layout },
   { title: "Backend", icon: Terminal },
@@ -36,8 +47,8 @@ const categories = [
 
 export const SkillsSection = () => {
   return (
-    <section id="skills" className="relative py-24 md:py-32">
-      <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16">
+    <section id="skills" className="relative py-24 md:py-28">
+      <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
@@ -79,22 +90,20 @@ export const SkillsSection = () => {
                   </div>
 
                   <div className="flex flex-wrap gap-2">
-                    {catSkills.map((skill) => (
-                      <div
-                        key={skill.name}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-default transition-colors duration-200 bg-[rgba(var(--deep-rgb),0.5)] border border-white/10 hover:border-[rgba(var(--sage-rgb),0.4)]"
-                      >
-                        <img
-                          src={skill.icon}
-                          alt={skill.name}
-                          className="w-3.5 h-3.5 object-contain"
-                          loading="lazy"
-                        />
-                        <span className="text-xs font-medium text-white/75">
-                          {skill.name}
-                        </span>
-                      </div>
-                    ))}
+                    {catSkills.map((skill) => {
+                      const IconComponent = skill.icon;
+                      return (
+                        <div
+                          key={skill.name}
+                          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium bg-[rgba(var(--deep-rgb),0.5)] border border-white/10 hover:border-[rgba(var(--sage-rgb),0.4)] transition-colors"
+                        >
+                          <IconComponent className="w-3.5 h-3.5 text-[var(--sage)] shrink-0" />
+                          <span className="text-white/80">
+                            {skill.name}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </CardContent>
               </Card>
@@ -102,10 +111,10 @@ export const SkillsSection = () => {
           })}
         </div>
 
-        {/* Also familiar with */}
-        <div className="mt-5 px-6 py-4 rounded-2xl flex flex-wrap items-center gap-x-6 gap-y-2 surface-chip">
+        {/* Auxiliary & Protocols */}
+        <div className="mt-6 px-6 py-4 rounded-2xl flex flex-wrap items-center gap-x-6 gap-y-2 surface-chip">
           <span className="text-[11px] font-mono uppercase tracking-widest flex-shrink-0 text-muted">
-            Also familiar with
+            Specialized & Protocols
           </span>
           {[
             "SignalR",
@@ -114,15 +123,14 @@ export const SkillsSection = () => {
             "Git",
             "Figma",
             "REST APIs",
-            "Postman",
+            "Playwright",
           ].map((t) => (
-            <Badge
+            <span
               key={t}
-              variant="outline"
-              className="rounded-full px-3 py-1.5 text-xs font-medium bg-[rgba(var(--deep-rgb),0.5)] border-white/10 text-white/75"
+              className="text-xs font-mono text-white/70 hover:text-white transition-colors"
             >
-              {t}
-            </Badge>
+              #{t}
+            </span>
           ))}
         </div>
       </div>

@@ -74,10 +74,10 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
             className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
             loading="lazy"
           />
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[rgba(8,8,15,0.65)] to-transparent to-50%" />
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[rgba(var(--deep-rgb),0.65)] to-transparent to-50%" />
 
           {/* Year badge */}
-          <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[11px] font-mono text-white/55 bg-[rgba(8,8,15,0.75)] backdrop-blur-sm border border-white/10">
+          <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[11px] font-mono text-white/55 bg-[rgba(var(--deep-rgb),0.75)] backdrop-blur-sm border border-white/10">
             {project.year}
           </div>
         </div>

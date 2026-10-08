@@ -16,12 +16,12 @@
 
   /* ── Text ──────────────────────────────── */
   --foreground:   #eef0f8;
-  --muted-fg:     #6a6a88;
-  --subtle-fg:    #38364e;
+  --muted-fg:     #94a3b8;
+  --subtle-fg:    #64748b;
 
   /* ── Typography ───────────────────────── */
-  --font-heading:  "Jakarta Sans", system-ui, -apple-system, sans-serif;
-  --font-body:     "Montserrat", system-ui, -apple-system, sans-serif;
+  --font-heading:  var(--font-heading), system-ui, -apple-system, sans-serif;
+  --font-body:     var(--font-body), system-ui, -apple-system, sans-serif;
 
   /* ── Palette ───────────────────────────── */
   --deep:         #091413;          /* deep green/black — panels, button bg  */

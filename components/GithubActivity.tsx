@@ -20,8 +20,8 @@ export const GithubActivity = () => {
   };
 
   return (
-    <section className="relative py-24 border-t border-[var(--border)]">
-      <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16">
+    <section className="relative py-24 md:py-28 border-t border-[var(--border)]">
+      <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12">
         <div className="flex flex-col items-center justify-center text-center mb-12">
           <div className="section-label section-label--center mb-5">
             Activity

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Montserrat } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -8,13 +8,13 @@ import { BackgroundAurora } from "@/components/effects/BackgroundAurora";
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const montserrat = Montserrat({
+const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -71,7 +71,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jakartaSans.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${jakartaSans.variable} ${inter.variable} h-full antialiased`}
     >
       <head>
         {/* Preconnect for Google Fonts */}
@@ -83,8 +83,8 @@ export default function RootLayout({
         />
 
         {/* Theme Color for Mobile Browser Chrome */}
-        <meta name="theme-color" content="#080810" />
-        <meta name="msapplication-TileColor" content="#080810" />
+        <meta name="theme-color" content="#050a09" />
+        <meta name="msapplication-TileColor" content="#050a09" />
 
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />

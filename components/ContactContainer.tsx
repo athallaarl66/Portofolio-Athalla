@@ -11,8 +11,8 @@ const socials = [
 
 export default function ContactContainer() {
   return (
-    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16 relative z-10">
+    <section id="contact" className="relative py-24 md:py-28 overflow-hidden">
+      <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12 relative z-10">
         <div className="section-label mb-10">
           Contact
         </div>
