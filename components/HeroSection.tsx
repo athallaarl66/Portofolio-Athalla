@@ -9,7 +9,7 @@ export const HeroSection = () => {
       id="hero"
       className="relative min-h-[100dvh] flex flex-col justify-center pt-24 pb-8 overflow-hidden"
     >
-      <div className="max-w-[1140px] w-full mx-auto px-6 md:px-10 lg:px-12 relative z-10">
+      <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12 relative z-10">
         {/* Availability — single plain line */}
         <div className="flex items-center justify-between gap-3 mb-12 md:mb-16">
           <div className="flex items-center gap-2">
@@ -50,10 +50,9 @@ export const HeroSection = () => {
             </h1>
 
             <p className="text-[14px] md:text-[15px] leading-relaxed font-light max-w-[460px] mb-8 text-muted">
-              I'm a fullstack engineer at GITS.id, working primarily with .NET,
-              Laravel, and Next.js. Beyond my day job, I enjoy building side
-              projects—ranging from enterprise IoT monitoring dashboards to
-              cultural education platforms.
+              Software Engineer at GITS.id, building and integrating backend
+              APIs for CMS and POS systems, plus mobile app integration. Focused
+              on well-documented code and workflow automation.
             </p>
 
             <div className="flex flex-wrap items-center gap-5">

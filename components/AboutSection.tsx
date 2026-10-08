@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, Briefcase, Code2 } from "lucide-react";
+import { GraduationCap, Briefcase, Code2, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -27,39 +27,50 @@ export const AboutSection = () => {
     {
       label: "Diajar Aksara",
       sub: "Thesis · UCD",
-      icon: <img src="/icons/thesis.png" alt="Thesis" className="w-4 h-4 object-contain" />,
+      icon: <BookOpen className="w-4 h-4" />,
       badge: "Product",
     },
   ];
 
   return (
-    <section id="about" className="relative py-20 md:py-24">
-      <div className="max-w-[1140px] w-full mx-auto px-6 md:px-10 lg:px-12">
-        <div className="section-label mb-10">
-          About me
-        </div>
+    <section id="about" className="relative py-24 md:py-28">
+      <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12">
+        <div className="section-label mb-10">About me</div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-start">
-
           <div>
             <h2 className="text-[clamp(1.75rem,3vw,2.75rem)] font-black tracking-tighter leading-[1.1] text-white mb-5">
-              From crafting UIs,
+              Software Engineer focused
               <br />
-              to building robust systems.
+              on backend API and CMS & POS systems.
             </h2>
 
             <div className="space-y-4 text-[14px] md:text-[15px] leading-relaxed font-light mb-8 text-muted">
               <p>
-                I'm a Software Engineer with an Informatics degree from{" "}
-                <strong className="text-white font-medium">Telkom University</strong>. My background started in frontend development during my internship at Firma Hukum Rantai Khatulistiwa, which naturally evolved into fullstack development when I built my thesis,{" "}
-                <strong className="text-white font-medium">Diajar Aksara</strong>.
+                Bachelor of Informatics from{" "}
+                <strong className="text-white font-medium">
+                  Telkom University
+                </strong>{" "}
+                (GPA 3.20/4.00). My thesis designed a UCD-based web application
+                for learning Sundanese script —{" "}
+                <strong className="text-white font-medium">
+                  Diajar Aksara
+                </strong>
+                {""} — tested with high school students at SMAN 24 Bandung.
               </p>
               <p>
-                Currently, I work as a Software Engineer at{" "}
-                <strong className="text-white font-medium">GITS.id</strong>. I handle client CMS projects—building frontend pages and developing backend APIs consumed by mobile apps (including iOS). Additionally, I developed a full web Point of Sale (POS) system, complete with its own dedicated CMS.
+                At <strong className="text-white font-medium">GITS.id</strong> I
+                work in Agile/Scrum with Taiga and Spec-Driven Development. I
+                build POS applications with Laravel and Filament — admin
+                dashboards for account management, multi-store allocation, and
+                access control — and maintain an enterprise CMS with REST APIs
+                consumed by Android and iOS apps.
               </p>
               <p>
-                Outside of my day job, I enjoy exploring other areas of tech. I build side projects as a hobby, such as creating enterprise-level IoT monitoring dashboards using .NET and Next.js.
+                On the side: an Industrial IoT asset monitoring dashboard (.NET
+                8, MQTT, SignalR, Docker Compose) and TVP-SDD-CLI, an automation
+                CLI that generates technical documentation like PRDs and feature
+                specs.
               </p>
             </div>
 
@@ -74,8 +85,19 @@ export const AboutSection = () => {
                 rel="noopener noreferrer"
               >
                 Download Resume
-                <svg className="w-3.5 h-3.5 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+                <svg
+                  className="w-3.5 h-3.5 ml-1.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"
+                  />
                 </svg>
               </a>
             </Button>
@@ -96,8 +118,12 @@ export const AboutSection = () => {
                           {h.icon}
                         </div>
                         <div>
-                          <p className="text-[13px] font-semibold text-white leading-tight">{h.label}</p>
-                          <p className="text-[11px] font-light mt-0.5 text-muted">{h.sub}</p>
+                          <p className="text-[13px] font-semibold text-white leading-tight">
+                            {h.label}
+                          </p>
+                          <p className="text-[11px] font-light mt-0.5 text-muted">
+                            {h.sub}
+                          </p>
                         </div>
                       </div>
                       <div className="px-2.5 py-0.5 rounded-full border border-white/5 bg-[rgba(var(--sage-rgb),0.1)] text-[10px] font-medium text-[var(--sage)]">
