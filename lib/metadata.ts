@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
 interface SiteMetadata {
   title: string;
@@ -8,7 +9,7 @@ interface SiteMetadata {
 }
 
 const siteName = "Athalla Arli";
-const siteUrl = "https://athalla-works.vercel.app/";
+const siteUrl = SITE_URL;
 const defaultOgImage = "/projects/propil.jpg";
 
 export const generateMetadata = ({

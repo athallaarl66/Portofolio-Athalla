@@ -1,10 +1,13 @@
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
 import { SkillsSection as SkillSection } from "@/components/SkillsSection";
+import { ServicesSection } from "@/components/ServicesSection";
 import { ProjectSection } from "@/components/ProjectSection";
+import { FaqSection } from "@/components/FaqSection";
 import ContactContainer from "@/components/ContactContainer";
 import { GithubActivity } from "@/components/GithubActivity";
 import { PersonSchema, FAQSchema } from "@/components/StructuredData";
+import { SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -24,12 +27,12 @@ export const metadata: Metadata = {
     "Portfolio",
     "Athalla Arli",
   ],
-  authors: [{ name: "Athalla Arli", url: "https://athalla-works.vercel.app/" }],
+  authors: [{ name: "Athalla Arli", url: SITE_URL }],
   creator: "Athalla Arli",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://athalla-works.vercel.app/",
+    url: `${SITE_URL}/`,
     title: "Athalla Arli - Software Engineer",
     description:
       "Software Engineer building backend APIs for CMS and POS systems with Next.js, React, .NET, and Laravel. Based in Bandung, Indonesia.",
@@ -78,7 +81,9 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <SkillSection />
+      <ServicesSection />
       <ProjectSection />
+      <FaqSection />
       <GithubActivity />
       <ContactContainer />
     </>

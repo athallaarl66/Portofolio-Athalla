@@ -1,8 +1,14 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
+
+const aiCrawlers = [
+  "GPTBot",
+  "ClaudeBot",
+  "PerplexityBot",
+  "Google-Extended",
+];
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://athalla-works.vercel.app/";
-
   return {
     rules: [
       {
@@ -10,8 +16,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/_next/", "/private/"],
       },
+      ...aiCrawlers.map((userAgent) => ({
+        userAgent,
+        allow: "/",
+      })),
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }
