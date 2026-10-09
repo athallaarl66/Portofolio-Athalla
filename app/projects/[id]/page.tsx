@@ -7,8 +7,7 @@ import {
   BreadcrumbListSchema,
 } from "@/components/StructuredData";
 import ProjectDetailClient from "./ProjectDetailClient";
-
-const BASE_URL = "https://athalla-works.vercel.app/";
+import { SITE_URL } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -33,13 +32,13 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       locale: "en_US",
-      url: `${BASE_URL}/projects/${id}`,
+      url: `${SITE_URL}/projects/${id}`,
       title: `${project.title} | Athalla Arli`,
       description: project.tagline || project.shortDesc,
       siteName: "Athalla Arli",
       images: [
         {
-          url: `${BASE_URL}${project.hero}`,
+          url: `${SITE_URL}${project.hero}`,
           width: 1200,
           height: 630,
           alt: project.title,
@@ -50,11 +49,14 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${project.title} | Athalla Arli`,
       description: project.tagline || project.shortDesc,
-      images: [`${BASE_URL}${project.hero}`],
+      images: [`${SITE_URL}${project.hero}`],
     },
     robots: {
       index: true,
       follow: true,
+    },
+    alternates: {
+      canonical: `/projects/${id}`,
     },
   };
 }
@@ -68,9 +70,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   }
 
   const breadcrumbItems = [
-    { name: "Home", url: BASE_URL },
-    { name: "Projects", url: `${BASE_URL}/projects` },
-    { name: project.title, url: `${BASE_URL}/projects/${id}` },
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Projects", url: `${SITE_URL}/projects` },
+    { name: project.title, url: `${SITE_URL}/projects/${id}` },
   ];
 
   return (

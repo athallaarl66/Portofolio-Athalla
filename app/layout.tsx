@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { BackgroundAurora } from "@/components/effects/BackgroundAurora";
+import { SITE_URL } from "@/lib/site";
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-heading",
@@ -18,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://athalla-works.vercel.app/"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Athalla Arli - Software Engineer",
     template: "%s | Athalla Arli",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     "TypeScript",
     "Web Developer",
   ],
-  authors: [{ name: "Athalla Arli", url: "https://athalla-works.vercel.app/" }],
+  authors: [{ name: "Athalla Arli", url: SITE_URL }],
   creator: "Athalla Arli",
   publisher: "Athalla Arli",
   robots: {
@@ -56,10 +57,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     languages: {
-      "en-US": "https://athalla-works.vercel.app/",
-      "id-ID": "https://athalla-works.vercel.app/",
+      "en-US": "/",
+      "x-default": "/",
     },
-    canonical: "https://athalla-works.vercel.app/",
+    canonical: "/",
   },
 };
 
@@ -88,23 +89,6 @@ export default function RootLayout({
 
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* Hreflang Tags */}
-        <link
-          rel="alternate"
-          hrefLang="en-US"
-          href="https://athalla-works.vercel.app/"
-        />
-        <link
-          rel="alternate"
-          hrefLang="id-ID"
-          href="https://athalla-works.vercel.app/"
-        />
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href="https://athalla-works.vercel.app/"
-        />
       </head>
       <body className="min-h-full flex flex-col">
         <BackgroundAurora />
