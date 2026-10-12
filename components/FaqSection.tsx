@@ -15,8 +15,7 @@ export const FaqSection = () => {
             </h2>
           </div>
           <p className="text-sm font-light max-w-xs md:text-right text-muted">
-            Quick answers about availability, tech focus, and how to work with
-            me.
+            The things people ask me before we start working together.
           </p>
         </div>
 

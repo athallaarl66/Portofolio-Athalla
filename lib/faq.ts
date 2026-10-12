@@ -5,23 +5,28 @@ export interface FaqItem {
 
 export const faqItems: FaqItem[] = [
   {
-    question: "Are you available for freelance or full-time opportunities?",
+    question: "Are you open to freelance work or a full-time role?",
     answer:
-      "Yes, I'm open to freelance projects and full-time opportunities. Contact me via email or LinkedIn.",
+      "Both. Send me the scope and a rough timeline and I'll tell you honestly whether I'm the right fit. Replies usually land within a day.",
   },
   {
-    question: "What technologies do you specialize in?",
+    question: "What do you actually work on?",
     answer:
-      "I'm a Software Engineer at GITS.id, building and integrating backend APIs for CMS and POS systems, plus mobile app integration. Tech-wise: Next.js, React, Laravel, .NET, PostgreSQL, and Docker.",
+      "Laravel and Filament for POS admin: account management, multi-store allocation, access control. Plus an enterprise CMS whose REST APIs are consumed by Android and iOS apps.",
   },
   {
-    question: "Do you work with teams or prefer solo projects?",
+    question: "What's your stack?",
     answer:
-      "I work in Agile/Scrum teams at GITS.id, and built thesis and client projects with code reviews and Git-based collaboration.",
+      "Laravel and PostgreSQL most days, Next.js and React when a project needs a UI, .NET when it fits. On the side I built an industrial IoT asset dashboard on MQTT and SignalR, and a CLI that drafts PRDs and feature specs for me.",
   },
   {
-    question: "How can I contact you for a project?",
+    question: "Do you work solo or in a team?",
     answer:
-      "Email athallaarli@gmail.com, or message me on LinkedIn. I typically respond within a day.",
+      "Team, mostly. Sprints in Taiga, spec written before code, review before merge. Side projects are where I work alone.",
+  },
+  {
+    question: "How do I reach you?",
+    answer:
+      "athallaarli@gmail.com, or LinkedIn if that's easier. Email gets the faster answer.",
   },
 ];
