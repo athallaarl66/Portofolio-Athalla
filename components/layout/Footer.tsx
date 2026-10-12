@@ -2,11 +2,13 @@ import { Linkedin, Instagram, Github, Mail } from "lucide-react";
 import Link from "next/link";
 
 const navLinks = [
-  { name: "Home",     href: "#hero" },
-  { name: "About",    href: "#about" },
-  { name: "Skills",   href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact",  href: "#contact" },
+  { name: "Home",     href: "/#hero" },
+  { name: "About",    href: "/#about" },
+  { name: "Skills",   href: "/#skills" },
+  { name: "Services", href: "/#services" },
+  { name: "Projects", href: "/projects" },
+  { name: "FAQ",      href: "/#faq" },
+  { name: "Contact",  href: "/#contact" },
 ];
 
 const socialLinks = [

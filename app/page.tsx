@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Next.js",
     "React",
     ".NET",
-    "Full Stack Developer",
+    "Backend Engineer",
     "Bandung",
     "Indonesia",
     "TypeScript",
@@ -37,14 +37,6 @@ export const metadata: Metadata = {
     description:
       "Software Engineer building backend APIs for CMS and POS systems with Next.js, React, .NET, and Laravel. Based in Bandung, Indonesia.",
     siteName: "Athalla Arli",
-    images: [
-      {
-        url: "/projects/propil.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Athalla Arli - Software Engineer Portfolio",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -53,12 +45,6 @@ export const metadata: Metadata = {
       "Software Engineer building backend APIs for CMS and POS systems with Next.js, React, .NET, and Laravel. Based in Bandung, Indonesia.",
     site: "@athallaarl",
     creator: "@athallaarl",
-    images: [
-      {
-        url: "/projects/propil.jpg",
-        alt: "Athalla Arli - Software Engineer Portfolio",
-      },
-    ],
   },
   robots: {
     index: true,

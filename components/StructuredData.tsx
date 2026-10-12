@@ -23,7 +23,7 @@ export const PersonSchema = () => {
         "@type": "City",
         name: "Bandung",
       },
-      skills: "Full Stack Development, Backend API Development, CMS and POS Systems",
+      skills: "Backend API Development, CMS and POS Systems",
     },
     makesOffer: services.map((service) => ({
       "@type": "Offer",
@@ -144,7 +144,7 @@ export const SoftwareSourceCodeSchema = ({ project }: { project: any }) => {
     "@type": "SoftwareSourceCode",
     name: project.title,
     description: project.shortDesc,
-    codeRepository: project.githubUrl || "https://github.com/athallaarl66",
+    codeRepository: project.githubUrl,
     author: {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,

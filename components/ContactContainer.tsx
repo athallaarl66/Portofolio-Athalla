@@ -57,14 +57,19 @@ export default function ContactContainer() {
               <ArrowUpRight className="w-4 h-4 ml-1.5" />
             </a>
 
-            <div className="flex items-center gap-2 mt-6">
-              <span
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ background: "var(--sage)" }}
-              />
-              <span className="text-xs font-mono text-muted">
-                Typically responds within 24 hours
-              </span>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-6">
+              {[
+                "Bandung, Indonesia · UTC+7",
+                "Typically responds within 24 hours",
+              ].map((line) => (
+                <span key={line} className="flex items-center gap-2">
+                  <span
+                    className="w-1.5 h-1.5 rounded-full"
+                    style={{ background: "var(--sage)" }}
+                  />
+                  <span className="text-xs font-mono text-muted">{line}</span>
+                </span>
+              ))}
             </div>
           </div>
 

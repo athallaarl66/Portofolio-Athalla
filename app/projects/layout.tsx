@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   keywords: [
     "Portfolio",
     "Projects",
-    "Full Stack Developer",
+    "Backend Engineer",
     "Next.js",
     "React",
     ".NET",
@@ -23,21 +23,12 @@ export const metadata: Metadata = {
     description:
       "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications.",
     siteName: "Athalla Arli",
-    images: [
-      {
-        url: "/projects/propil.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Athalla Arli's Projects",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Projects | Athalla Arli",
     description:
       "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications.",
-    images: ["/projects/propil.jpg"],
   },
   robots: {
     index: true,
