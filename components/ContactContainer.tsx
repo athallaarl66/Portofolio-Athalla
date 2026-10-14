@@ -59,7 +59,6 @@ export default function ContactContainer() {
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-6">
               {[
-                "Bandung, Indonesia · UTC+7",
                 "Typically responds within 24 hours",
               ].map((line) => (
                 <span key={line} className="flex items-center gap-2">

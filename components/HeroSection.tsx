@@ -37,9 +37,6 @@ export const HeroSection = () => {
               </a>
             ))}
           </div>
-          <span className="text-[11px] font-mono text-muted">
-            Open to freelance and full-time roles · Bandung, UTC+7
-          </span>
         </div>
 
         {/* Main hero grid */}
@@ -77,7 +74,6 @@ export const HeroSection = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-[13px] font-medium text-white/60 transition-colors hover:text-white"
               >
-                Resume <ArrowRight className="w-4 h-4 ml-1.5" />
               </a>
             </div>
           </div>
