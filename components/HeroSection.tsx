@@ -1,108 +1,31 @@
 "use client";
 
-import { ArrowDownRight, Github, Linkedin, ArrowRight } from "lucide-react";
-import Image from "next/image";
+import { ArrowDownRight, ArrowRight } from "lucide-react";
 
 export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] flex flex-col justify-center pt-24 pb-8 overflow-hidden"
+      className="hero-surface relative flex flex-col justify-center pt-20 pb-12 lg:pt-24 lg:pb-16 overflow-hidden"
     >
-      <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12 relative z-10">
-        {/* Availability — single plain line */}
-        <div className="flex items-center justify-between gap-3 mb-12 md:mb-16">
-          <div className="flex items-center gap-2">
-            {[
-              {
-                href: "https://github.com/athallaarl66",
-                label: "GitHub",
-                icon: <Github className="w-4.5 h-4.5" />,
-              },
-              {
-                href: "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",
-                label: "LinkedIn",
-                icon: <Linkedin className="w-4.5 h-4.5" />,
-              },
-            ].map(({ href, label, icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full flex items-center justify-center text-white/60 transition-colors duration-200 hover:text-white hover:bg-white/5"
-                aria-label={label}
-              >
-                {icon}
-              </a>
-            ))}
+      <div className="max-w-[1140px] w-full mx-auto px-6 md:px-10 lg:px-12 relative z-10">
+
+        <div className="hero-frame relative flex min-h-[440px] flex-col justify-center overflow-hidden border border-[var(--border)] px-6 py-20 md:min-h-[470px] md:px-12 md:py-16 lg:min-h-[480px] lg:px-16">
+          <div className="relative z-10 max-w-[720px]">
+            <p className="mb-8 text-xs font-semibold uppercase tracking-[.18em] text-[var(--film-amber)]">Athalla Arli / Software Engineer</p>
+            <h1 className="cinema-title mb-5">Software shaped<br />by curiosity.</h1>
+            <p className="max-w-[54ch] text-sm leading-relaxed text-[var(--foreground)] md:text-base">I build web experiences and reliable systems, from cultural education platforms to enterprise dashboards.</p>
+            <a href="#projects" className="mt-6 inline-flex min-h-11 items-center gap-2 border-b border-[var(--film-amber)] text-sm font-semibold text-[var(--film-amber)] transition-colors hover:text-[var(--foreground)]">Explore my works <ArrowDownRight className="h-4 w-4" /></a>
           </div>
+          <span aria-hidden="true" className="absolute right-6 top-6 text-xs font-medium uppercase tracking-[.18em] text-[var(--muted-fg)] md:right-12">Bandung / Indonesia</span>
         </div>
-
-        {/* Main hero grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
-          {/* Left — headline + CTA */}
-          <div className="flex flex-col">
-            <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-black leading-[1.05] tracking-tighter text-white mb-6">
-              Athalla Arli.
-              <br />
-              Software Engineer
-            </h1>
-
-            <p className="text-[14px] md:text-[15px] leading-relaxed font-light max-w-[460px] mb-8 text-muted">
-              Software Engineer at GITS.id, building and integrating backend
-              APIs for CMS and POS systems, plus mobile app integration. Focused
-              on well-documented code and workflow automation.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-5">
-              <a
-                href="#projects"
-                className="btn-primary inline-flex items-center text-[13px] font-semibold px-5 py-2.5 rounded-full"
-              >
-                See my projects <ArrowDownRight className="w-4 h-4 ml-1" />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center text-[13px] font-medium text-white/60 transition-colors hover:text-white"
-              >
-                Contact me <ArrowRight className="w-4 h-4 ml-1.5" />
-              </a>
-              <a
-                href="/projects2/CV_IT_Athalla-Arli-Abhinaya_ENGLISH.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-[13px] font-medium text-white/60 transition-colors hover:text-white"
-              >
-              </a>
-            </div>
-          </div>
-
-          {/* Right — photo */}
-          <div className="w-full max-w-[260px] mx-auto lg:mx-auto flex-shrink-0 relative">
-            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden surface-chip p-2">
-              <div className="w-full h-full rounded-xl overflow-hidden relative">
-                <Image
-                  src="/projects/propil.jpg"
-                  alt="Athalla Arli Abhinaya"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover object-top"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-sm text-muted">
+          <span>.NET · Laravel · Next.js</span>
+          <a href="#contact" className="inline-flex min-h-11 items-center gap-2 hover:text-[var(--foreground)]">Contact <ArrowRight className="h-4 w-4" /></a>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-25">
-        <span className="text-[8px] font-mono uppercase tracking-widest text-muted">
-          Scroll
-        </span>
-        <div className="w-px h-6 bg-gradient-to-b from-white/30 to-transparent" />
-      </div>
+
     </section>
   );
 };

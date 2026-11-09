@@ -39,7 +39,7 @@ const Footer = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="text-xs font-mono text-muted transition-colors duration-200 hover:text-[var(--sage)]"
+              className="text-xs font-mono text-muted transition-colors duration-200 hover:text-[var(--film-amber)]"
             >
               {link.name}
             </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={name}
-              className="text-muted transition-colors duration-200 hover:text-[var(--sage)]"
+              className="text-muted transition-colors duration-200 hover:text-[var(--film-amber)]"
             >
               <Icon size={15} />
             </a>

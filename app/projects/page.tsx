@@ -5,6 +5,7 @@ import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import ContactContainer from "@/components/ContactContainer";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { getAllProjects } from "@/lib/projectsData";
 
 export default function ProjectsGallery() {
@@ -15,33 +16,27 @@ export default function ProjectsGallery() {
     <div className="relative min-h-screen bg-background text-foreground">
       <Navbar />
 
-      <main className="pt-28 md:pt-32 pb-16 px-6 md:px-10 lg:px-12">
-        <div className="max-w-[1200px] w-full mx-auto">
+      <main className="pt-28 md:pt-32 pb-16 px-6 md:px-16">
+        <div className="max-w-[1280px] w-full mx-auto">
           {/* Section label */}
-          <div className="section-label mb-10">Projects</div>
+          <div className="section-label mb-10">
+            Projects
+          </div>
 
           {/* Heading */}
           <div className="mb-16 space-y-3">
             <h1 className="text-[clamp(2.8rem,6vw,5rem)] font-black leading-none tracking-tighter text-white">
-              Selected projects.
+              Things I've built.
             </h1>
             <p className="text-base font-light max-w-md mt-4 text-muted">
-              Production systems, thesis research, and developer tools, each
-              with source and results.
+              A curated selection of my work — from academic theses to production-ready enterprise applications.
             </p>
           </div>
 
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-            {projects.map((project, idx) => (
-              <div
-                key={project.id}
-                className="opacity-0 animate-fade-in"
-                style={{
-                  animationDelay: `${idx * 0.1}s`,
-                  animationFillMode: "forwards",
-                }}
-              >
+            {projects.map((project) => (
+              <div key={project.id}>
                 <ProjectCard
                   project={project}
                   onViewDetails={() => router.push(`/projects/${project.id}`)}
@@ -57,13 +52,7 @@ export default function ProjectsGallery() {
   );
 }
 
-function ProjectCard({
-  project,
-  onViewDetails,
-}: {
-  project: any;
-  onViewDetails: () => void;
-}) {
+function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: () => void }) {
   return (
     <Card
       className="group rounded-2xl overflow-hidden card-hover flex flex-col cursor-pointer h-full surface-chip"
@@ -75,13 +64,13 @@ function ProjectCard({
           <img
             src={project.thumbnail}
             alt={project.title}
-            className="w-full h-full object-cover transition-[filter] duration-500 group-hover:brightness-110"
+            className="w-full h-full object-cover"
             loading="lazy"
           />
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[rgba(var(--deep-rgb),0.65)] to-transparent to-50%" />
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[rgba(8,8,15,0.65)] to-transparent to-50%" />
 
           {/* Year badge */}
-          <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[11px] font-mono text-white/55 bg-[rgba(var(--deep-rgb),0.75)] backdrop-blur-sm border border-white/10">
+          <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[11px] font-mono text-white/55 bg-[rgba(8,8,15,0.75)] backdrop-blur-sm border border-white/10">
             {project.year}
           </div>
         </div>
@@ -104,18 +93,19 @@ function ProjectCard({
           {/* Tags */}
           <div className="flex flex-wrap gap-1.5">
             {project.tags.slice(0, 4).map((tag: string) => (
-              <span
+              <Badge
                 key={tag}
-                className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-[rgba(var(--deep-rgb),0.5)] border border-white/10 text-white/75"
+                variant="outline"
+                className="rounded-full px-3 py-1.5 text-xs font-medium bg-[rgba(var(--deep-rgb),0.5)] border-white/10 text-white/75"
               >
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
 
           {/* Actions */}
           <div className="flex items-center justify-between pt-4 mt-2 border-t border-[var(--border)]">
-            <button className="group/btn inline-flex items-center gap-2 text-sm font-semibold text-muted transition-colors duration-200 hover:text-[var(--sage)]">
+            <button className="group/btn inline-flex items-center gap-2 text-sm font-semibold text-muted transition-colors duration-200 hover:text-[var(--film-amber)]">
               View project
               <ArrowUpRight
                 size={14}
@@ -130,7 +120,7 @@ function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="p-2 text-white/25 transition-colors duration-200 hover:text-[var(--sage)]"
+                  className="p-2 text-white/25 transition-colors duration-200 hover:text-[var(--film-amber)]"
                   title="Live Demo"
                 >
                   <ExternalLink size={15} />
@@ -142,7 +132,7 @@ function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="p-2 text-white/25 transition-colors duration-200 hover:text-[var(--sage)]"
+                  className="p-2 text-white/25 transition-colors duration-200 hover:text-[var(--film-amber)]"
                   title="Source"
                 >
                   <Github size={15} />

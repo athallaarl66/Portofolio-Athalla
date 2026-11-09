@@ -75,8 +75,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   return (
     <>
-      <CreativeWorkSchema project={project} />
-      <SoftwareSourceCodeSchema project={project} />
+      <CreativeWorkSchema project={{ ...project, id }} />
+      <SoftwareSourceCodeSchema project={{ ...project, id }} />
       <BreadcrumbListSchema items={breadcrumbItems} />
       <ProjectDetailClient id={id} project={project} />
     </>

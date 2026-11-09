@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { Bebas_Neue, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { BackgroundAurora } from "@/components/effects/BackgroundAurora";
 import { SITE_URL } from "@/lib/site";
 
-const jakartaSans = Plus_Jakarta_Sans({
+
+const filmDisplay = Bebas_Neue({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "400",
 });
 
-const inter = Inter({
+
+const montserrat = Montserrat({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -25,19 +26,19 @@ export const metadata: Metadata = {
     template: "%s | Athalla Arli",
   },
   description:
-    "Portfolio of Athalla Arli, a Software Engineer building backend APIs for CMS and POS systems with Next.js, React, .NET, and Laravel. Based in Bandung, Indonesia.",
+    "Portfolio of Athalla Arli, a Software Engineer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
   keywords: [
     "Software Engineer",
     "Next.js",
     "React",
     ".NET",
-    "Backend Engineer",
+    "Software Engineer",
     "Bandung",
     "Indonesia",
     "TypeScript",
     "Web Developer",
   ],
-  authors: [{ name: "Athalla Arli", url: SITE_URL }],
+  authors: [{ name: "Athalla Arli", url: `${SITE_URL}/` }],
   creator: "Athalla Arli",
   publisher: "Athalla Arli",
   robots: {
@@ -57,10 +58,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     languages: {
-      "en-US": "/",
-      "x-default": "/",
+      "en-US": `${SITE_URL}/`,
+      "id-ID": `${SITE_URL}/`,
     },
-    canonical: "/",
+    canonical: `${SITE_URL}/`,
   },
 };
 
@@ -72,7 +73,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jakartaSans.variable} ${inter.variable} h-full antialiased`}
+      className={`${filmDisplay.variable} ${montserrat.variable} h-full antialiased`}
     >
       <head>
         {/* Preconnect for Google Fonts */}
@@ -84,14 +85,30 @@ export default function RootLayout({
         />
 
         {/* Theme Color for Mobile Browser Chrome */}
-        <meta name="theme-color" content="#050a09" />
-        <meta name="msapplication-TileColor" content="#050a09" />
+        <meta name="theme-color" content="#111519" />
+        <meta name="msapplication-TileColor" content="#111519" />
 
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Hreflang Tags */}
+        <link
+          rel="alternate"
+          hrefLang="en-US"
+          href={`${SITE_URL}/`}
+        />
+        <link
+          rel="alternate"
+          hrefLang="id-ID"
+          href={`${SITE_URL}/`}
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={`${SITE_URL}/`}
+        />
       </head>
       <body className="min-h-full flex flex-col">
-        <BackgroundAurora />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

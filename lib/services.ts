@@ -6,45 +6,45 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    title: "Web App & SaaS Development",
+    title: "Web applications",
     description:
-      "Custom web applications and SaaS products built with Next.js, React, and TypeScript, from first screen to production deploy.",
+      "I build web apps with Next.js, React, and TypeScript, from the interface through the application logic.",
     icon: "LayoutDashboard",
   },
   {
-    title: "POS System Development & Integration",
+    title: "Point-of-sale systems",
     description:
-      "Point-of-sale systems with order management, inventory, multi-store allocation, and payment confirmation flows.",
+      "Admin tools for orders, accounts, and store access, shaped around how staff actually work.",
     icon: "ShoppingCart",
   },
   {
-    title: "CMS Development & Integration",
+    title: "Content management systems",
     description:
-      "Content management systems with REST APIs consumed by web, Android, and iOS clients.",
+      "CMS interfaces and REST APIs that serve web, Android, and iOS clients.",
     icon: "FileText",
   },
   {
-    title: "Backend API Development",
+    title: "Backend APIs",
     description:
-      "Backend services and REST or real-time APIs with .NET, Node.js, Laravel, and Spring Boot, backed by PostgreSQL.",
+      "REST APIs and backend services built with Laravel, .NET, Node.js, or Spring Boot.",
     icon: "Server",
   },
   {
-    title: "Mobile App Integration",
+    title: "Mobile app integration",
     description:
-      "Backend APIs and integrations that power Android and iOS mobile applications.",
+      "APIs that connect Android and iOS apps to their CMS and backend data.",
     icon: "Smartphone",
   },
   {
-    title: "UI/UX Design",
+    title: "Interface design",
     description:
-      "User-centered interface design and prototyping in Figma, validated with real users.",
+      "User research and Figma prototypes that guide the interface before development.",
     icon: "Palette",
   },
   {
-    title: "Workflow Automation Setup",
+    title: "Developer tools",
     description:
-      "Automation tooling and CLI workflows that remove repetitive development and documentation work.",
+      "CLI tools for project setup, codebase analysis, and repetitive development tasks.",
     icon: "Workflow",
   },
 ];

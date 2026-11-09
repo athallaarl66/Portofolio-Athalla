@@ -52,15 +52,12 @@ export const SkillsSection = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <div className="section-label mb-5">
-              Tech stack
-            </div>
-            <h2 className="text-[clamp(2rem,4vw,3rem)] font-black tracking-tighter leading-tight text-white">
-              Technologies I use every day.
+            <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-normal tracking-[0.02em] leading-[1.12] text-white [text-wrap:balance]">
+              Tools I work with.
             </h2>
           </div>
-          <p className="text-sm font-light max-w-xs md:text-right text-muted">
-            Frontend, backend, databases, and deployment tools I use in my projects.
+          <p className="text-[15px] leading-[1.7] max-w-sm md:text-right text-muted [text-wrap:pretty]">
+            A mix of frontend and backend tools from my projects.
           </p>
         </div>
 
@@ -72,12 +69,12 @@ export const SkillsSection = () => {
             return (
               <Card
                 key={cat.title}
-                className="rounded-2xl p-6 card-hover surface-chip"
+                className="rounded-2xl p-6 surface-chip"
               >
                 <CardContent className="p-0">
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <h3 className="text-base font-bold text-white">
+                      <h3 className="font-[family-name:var(--font-body)] text-lg font-semibold tracking-normal leading-[1.4] text-white">
                         {cat.title}
                       </h3>
                       <p className="text-[11px] font-mono mt-0.5 text-muted">
@@ -95,9 +92,9 @@ export const SkillsSection = () => {
                       return (
                         <div
                           key={skill.name}
-                          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium bg-[rgba(var(--deep-rgb),0.5)] border border-white/10 hover:border-[rgba(var(--sage-rgb),0.4)] transition-colors"
+                          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium bg-[rgba(var(--deep-rgb),0.5)] border border-white/10 hover:border-[var(--border-hover)] transition-colors"
                         >
-                          <IconComponent className="w-3.5 h-3.5 text-[var(--sage)] shrink-0" />
+                          <IconComponent className="w-3.5 h-3.5 text-[var(--film-amber)] shrink-0" />
                           <span className="text-white/80">
                             {skill.name}
                           </span>

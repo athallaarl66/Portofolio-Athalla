@@ -30,14 +30,12 @@ export const ServicesSection = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <div className="section-label mb-5">Services</div>
-            <h2 className="text-[clamp(2rem,4vw,3rem)] font-black tracking-tighter leading-tight text-white">
-              What I can build for you.
+            <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-normal tracking-[0.02em] leading-[1.12] text-white [text-wrap:balance]">
+              How I can help.
             </h2>
           </div>
-          <p className="text-sm font-light max-w-xs md:text-right text-muted">
-            From custom web apps and POS systems to backend APIs, mobile
-            integration, and workflow automation.
+          <p className="text-[15px] leading-[1.7] max-w-sm md:text-right text-muted [text-wrap:pretty]">
+            Web applications, the APIs behind them, and tools that cut down repetitive work.
           </p>
         </div>
 
@@ -48,16 +46,16 @@ export const ServicesSection = () => {
             return (
               <Card
                 key={service.title}
-                className="rounded-2xl p-6 card-hover surface-chip"
+                className="rounded-2xl p-6 surface-chip"
               >
                 <CardContent className="p-0">
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center border border-white/10 bg-white/[0.04] mb-6">
-                    <Icon className="w-4 h-4 text-[var(--sage)]" />
+                    <Icon className="w-4 h-4 text-[var(--film-amber)]" />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2">
+                  <h3 className="font-[family-name:var(--font-body)] text-lg font-semibold leading-[1.4] tracking-normal text-white mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-[13px] font-light leading-relaxed text-muted">
+                  <p className="text-[15px] leading-[1.7] text-muted [text-wrap:pretty]">
                     {service.description}
                   </p>
                 </CardContent>
