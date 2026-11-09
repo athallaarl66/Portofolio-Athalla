@@ -1,6 +1,7 @@
 import { SITE_URL } from "@/lib/site";
 import { services } from "@/lib/services";
 import { faqItems } from "@/lib/faq";
+import type { ProjectData } from "@/lib/projectsData";
 
 export const PersonSchema = () => {
   const schema = {
@@ -107,7 +108,7 @@ export const PersonSchema = () => {
   );
 };
 
-export const CreativeWorkSchema = ({ project }: { project: any }) => {
+export const CreativeWorkSchema = ({ project }: { project: ProjectData }) => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -138,7 +139,7 @@ export const CreativeWorkSchema = ({ project }: { project: any }) => {
   );
 };
 
-export const SoftwareSourceCodeSchema = ({ project }: { project: any }) => {
+export const SoftwareSourceCodeSchema = ({ project }: { project: ProjectData }) => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",

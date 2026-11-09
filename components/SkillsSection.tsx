@@ -52,15 +52,12 @@ export const SkillsSection = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <div className="section-label mb-5">
-              Tech stack
-            </div>
-            <h2 className="text-[clamp(2rem,4vw,3rem)] font-black tracking-tighter leading-tight text-white">
-              Technologies I use every day.
+            <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-normal tracking-[0.02em] leading-[1.12] text-white [text-wrap:balance]">
+              Tools I work with.
             </h2>
           </div>
-          <p className="text-sm font-light max-w-xs md:text-right text-muted">
-            Frontend, backend, databases, and deployment tools I use in my projects.
+          <p className="text-[15px] leading-[1.7] max-w-sm md:text-right text-muted [text-wrap:pretty]">
+            A mix of frontend and backend tools from my projects.
           </p>
         </div>
 
@@ -77,7 +74,7 @@ export const SkillsSection = () => {
                 <CardContent className="p-0">
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <h3 className="text-base font-bold text-white">
+                      <h3 className="font-[family-name:var(--font-body)] text-lg font-semibold tracking-normal leading-[1.4] text-white">
                         {cat.title}
                       </h3>
                       <p className="text-[11px] font-mono mt-0.5 text-muted">

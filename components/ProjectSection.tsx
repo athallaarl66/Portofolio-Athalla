@@ -14,16 +14,13 @@ export const ProjectSection = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-2 md:gap-4 mb-8 md:mb-14">
           <div>
-            <div className="section-label mb-5">
-              Portfolio
-            </div>
-            <h2 className="text-[clamp(2rem,4vw,3rem)] font-black tracking-tighter leading-tight text-white">
-              Selected works.
+            <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-normal tracking-[0.02em] leading-[1.12] text-white [text-wrap:balance]">
+              Selected work.
             </h2>
           </div>
           <a
             href="/projects"
-            className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[var(--film-amber)] transition-colors duration-200 hover:text-[var(--foreground)]"
+            className="inline-flex min-h-11 items-center gap-2 text-[15px] font-medium text-[var(--film-amber)] transition-colors duration-200 hover:text-[var(--foreground)]"
           >
             View all projects <ArrowUpRight className="w-4 h-4" />
           </a>
@@ -59,12 +56,12 @@ export const ProjectSection = () => {
                   <p className="text-[11px] font-mono uppercase tracking-widest mb-1.5 text-muted">
                     {project.category}
                   </p>
-                  <h3 className="text-lg font-bold text-white tracking-tight">
+                  <h3 className="text-lg font-semibold leading-[1.45] text-white tracking-normal">
                     {project.title}
                   </h3>
                 </div>
 
-                <p className="text-sm leading-relaxed font-light line-clamp-2 flex-grow text-muted">
+                <p className="text-[15px] leading-[1.7] line-clamp-2 flex-grow text-muted [text-wrap:pretty]">
                   {project.shortDesc}
                 </p>
 

@@ -358,11 +358,13 @@
   .section-label::before { background: var(--film-amber); }
   .hero-surface a[href="#contact"] { color: var(--foreground); }
   main section h2 { font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 400; letter-spacing: .01em; line-height: 1; }
+  main section:is(#projects, #skills, #services, #faq) h2 { letter-spacing: .02em; line-height: 1.12; }
   main section h3 { font-weight: 400; letter-spacing: .01em; }
+  main section:is(#skills, #services) h3 { font-family: var(--font-body); font-weight: 600; letter-spacing: 0; line-height: 1.4; }
   #projects .group { transition: border-color .25s ease; }
   #projects .group > div:first-child { border: 1px solid var(--border); }
   #projects .group:hover > div:first-child { border-color: var(--film-amber); }
-  #projects .group h3 { font-family: var(--font-body); font-size: 1.15rem; font-weight: 700; letter-spacing: -.02em; }
+  #projects .group h3 { font-family: var(--font-body); font-size: 1.15rem; font-weight: 600; letter-spacing: 0; line-height: 1.45; }
   #projects .group:focus-visible { outline: 2px solid var(--film-amber); outline-offset: 5px; }
   #projects .group .rounded-full { color: var(--foreground); }
   #projects .group .text-muted { color: var(--muted-fg); }

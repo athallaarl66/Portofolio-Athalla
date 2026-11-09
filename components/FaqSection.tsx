@@ -9,13 +9,12 @@ export const FaqSection = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <div className="section-label mb-5">FAQ</div>
-            <h2 className="text-[clamp(2rem,4vw,3rem)] font-black tracking-tighter leading-tight text-white">
-              Frequently asked questions.
+            <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-normal tracking-[0.02em] leading-[1.12] text-white [text-wrap:balance]">
+              A few things you might want to know.
             </h2>
           </div>
-          <p className="text-sm font-light max-w-xs md:text-right text-muted">
-            The things people ask me before we start working together.
+          <p className="text-[15px] leading-[1.7] max-w-sm md:text-right text-muted [text-wrap:pretty]">
+            On availability, day-to-day work, and how to get in touch.
           </p>
         </div>
 
@@ -26,7 +25,7 @@ export const FaqSection = () => {
               key={item.question}
               className="group rounded-2xl px-6 py-5 surface-chip"
             >
-              <summary className="flex items-center justify-between gap-4 cursor-pointer list-none text-[15px] font-semibold text-white">
+              <summary className="flex items-center justify-between gap-4 cursor-pointer list-none text-base font-semibold leading-[1.6] text-white">
                 {item.question}
                 <span
                   aria-hidden="true"
@@ -35,7 +34,7 @@ export const FaqSection = () => {
                   +
                 </span>
               </summary>
-              <p className="mt-4 text-[13px] font-light leading-relaxed text-muted">
+              <p className="mt-4 max-w-[70ch] text-[15px] leading-[1.75] text-muted [text-wrap:pretty]">
                 {item.answer}
               </p>
             </details>
