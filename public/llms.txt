@@ -1,0 +1,19 @@
+# Athalla Arli — Software Engineer Portfolio
+
+Athalla Arli is a Software Engineer based in Bandung, Indonesia. Builds and integrates backend APIs for CMS and POS systems, plus mobile app integration, with Next.js, React, .NET, Laravel, PHP, Java, and PostgreSQL.
+
+## Services
+- Web App & SaaS Development
+- POS System Development & Integration
+- CMS Development & Integration
+- Backend API Development
+- Mobile App Integration
+- UI/UX Design
+- Workflow Automation Setup
+
+## Key Pages
+- [Home](https://athalla-works.my.id/): profile, services, skills, projects, and FAQ
+- [Projects](https://athalla-works.my.id/projects): portfolio of full stack, IoT, and developer tools projects
+- [Contact](mailto:athallaarli@gmail.com): email for freelance and full-time opportunities
+- [GitHub](https://github.com/athallaarl66)
+- [LinkedIn](https://www.linkedin.com/in/athalla-arli-baa7b72b7/)

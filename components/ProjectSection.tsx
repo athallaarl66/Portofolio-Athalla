@@ -3,81 +3,11 @@
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-
-const projects = [
-  {
-    title: "DiajarAksara",
-    category: "Learning Platform",
-    description:
-      "Thesis project — iterative UCD process at SMAN 24 Bandung. Full app for learning Sundanese script, from user research to shipped product.",
-    image: "/projects1/HOMEPAGE.png",
-    tags: ["Next.js", "CSS Modules", "UI/UX", "UCD"],
-    year: "2025",
-    link: "/projects/sundanese-learning",
-  },
-  {
-    title: "Money Tracker",
-    category: "Financial System",
-    description:
-      "Fullstack app with JWT auth, recurring transaction logic, and analytics dashboard. Containerised and deployed with Docker + PostgreSQL.",
-    image: "/Projects5/Dashboard.png",
-    tags: ["Spring Boot", "React", "PostgreSQL", "Docker"],
-    year: "2026",
-    link: "/projects/money-tracker",
-  },
-  {
-    title: "Crazwash",
-    category: "POS & Operations",
-    description:
-      "Full-stack laundry business POS — public ordering flows, staff dashboard, and admin panel. Type-safe with Prisma + PostgreSQL.",
-    image: "/projects3/Dashboard.png",
-    tags: ["Next.js", "Prisma", "PostgreSQL", "TypeScript"],
-    year: "2026",
-    link: "/projects/crazwash-umkm-dashboard",
-  },
-  {
-    title: "RK Law Firm",
-    category: "Corporate Website",
-    description:
-      "Built during internship — professional company profile with integrated online legal service booking, responsive and deployed.",
-    image: "/projects2/homerk.jpg",
-    tags: ["Laravel", "HTML/CSS", "Figma"],
-    year: "2024",
-    link: "/projects/law-firm-website",
-  },
-  {
-    title: "Industrial IoT Dashboard",
-    category: "Enterprise System",
-    description:
-      "Enterprise-grade asset intelligence platform. High-frequency telemetry ingestion via MQTT, predictive analytics, and SignalR real-time sync.",
-    image: "/projects6/DashboardIOThero.png",
-    tags: [".NET 8", "React", "MQTT", "PostgreSQL"],
-    year: "2026",
-    link: "/projects/industrial-iot",
-  },
-  {
-    title: "SNIPE-CODE CLI",
-    category: "Developer Tools",
-    description:
-      "Rust CLI for project scaffolding, codebase analysis, and heuristic security audits. Runs locally without an account, API key, or AI service. Selected work featured on XERJ Corpus Hub.",
-    image: "/snipecode.png",
-    tags: ["Rust", "CLI", "Security Audit", "Scaffolding"],
-    year: "2026",
-    link: "/projects/snipe-code",
-  },
-  {
-    title: "DEV CLI – SDD Automation Tool",
-    category: "Developer Tools",
-    description:
-      "Built to accelerate the development process by generating PRDs, Technical Designs, Spec Tests, and QA Reports automatically. Integrates with AI agent workflows.",
-    image: "/projects7/cli-thumb.png",
-    tags: ["Node.js", "CLI", "Automation", "Playwright"],
-    year: "2026",
-    link: "/projects/dev-cli-sdd",
-  },
-];
+import { getAllProjects } from "@/lib/projectsData";
 
 export const ProjectSection = () => {
+  const projects = getAllProjects();
+
   return (
     <section id="projects" className="relative py-24 md:py-32">
       <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16">
@@ -101,16 +31,16 @@ export const ProjectSection = () => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-          {projects.map((project, idx) => (
+          {projects.map((project) => (
             <a
-              key={idx}
-              href={project.link}
+              key={project.id}
+              href={`/projects/${project.id}`}
               className="group flex flex-col"
             >
               {/* Image */}
               <div className="relative overflow-hidden aspect-video">
                 <Image
-                  src={project.image}
+                  src={project.thumbnail}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -135,7 +65,7 @@ export const ProjectSection = () => {
                 </div>
 
                 <p className="text-sm leading-relaxed font-light line-clamp-2 flex-grow text-muted">
-                  {project.description}
+                  {project.shortDesc}
                 </p>
 
                 <div className="flex items-center justify-between pt-3 border-t border-[var(--border)]">

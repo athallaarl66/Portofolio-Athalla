@@ -3,6 +3,8 @@ import { Bebas_Neue, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { SITE_URL } from "@/lib/site";
+
 
 const filmDisplay = Bebas_Neue({
   variable: "--font-heading",
@@ -18,7 +20,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://athalla-works.vercel.app/"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Athalla Arli - Software Engineer",
     template: "%s | Athalla Arli",
@@ -36,7 +38,7 @@ export const metadata: Metadata = {
     "TypeScript",
     "Web Developer",
   ],
-  authors: [{ name: "Athalla Arli", url: "https://athalla-works.vercel.app/" }],
+  authors: [{ name: "Athalla Arli", url: `${SITE_URL}/` }],
   creator: "Athalla Arli",
   publisher: "Athalla Arli",
   robots: {
@@ -56,10 +58,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     languages: {
-      "en-US": "https://athalla-works.vercel.app/",
-      "id-ID": "https://athalla-works.vercel.app/",
+      "en-US": `${SITE_URL}/`,
+      "id-ID": `${SITE_URL}/`,
     },
-    canonical: "https://athalla-works.vercel.app/",
+    canonical: `${SITE_URL}/`,
   },
 };
 
@@ -93,17 +95,17 @@ export default function RootLayout({
         <link
           rel="alternate"
           hrefLang="en-US"
-          href="https://athalla-works.vercel.app/"
+          href={`${SITE_URL}/`}
         />
         <link
           rel="alternate"
           hrefLang="id-ID"
-          href="https://athalla-works.vercel.app/"
+          href={`${SITE_URL}/`}
         />
         <link
           rel="alternate"
           hrefLang="x-default"
-          href="https://athalla-works.vercel.app/"
+          href={`${SITE_URL}/`}
         />
       </head>
       <body className="min-h-full flex flex-col">

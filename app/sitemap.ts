@@ -1,27 +1,27 @@
 import type { MetadataRoute } from "next";
 import { getAllProjects } from "@/lib/projectsData";
+import { SITE_URL, CONTENT_LAST_MODIFIED } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://athalla-works.vercel.app";
   const projects = getAllProjects();
 
   const projectPages = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.id}`,
-    lastModified: new Date(),
+    url: `${SITE_URL}/projects/${project.id}`,
+    lastModified: CONTENT_LAST_MODIFIED,
     changeFrequency: "yearly" as const,
     priority: 0.7,
   }));
 
   return [
     {
-      url: baseUrl,
-      lastModified: new Date(),
+      url: SITE_URL,
+      lastModified: CONTENT_LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/projects`,
-      lastModified: new Date(),
+      url: `${SITE_URL}/projects`,
+      lastModified: CONTENT_LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: 0.8,
     },

@@ -2,11 +2,13 @@ import { Linkedin, Instagram, Github, Mail } from "lucide-react";
 import Link from "next/link";
 
 const navLinks = [
-  { name: "Home",     href: "#hero" },
-  { name: "About",    href: "#about" },
-  { name: "Skills",   href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact",  href: "#contact" },
+  { name: "Home",     href: "/#hero" },
+  { name: "About",    href: "/#about" },
+  { name: "Skills",   href: "/#skills" },
+  { name: "Services", href: "/#services" },
+  { name: "Projects", href: "/projects" },
+  { name: "FAQ",      href: "/#faq" },
+  { name: "Contact",  href: "/#contact" },
 ];
 
 const socialLinks = [
@@ -18,8 +20,8 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="border-t border-[var(--border)] bg-[var(--surface-1)] px-6 md:px-16 py-8">
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
+    <footer className="border-t border-[var(--border)] bg-[var(--surface-1)] px-6 md:px-10 lg:px-12 py-8">
+      <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
         {/* Left — name */}
         <div className="flex items-center gap-2.5">
           <span className="text-sm font-black tracking-tight text-white">

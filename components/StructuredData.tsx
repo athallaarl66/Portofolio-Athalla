@@ -1,21 +1,41 @@
-const BASE_URL = "https://athalla-works.vercel.app/";
+import { SITE_URL } from "@/lib/site";
+import { services } from "@/lib/services";
+import { faqItems } from "@/lib/faq";
 
 export const PersonSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": `${BASE_URL}/#person`,
+    "@id": `${SITE_URL}/#person`,
     name: "Athalla Arli",
-    url: BASE_URL,
-    image: `${BASE_URL}/projects/propil.jpg`,
+    url: `${SITE_URL}/`,
+    image: `${SITE_URL}/projects/propil.jpg`,
     sameAs: [
       "https://github.com/athallaarl66",
       "https://www.linkedin.com/in/athalla-arli-baa7b72b7/",
       "https://www.instagram.com/athallaarl/",
     ],
     jobTitle: "Software Engineer",
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Software Engineer",
+      occupationLocation: {
+        "@type": "City",
+        name: "Bandung",
+      },
+      skills: "Backend API Development, CMS and POS Systems",
+    },
+    makesOffer: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.description,
+        serviceType: service.title,
+      },
+    })),
     description:
-      "Software Engineer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+      "Software Engineer building backend APIs for CMS and POS systems, with Next.js, React, .NET, and Laravel. Based in Bandung, Indonesia.",
     knowsAbout: [
       "Next.js",
       "React",
@@ -61,12 +81,6 @@ export const PersonSchema = () => {
         description: "Docker, Vercel, Koyeb",
       },
     ],
-    worksFor: {
-      "@type": "Organization",
-      "@id": `${BASE_URL}/#organization`,
-      name: "GITS.id",
-      url: "https://gits.id",
-    },
     alumniOf: {
       "@type": "CollegeOrUniversity",
       name: "Telkom University",
@@ -82,7 +96,7 @@ export const PersonSchema = () => {
       "@type": "Country",
       name: "Indonesia",
     },
-    email: "athalla.arli@email.com",
+    email: "athallaarli@gmail.com",
   };
 
   return (
@@ -99,13 +113,13 @@ export const CreativeWorkSchema = ({ project }: { project: any }) => {
     "@type": "CreativeWork",
     name: project.title,
     description: project.shortDesc,
-    image: `${BASE_URL}${project.hero}`,
+    image: `${SITE_URL}${project.hero}`,
     dateCreated: project.year,
     author: {
       "@type": "Person",
-      "@id": `${BASE_URL}/#person`,
+      "@id": `${SITE_URL}/#person`,
       name: "Athalla Arli",
-      url: BASE_URL,
+      url: `${SITE_URL}/`,
     },
     keywords: project.tags.join(", "),
     applicationCategory: project.category,
@@ -113,7 +127,7 @@ export const CreativeWorkSchema = ({ project }: { project: any }) => {
       "@type": "SoftwareSourceCode",
       name: project.title,
     },
-    url: `${BASE_URL}/projects/${project.id}`,
+    url: `${SITE_URL}/projects/${project.id}`,
   };
 
   return (
@@ -130,10 +144,10 @@ export const SoftwareSourceCodeSchema = ({ project }: { project: any }) => {
     "@type": "SoftwareSourceCode",
     name: project.title,
     description: project.shortDesc,
-    codeRepository: project.githubUrl || "https://github.com/athallaarl66",
+    codeRepository: project.githubUrl,
     author: {
       "@type": "Person",
-      "@id": `${BASE_URL}/#person`,
+      "@id": `${SITE_URL}/#person`,
       name: "Athalla Arli",
     },
     programmingLanguage: project.tags.filter((tag: string) =>
@@ -152,7 +166,7 @@ export const SoftwareSourceCodeSchema = ({ project }: { project: any }) => {
       ].includes(tag),
     ),
     runtimePlatform: "Web",
-    url: `${BASE_URL}/projects/${project.id}`,
+    url: `${SITE_URL}/projects/${project.id}`,
     dateCreated: project.year,
   };
 
@@ -192,40 +206,14 @@ export const FAQSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Are you available for freelance or full-time opportunities?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes, I'm open to freelance projects and full-time opportunities. Feel free to reach out to discuss your project requirements.",
-        },
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
       },
-      {
-        "@type": "Question",
-        name: "What technologies do you specialize in?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "I specialize in Full Stack development with Next.js, React, .NET, TypeScript, and modern web technologies. I also have experience with PostgreSQL, Docker, and cloud deployments on Vercel and Koyeb.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Do you work with teams or prefer solo projects?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "I enjoy both! I've worked effectively in team environments during internships and also handle solo projects well. I'm comfortable collaborating via Git, code reviews, and agile methodologies.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How can I contact you for a project?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "You can reach me via email at athalla.arli@email.com or connect with me on LinkedIn. I'm responsive and happy to discuss your project needs.",
-        },
-      },
-    ],
+    })),
   };
 
   return (

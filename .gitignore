@@ -58,6 +58,8 @@ vite-archive
 .claude/
 .devin/
 .windsurf/
-.agent/
+.agent
 openspec
 .opencode
+.hermes
+.impeccable

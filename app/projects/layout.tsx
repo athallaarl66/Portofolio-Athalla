@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://athalla-works.vercel.app/projects",
+    url: `${SITE_URL}/projects`,
     title: "Projects | Athalla Arli",
     description:
       "Explore Athalla Arli's portfolio of projects - from undergraduate thesis to enterprise-grade applications.",
@@ -41,6 +42,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: "/projects",
   },
 };
 
