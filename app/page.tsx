@@ -76,9 +76,9 @@ export default function Home() {
       <PersonSchema />
       <FAQSchema />
       <HeroSection />
+      <ProjectSection />
       <AboutSection />
       <SkillSection />
-      <ProjectSection />
       <GithubActivity />
       <ContactContainer />
     </>

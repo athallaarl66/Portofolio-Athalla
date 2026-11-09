@@ -72,7 +72,7 @@ export const ProjectSection = () => {
     <section id="projects" className="relative py-24 md:py-32">
       <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-2 md:gap-4 mb-8 md:mb-14">
           <div>
             <div className="section-label mb-5">
               Portfolio
@@ -83,19 +83,19 @@ export const ProjectSection = () => {
           </div>
           <a
             href="/projects"
-            className="flex items-center gap-2 text-sm font-mono text-muted transition-colors duration-200 hover:text-[var(--sage)]"
+            className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#EE7B5E] transition-colors duration-200 hover:text-[#FFC6E0]"
           >
             View all projects <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
           {projects.map((project, idx) => (
             <a
               key={idx}
               href={project.link}
-              className="group rounded-2xl overflow-hidden card-hover flex flex-col surface-chip"
+              className="group flex flex-col"
             >
               {/* Image */}
               <div className="relative overflow-hidden aspect-video">
@@ -107,14 +107,14 @@ export const ProjectSection = () => {
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[rgba(var(--deep-rgb),0.65)] to-transparent to-50%" />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[rgba(var(--deep-rgb),0.25)] to-transparent to-40%" />
                 <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[11px] font-mono text-white/55 bg-[rgba(var(--deep-rgb),0.75)] backdrop-blur-sm border border-white/10">
                   {project.year}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6 flex flex-col flex-grow gap-3">
+              <div className="py-5 flex flex-col flex-grow gap-3 border-b border-[rgb(62_117_112_/_0.35)]">
                 <div>
                   <p className="text-[11px] font-mono uppercase tracking-widest mb-1.5 text-muted">
                     {project.category}
@@ -134,7 +134,7 @@ export const ProjectSection = () => {
                       <Badge
                         key={tag}
                         variant="outline"
-                        className="rounded-full px-3 py-1.5 text-xs font-medium bg-[rgba(var(--deep-rgb),0.5)] border-white/10 text-white/75"
+                        className="rounded-full px-3 py-1 text-xs font-medium bg-[#5A3563]/35 border-[#5A3563] text-[#FFC6E0]"
                       >
                         {tag}
                       </Badge>

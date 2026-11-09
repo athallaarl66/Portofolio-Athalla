@@ -61,7 +61,7 @@ export const SkillsSection = () => {
             return (
               <Card
                 key={cat.title}
-                className="rounded-2xl p-6 card-hover surface-chip"
+                className="rounded-xl p-6 card-hover surface-chip"
               >
                 <CardContent className="p-0">
                   <div className="flex items-center justify-between mb-6">
@@ -82,7 +82,7 @@ export const SkillsSection = () => {
                     {catSkills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-default transition-colors duration-200 bg-[rgba(var(--deep-rgb),0.5)] border border-white/10 hover:border-[rgba(var(--sage-rgb),0.4)]"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-default transition-colors duration-200 bg-[#5A3563]/35 border border-[#5A3563] hover:border-[#FFC6E0]"
                       >
                         <img
                           src={skill.icon}
@@ -90,7 +90,7 @@ export const SkillsSection = () => {
                           className="w-3.5 h-3.5 object-contain"
                           loading="lazy"
                         />
-                        <span className="text-xs font-medium text-white/75">
+                        <span className="text-xs font-medium text-[#FFC6E0]">
                           {skill.name}
                         </span>
                       </div>

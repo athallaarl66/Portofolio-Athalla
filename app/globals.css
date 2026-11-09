@@ -3,37 +3,39 @@
 
 /* ============================================
    DESIGN TOKENS — Athalla Portfolio 2026
-   Palette: Deep Green × Forest × Sage × Mint
-   #091413 · #285A48 · #408A71 · #B0E4CC
+   Palette: sage, teal and maroon
    ============================================ */
 :root {
   --radius: 0.75rem;
 
   /* ── Core backgrounds ──────────────────── */
-  --background:   #050a09;
-  --surface-1:    #0a1210;
-  --surface-2:    #0f1816;
+  --background:   #061A1D;
+  --surface-1:    #031F26;
+  --surface-2:    #05303A;
 
   /* ── Text ──────────────────────────────── */
-  --foreground:   #eef0f8;
-  --muted-fg:     #6a6a88;
-  --subtle-fg:    #38364e;
+  --foreground:   #FFC6E0;
+  --muted-fg:     #B9C0A9;
+  --subtle-fg:    #8F9A8A;
 
   /* ── Typography ───────────────────────── */
   --font-heading:  "Jakarta Sans", system-ui, -apple-system, sans-serif;
   --font-body:     "Montserrat", system-ui, -apple-system, sans-serif;
 
   /* ── Palette ───────────────────────────── */
-  --deep:         #091413;          /* deep green/black — panels, button bg  */
-  --teal:         #285A48;          /* forest green  — primary interactive */
-  --sage:         #408A71;          /* sage green  — soft highlights     */
-  --pale:         #B0E4CC;          /* mint   — bright text/pop     */
+  --deep:         #061A1D;
+  --teal:         #3E7570;
+  --sage:         #B9C0A9;
+  --pale:         #B9C0A9;
+  --maroon:       #240005;
+  --maroon-dark:  #3A0005;
+  --crimson:      #5E0412;
 
   /* ── RGB versions (for rgba() usage) ──── */
-  --deep-rgb:     9, 20, 19;
-  --teal-rgb:     40, 90, 72;
-  --sage-rgb:     64, 138, 113;
-  --pale-rgb:     176, 228, 204;
+  --deep-rgb:     6, 26, 29;
+  --teal-rgb:     62, 117, 112;
+  --sage-rgb:     185, 192, 169;
+  --pale-rgb:     185, 192, 169;
 
   /* ── Semantic aliases ───────────────────  */
   --primary:              var(--teal);
@@ -184,6 +186,11 @@
    UTILITIES
    ============================================ */
 @layer utilities {
+  :focus-visible {
+    outline: 2px solid #E5694A;
+    outline-offset: 3px;
+  }
+
   /* ── Surfaces ──────────────────────────── */
   .surface-chip {
     background: var(--surface-1);
@@ -262,6 +269,48 @@
    ============================================ */
 @layer components {
 
+  .hero-surface {
+    background: radial-gradient(60% 50% at 85% 0%, rgb(134 48 90 / 0.28), transparent 70%), radial-gradient(50% 45% at 0% 100%, rgb(94 4 18 / 0.35), transparent 70%), var(--background);
+    border-bottom: 1px solid rgb(62 117 112 / 0.35);
+  }
+  .cinema-credit {
+    color: var(--pale);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    margin-bottom: 1.5rem;
+  }
+  .cinema-credit span { color: #cf8b88; padding: 0 .5em; }
+  .cinema-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -.02em;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
+  }
+  .cinema-title em { font-style: normal; }
+  .cinema-title span { color: var(--foreground); }
+  .hero-surface .group img { animation: cinema-open 1.2s cubic-bezier(.16, 1, .3, 1) both; }
+  @keyframes cinema-open { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-surface .group img { animation: none; }
+    *, *::before, *::after { scroll-behavior: auto !important; }
+  }
+
+  .contact-surface {
+    background: radial-gradient(50% 60% at 100% 100%, rgb(90 53 99 / 0.25), transparent 70%), var(--background);
+    border-top: 1px solid rgb(62 117 112 / 0.35);
+  }
+
+  #skills { background: var(--background); }
+
+  /* Shared portfolio hierarchy */
+  main section h2, main section h3 { color: var(--foreground); }
+  .surface-chip { border-color: rgb(62 117 112 / 0.35); }
+  .section-label::before { background: #E5694A; }
+  .hero-surface a[href="#contact"] { color: #EE7B5E; }
+
   /* Lift on hover */
   .card-hover {
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
@@ -282,12 +331,15 @@
 
   /* Primary solid button */
   .btn-primary {
-    background: var(--sage);
-    color: #08110d;
-    transition: background 0.2s ease;
+    background: #E5694A;
+    color: #061A1D;
+    border: 1px solid transparent;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
   .btn-primary:hover {
-    background: var(--pale);
+    background: #EE7B5E;
+    border-color: transparent;
+    color: #061A1D;
   }
 
   /* Secondary outline button */

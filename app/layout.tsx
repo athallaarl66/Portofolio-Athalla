@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { BackgroundAurora } from "@/components/effects/BackgroundAurora";
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-heading",
@@ -107,7 +106,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <BackgroundAurora />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

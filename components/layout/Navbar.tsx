@@ -10,14 +10,7 @@ import { cn } from "@/lib/utils";
 export const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     if (pathname === "/" && window.location.hash) {
@@ -74,17 +67,8 @@ export const Navbar = () => {
     <>
       {/* Top bar — hidden while mobile menu is open */}
       {!isMenuOpen && (
-        <nav className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
-          <div
-            className={cn(
-              "pointer-events-auto flex items-center gap-1 pl-2 pr-1.5 py-1.5 rounded-full border transition-all duration-300 backdrop-blur-xl",
-              isScrolled ? "shadow-lg shadow-black/40" : "shadow-md shadow-black/25"
-            )}
-            style={{
-              background: isScrolled ? "rgba(var(--deep-rgb),0.9)" : "rgba(var(--deep-rgb),0.6)",
-              borderColor: "var(--border)",
-            }}
-          >
+        <nav className="fixed top-0 inset-x-0 z-50 flex justify-center px-5 md:px-8 bg-[rgba(6,26,29,0.94)] backdrop-blur border-b border-[rgba(62,117,112,0.35)]">
+          <div className="w-full max-w-6xl flex items-center justify-between gap-4 py-2">
             {/* Logo */}
             <Link
               href="/"
@@ -99,8 +83,7 @@ export const Navbar = () => {
               />
             </Link>
 
-            {/* Separator */}
-            <div className="hidden md:block w-px h-4 mx-1 bg-white/10" />
+
 
             {/* Desktop nav links */}
             <div className="hidden md:flex items-center">
@@ -109,7 +92,7 @@ export const Navbar = () => {
                   key={item.label}
                   href={item.to}
                   onClick={(e) => handleNavClick(e, item)}
-                  className="text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-200 cursor-pointer nav-item-hover text-white/50"
+                  className="text-xs font-medium px-3 py-2 rounded-full transition-all duration-200 cursor-pointer nav-item-hover text-[var(--sage)]"
                 >
                   {item.label}
                 </a>
@@ -145,6 +128,7 @@ export const Navbar = () => {
         )}
         style={{ background: "rgba(var(--deep-rgb),0.98)" }}
         aria-hidden={!isMenuOpen}
+        inert={!isMenuOpen}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5">
