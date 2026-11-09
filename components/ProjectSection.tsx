@@ -114,7 +114,7 @@ export const ProjectSection = () => {
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                  className="object-cover object-top"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[rgba(var(--deep-rgb),0.25)] to-transparent to-40%" />
@@ -124,7 +124,7 @@ export const ProjectSection = () => {
               </div>
 
               {/* Content */}
-              <div className="py-5 flex flex-col flex-grow gap-3 border-b border-[rgb(62_117_112_/_0.35)]">
+              <div className="py-5 flex flex-col flex-grow gap-3 border-b border-[var(--border)]">
                 <div>
                   <p className="text-[11px] font-mono uppercase tracking-widest mb-1.5 text-muted">
                     {project.category}
@@ -150,7 +150,7 @@ export const ProjectSection = () => {
                       </Badge>
                     ))}
                   </div>
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border border-[rgba(var(--teal-rgb),0.3)] text-white/45 transition-colors duration-200 group-hover:text-[var(--sage)] group-hover:border-[rgba(var(--sage-rgb),0.5)]">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border border-[var(--border)] text-[var(--muted-fg)] transition-colors duration-200 group-hover:text-[var(--film-amber)] group-hover:border-[var(--border-hover)]">
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>

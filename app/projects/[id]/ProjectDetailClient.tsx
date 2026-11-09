@@ -26,7 +26,7 @@ export default function ProjectDetailClient({ id, project }: ProjectDetailClient
           {/* Back button */}
           <button
             onClick={() => router.push("/projects")}
-            className="group flex items-center gap-2 mb-10 text-[11px] font-mono uppercase tracking-widest text-muted transition-colors hover:text-[var(--sage)]"
+            className="group flex items-center gap-2 mb-10 text-[11px] font-mono uppercase tracking-widest text-muted transition-colors hover:text-[var(--film-amber)]"
           >
             <ArrowLeft
               size={14}
@@ -253,7 +253,7 @@ export default function ProjectDetailClient({ id, project }: ProjectDetailClient
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {project.screenshots.map((screenshot: any, idx: number) => (
                       <figure key={idx} className="flex flex-col gap-3">
-                        <Card className="rounded-xl overflow-hidden border p-1" surface-inset>
+                        <Card className="surface-inset rounded-xl overflow-hidden border p-1">
                           <CardContent className="p-0 rounded-lg overflow-hidden h-full">
                             <img
                               src={screenshot.url}
@@ -278,7 +278,7 @@ export default function ProjectDetailClient({ id, project }: ProjectDetailClient
           <div className="pt-8 border-t flex justify-center border-[var(--border)]">
             <button
               onClick={() => router.push("/projects")}
-              className="group flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest transition-colors hover:text-[var(--sage)] text-muted"
+              className="group flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest transition-colors hover:text-[var(--film-amber)] text-muted"
             >
               <ArrowLeft
                 size={14}

@@ -35,15 +35,8 @@ export default function ProjectsGallery() {
 
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-            {projects.map((project, idx) => (
-              <div
-                key={project.id}
-                className="opacity-0 animate-fade-in"
-                style={{
-                  animationDelay: `${idx * 0.1}s`,
-                  animationFillMode: "forwards",
-                }}
-              >
+            {projects.map((project) => (
+              <div key={project.id}>
                 <ProjectCard
                   project={project}
                   onViewDetails={() => router.push(`/projects/${project.id}`)}
@@ -71,7 +64,7 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
           <img
             src={project.thumbnail}
             alt={project.title}
-            className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+            className="w-full h-full object-cover"
             loading="lazy"
           />
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[rgba(8,8,15,0.65)] to-transparent to-50%" />
@@ -112,7 +105,7 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
 
           {/* Actions */}
           <div className="flex items-center justify-between pt-4 mt-2 border-t border-[var(--border)]">
-            <button className="group/btn inline-flex items-center gap-2 text-sm font-semibold text-muted transition-colors duration-200 hover:text-[var(--sage)]">
+            <button className="group/btn inline-flex items-center gap-2 text-sm font-semibold text-muted transition-colors duration-200 hover:text-[var(--film-amber)]">
               View project
               <ArrowUpRight
                 size={14}
@@ -127,7 +120,7 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="p-2 text-white/25 transition-colors duration-200 hover:text-[var(--sage)]"
+                  className="p-2 text-white/25 transition-colors duration-200 hover:text-[var(--film-amber)]"
                   title="Live Demo"
                 >
                   <ExternalLink size={15} />
@@ -139,7 +132,7 @@ function ProjectCard({ project, onViewDetails }: { project: any; onViewDetails: 
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="p-2 text-white/25 transition-colors duration-200 hover:text-[var(--sage)]"
+                  className="p-2 text-white/25 transition-colors duration-200 hover:text-[var(--film-amber)]"
                   title="Source"
                 >
                   <Github size={15} />

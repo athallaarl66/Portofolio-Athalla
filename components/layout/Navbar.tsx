@@ -7,6 +7,8 @@ import { Menu, X } from "lucide-react";
 import { navItems, type NavItem } from "./navItems";
 import { cn } from "@/lib/utils";
 
+const scrollBehavior = (): ScrollBehavior => window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+
 export const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -16,7 +18,7 @@ export const Navbar = () => {
   useEffect(() => {
     if (pathname === "/" && window.location.hash) {
       const el = document.querySelector(window.location.hash);
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 50);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: scrollBehavior() }), 50);
     }
   }, [pathname]);
 
@@ -44,7 +46,7 @@ export const Navbar = () => {
 
     if (item.label === "Projects") {
       if (pathname === "/projects") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: scrollBehavior() });
       } else {
         router.push("/#projects");
       }
@@ -56,14 +58,14 @@ export const Navbar = () => {
       if (pathname !== "/") {
         router.push("/");
         setTimeout(() => {
-          document.querySelector(`#${hash}`)?.scrollIntoView({ behavior: "smooth" });
+          document.querySelector(`#${hash}`)?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
       } else {
-        document.querySelector(`#${hash}`)?.scrollIntoView({ behavior: "smooth" });
+        document.querySelector(`#${hash}`)?.scrollIntoView({ behavior: scrollBehavior() });
       }
     } else {
       router.push(item.to);
-      if (item.to === "/") window.scrollTo({ top: 0, behavior: "smooth" });
+      if (item.to === "/") window.scrollTo({ top: 0, behavior: scrollBehavior() });
     }
   };
 
@@ -71,7 +73,7 @@ export const Navbar = () => {
     e.preventDefault();
     setIsMenuOpen(false);
     router.push("/");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: scrollBehavior() });
   };
 
   return (
@@ -103,7 +105,7 @@ export const Navbar = () => {
                   key={item.label}
                   href={item.to}
                   onClick={(e) => handleNavClick(e, item)}
-                  className="text-xs font-medium px-3 py-2 rounded-full transition-all duration-200 cursor-pointer nav-item-hover text-[var(--sage)]"
+                  className="text-xs font-medium px-3 py-2 rounded-full transition-colors duration-200 cursor-pointer nav-item-hover text-[var(--muted-fg)]"
                 >
                   {item.label}
                 </a>
@@ -114,7 +116,7 @@ export const Navbar = () => {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, { label: "Contact", to: "/#contact" })}
-              className="hidden md:flex items-center ml-1 px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 hire-me-hover border border-[rgba(var(--teal-rgb),0.35)] bg-[rgba(var(--teal-rgb),0.07)] text-[var(--sage)]"
+              className="hidden md:flex items-center ml-1 px-4 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 hire-me-hover border border-[var(--border-hover)] text-[var(--film-amber)]"
             >
               Hire me
             </a>
@@ -140,7 +142,7 @@ export const Navbar = () => {
           "fixed inset-0 z-50 flex flex-col overflow-y-auto md:hidden transition-opacity duration-300",
           isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
-        style={{ background: "rgba(var(--deep-rgb),0.98)" }}
+        style={{ background: "var(--background)" }}
         aria-hidden={!isMenuOpen}
         inert={!isMenuOpen}
       >

@@ -53,7 +53,7 @@ export default function ContactContainer() {
                 className="group flex items-center gap-4 py-5 border-b border-white/20 transition-colors duration-200 hover:bg-white/[0.04] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
                 <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-4 h-4" style={{ color: "var(--teal)" }} />
+                  <Icon className="w-4 h-4" style={{ color: "var(--film-amber)" }} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-white">{name}</p>

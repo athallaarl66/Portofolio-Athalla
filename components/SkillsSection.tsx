@@ -82,7 +82,7 @@ export const SkillsSection = () => {
                     {catSkills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-default transition-colors duration-200 bg-[var(--surface-2)] border border-[var(--border)] hover:border-[var(--film-amber)]"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full cursor-default bg-[var(--surface-2)] border border-[var(--border)]"
                       >
                         <img
                           src={skill.icon}

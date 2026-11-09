@@ -11,11 +11,11 @@ const GitHubCalendar = dynamic(() => import("react-github-calendar").then(mod =>
 export const GithubActivity = () => {
   const customTheme = {
     dark: [
-      "rgba(255,255,255,0.03)",
-      "rgba(var(--sage-rgb),0.25)",
-      "rgba(var(--sage-rgb),0.5)",
-      "rgba(var(--sage-rgb),0.75)",
-      "var(--sage)"
+      "#22272b",
+      "#51443b",
+      "#876846",
+      "#ba8952",
+      "#f4b45e"
     ],
   };
 

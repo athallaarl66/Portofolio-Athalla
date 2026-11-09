@@ -64,7 +64,7 @@ export const AboutSection = () => {
 
             <Button
               variant="ghost"
-              className="w-fit text-[13px] px-5 py-3 rounded-none border border-[rgba(var(--sage-rgb),0.6)] text-white hover:bg-[rgba(var(--sage-rgb),0.14)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              className="w-fit text-[13px] px-5 py-3 rounded-none border border-[var(--border-hover)] text-[var(--foreground)] hover:bg-[rgb(244_180_94_/_0.1)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--film-amber)]"
               asChild
             >
               <a
@@ -80,10 +80,10 @@ export const AboutSection = () => {
           </div>
 
           <div className="relative lg:pt-8">
-            <div className="relative overflow-hidden bg-[#292d30] after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(0deg,rgba(17,21,25,0.65),transparent_55%)]">
-              <img src="/projects/propil.jpg" alt="Athalla Arli Abhinaya" className="w-full h-72 md:h-96 object-cover object-top motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out hover:scale-[1.03]" loading="lazy" />
+            <div className="relative overflow-hidden bg-[var(--surface-1)] after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(0deg,rgba(17,21,25,0.65),transparent_55%)]">
+              <img src="/projects/propil.jpg" alt="Athalla Arli Abhinaya" className="w-full h-72 md:h-96 object-cover object-top" loading="lazy" />
             </div>
-            <div className="relative bg-[var(--surface-1)] px-5 py-6 md:px-7 border-t border-[rgba(var(--sage-rgb),0.5)]">
+            <div className="relative bg-[var(--surface-1)] px-5 py-6 md:px-7 border-t border-[var(--border-hover)]">
               <div>
                 <h3 className="mono-label mb-3">Background</h3>
                 <div className="flex flex-col gap-2">
