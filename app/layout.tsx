@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Montserrat } from "next/font/google";
+import { Bebas_Neue, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const jakartaSans = Plus_Jakarta_Sans({
+const filmDisplay = Bebas_Neue({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "400",
 });
+
 
 const montserrat = Montserrat({
   variable: "--font-body",
@@ -19,13 +20,13 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://athalla-works.vercel.app/"),
   title: {
-    default: "Athalla Arli - Full Stack Developer",
+    default: "Athalla Arli - Software Engineer",
     template: "%s | Athalla Arli",
   },
   description:
-    "Portfolio of Athalla Arli, a Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+    "Portfolio of Athalla Arli, a Software Engineer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
   keywords: [
-    "Full Stack Developer",
+    "Software Engineer",
     "Next.js",
     "React",
     ".NET",
@@ -70,7 +71,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jakartaSans.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${filmDisplay.variable} ${montserrat.variable} h-full antialiased`}
     >
       <head>
         {/* Preconnect for Google Fonts */}
@@ -82,8 +83,8 @@ export default function RootLayout({
         />
 
         {/* Theme Color for Mobile Browser Chrome */}
-        <meta name="theme-color" content="#080810" />
-        <meta name="msapplication-TileColor" content="#080810" />
+        <meta name="theme-color" content="#111519" />
+        <meta name="msapplication-TileColor" content="#111519" />
 
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />

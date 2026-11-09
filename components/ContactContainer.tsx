@@ -11,7 +11,7 @@ const socials = [
 
 export default function ContactContainer() {
   return (
-    <section id="contact" className="contact-surface relative py-24 md:py-32 overflow-hidden before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(110deg,rgba(80,27,43,0.42),transparent_55%,rgba(var(--teal-rgb),0.14))]">
+    <section id="contact" className="contact-surface relative py-24 md:py-32 overflow-hidden before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(110deg,rgba(17,21,25,0.22),transparent_55%,rgba(244,180,94,0.11))]">
       <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         <div className="section-label mb-10">
           Contact
@@ -21,13 +21,13 @@ export default function ContactContainer() {
           {/* Left — CTA */}
           <div>
             <h2 className="text-[clamp(2.4rem,6vw,5.5rem)] font-black tracking-[-0.04em] leading-[0.98] text-white mb-7">
-              Looking for
+              Let's build
               <br />
-              fullstack opportunities.
+              something useful.
             </h2>
 
             <p className="text-base md:text-lg font-light leading-relaxed max-w-lg mb-10 text-muted">
-              I'm open to fullstack roles, freelance projects, or collaborations.
+              I'm open to software engineering roles, freelance projects, or collaborations.
               Feel free to reach out if you'd like to discuss opportunities.
             </p>
 

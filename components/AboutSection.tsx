@@ -32,7 +32,7 @@ export const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="relative overflow-hidden py-20 md:py-28 before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(115deg,rgba(var(--teal-rgb),0.09),transparent_42%,rgba(86,28,44,0.18))]">
+    <section id="about" className="relative overflow-hidden py-20 md:py-28 before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(115deg,rgba(112,45,53,0.14),transparent_42%,rgba(244,180,94,0.07))]">
       <div className="relative max-w-[1140px] w-full mx-auto px-6 md:px-10 lg:px-12">
         <div className="section-label mb-10">
           About me
@@ -68,9 +68,8 @@ export const AboutSection = () => {
               asChild
             >
               <a
-                href="/projects2/CV_IT_Athalla-Arli-Abhinaya_ENGLISH.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/projects2/CV_Athalla_Arli_Abhinaya_ENGLISH_v3.pdf"
+                download="CV_Athalla_Arli_Abhinaya_ENGLISH_v3.pdf"
               >
                 Download Resume
                 <svg className="w-3.5 h-3.5 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -81,7 +80,7 @@ export const AboutSection = () => {
           </div>
 
           <div className="relative lg:pt-8">
-            <div className="relative overflow-hidden bg-[#183535] after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(0deg,rgba(25,37,35,0.65),transparent_55%)]">
+            <div className="relative overflow-hidden bg-[#292d30] after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(0deg,rgba(17,21,25,0.65),transparent_55%)]">
               <img src="/projects/propil.jpg" alt="Athalla Arli Abhinaya" className="w-full h-72 md:h-96 object-cover object-top motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out hover:scale-[1.03]" loading="lazy" />
             </div>
             <div className="relative bg-[var(--surface-1)] px-5 py-6 md:px-7 border-t border-[rgba(var(--sage-rgb),0.5)]">

@@ -56,6 +56,16 @@ const projects = [
     link: "/projects/industrial-iot",
   },
   {
+    title: "SNIPE-CODE CLI",
+    category: "Developer Tools",
+    description:
+      "Rust CLI for project scaffolding, codebase analysis, and heuristic security audits. Runs locally without an account, API key, or AI service. Selected work featured on XERJ Corpus Hub.",
+    image: "/snipecode.png",
+    tags: ["Rust", "CLI", "Security Audit", "Scaffolding"],
+    year: "2026",
+    link: "/projects/snipe-code",
+  },
+  {
     title: "DEV CLI – SDD Automation Tool",
     category: "Developer Tools",
     description:
@@ -83,7 +93,7 @@ export const ProjectSection = () => {
           </div>
           <a
             href="/projects"
-            className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#EE7B5E] transition-colors duration-200 hover:text-[#FFC6E0]"
+            className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[var(--film-amber)] transition-colors duration-200 hover:text-[var(--foreground)]"
           >
             View all projects <ArrowUpRight className="w-4 h-4" />
           </a>
@@ -134,7 +144,7 @@ export const ProjectSection = () => {
                       <Badge
                         key={tag}
                         variant="outline"
-                        className="rounded-full px-3 py-1 text-xs font-medium bg-[#5A3563]/35 border-[#5A3563] text-[#FFC6E0]"
+                        className="rounded-full px-3 py-1 text-xs font-medium bg-[var(--surface-2)] border-[var(--border)] text-[var(--foreground)]"
                       >
                         {tag}
                       </Badge>

@@ -93,6 +93,13 @@ export default function ProjectDetailClient({ id, project }: ProjectDetailClient
                     </a>
                   </Button>
                 )}
+                {project.contributorUrl && (
+                  <Button variant="ghost" className="rounded-full btn-ghost" asChild>
+                    <a href={project.contributorUrl} target="_blank" rel="noopener noreferrer">
+                      XERJ Corpus Hub <ArrowUpRight size={14} />
+                    </a>
+                  </Button>
+                )}
               </div>
             </div>
 

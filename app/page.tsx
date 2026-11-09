@@ -8,11 +8,11 @@ import { PersonSchema, FAQSchema } from "@/components/StructuredData";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Athalla Arli - Full Stack Developer",
+  title: "Athalla Arli - Software Engineer",
   description:
-    "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+    "Software Engineer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
   keywords: [
-    "Full Stack Developer",
+    "Software Engineer",
     "Next.js",
     "React",
     ".NET",
@@ -30,30 +30,30 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://athalla-works.vercel.app/",
-    title: "Athalla Arli - Full Stack Developer",
+    title: "Athalla Arli - Software Engineer",
     description:
-      "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+      "Software Engineer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
     siteName: "Athalla Arli",
     images: [
       {
         url: "/projects/propil.jpg",
         width: 1200,
         height: 630,
-        alt: "Athalla Arli - Full Stack Developer Portfolio",
+        alt: "Athalla Arli - Software Engineer Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Athalla Arli - Full Stack Developer",
+    title: "Athalla Arli - Software Engineer",
     description:
-      "Full Stack Developer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+      "Software Engineer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
     site: "@athallaarl",
     creator: "@athallaarl",
     images: [
       {
         url: "/projects/propil.jpg",
-        alt: "Athalla Arli - Full Stack Developer Portfolio",
+        alt: "Athalla Arli - Software Engineer Portfolio",
       },
     ],
   },

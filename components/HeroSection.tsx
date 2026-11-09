@@ -1,57 +1,27 @@
 "use client";
 
 import { ArrowDownRight, ArrowRight } from "lucide-react";
-import Image from "next/image";
 
 export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="hero-surface relative min-h-[85dvh] flex flex-col justify-center pt-24 pb-10 overflow-hidden"
+      className="hero-surface relative flex flex-col justify-center pt-20 pb-12 lg:pt-24 lg:pb-16 overflow-hidden"
     >
       <div className="max-w-[1140px] w-full mx-auto px-6 md:px-10 lg:px-12 relative z-10">
 
-        {/* Main hero grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
-          {/* Left — headline + CTA */}
-          <div className="flex flex-col">
-            <p className="cinema-credit">ATHALLA ARLI <span>/</span> SOFTWARE ENGINEER</p>
-            <h1 className="cinema-title">
-              Building useful<br /><span>software.</span>
-            </h1>
-
-            <p className="text-[14px] md:text-[15px] leading-relaxed font-light max-w-[460px] mb-8 text-muted">
-              I'm a software engineer at GITS.id, working primarily with .NET,
-              Laravel, and Next.js. Beyond my day job, I enjoy building side
-              projects—ranging from enterprise IoT monitoring dashboards to
-              cultural education platforms.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-5">
-              <a
-                href="#projects"
-                className="btn-primary inline-flex min-h-11 items-center text-sm font-semibold px-5 rounded-lg"
-              >
-                See my projects <ArrowDownRight className="w-4 h-4 ml-1" />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex min-h-11 items-center text-sm font-medium text-[var(--sage)] transition-colors hover:text-white"
-              >
-                Contact me <ArrowRight className="w-4 h-4 ml-1.5" />
-              </a>
-            </div>
+        <div className="hero-frame relative flex min-h-[440px] flex-col justify-center overflow-hidden border border-[var(--border)] px-6 py-20 md:min-h-[470px] md:px-12 md:py-16 lg:min-h-[480px] lg:px-16">
+          <div className="relative z-10 max-w-[720px]">
+            <p className="mb-8 text-xs font-semibold uppercase tracking-[.18em] text-[var(--film-amber)]">Athalla Arli / Software Engineer</p>
+            <h1 className="cinema-title mb-5">Software shaped<br />by curiosity.</h1>
+            <p className="max-w-[54ch] text-sm leading-relaxed text-[var(--foreground)] md:text-base">I build web experiences and reliable systems, from cultural education platforms to enterprise dashboards.</p>
+            <a href="#projects" className="mt-6 inline-flex min-h-11 items-center gap-2 border-b border-[var(--film-amber)] text-sm font-semibold text-[var(--film-amber)] transition-colors hover:text-[var(--foreground)]">Explore my works <ArrowDownRight className="h-4 w-4" /></a>
           </div>
-
-          <a href="/projects/sundanese-learning" className="group block border border-[rgba(var(--sage-rgb),0.3)] bg-[var(--surface-2)]">
-            <div className="relative aspect-video overflow-hidden">
-              <Image src="/projects1/HOMEPAGE.png" alt="DiajarAksara learning platform" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" priority />
-            </div>
-            <div className="flex items-center justify-between px-5 py-5 text-[var(--sage)]">
-              <div><span className="block text-xs mb-1">Featured project</span><strong className="text-lg text-[#FFC6E0]">DiajarAksara</strong><span className="block text-sm text-[#EE7B5E] mt-1">View project</span></div>
-              <ArrowDownRight className="w-5 h-5" />
-            </div>
-          </a>
+          <span aria-hidden="true" className="absolute right-6 top-6 text-xs font-medium uppercase tracking-[.18em] text-[var(--muted-fg)] md:right-12">Bandung / Indonesia</span>
+        </div>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-sm text-muted">
+          <span>.NET · Laravel · Next.js</span>
+          <a href="#contact" className="inline-flex min-h-11 items-center gap-2 hover:text-[var(--foreground)]">Contact <ArrowRight className="h-4 w-4" /></a>
         </div>
       </div>
 

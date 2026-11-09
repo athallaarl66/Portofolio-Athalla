@@ -3,50 +3,52 @@
 
 /* ============================================
    DESIGN TOKENS — Athalla Portfolio 2026
-   Palette: sage, teal and maroon
+   Palette: midnight asphalt, taxi amber, theater red, warm ivory
    ============================================ */
 :root {
   --radius: 0.75rem;
 
   /* ── Core backgrounds ──────────────────── */
-  --background:   #061A1D;
-  --surface-1:    #031F26;
-  --surface-2:    #05303A;
+  --background:   #111519;
+  --surface-1:    #22272B;
+  --surface-2:    #333A3D;
 
   /* ── Text ──────────────────────────────── */
-  --foreground:   #FFC6E0;
-  --muted-fg:     #B9C0A9;
-  --subtle-fg:    #8F9A8A;
+  --foreground:   #F1E9DC;
+  --muted-fg:     #C6CDC7;
+  --subtle-fg:    #B0BBB6;
 
   /* ── Typography ───────────────────────── */
-  --font-heading:  "Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-heading:  "Bebas Neue", "Arial Narrow", sans-serif;
   --font-body:     "Montserrat", system-ui, -apple-system, sans-serif;
 
   /* ── Palette ───────────────────────────── */
-  --deep:         #061A1D;
-  --teal:         #3E7570;
-  --sage:         #B9C0A9;
-  --pale:         #B9C0A9;
-  --maroon:       #240005;
-  --maroon-dark:  #3A0005;
-  --crimson:      #5E0412;
+  --deep:         #111519;
+  --teal:         #8D9A94;
+  --sage:         #D4D0C4;
+  --pale:         #F1E9DC;
+  --maroon:       #371B21;
+  --maroon-dark:  #23171D;
+  --crimson:      #702D35;
+  --film-red:     #C45852;
+  --film-amber:   #F4B45E;
 
   /* ── RGB versions (for rgba() usage) ──── */
-  --deep-rgb:     6, 26, 29;
-  --teal-rgb:     62, 117, 112;
-  --sage-rgb:     185, 192, 169;
-  --pale-rgb:     185, 192, 169;
+  --deep-rgb:     17, 21, 25;
+  --teal-rgb:     141, 154, 148;
+  --sage-rgb:     212, 208, 196;
+  --pale-rgb:     241, 233, 220;
 
   /* ── Semantic aliases ───────────────────  */
   --primary:              var(--teal);
   --primary-light:        var(--sage);
   --primary-glow:         rgba(var(--teal-rgb), 0.22);
-  --accent:               var(--pale);
+  --accent:               var(--film-amber);
   --accent-glow:          rgba(var(--sage-rgb), 0.18);
 
   /* ── Borders ────────────────────────────  */
-  --border:       rgba(255,255,255,0.07);
-  --border-hover: rgba(var(--teal-rgb), 0.35);
+  --border:       rgba(210,212,201,0.18);
+  --border-hover: rgba(var(--teal-rgb), 0.65);
 
   /* Tailwind compat */
   --card:                var(--surface-1);
@@ -270,8 +272,15 @@
 @layer components {
 
   .hero-surface {
-    background: radial-gradient(60% 50% at 85% 0%, rgb(134 48 90 / 0.28), transparent 70%), radial-gradient(50% 45% at 0% 100%, rgb(94 4 18 / 0.35), transparent 70%), var(--background);
-    border-bottom: 1px solid rgb(62 117 112 / 0.35);
+    background: #111519;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent 46%, rgb(112 45 53 / .28) 100%);
   }
   .cinema-credit {
     color: var(--pale);
@@ -282,34 +291,87 @@
   }
   .cinema-credit span { color: #cf8b88; padding: 0 .5em; }
   .cinema-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    line-height: 1.05;
-    font-weight: 600;
-    letter-spacing: -.02em;
+    font-size: clamp(3.6rem, 8vw, 6rem);
+    line-height: .94;
+    font-weight: 400;
+    letter-spacing: .005em;
     margin-bottom: 1.5rem;
     color: var(--foreground);
   }
   .cinema-title em { font-style: normal; }
   .cinema-title span { color: var(--foreground); }
-  .hero-surface .group img { animation: cinema-open 1.2s cubic-bezier(.16, 1, .3, 1) both; }
-  @keyframes cinema-open { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+  .hero-frame {
+    background: linear-gradient(115deg, #111519 0%, #293137 46%, #702d35 100%);
+    isolation: isolate;
+  }
+  .hero-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 48%;
+    pointer-events: none;
+    background: url('/projects/propil.jpg') right center / cover no-repeat;
+    filter: grayscale(1) contrast(1.25);
+    opacity: .34;
+    mask-image: linear-gradient(90deg, transparent, black 60%);
+    animation: night-drive 11s cubic-bezier(.2,.7,.2,1) infinite alternate;
+  }
+  .hero-frame::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% 6% 42%;
+    height: 2px;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgb(244 180 94 / .55), transparent);
+    transform: rotate(-8deg);
+    box-shadow: 0 26px 35px 5px rgb(196 88 82 / .18);
+  }
+  @keyframes night-drive {
+    from { opacity: .25; transform: translateX(-3%); }
+    to { opacity: .34; transform: translateX(3%); }
+  }
+  @media (max-width: 767px) {
+    .hero-frame::before { inset: 0 0 0 28%; opacity: .18; }
+  }
   @media (prefers-reduced-motion: reduce) {
-    .hero-surface .group img { animation: none; }
+    .hero-frame::before { animation: none; }
     *, *::before, *::after { scroll-behavior: auto !important; }
   }
 
   .contact-surface {
-    background: radial-gradient(50% 60% at 100% 100%, rgb(90 53 99 / 0.25), transparent 70%), var(--background);
-    border-top: 1px solid rgb(62 117 112 / 0.35);
+    background: linear-gradient(120deg, #351e24, #702d35 54%, #282e32);
+    border-top: 1px solid var(--border);
   }
 
-  #skills { background: var(--background); }
+  #projects { background: #251e23; }
+  #about { background: #111519; }
+  #skills { background: #292d30; }
+  #projects .group:nth-child(3n + 1) img { filter: saturate(.82) contrast(1.08); }
+  #projects .group:nth-child(3n + 2) img { filter: saturate(.75) sepia(.1); }
+  #projects .group:nth-child(3n) img { filter: saturate(.84); }
+  main section[id] { scroll-margin-top: 5rem; }
+  #projects .group img { transition: transform 500ms ease; }
+  #projects .group:hover img { transform: scale(1.025); }
+  @media (prefers-reduced-motion: reduce) {
+    #projects .group img, .card-hover { transition: none; }
+    #projects .group:hover img, .card-hover:hover { transform: none; }
+  }
 
   /* Shared portfolio hierarchy */
   main section h2, main section h3 { color: var(--foreground); }
-  .surface-chip { border-color: rgb(62 117 112 / 0.35); }
-  .section-label::before { background: #E5694A; }
-  .hero-surface a[href="#contact"] { color: #EE7B5E; }
+  .surface-chip { border-color: var(--border); }
+  .section-label::before { background: var(--film-amber); }
+  .hero-surface a[href="#contact"] { color: var(--foreground); }
+  main section h2 { font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 400; letter-spacing: .01em; line-height: 1; }
+  main section h3 { font-weight: 400; letter-spacing: .01em; }
+  #projects .group { transition: border-color .25s ease; }
+  #projects .group > div:first-child { border: 1px solid var(--border); }
+  #projects .group:hover > div:first-child { border-color: var(--film-amber); }
+  #projects .group h3 { font-family: var(--font-body); font-size: 1.15rem; font-weight: 700; letter-spacing: -.02em; }
+  #projects .group:focus-visible { outline: 2px solid var(--film-amber); outline-offset: 5px; }
+  #projects .group .rounded-full { color: var(--foreground); }
+  #projects .group .text-muted { color: var(--muted-fg); }
+  .section-label { color: var(--film-amber); }
+  @media (prefers-reduced-motion: reduce) { .hero-frame img, #projects .group img { transition: none; } }
 
   /* Lift on hover */
   .card-hover {
@@ -331,15 +393,15 @@
 
   /* Primary solid button */
   .btn-primary {
-    background: #E5694A;
-    color: #061A1D;
+    background: var(--film-amber);
+    color: var(--deep);
     border: 1px solid transparent;
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
   .btn-primary:hover {
-    background: #EE7B5E;
+    background: var(--foreground);
     border-color: transparent;
-    color: #061A1D;
+    color: var(--deep);
   }
 
   /* Secondary outline button */

@@ -31,6 +31,7 @@ export interface Project {
   githubUrl: string;
   githubBackendUrl?: string;
   figmaUrl?: string;
+  contributorUrl?: string;
   overview: string;
   techStack: TechStack;
   keyFeatures: string[];
@@ -53,6 +54,7 @@ export interface ProjectData {
   githubUrl: string;
   githubBackendUrl?: string;
   figmaUrl?: string;
+  contributorUrl?: string;
   overview: string;
   techStack: TechStack;
   keyFeatures: string[];
@@ -397,6 +399,35 @@ export const projectsData: Record<string, Project> = {
     ],
   },
 
+  "snipe-code": {
+    title: "SNIPE-CODE CLI",
+    tagline: "A local-first Rust CLI for scaffolding, codebase analysis, and security auditing",
+    shortDesc: "Scaffolds projects, analyzes existing codebases, and audits security risks locally. No account, API key, or AI service required.",
+    hero: "/snipecode.png",
+    thumbnail: "/snipecode.png",
+    screenshots: [{ url: "/snipecode.png", caption: "SNIPE-CODE documentation and distribution overview" }],
+    tags: ["Rust", "CLI", "Scaffolding", "Security Audit"],
+    category: "Developer Tools",
+    year: "2026",
+    role: "Creator & Developer",
+    liveUrl: null,
+    githubUrl: "https://github.com/athallaarl66/Snipe-code",
+    contributorUrl: "https://hub.xerj.org/contributors/athallaarl66",
+    overview: "SNIPE-CODE is a Rust command-line tool for generating project scaffolds, reading existing codebases, and running heuristic security audits. It works locally without an account, API key, or AI service. The repository also documents install channels and the limits of each check. A selected SNIPE-CODE commit is indexed on XERJ Corpus Hub as a reference for coding agents.",
+    techStack: { backend: ["Rust"], tools: ["Cargo", "GitHub Actions", "Docker"] },
+    keyFeatures: [
+      "Project scaffolding with selectable templates and stacks",
+      "Read-only codebase analysis covering languages, structure, entry points, and dependencies",
+      "Heuristic security audit with Markdown, PDF, and DOCX report export",
+      "Project quality gates via verify, with --no-install to skip dependency installation",
+      "Local operation with no account, API key, or AI service",
+    ],
+    results: [
+      "Repository documents a v0.5.3 release, crates.io package, and container image",
+      "Selected SNIPE-CODE work appears on XERJ Corpus Hub: https://hub.xerj.org/contributors/athallaarl66",
+      "Installer scripts are published but have not been tested against this release on every platform",
+    ],
+  },
   "dev-cli-sdd": {
     title: "DEV CLI – SDD Automation Tool",
     tagline:

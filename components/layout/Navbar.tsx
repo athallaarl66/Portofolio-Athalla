@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -11,6 +11,7 @@ export const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (pathname === "/" && window.location.hash) {
@@ -18,6 +19,16 @@ export const Navbar = () => {
       if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 50);
     }
   }, [pathname]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    closeButtonRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isMenuOpen]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -67,7 +78,7 @@ export const Navbar = () => {
     <>
       {/* Top bar — hidden while mobile menu is open */}
       {!isMenuOpen && (
-        <nav className="fixed top-0 inset-x-0 z-50 flex justify-center px-5 md:px-8 bg-[rgba(6,26,29,0.94)] backdrop-blur border-b border-[rgba(62,117,112,0.35)]">
+        <nav className="fixed top-0 inset-x-0 z-50 flex justify-center px-5 md:px-8 bg-[rgba(var(--deep-rgb),0.94)] backdrop-blur border-b border-[var(--border)]">
           <div className="w-full max-w-6xl flex items-center justify-between gap-4 py-2">
             {/* Logo */}
             <Link
@@ -113,6 +124,8 @@ export const Navbar = () => {
               onClick={() => setIsMenuOpen(true)}
               className="md:hidden flex items-center justify-center w-11 h-11 -my-1.5 rounded-full text-white/70 hover:bg-white/5 transition-colors"
               aria-label="Open menu"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
             >
               <Menu className="w-5 h-5" />
             </button>
@@ -122,8 +135,9 @@ export const Navbar = () => {
 
       {/* Mobile fullscreen menu */}
       <div
+        id="mobile-navigation"
         className={cn(
-          "fixed inset-0 z-50 flex flex-col md:hidden transition-opacity duration-300",
+          "fixed inset-0 z-50 flex flex-col overflow-y-auto md:hidden transition-opacity duration-300",
           isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
         style={{ background: "rgba(var(--deep-rgb),0.98)" }}
@@ -145,6 +159,7 @@ export const Navbar = () => {
             />
           </Link>
           <button
+            ref={closeButtonRef}
             onClick={() => setIsMenuOpen(false)}
             className="flex items-center justify-center w-11 h-11 rounded-full text-white/60 hover:bg-white/5 transition-colors"
             aria-label="Close menu"

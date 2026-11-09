@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const GitHubCalendar = dynamic(() => import("react-github-calendar").then(mod => ({ default: mod.GitHubCalendar })), {
   ssr: false,
-  loading: () => <div className="min-w-max h-32 flex items-center justify-center">Loading...</div>
+  loading: () => <div role="status" className="h-32 min-w-max flex items-center text-muted">Loading GitHub activity...</div>
 });
 
 export const GithubActivity = () => {
@@ -35,7 +35,7 @@ export const GithubActivity = () => {
         </div>
 
         <Card className="p-6 md:p-10 rounded-2xl overflow-x-auto surface-chip">
-          <CardContent className="p-0 flex justify-center">
+          <CardContent className="p-0 flex justify-start lg:justify-center">
             <div className="min-w-max">
               <GitHubCalendar
                 username="athallaarl66"
