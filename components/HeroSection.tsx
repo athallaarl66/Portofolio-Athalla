@@ -8,7 +8,7 @@ export const HeroSection = () => {
       id="hero"
       className="hero-surface relative flex flex-col justify-center pt-20 pb-12 lg:pt-24 lg:pb-16 overflow-hidden"
     >
-      <div className="max-w-[1140px] w-full mx-auto px-6 md:px-10 lg:px-12 relative z-10">
+      <div className="page-container relative z-10">
 
         <div className="hero-frame relative flex min-h-[440px] flex-col justify-center overflow-hidden border border-[var(--border)] px-6 py-20 md:min-h-[470px] md:px-12 md:py-16 lg:min-h-[480px] lg:px-16">
           <div className="relative z-10 max-w-[720px]">

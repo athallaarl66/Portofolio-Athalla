@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "appRoot": "D:\\Projects\\Portofolio-Frontend",
+  "repoRoot": "D:\\Projects\\Portofolio-Frontend",
+  "contextRoot": "D:\\Projects\\Portofolio-Frontend",
+  "sessionRoot": "D:\\Projects\\Portofolio-Frontend\\.impeccable\\live",
+  "productPath": "D:\\Projects\\Portofolio-Frontend\\PRODUCT.md",
+  "designPath": "D:\\Projects\\Portofolio-Frontend\\docs\\DESIGN.md",
+  "resolvedFrom": "target:app\\page.tsx"
+}

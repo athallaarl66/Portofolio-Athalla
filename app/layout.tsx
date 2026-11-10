@@ -85,8 +85,8 @@ export default function RootLayout({
         />
 
         {/* Theme Color for Mobile Browser Chrome */}
-        <meta name="theme-color" content="#111519" />
-        <meta name="msapplication-TileColor" content="#111519" />
+        <meta name="theme-color" content="#0B192C" />
+        <meta name="msapplication-TileColor" content="#0B192C" />
 
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />

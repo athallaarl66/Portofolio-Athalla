@@ -1,7 +1,7 @@
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
 import { SkillsSection as SkillSection } from "@/components/SkillsSection";
-import { ProjectSection } from "@/components/ProjectSection";
+import { ProjectCarousel } from "@/components/ProjectCarousel";
 import { ServicesSection } from "@/components/ServicesSection";
 import { FaqSection } from "@/components/FaqSection";
 import ContactContainer from "@/components/ContactContainer";
@@ -79,7 +79,7 @@ export default function Home() {
       <PersonSchema />
       <FAQSchema />
       <HeroSection />
-      <ProjectSection />
+      <ProjectCarousel />
       <AboutSection />
       <SkillSection />
       <ServicesSection />

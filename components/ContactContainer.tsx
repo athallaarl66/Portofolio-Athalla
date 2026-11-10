@@ -20,7 +20,7 @@ export default function ContactContainer() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-16 lg:gap-24 items-start">
           {/* Left — CTA */}
           <div>
-            <h2 className="text-[clamp(2.4rem,6vw,5.5rem)] font-black tracking-[-0.04em] leading-[0.98] text-white mb-7">
+            <h2 className="text-[clamp(2.4rem,6vw,5.5rem)] font-black tracking-[-0.02em] leading-[1.3] text-white mb-7">
               Let's build
               <br />
               something useful.

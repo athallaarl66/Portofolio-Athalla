@@ -33,7 +33,7 @@ export const AboutSection = () => {
 
   return (
     <section id="about" className="relative overflow-hidden py-20 md:py-28 before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(115deg,rgba(112,45,53,0.14),transparent_42%,rgba(244,180,94,0.07))]">
-      <div className="relative max-w-[1140px] w-full mx-auto px-6 md:px-10 lg:px-12">
+      <div className="page-container relative">
         <div className="section-label mb-10">
           About me
         </div>
@@ -41,7 +41,7 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-start">
 
           <div>
-            <h2 className="text-[clamp(2.1rem,4vw,3.75rem)] font-black tracking-[-0.04em] leading-[1.04] text-white mb-7">
+            <h2 className="text-[clamp(2.1rem,4vw,3.75rem)] font-black tracking-[-0.02em] leading-[1.3] text-white mb-7">
               From crafting UIs,
               <br />
               to building robust systems.
