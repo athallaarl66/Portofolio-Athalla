@@ -1,11 +1,8 @@
 # DESIGN.md — Athalla Arli Portfolio
 
-Design system untuk athalla-works.my.id. Gabungan dua palette sinematik:
+Design system untuk athalla-works.my.id. Experience portfolio beridentitas sinematik dan engineer-first: komposisi fokus pada hasil kerja, navigasi ringkas, serta kontrol langsung tanpa dekorasi berlebih.
 
-- **Dusk** (twin-sun sunset): maroon gelap, plum, berry, pink pucat. Dipakai untuk glow, gradient, dan surface hangat.
-- **Ember** (red-teal noir): teal gelap sebagai base, coral dan crimson sebagai aksen.
-
-Arah visual: dark theme, teal-noir sebagai dasar, coral sebagai satu-satunya warna aksi, pink pucat untuk heading, plum/berry hanya untuk atmosfer. Tetap terasa engineer-first: bersih, banyak ruang kosong, tidak ramai.
+Palet aktif dari Color Hunt: `#0B192C` navy sebagai latar, `#1E3E62` biru sebagai surface, `#FF6500` oranye sebagai aksen aksi, dan `#000000` hitam untuk area media. Abu-biru terang dipakai untuk teks agar terbaca di atas navy dan biru.
 
 ---
 
@@ -15,57 +12,45 @@ Arah visual: dark theme, teal-noir sebagai dasar, coral sebagai satu-satunya war
 
 | Token         | Hex       | Asal                                                      |
 | ------------- | --------- | --------------------------------------------------------- |
-| `teal-950`    | `#061A1D` | Ember, near-black teal                                    |
-| `teal-900`    | `#031F26` | Ember, deep teal                                          |
-| `teal-800`    | `#05303A` | Ember, dark teal                                          |
-| `teal-500`    | `#3E7570` | Ember, muted teal                                         |
-| `sage-300`    | `#B9C0A9` | Ember, pale sage                                          |
-| `coral-500`   | `#E5694A` | Ember, coral                                              |
-| `coral-400`   | `#EE7B5E` | Turunan coral, lebih terang untuk teks di atas `teal-800` |
-| `red-600`     | `#E00000` | Ember, red                                                |
-| `red-400`     | `#FF6B6B` | Turunan red, untuk teks error                             |
-| `crimson-900` | `#5E0412` | Ember, deep crimson                                       |
-| `crimson-950` | `#3A0005` | Ember, dark maroon                                        |
-| `crimson-975` | `#240005` | Ember, near-black maroon                                  |
-| `dusk-950`    | `#1C0F12` | Dusk, near-black maroon                                   |
-| `dusk-900`    | `#2E1D1F` | Dusk, dark brown                                          |
-| `indigo-600`  | `#45425E` | Dusk, muted indigo                                        |
-| `plum-700`    | `#5A3563` | Dusk, purple                                              |
-| `berry-700`   | `#86305A` | Dusk, berry                                               |
-| `pink-200`    | `#FFC6E0` | Dusk, light pink                                          |
-| `sage-500`    | `#8F9A8A` | Turunan sage, muted text                                  |
+| `navy-950`    | `#0B192C` | Color Hunt, latar utama                                   |
+| `blue-800`    | `#1E3E62` | Color Hunt, surface                                       |
+| `orange-500`  | `#FF6500` | Color Hunt, aksen aksi                                    |
+| `black`       | `#000000` | Color Hunt, media                                         |
+| `text-strong` | `#F4F6FA` | Turunan netral terang untuk heading                      |
+| `text`        | `#D0D9E4` | Turunan biru pucat untuk body                             |
+| `text-muted`  | `#AEBED0` | Turunan biru pucat untuk metadata                        |
 
 ### Semantic tokens (yang dipakai di komponen)
 
 ```css
 :root {
   /* surfaces */
-  --bg: #061a1d;
-  --surface: #031f26;
-  --surface-raised: #05303a;
-  --border: rgb(62 117 112 / 0.35); /* teal-500 @ 35% */
-  --border-strong: #3e7570;
+  --bg: #0B192C;
+  --surface: #1E3E62;
+  --surface-raised: #142d49;
+  --border: rgb(208 217 228 / 0.2);
+  --border-strong: #FF6500;
 
   /* text */
-  --text-strong: #ffc6e0; /* heading */
-  --text: #b9c0a9; /* body */
-  --text-muted: #8f9a8a; /* caption, metadata */
+  --text-strong: #F4F6FA;
+  --text: #D0D9E4;
+  --text-muted: #AEBED0;
 
   /* actions & accents */
-  --accent: #e5694a; /* CTA, link, focus ring */
-  --accent-soft: #ee7b5e; /* accent text di atas surface-raised */
-  --accent-contrast: #061a1d; /* teks di atas tombol accent */
-  --accent-2: #86305a; /* secondary fill (hover, badge) */
-  --accent-2-alt: #5a3563; /* chip, tag */
+  --accent: #FF6500;
+  --accent-soft: #FF6500;
+  --accent-contrast: #000000;
+  --accent-2: #1E3E62;
+  --accent-2-alt: #142d49;
 
   /* status */
-  --danger: #e00000; /* ikon/border saja */
-  --danger-text: #ff6b6b; /* teks error */
+  --danger: #FF6500;
+  --danger-text: #FF6500;
 
   /* atmosphere (bukan untuk teks) */
-  --glow-berry: rgb(134 48 90 / 0.28);
-  --glow-crimson: rgb(94 4 18 / 0.35);
-  --glow-plum: rgb(90 53 99 / 0.25);
+  --glow-berry: rgb(30 62 98 / 0.28);
+  --glow-crimson: rgb(11 25 44 / 0.35);
+  --glow-plum: rgb(255 101 0 / 0.08);
 }
 ```
 
@@ -73,29 +58,22 @@ Arah visual: dark theme, teal-noir sebagai dasar, coral sebagai satu-satunya war
 
 | Kombinasi                                  | Rasio | Pakai untuk                                   |
 | ------------------------------------------ | ----- | --------------------------------------------- |
-| `--text-strong` on `--bg`                  | 12.28 | Heading                                       |
-| `--text-strong` on `--surface-raised`      | 9.67  | Heading di card                               |
-| `--text` on `--bg`                         | 9.53  | Body                                          |
-| `--text` on `--surface-raised`             | 7.50  | Body di card                                  |
-| `--text-muted` on `--bg`                   | 6.10  | Caption                                       |
-| `--text-muted` on `--surface-raised`       | 4.80  | Caption di card (minimum, jangan lebih redup) |
-| `--accent` on `--bg`                       | 5.50  | Link, ikon, teks aksen                        |
-| `--accent` on `--surface`                  | 5.25  | Link di card biasa                            |
-| `--accent-soft` on `--surface-raised`      | 5.12  | Link di card yang lebih terang                |
-| `--accent-contrast` on `--accent`          | 5.50  | Label tombol primary                          |
-| `--text-strong` on `--accent-2` (berry)    | 5.57  | Tombol secondary saat hover                   |
-| `--text-strong` on `--accent-2-alt` (plum) | 6.78  | Chip, tag                                     |
-| `--danger-text` on `--bg`                  | 6.45  | Pesan error                                   |
-| `--danger` on `--bg`                       | 3.55  | Hanya ikon besar dan border                   |
-| `--border-strong` on `--bg`                | 3.40  | Hanya border/UI, bukan teks                   |
+| `--text-strong` on `--bg`                  | 16.4  | Heading                                       |
+| `--text-strong` on `--surface`             | 10.0  | Heading di card                               |
+| `--text` on `--bg`                          | 12.0  | Body                                          |
+| `--text` on `--surface`                      | 7.3   | Body di card                                  |
+| `--text-muted` on `--bg`                    | 8.0   | Caption                                       |
+| `--text-muted` on `--surface`               | 4.8   | Caption di card                               |
+| `--accent` on `--bg`                        | 5.98  | Aksen/link, memenuhi WCAG AA                  |
+| `--accent` on `--surface`                    | 3.70  | Jangan teks kecil; gunakan teks terang         |
+| `--accent` on `#000000`                      | 7.11  | Aksen/link di area media hitam                 |
+| `--accent-contrast` on `--accent`             | 6.2   | Label tombol primary                          |
 
 ### Aturan warna
 
-1. **Satu warna aksi: coral.** Primary button, link, focus ring, hover underline. Jangan campur dengan berry atau red untuk aksi yang sama.
-2. **Berry dan plum tidak boleh jadi warna teks di atas `--bg`.** Kontrasnya cuma 2.20 dan 1.87 (indigo). Hanya sebagai fill, glow, atau gradient.
-3. **Merah murni `#E00000` bukan warna brand.** Hanya error, status offline, atau satu dot kecil. Teks error pakai `--danger-text`.
-4. **Heading pakai pink, body pakai sage.** Jangan tukar. Ini yang bikin hierarki terbaca tanpa perlu banyak ukuran font.
-5. **Maksimal 2 warna hangat dalam satu viewport** di luar glow background.
+1. **Oranye dipakai selektif sebagai aksen.** Teks oranye pada navy memenuhi WCAG AA; pada biru hanya teks besar atau elemen non-teks.
+2. **Navy dan biru membentuk bidang utama.** Hitam khusus area media; teks memakai netral terang.
+3. **Jangan tambah warna baru tanpa cek kontras dan pemakaian aktual.**
 
 ---
 
@@ -134,7 +112,7 @@ Batas lebar teks: `max-w-prose` (sekitar 65ch) untuk paragraf.
 
 ## 4. Background & atmosphere
 
-Hero dan CTA terakhir memakai glow dari palette Dusk di atas base teal. Section lain polos `--bg`.
+Hero dan CTA boleh memakai glow biru/oranye yang sangat halus di atas navy. Section lain memakai bidang navy atau biru.
 
 ```css
 .hero-bg {
@@ -146,7 +124,7 @@ Hero dan CTA terakhir memakai glow dari palette Dusk di atas base teal. Section 
 ```
 
 - Glow harus statis atau drift sangat pelan. Tanpa parallax berat.
-- Section "Services" atau "Contact" boleh pakai `--glow-plum` satu sisi saja.
+- Section "Services" atau "Contact" boleh memakai glow oranye tipis satu sisi.
 - Jangan pakai noise/grain berat. Kalau pakai, opacity maksimal 4%.
 - Motif opsional: dua titik kecil (satu `--text-strong`, satu `--accent`) sebagai penanda di logo atau divider section. Ukuran 6-8px, jangan diulang di banyak tempat.
 
@@ -191,7 +169,7 @@ Hero dan CTA terakhir memakai glow dari palette Dusk di atas base teal. Section 
 
 ### GitHub contributions
 
-- Skala 5 tingkat dari `--surface-raised` ke `--accent`: `#05303A`, `#3E7570`, `#8F9A8A`, `#EE7B5E`, `#E5694A`. Alternatif: gradient teal ke coral. Tambahkan label legend "Less / More".
+- Skala kontribusi perlu warna lima tingkat yang diuji kontras; palet empat warna saja tidak cukup untuk mendefinisikan skala yang sudah diverifikasi.
 - Loading state: skeleton `--surface-raised` dengan pulse pelan, bukan teks "Loading...".
 
 ### Forms / contact
@@ -216,7 +194,7 @@ Hero dan CTA terakhir memakai glow dari palette Dusk di atas base teal. Section 
 - Touch target minimal 44x44px.
 - Breakpoint: mulai dari mobile (360px). Grid project 1 kolom, lalu 2 kolom (`md`), 3 kolom (`xl`) bila ada ruang.
 - Gambar: `next/image`, atribut `alt` deskriptif, ukuran eksplisit untuk menghindari layout shift.
-- Update meta: `theme-color` dan `msapplication-TileColor` ke `#061A1D`.
+- Update meta: `theme-color` dan `msapplication-TileColor` ke `#0B192C`.
 
 ---
 
@@ -226,7 +204,7 @@ Hero dan CTA terakhir memakai glow dari palette Dusk di atas base teal. Section 
 
 - Satu CTA primary per viewport.
 - Pakai border tipis dan perbedaan surface untuk hierarki.
-- Biarkan glow Dusk jadi aksen halus di hero dan penutup.
+- Gunakan glow biru atau oranye secara halus di hero dan penutup.
 
 **Don't**
 
