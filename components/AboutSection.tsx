@@ -50,15 +50,15 @@ export const AboutSection = () => {
             <div className="space-y-4 text-[14px] md:text-[15px] leading-relaxed font-light mb-8 text-muted">
               <p>
                 I'm a Software Engineer with an Informatics degree from{" "}
-                <strong className="text-white font-medium">Telkom University</strong>. My background started in frontend development during my internship at Firma Hukum Rantai Khatulistiwa, which naturally evolved into fullstack development when I built my thesis,{" "}
-                <strong className="text-white font-medium">Diajar Aksara</strong>.
+                <strong className="text-white font-medium">Telkom University</strong>. I began in frontend development during my internship at Firma Hukum Rantai Khatulistiwa and later built{" "}
+                <strong className="text-white font-medium">Diajar Aksara</strong>, a web app for learning Sundanese script, as my thesis project.
               </p>
               <p>
-                Currently, I work as a Software Engineer at{" "}
-                <strong className="text-white font-medium">GITS.id</strong>. I handle client CMS projects—building frontend pages and developing backend APIs consumed by mobile apps (including iOS). Additionally, I developed a full web Point of Sale (POS) system, complete with its own dedicated CMS.
+                I'm currently a Software Engineer at{" "}
+                <strong className="text-white font-medium">GITS.id</strong>, with experience building REST APIs for mobile apps, CMS platforms, and internal business tools. My work also includes background processing for large data exports and role-based access control. I enjoy turning complex workflows into reliable, practical software.
               </p>
               <p>
-                Outside of my day job, I enjoy exploring other areas of tech. I build side projects as a hobby, such as creating enterprise-level IoT monitoring dashboards using .NET and Next.js.
+                My independent projects include an IoT asset-monitoring dashboard built with .NET and Next.js.
               </p>
             </div>
 

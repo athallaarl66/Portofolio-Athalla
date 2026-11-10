@@ -10,22 +10,22 @@ import { PersonSchema, FAQSchema } from "@/components/StructuredData";
 import { SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
+const homeDescription =
+  "Athalla Arli is a Software Engineer in Bandung, Indonesia, building REST APIs, web applications, CMS platforms, and internal tools.";
+
 export const metadata: Metadata = {
-  title: "Athalla Arli - Software Engineer",
-  description:
-    "Software Engineer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+  title: "Software Engineer in Bandung, Indonesia | Athalla Arli",
+  description: homeDescription,
   keywords: [
-    "Software Engineer",
+    "Athalla Arli",
+    "Software Engineer Bandung",
+    "Backend Engineer Indonesia",
+    "REST API development",
+    "CMS development",
+    "Laravel",
+    ".NET",
     "Next.js",
     "React",
-    ".NET",
-    "Software Engineer",
-    "Bandung",
-    "Indonesia",
-    "TypeScript",
-    "Web Developer",
-    "Portfolio",
-    "Athalla Arli",
   ],
   authors: [{ name: "Athalla Arli", url: `${SITE_URL}/` }],
   creator: "Athalla Arli",
@@ -33,9 +33,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: `${SITE_URL}/`,
-    title: "Athalla Arli - Software Engineer",
-    description:
-      "Software Engineer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+    title: "Software Engineer in Bandung, Indonesia | Athalla Arli",
+    description: homeDescription,
     siteName: "Athalla Arli",
     images: [
       {
@@ -48,9 +47,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Athalla Arli - Software Engineer",
-    description:
-      "Software Engineer specializing in Next.js, React, .NET, and modern web technologies. Based in Bandung, Indonesia.",
+    title: "Software Engineer in Bandung, Indonesia | Athalla Arli",
+    description: homeDescription,
     site: "@athallaarl",
     creator: "@athallaarl",
     images: [

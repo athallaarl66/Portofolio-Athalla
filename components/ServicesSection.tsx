@@ -10,7 +10,6 @@ import {
   Workflow,
   type LucideIcon,
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { services } from "@/lib/services";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -25,10 +24,10 @@ const iconMap: Record<string, LucideIcon> = {
 
 export const ServicesSection = () => {
   return (
-    <section id="services" className="relative py-24 md:py-28">
+    <section id="services" className="relative py-16 md:py-20">
       <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
           <div>
             <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-normal tracking-[0.02em] leading-[1.12] text-white [text-wrap:balance]">
               How I can help.
@@ -39,30 +38,24 @@ export const ServicesSection = () => {
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
           {services.map((service) => {
             const Icon = iconMap[service.icon] ?? Server;
             return (
-              <Card
-                key={service.title}
-                className="rounded-2xl p-6 surface-chip"
-              >
-                <CardContent className="p-0">
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center border border-white/10 bg-white/[0.04] mb-6">
-                    <Icon className="w-4 h-4 text-[var(--film-amber)]" />
-                  </div>
-                  <h3 className="font-[family-name:var(--font-body)] text-lg font-semibold leading-[1.4] tracking-normal text-white mb-3">
+              <li key={service.title} className="flex gap-4 border-t border-[var(--border)] py-5">
+                <Icon className="mt-1 h-4 w-4 shrink-0 text-[var(--film-amber)]" aria-hidden="true" />
+                <div>
+                  <h3 className="font-[family-name:var(--font-body)] text-base font-semibold leading-[1.4] tracking-normal text-white">
                     {service.title}
                   </h3>
-                  <p className="text-[15px] leading-[1.7] text-muted [text-wrap:pretty]">
+                  <p className="mt-1 text-sm leading-[1.7] text-muted [text-wrap:pretty]">
                     {service.description}
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </section>
   );

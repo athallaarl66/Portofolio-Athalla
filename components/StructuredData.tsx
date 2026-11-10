@@ -36,7 +36,7 @@ export const PersonSchema = () => {
       },
     })),
     description:
-      "Software Engineer building backend APIs for CMS and POS systems, with Next.js, React, .NET, and Laravel. Based in Bandung, Indonesia.",
+      "Software Engineer in Bandung, Indonesia, building REST APIs, web applications, CMS platforms, and internal tools.",
     knowsAbout: [
       "Next.js",
       "React",

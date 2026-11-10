@@ -3,61 +3,54 @@
 import { Terminal, Database, Layout } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiTypescript,
-  SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiNodedotjs,
+  SiDocker,
   SiDotnet,
   SiLaravel,
-  SiSpringboot,
-  SiPostgresql,
-  SiPrisma,
   SiMysql,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiReact,
+  SiSpringboot,
+  SiTailwindcss,
+  SiTypescript,
 } from "react-icons/si";
-import { TbBrandCSharp } from "react-icons/tb";
 
 const skills = [
-  { name: "HTML", category: "Frontend", icon: SiHtml5 },
-  { name: "CSS", category: "Frontend", icon: SiCss3 },
-  { name: "JavaScript", category: "Frontend", icon: SiJavascript },
   { name: "TypeScript", category: "Frontend", icon: SiTypescript },
   { name: "React", category: "Frontend", icon: SiReact },
   { name: "Next.js", category: "Frontend", icon: SiNextdotjs },
   { name: "Tailwind CSS", category: "Frontend", icon: SiTailwindcss },
-  { name: "Node.js", category: "Backend", icon: SiNodedotjs },
-  { name: ".NET 8", category: "Backend", icon: SiDotnet },
-  { name: "C#", category: "Backend", icon: TbBrandCSharp },
   { name: "Laravel", category: "Backend", icon: SiLaravel },
+  { name: ".NET 8", category: "Backend", icon: SiDotnet },
+  { name: "Node.js", category: "Backend", icon: SiNodedotjs },
   { name: "Spring Boot", category: "Backend", icon: SiSpringboot },
-  { name: "Next.js API", category: "Backend", icon: SiNextdotjs },
-  { name: "PostgreSQL", category: "Database & Ops", icon: SiPostgresql },
-  { name: "Prisma ORM", category: "Database & Ops", icon: SiPrisma },
-  { name: "MySQL", category: "Database & Ops", icon: SiMysql },
+  { name: "PostgreSQL", category: "Data & Delivery", icon: SiPostgresql },
+  { name: "MySQL", category: "Data & Delivery", icon: SiMysql },
+  { name: "Docker", category: "Data & Delivery", icon: SiDocker },
 ];
 
 const categories = [
   { title: "Frontend", icon: Layout },
   { title: "Backend", icon: Terminal },
-  { title: "Database & Ops", icon: Database },
+  { title: "Data & Delivery", icon: Database },
 ];
+
+const additionalSkills = ["SignalR", "MQTT", "Git", "Figma", "REST APIs"];
 
 export const SkillsSection = () => {
   return (
-    <section id="skills" className="relative py-24 md:py-28">
+    <section id="skills" className="relative py-16 md:py-20">
       <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
           <div>
             <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-normal tracking-[0.02em] leading-[1.12] text-white [text-wrap:balance]">
               Tools I work with.
             </h2>
           </div>
           <p className="text-[15px] leading-[1.7] max-w-sm md:text-right text-muted [text-wrap:pretty]">
-            A mix of frontend and backend tools from my projects.
+            Core tools across my software projects.
           </p>
         </div>
 
@@ -108,28 +101,9 @@ export const SkillsSection = () => {
           })}
         </div>
 
-        {/* Auxiliary & Protocols */}
-        <div className="mt-6 px-6 py-4 rounded-2xl flex flex-wrap items-center gap-x-6 gap-y-2 surface-chip">
-          <span className="text-[11px] font-mono uppercase tracking-widest flex-shrink-0 text-muted">
-            Specialized & Protocols
-          </span>
-          {[
-            "SignalR",
-            "MQTT",
-            "Docker",
-            "Git",
-            "Figma",
-            "REST APIs",
-            "Playwright",
-          ].map((t) => (
-            <span
-              key={t}
-              className="text-xs font-mono text-white/70 hover:text-white transition-colors"
-            >
-              #{t}
-            </span>
-          ))}
-        </div>
+        <p className="mt-6 text-center text-xs font-mono text-muted">
+          Also: {additionalSkills.join(" · ")}
+        </p>
       </div>
     </section>
   );

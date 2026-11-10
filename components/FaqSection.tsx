@@ -4,10 +4,10 @@ import { faqItems } from "@/lib/faq";
 
 export const FaqSection = () => {
   return (
-    <section id="faq" className="relative py-24 md:py-28">
+    <section id="faq" className="relative py-16 md:py-20">
       <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
           <div>
             <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-normal tracking-[0.02em] leading-[1.12] text-white [text-wrap:balance]">
               A few things you might want to know.

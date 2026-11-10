@@ -15,7 +15,7 @@ export const HeroSection = () => {
             <p className="mb-8 text-xs font-semibold uppercase tracking-[.18em] text-[var(--film-amber)]">Athalla Arli / Software Engineer</p>
             <h1 className="cinema-title mb-5">Software shaped<br />by curiosity.</h1>
             <p className="max-w-[54ch] text-sm leading-relaxed text-[var(--foreground)] md:text-base">I build web experiences and reliable systems, from cultural education platforms to enterprise dashboards.</p>
-            <a href="#projects" className="mt-6 inline-flex min-h-11 items-center gap-2 border-b border-[var(--film-amber)] text-sm font-semibold text-[var(--film-amber)] transition-colors hover:text-[var(--foreground)]">Explore my works <ArrowDownRight className="h-4 w-4" /></a>
+            <a href="#projects" className="mt-6 inline-flex min-h-11 items-center gap-2 border-b border-[var(--film-amber)] text-sm font-semibold text-[var(--film-amber)] transition-colors hover:text-[var(--foreground)]">Explore my work <ArrowDownRight className="h-4 w-4" /></a>
           </div>
           <span aria-hidden="true" className="absolute right-6 top-6 text-xs font-medium uppercase tracking-[.18em] text-[var(--muted-fg)] md:right-12">Bandung / Indonesia</span>
         </div>

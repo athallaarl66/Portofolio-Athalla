@@ -429,7 +429,6 @@ export const projectsData: Record<string, Project> = {
     ],
     results: [
       "Repository documents a v0.5.3 release, crates.io package, and container image",
-      "Selected SNIPE-CODE work appears on XERJ Corpus Hub: https://hub.xerj.org/contributors/athallaarl66",
       "Installer scripts are published but have not been tested against this release on every platform",
     ],
   },
