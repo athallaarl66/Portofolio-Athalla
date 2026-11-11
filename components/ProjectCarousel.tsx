@@ -10,6 +10,7 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
   const [active, setActive] = useState(0);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const project = projects[active];
+  const [projectName, descriptor] = project.title.split(/ [–-] (.*)/);
   const move = (step: number) => setActive((index) => (index + step + projects.length) % projects.length);
 
   return (
@@ -50,8 +51,8 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
           <figcaption>{project.year} <span>·</span> {project.category}</figcaption>
         </figure>
         <div className="project-frame__copy">
-          <p className="instrument-label">{project.role}</p>
-          <h2>{project.title}</h2>
+          <h3 className="project-frame__title">{projectName}</h3>
+          {descriptor && <p className="project-frame__subtitle">{descriptor}</p>}
           <p className="project-frame__description">{project.shortDesc}</p>
           <p className="project-frame__stack" aria-label="Technologies">{project.tags.slice(0, 4).join("  /  ")}</p>
           <a className="project-frame__link" href={`/projects/${project.id}`}>
