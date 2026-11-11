@@ -21,8 +21,8 @@ export const HeroSection = () => {
             <img className="hero-collage__project hero-collage__project--seven" src="/snipecode.png" alt="" />
             <img className="hero-collage__portrait" src="/projects/gwej-cutout.png" alt="" />
           </div>
-          <div className="hero-copy relative z-10 max-w-[720px]">
-            <h1 className="cinema-title mb-5"><strong>Software</strong><br /><span>shaped</span><br /><em>by curiosity.</em></h1>
+          <div className="hero-copy z-10">
+            <h1 className="cinema-title"><strong>Software</strong>{" "}<span>shaped</span>{" "}<em>by curiosity.</em></h1>
             <p className="max-w-[54ch] text-sm leading-relaxed text-[var(--foreground)] md:text-base">I build web experiences and reliable systems, from cultural education platforms to enterprise dashboards.</p>
             <a href="#projects" className="mt-6 inline-flex min-h-11 items-center gap-2 border-b border-[var(--film-amber)] text-sm font-semibold text-[var(--film-amber)] transition-colors hover:text-[var(--foreground)]">Explore my work <ArrowDownRight className="h-4 w-4" /></a>
           </div>

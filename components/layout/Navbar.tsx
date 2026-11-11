@@ -81,7 +81,7 @@ export const Navbar = () => {
       {/* Top bar — hidden while mobile menu is open */}
       {!isMenuOpen && (
         <nav className="fixed top-0 inset-x-0 z-50 flex justify-center px-5 md:px-8 bg-[#0E130D] border-b border-[var(--border)]">
-          <div className="w-full max-w-[1240px] flex items-center justify-between gap-4 py-2 lg:py-[22px]">
+          <div className="w-full max-w-[1240px] flex items-center justify-between gap-4 py-2 lg:py-3">
             {/* Logo */}
             <Link
               href="/"
@@ -92,20 +92,20 @@ export const Navbar = () => {
               <img
                 src="/icons/Logo.jpg"
                 alt="Athalla Logo"
-                className="h-6 w-6 rounded-none object-cover lg:h-[59px] lg:w-[59px]"
+                className="h-6 w-6 rounded-none object-cover lg:h-11 lg:w-11"
               />
             </Link>
 
 
 
             {/* Desktop nav links */}
-            <div className="hidden xl:flex items-center gap-10">
+            <div className="hidden xl:flex items-center gap-8">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.to}
                   onClick={(e) => handleNavClick(e, item)}
-                  className="text-xl font-normal rounded-none transition-colors duration-200 cursor-pointer nav-item-hover text-[var(--foreground)]"
+                  className="text-base font-normal rounded-none transition-colors duration-200 cursor-pointer nav-item-hover text-[var(--foreground)]"
                 >
                   {item.label}
                 </a>
@@ -116,7 +116,7 @@ export const Navbar = () => {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, { label: "Contact", to: "/#contact" })}
-              className="hidden xl:flex items-center justify-center w-[231px] h-[68px] ml-3 px-6 rounded-[14px] text-xl font-normal transition-colors duration-200 hire-me-hover border border-[#2E3428] text-[var(--foreground)]"
+              className="hidden xl:flex items-center justify-center min-h-11 ml-3 px-7 rounded-lg text-base font-normal transition-colors duration-200 hire-me-hover border border-[#2E3428] text-[var(--foreground)]"
             >
               Hire me
             </a>

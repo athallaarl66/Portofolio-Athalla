@@ -38,9 +38,9 @@ export const AboutSection = () => {
           About me
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-x-20 items-start">
 
-          <div>
+          <div className="lg:col-start-2 lg:row-start-1">
             <h2 className="text-[clamp(2.1rem,4vw,3.75rem)] font-black tracking-[-0.02em] leading-[1.3] text-white mb-7">
               From crafting UIs,
               <br />
@@ -79,14 +79,13 @@ export const AboutSection = () => {
             </Button>
           </div>
 
-          <div className="relative lg:pt-8">
-            <div className="relative overflow-hidden bg-[var(--surface-1)] after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(0deg,rgba(17,21,25,0.65),transparent_55%)]">
-              <img src="/projects/propil.jpg" alt="Athalla Arli Abhinaya" className="w-full h-72 md:h-96 object-cover object-top" loading="lazy" />
-            </div>
-            <div className="relative bg-[var(--surface-1)] px-5 py-6 md:px-7 border-t border-[var(--border-hover)]">
+          <div className="relative overflow-hidden rounded-xl bg-[var(--surface-1)] lg:col-start-1 lg:row-start-1">
+            <img src="/projects/propil.jpg" alt="Athalla Arli Abhinaya" className="w-full h-72 md:h-96 lg:h-[36rem] object-cover object-top" loading="lazy" />
+          </div>
+            <div className="relative lg:col-span-2 border-t border-[var(--border)] pt-6">
               <div>
                 <h3 className="mono-label mb-3">Background</h3>
-                <div className="flex flex-col gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8">
                   {highlights.map((h) => (
                     <div
                       key={h.label}
@@ -109,7 +108,6 @@ export const AboutSection = () => {
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </section>

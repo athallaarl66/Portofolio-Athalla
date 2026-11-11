@@ -62,7 +62,7 @@ export const SkillsSection = () => {
             return (
               <Card
                 key={cat.title}
-                className="rounded-2xl p-6 surface-chip"
+                className="rounded-none border-0 border-t border-[var(--border)] bg-transparent px-0 py-6 shadow-none"
               >
                 <CardContent className="p-0">
                   <div className="flex items-center justify-between mb-6">
@@ -79,13 +79,13 @@ export const SkillsSection = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-col gap-3">
                     {catSkills.map((skill) => {
                       const IconComponent = skill.icon;
                       return (
                         <div
                           key={skill.name}
-                          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium bg-[rgba(var(--deep-rgb),0.5)] border border-white/10 hover:border-[var(--border-hover)] transition-colors"
+                          className="flex items-center gap-3 text-sm font-medium"
                         >
                           <IconComponent className="w-3.5 h-3.5 text-[var(--film-amber)] shrink-0" />
                           <span className="text-white/80">

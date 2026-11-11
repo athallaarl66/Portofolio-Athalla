@@ -38,10 +38,11 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
       onTouchCancel={() => { touchStart.current = null; }}
       tabIndex={0}
     >
-      <header className="project-console__header">
-        <p className="instrument-label">{gallery ? "PROJECT ARCHIVE" : "SELECTED WORK"}</p>
-        <p className="instrument-count" aria-live="polite" aria-atomic="true"><span className="sr-only">{project.title}, project </span>{String(active + 1).padStart(2, "0")} <span>/</span> {String(projects.length).padStart(2, "0")}</p>
-      </header>
+      {gallery ? (
+        <header className="project-console__header">
+          <p className="instrument-label">PROJECT ARCHIVE</p>
+        </header>
+      ) : <h2 className="project-console__title">Selected work.</h2>}
 
       <article className="project-frame" aria-roledescription="slide" aria-label={`${active + 1} of ${projects.length}: ${project.title}`} key={project.id}>
         <figure className="project-frame__image">
@@ -60,6 +61,7 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
       </article>
 
       <footer className="project-console__controls">
+        <p className="instrument-count" aria-live="polite" aria-atomic="true"><span className="sr-only">{project.title}, project </span>{String(active + 1).padStart(2, "0")} <span>/</span> {String(projects.length).padStart(2, "0")}</p>
         {gallery && (
           <div className="project-selector" role="group" aria-label="Choose project">
             {projects.map((item, index) => (
@@ -75,6 +77,7 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
           <button type="button" aria-label="Next project" onClick={() => move(1)}><ArrowRight size={18} /></button>
         </div>
       </footer>
+      {!gallery && <a className="project-console__archive" href="/projects">See all projects <ArrowUpRight size={17} aria-hidden="true" /></a>}
     </section>
   );
 }
