@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Montserrat } from "next/font/google";
+import { Montserrat, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { SITE_URL } from "@/lib/site";
 
 
-const filmDisplay = Bebas_Neue({
+const displayFont = Plus_Jakarta_Sans({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 
@@ -73,7 +73,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${filmDisplay.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${displayFont.variable} ${montserrat.variable} h-full antialiased`}
     >
       <head>
         {/* Preconnect for Google Fonts */}
@@ -85,8 +85,8 @@ export default function RootLayout({
         />
 
         {/* Theme Color for Mobile Browser Chrome */}
-        <meta name="theme-color" content="#0B192C" />
-        <meta name="msapplication-TileColor" content="#0B192C" />
+        <meta name="theme-color" content="#181D17" />
+        <meta name="msapplication-TileColor" content="#181D17" />
 
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />

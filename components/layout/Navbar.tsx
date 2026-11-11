@@ -80,8 +80,8 @@ export const Navbar = () => {
     <>
       {/* Top bar — hidden while mobile menu is open */}
       {!isMenuOpen && (
-        <nav className="fixed top-0 inset-x-0 z-50 flex justify-center px-5 md:px-8 bg-[rgba(var(--deep-rgb),0.94)] backdrop-blur border-b border-[var(--border)]">
-          <div className="w-full max-w-6xl flex items-center justify-between gap-4 py-2">
+        <nav className="fixed top-0 inset-x-0 z-50 flex justify-center px-5 md:px-8 bg-[#0E130D] border-b border-[var(--border)]">
+          <div className="w-full max-w-[1240px] flex items-center justify-between gap-4 py-2 lg:py-[22px]">
             {/* Logo */}
             <Link
               href="/"
@@ -92,20 +92,20 @@ export const Navbar = () => {
               <img
                 src="/icons/Logo.jpg"
                 alt="Athalla Logo"
-                className="h-6 w-6 rounded-full object-cover"
+                className="h-6 w-6 rounded-none object-cover lg:h-[59px] lg:w-[59px]"
               />
             </Link>
 
 
 
             {/* Desktop nav links */}
-            <div className="hidden md:flex items-center">
+            <div className="hidden xl:flex items-center gap-10">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.to}
                   onClick={(e) => handleNavClick(e, item)}
-                  className="text-xs font-medium px-3 py-2 rounded-full transition-colors duration-200 cursor-pointer nav-item-hover text-[var(--muted-fg)]"
+                  className="text-xl font-normal rounded-none transition-colors duration-200 cursor-pointer nav-item-hover text-[var(--foreground)]"
                 >
                   {item.label}
                 </a>
@@ -116,7 +116,7 @@ export const Navbar = () => {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, { label: "Contact", to: "/#contact" })}
-              className="hidden md:flex items-center ml-1 px-4 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 hire-me-hover border border-[var(--border-hover)] text-[var(--film-amber)]"
+              className="hidden xl:flex items-center justify-center w-[231px] h-[68px] ml-3 px-6 rounded-[14px] text-xl font-normal transition-colors duration-200 hire-me-hover border border-[#2E3428] text-[var(--foreground)]"
             >
               Hire me
             </a>
@@ -124,7 +124,7 @@ export const Navbar = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="md:hidden flex items-center justify-center w-11 h-11 -my-1.5 rounded-full text-white/70 hover:bg-white/5 transition-colors"
+              className="xl:hidden flex items-center justify-center w-11 h-11 -my-1.5 rounded-full text-white/70 hover:bg-white/5 transition-colors"
               aria-label="Open menu"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"
@@ -139,7 +139,7 @@ export const Navbar = () => {
       <div
         id="mobile-navigation"
         className={cn(
-          "fixed inset-0 z-50 flex flex-col overflow-y-auto md:hidden transition-opacity duration-300",
+          "fixed inset-0 z-50 flex flex-col overflow-y-auto xl:hidden transition-opacity duration-300",
           isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
         style={{ background: "var(--background)" }}
@@ -157,7 +157,7 @@ export const Navbar = () => {
             <img
               src="/icons/Logo.jpg"
               alt="Athalla Logo"
-              className="h-8 w-8 rounded-full object-cover"
+              className="h-9 w-9 rounded-none object-cover"
             />
           </Link>
           <button

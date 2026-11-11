@@ -15,7 +15,7 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
   return (
     <section id="projects" aria-label="Project showcase"
       aria-roledescription="carousel"
-      className="project-console"
+      className={`project-console${gallery ? " project-console--gallery" : ""}`}
       onKeyDown={(event) => {
         if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
           event.preventDefault();
@@ -60,14 +60,16 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
       </article>
 
       <footer className="project-console__controls">
-        <div className="project-selector" role="group" aria-label="Choose project">
-          {projects.map((item, index) => (
-            <button key={item.id} type="button" aria-label={`Show ${item.title}`} aria-current={active === index ? "true" : undefined} onClick={() => setActive(index)}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <span className="project-selector__name">{item.title}</span>
-            </button>
-          ))}
-        </div>
+        {gallery && (
+          <div className="project-selector" role="group" aria-label="Choose project">
+            {projects.map((item, index) => (
+              <button key={item.id} type="button" aria-label={`Show ${item.title}`} aria-current={active === index ? "true" : undefined} onClick={() => setActive(index)}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span className="project-selector__name">{item.title}</span>
+              </button>
+            ))}
+          </div>
+        )}
         <div className="project-arrows">
           <button type="button" aria-label="Previous project" onClick={() => move(-1)}><ArrowLeft size={18} /></button>
           <button type="button" aria-label="Next project" onClick={() => move(1)}><ArrowRight size={18} /></button>
