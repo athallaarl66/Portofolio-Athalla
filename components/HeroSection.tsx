@@ -10,7 +10,7 @@ export const HeroSection = () => {
     >
       <div className="hero-container relative z-10">
 
-        <div className="hero-frame relative flex min-h-0 flex-col justify-center overflow-hidden px-6 py-[17rem] pb-12 md:min-h-[470px] md:px-12 md:py-16 lg:min-h-[833px] lg:px-0">
+        <div className="hero-frame relative flex flex-col justify-center overflow-hidden">
           <div className="hero-collage" aria-hidden="true">
             <img className="hero-collage__project hero-collage__project--one" src="/projects1/BACA.png" alt="" />
             <img className="hero-collage__project hero-collage__project--two" src="/projects7/cli-thumb.png" alt="" />

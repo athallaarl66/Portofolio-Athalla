@@ -14,6 +14,7 @@ export const Navbar = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const openButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (pathname === "/" && window.location.hash) {
@@ -25,11 +26,35 @@ export const Navbar = () => {
   useEffect(() => {
     if (!isMenuOpen) return;
     closeButtonRef.current?.focus();
+    const background = Array.from(document.querySelectorAll<HTMLElement>("main, body > footer"));
+    const previousInert = background.map((element) => element.inert);
+    background.forEach((element) => { element.inert = true; });
+    const desktop = window.matchMedia("(min-width: 80rem)");
+    const closeOnDesktop = () => { if (desktop.matches) setIsMenuOpen(false); };
+    closeOnDesktop();
+    desktop.addEventListener("change", closeOnDesktop);
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setIsMenuOpen(false);
+      if (event.key === "Tab") {
+        const links = Array.from(document.querySelectorAll<HTMLElement>("#mobile-navigation a, #mobile-navigation button"));
+        const first = links[0];
+        const last = links[links.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
     };
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      desktop.removeEventListener("change", closeOnDesktop);
+      background.forEach((element, index) => { element.inert = previousInert[index]; });
+      openButtonRef.current?.focus({ preventScroll: true });
+    };
   }, [isMenuOpen]);
 
   // Lock body scroll when mobile menu is open
@@ -123,6 +148,7 @@ export const Navbar = () => {
 
             {/* Mobile menu button */}
             <button
+              ref={openButtonRef}
               onClick={() => setIsMenuOpen(true)}
               className="xl:hidden flex items-center justify-center w-11 h-11 -my-1.5 rounded-full text-white/70 hover:bg-white/5 transition-colors"
               aria-label="Open menu"

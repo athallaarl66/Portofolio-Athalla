@@ -4,14 +4,14 @@ import { ProjectCarousel } from "@/components/ProjectCarousel";
 export default function ProjectsGallery() {
   return (
     <>
-      <header className="page-heading">
+      <header className="page-heading projects-heading">
         <h1>Projects.</h1>
         <p>Browse work across web applications, APIs, IoT, and developer tools.</p>
       </header>
-      <section className="page-container page-gallery">
+      <div className="page-gallery">
         <ProjectCarousel gallery />
-        <ContactContainer />
-      </section>
+      </div>
+      <ContactContainer />
     </>
   );
 }

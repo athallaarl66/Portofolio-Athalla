@@ -35,7 +35,7 @@ export const GithubActivity = () => {
         </div>
 
         <Card className="p-6 md:p-10 rounded-2xl overflow-x-auto surface-chip">
-          <CardContent className="p-0 flex justify-start lg:justify-center">
+          <CardContent className="p-0 flex justify-start">
             <div className="min-w-max">
               <GitHubCalendar
                 username="athallaarl66"

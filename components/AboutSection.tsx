@@ -85,7 +85,7 @@ export const AboutSection = () => {
             <div className="relative lg:col-span-2 border-t border-[var(--border)] pt-6">
               <div>
                 <h3 className="mono-label mb-3">Background</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-8">
                   {highlights.map((h) => (
                     <div
                       key={h.label}
