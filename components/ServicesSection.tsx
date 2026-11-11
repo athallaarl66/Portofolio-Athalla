@@ -25,20 +25,20 @@ const iconMap: Record<string, LucideIcon> = {
 export const ServicesSection = () => {
   return (
     <section id="services" className="relative py-16 md:py-20">
-      <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12">
+      <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+        <div className="flex flex-col gap-6">
           <div>
             <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-normal tracking-[0.02em] leading-[1.12] text-white [text-wrap:balance]">
               How I can help.
             </h2>
           </div>
-          <p className="text-[15px] leading-[1.7] max-w-sm md:text-right text-muted [text-wrap:pretty]">
+          <p className="text-[15px] leading-[1.7] max-w-sm text-muted [text-wrap:pretty]">
             Web applications, the APIs behind them, and tools that cut down repetitive work.
           </p>
         </div>
 
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+        <ul>
           {services.map((service) => {
             const Icon = iconMap[service.icon] ?? Server;
             return (

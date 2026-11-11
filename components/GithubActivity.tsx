@@ -35,10 +35,11 @@ export const GithubActivity = () => {
         </div>
 
         <Card className="p-6 md:p-10 rounded-2xl overflow-x-auto surface-chip">
-          <CardContent className="p-0 flex justify-start lg:justify-center">
+          <CardContent className="p-0 flex justify-start">
             <div className="min-w-max">
               <GitHubCalendar
                 username="athallaarl66"
+                errorMessage="GitHub activity is unavailable. Visit github.com/athallaarl66."
                 blockSize={14}
                 blockMargin={6}
                 colorScheme="dark"

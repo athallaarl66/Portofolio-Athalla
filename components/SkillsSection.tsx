@@ -43,26 +43,26 @@ export const SkillsSection = () => {
     <section id="skills" className="relative py-16 md:py-20">
       <div className="max-w-[1200px] w-full mx-auto px-6 md:px-10 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
           <div>
             <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-normal tracking-[0.02em] leading-[1.12] text-white [text-wrap:balance]">
               Tools I work with.
             </h2>
           </div>
-          <p className="text-[15px] leading-[1.7] max-w-sm md:text-right text-muted [text-wrap:pretty]">
+          <p className="text-[15px] leading-[1.7] max-w-sm lg:text-right text-muted [text-wrap:pretty]">
             Core tools across my software projects.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {categories.map((cat) => {
             const Icon = cat.icon;
             const catSkills = skills.filter((s) => s.category === cat.title);
             return (
               <Card
                 key={cat.title}
-                className="rounded-2xl p-6 surface-chip"
+                className="rounded-none border-0 border-t border-[var(--border)] bg-transparent px-0 py-6 shadow-none"
               >
                 <CardContent className="p-0">
                   <div className="flex items-center justify-between mb-6">
@@ -79,13 +79,13 @@ export const SkillsSection = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-col gap-3">
                     {catSkills.map((skill) => {
                       const IconComponent = skill.icon;
                       return (
                         <div
                           key={skill.name}
-                          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium bg-[rgba(var(--deep-rgb),0.5)] border border-white/10 hover:border-[var(--border-hover)] transition-colors"
+                          className="flex items-center gap-3 text-sm font-medium"
                         >
                           <IconComponent className="w-3.5 h-3.5 text-[var(--film-amber)] shrink-0" />
                           <span className="text-white/80">

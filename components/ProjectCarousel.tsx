@@ -10,12 +10,13 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
   const [active, setActive] = useState(0);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const project = projects[active];
+  const [projectName, descriptor] = project.title.split(/ [–-] (.*)/);
   const move = (step: number) => setActive((index) => (index + step + projects.length) % projects.length);
 
   return (
     <section id="projects" aria-label="Project showcase"
       aria-roledescription="carousel"
-      className="project-console"
+      className={`project-console${gallery ? " project-console--gallery" : ""}`}
       onKeyDown={(event) => {
         if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
           event.preventDefault();
@@ -38,10 +39,7 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
       onTouchCancel={() => { touchStart.current = null; }}
       tabIndex={0}
     >
-      <header className="project-console__header">
-        <p className="instrument-label">{gallery ? "PROJECT ARCHIVE" : "SELECTED WORK"}</p>
-        <p className="instrument-count" aria-live="polite" aria-atomic="true"><span className="sr-only">{project.title}, project </span>{String(active + 1).padStart(2, "0")} <span>/</span> {String(projects.length).padStart(2, "0")}</p>
-      </header>
+      {!gallery && <h2 className="project-console__title">Selected work.</h2>}
 
       <article className="project-frame" aria-roledescription="slide" aria-label={`${active + 1} of ${projects.length}: ${project.title}`} key={project.id}>
         <figure className="project-frame__image">
@@ -49,8 +47,8 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
           <figcaption>{project.year} <span>·</span> {project.category}</figcaption>
         </figure>
         <div className="project-frame__copy">
-          <p className="instrument-label">{project.role}</p>
-          <h2>{project.title}</h2>
+          <h3 className="project-frame__title">{projectName}</h3>
+          {descriptor && <p className="project-frame__subtitle">{descriptor}</p>}
           <p className="project-frame__description">{project.shortDesc}</p>
           <p className="project-frame__stack" aria-label="Technologies">{project.tags.slice(0, 4).join("  /  ")}</p>
           <a className="project-frame__link" href={`/projects/${project.id}`}>
@@ -60,19 +58,24 @@ export function ProjectCarousel({ gallery = false }: { gallery?: boolean }) {
       </article>
 
       <footer className="project-console__controls">
-        <div className="project-selector" role="group" aria-label="Choose project">
-          {projects.map((item, index) => (
-            <button key={item.id} type="button" aria-label={`Show ${item.title}`} aria-current={active === index ? "true" : undefined} onClick={() => setActive(index)}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <span className="project-selector__name">{item.title}</span>
-            </button>
-          ))}
-        </div>
+        <p className="instrument-count" aria-live="polite" aria-atomic="true"><span className="sr-only">{project.title}, project </span>{String(active + 1).padStart(2, "0")} <span>/</span> {String(projects.length).padStart(2, "0")}</p>
+
         <div className="project-arrows">
           <button type="button" aria-label="Previous project" onClick={() => move(-1)}><ArrowLeft size={18} /></button>
           <button type="button" aria-label="Next project" onClick={() => move(1)}><ArrowRight size={18} /></button>
         </div>
       </footer>
+      {gallery && (
+        <div className="project-selector" role="group" aria-label="Choose project">
+          {projects.map((item, index) => (
+            <button key={item.id} type="button" aria-label={`Show ${item.title}`} aria-current={active === index ? "true" : undefined} onClick={() => setActive(index)}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <span className="project-selector__name">{item.title.split(/ [–-] /)[0]}</span>
+            </button>
+          ))}
+        </div>
+      )}
+      {!gallery && <a className="project-console__archive" href="/projects">See all projects <ArrowUpRight size={17} aria-hidden="true" /></a>}
     </section>
   );
 }
